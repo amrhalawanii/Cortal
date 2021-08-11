@@ -1,3 +1,4 @@
+import 'package:cortal/Configuration/User.dart';
 import 'package:flutter/material.dart';
 
 class Device {
@@ -24,3 +25,7 @@ const kSideMenuWidth = 300.0;
 const kNavigationRailWidth = 72.0;
 
 bool? isPhone;
+
+CortalUser? activeUser;
+
+String? activeIsAdmin = "NONE";

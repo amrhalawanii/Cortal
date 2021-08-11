@@ -1,7 +1,11 @@
+import 'package:cortal/Configuration/SharedPreferencesMethods.dart';
+import 'package:cortal/Configuration/auth.dart';
 import 'package:cortal/Helpers/Constants.dart';
 import 'package:cortal/Pages/Portal/AddComplaintPage.dart';
+import 'package:cortal/Pages/Registration/Login/LoginPage.dart';
 import 'package:cortal/UI_Elements/Background.dart';
 import 'package:cortal/UI_Elements/Complaint_Box.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -27,6 +31,17 @@ class _AllComplaintsPageState extends State<AllComplaintsPage> {
           ),
           centerTitle: true,
           elevation: 0.0,
+          actions: [
+            IconButton(
+                onPressed: () async {
+                  await FirebaseAuth.instance.signOut().then((value) {
+                    SharedPreferencesMethods.clearSharedPreferences();
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (builder) => LoginPage()));
+                  });
+                },
+                icon: Icon(Icons.logout_outlined))
+          ],
         ),
 
         ///--------------------------------------------------------------------------------
