@@ -1,1284 +1,618 @@
-define(['dart_sdk', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/rounded_rectangle_border.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/painting/borders.dart', 'packages/flutter/src/widgets/single_child_scroll_view.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/painting/circle_border.dart', 'packages/flutter/src/material/circle_avatar.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/widgets/icon_data.dart', 'packages/flutter/src/painting/alignment.dart'], (function load__packages__awesome_dialog__src__vertical_stack_header_dialog_dart(dart_sdk, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__rounded_rectangle_border$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__painting__borders$46dart, packages__flutter__src__widgets__single_child_scroll_view$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__painting__circle_border$46dart, packages__flutter__src__material__circle_avatar$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__widgets__icon_data$46dart, packages__flutter__src__painting__alignment$46dart) {
+define(['dart_sdk'], (function load__packages__flare_flutter__base__json_reader_dart(dart_sdk) {
   'use strict';
   const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
-  const _interceptors = dart_sdk._interceptors;
+  const collection = dart_sdk.collection;
+  const _native_typed_data = dart_sdk._native_typed_data;
+  const convert = dart_sdk.convert;
+  const typed_data = dart_sdk.typed_data;
+  const _js_helper = dart_sdk._js_helper;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const theme$ = packages__flutter__src__material__icon_button$46dart.src__material__theme;
-  const material = packages__flutter__src__material__icon_button$46dart.src__material__material;
-  const theme_data = packages__flutter__src__material__icon_button$46dart.src__material__theme_data;
-  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
-  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const scroll_physics = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_physics;
-  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
-  const gesture_detector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__gesture_detector;
-  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-  const rounded_rectangle_border = packages__flutter__src__painting__rounded_rectangle_border$46dart.src__painting__rounded_rectangle_border;
-  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
-  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
-  const single_child_scroll_view = packages__flutter__src__widgets__single_child_scroll_view$46dart.src__widgets__single_child_scroll_view;
-  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
-  const circle_border = packages__flutter__src__painting__circle_border$46dart.src__painting__circle_border;
-  const circle_avatar = packages__flutter__src__material__circle_avatar$46dart.src__material__circle_avatar;
-  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
-  const icon_data = packages__flutter__src__widgets__icon_data$46dart.src__widgets__icon_data;
-  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
-  var vertical_stack_header_dialog = Object.create(dart.library);
-  var $addAll = dartx.addAll;
-  var $add = dartx.add;
+  var json_reader = Object.create(dart.library);
+  var json_block_reader = Object.create(dart.library);
+  var binary_reader = Object.create(dart.library);
+  var block_reader = Object.create(dart.library);
+  var stream_reader = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $remove = dartx.remove;
+  var $removeAt = dartx.removeAt;
+  var $toDouble = dartx.toDouble;
+  var $length = dartx.length;
+  var $first = dartx.first;
+  var $toInt = dartx.toInt;
+  var $_set = dartx._set;
+  var $offsetInBytes = dartx.offsetInBytes;
+  var $buffer = dartx.buffer;
+  var $asByteData = dartx.asByteData;
+  var $getFloat32 = dartx.getFloat32;
+  var $getFloat64 = dartx.getFloat64;
+  var $getUint8 = dartx.getUint8;
+  var $lengthInBytes = dartx.lengthInBytes;
+  var $getInt8 = dartx.getInt8;
+  var $getUint16 = dartx.getUint16;
+  var $getInt16 = dartx.getInt16;
+  var $getUint32 = dartx.getUint32;
+  var $getInt32 = dartx.getInt32;
+  var $rightShift = dartx['>>'];
+  var $asUint8List = dartx.asUint8List;
   dart._checkModuleNullSafetyMode(true);
-  var T = {
-    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
-    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))()
-  };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 10,
-        [EdgeInsets_right]: 15,
-        [EdgeInsets_top]: 65,
-        [EdgeInsets_left]: 15
-      });
-    },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 10,
-        [EdgeInsets_right]: 40,
-        [EdgeInsets_top]: 65,
-        [EdgeInsets_left]: 40
-      });
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: ui.Radius.prototype,
-        [Radius_y]: 10,
-        [Radius_x]: 10
-      });
-    },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: border_radius.BorderRadius.prototype,
-        [BorderRadius_bottomRight]: C[3] || CT.C3,
-        [BorderRadius_bottomLeft]: C[3] || CT.C3,
-        [BorderRadius_topRight]: C[3] || CT.C3,
-        [BorderRadius_topLeft]: C[3] || CT.C3
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 25,
-        [_Location_line]: 75,
-        [_Location_file]: null
-      });
-    },
-    get C5() {
-      return C[5] = dart.constList([C[6] || CT.C6], widget_inspector._Location);
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[5] || CT.C5,
-        [_Location_name]: null,
-        [_Location_column]: 23,
-        [_Location_line]: 74,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C9() {
-      return C[9] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 43,
-        [_Location_line]: 88,
-        [_Location_file]: null
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "textAlign",
-        [_Location_column]: 39,
-        [_Location_line]: 89,
-        [_Location_file]: null
-      });
-    },
-    get C8() {
-      return C[8] = dart.constList([C[9] || CT.C9, C[10] || CT.C10], widget_inspector._Location);
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[8] || CT.C8,
-        [_Location_name]: null,
-        [_Location_column]: 44,
-        [_Location_line]: 87,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "physics",
-        [_Location_column]: 37,
-        [_Location_line]: 86,
-        [_Location_file]: null
-      });
-    },
-    get C14() {
-      return C[14] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 37,
-        [_Location_line]: 87,
-        [_Location_file]: null
-      });
-    },
-    get C12() {
-      return C[12] = dart.constList([C[13] || CT.C13, C[14] || CT.C14], widget_inspector._Location);
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[12] || CT.C12,
-        [_Location_name]: null,
-        [_Location_column]: 42,
-        [_Location_line]: 85,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C17() {
-      return C[17] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "fit",
-        [_Location_column]: 35,
-        [_Location_line]: 84,
-        [_Location_file]: null
-      });
-    },
-    get C18() {
-      return C[18] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 35,
-        [_Location_line]: 85,
-        [_Location_file]: null
-      });
-    },
-    get C16() {
-      return C[16] = dart.constList([C[17] || CT.C17, C[18] || CT.C18], widget_inspector._Location);
-    },
-    get C15() {
-      return C[15] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[16] || CT.C16,
-        [_Location_name]: null,
-        [_Location_column]: 33,
-        [_Location_line]: 83,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C21() {
-      return C[21] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "mainAxisSize",
-        [_Location_column]: 29,
-        [_Location_line]: 79,
-        [_Location_file]: null
-      });
-    },
-    get C22() {
-      return C[22] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 29,
-        [_Location_line]: 80,
-        [_Location_file]: null
-      });
-    },
-    get C20() {
-      return C[20] = dart.constList([C[21] || CT.C21, C[22] || CT.C22], widget_inspector._Location);
-    },
-    get C19() {
-      return C[19] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[20] || CT.C20,
-        [_Location_name]: null,
-        [_Location_column]: 27,
-        [_Location_line]: 78,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C26() {
-      return C[26] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 27,
-        [_Location_line]: 97,
-        [_Location_file]: null
-      });
-    },
-    get C25() {
-      return C[25] = dart.constList([C[26] || CT.C26], widget_inspector._Location);
-    },
-    get C24() {
-      return C[24] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[25] || CT.C25,
-        [_Location_name]: null,
-        [_Location_column]: 31,
-        [_Location_line]: 96,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C23() {
-      return C[23] = dart.const({
-        __proto__: basic.SizedBox.prototype,
-        [Widget__location]: C[24] || CT.C24,
-        [Widget_key]: null,
-        [SingleChildRenderObjectWidget_child]: null,
-        [SizedBox_height]: 16,
-        [SizedBox_width]: null
-      });
-    },
-    get C27() {
-      return C[27] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 10,
-        [EdgeInsets_right]: 20,
-        [EdgeInsets_top]: 10,
-        [EdgeInsets_left]: 20
-      });
-    },
-    get C29() {
-      return C[29] = dart.constList([], widget_inspector._Location);
-    },
-    get C28() {
-      return C[28] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[29] || CT.C29,
-        [_Location_name]: null,
-        [_Location_column]: 55,
-        [_Location_line]: 110,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C32() {
-      return C[32] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 35,
-        [_Location_line]: 110,
-        [_Location_file]: null
-      });
-    },
-    get C31() {
-      return C[31] = dart.constList([C[32] || CT.C32], widget_inspector._Location);
-    },
-    get C30() {
-      return C[30] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[31] || CT.C31,
-        [_Location_name]: null,
-        [_Location_column]: 33,
-        [_Location_line]: 109,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C36() {
-      return C[36] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 35,
-        [_Location_line]: 114,
-        [_Location_file]: null
-      });
-    },
-    get C35() {
-      return C[35] = dart.constList([C[36] || CT.C36], widget_inspector._Location);
-    },
-    get C34() {
-      return C[34] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[35] || CT.C35,
-        [_Location_name]: null,
-        [_Location_column]: 39,
-        [_Location_line]: 113,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C33() {
-      return C[33] = dart.const({
-        __proto__: basic.SizedBox.prototype,
-        [Widget__location]: C[34] || CT.C34,
-        [Widget_key]: null,
-        [SingleChildRenderObjectWidget_child]: null,
-        [SizedBox_height]: null,
-        [SizedBox_width]: 10
-      });
-    },
-    get C39() {
-      return C[39] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 35,
-        [_Location_line]: 118,
-        [_Location_file]: null
-      });
-    },
-    get C38() {
-      return C[38] = dart.constList([C[39] || CT.C39], widget_inspector._Location);
-    },
-    get C37() {
-      return C[37] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[38] || CT.C38,
-        [_Location_name]: null,
-        [_Location_column]: 33,
-        [_Location_line]: 117,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C42() {
-      return C[42] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "mainAxisAlignment",
-        [_Location_column]: 29,
-        [_Location_line]: 106,
-        [_Location_file]: null
-      });
-    },
-    get C43() {
-      return C[43] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 29,
-        [_Location_line]: 107,
-        [_Location_file]: null
-      });
-    },
-    get C41() {
-      return C[41] = dart.constList([C[42] || CT.C42, C[43] || CT.C43], widget_inspector._Location);
-    },
-    get C40() {
-      return C[40] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[41] || CT.C41,
-        [_Location_name]: null,
-        [_Location_column]: 34,
-        [_Location_line]: 105,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C46() {
-      return C[46] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 27,
-        [_Location_line]: 101,
-        [_Location_file]: null
-      });
-    },
-    get C47() {
-      return C[47] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 27,
-        [_Location_line]: 105,
-        [_Location_file]: null
-      });
-    },
-    get C45() {
-      return C[45] = dart.constList([C[46] || CT.C46, C[47] || CT.C47], widget_inspector._Location);
-    },
-    get C44() {
-      return C[44] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[45] || CT.C45,
-        [_Location_name]: null,
-        [_Location_column]: 25,
-        [_Location_line]: 100,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C50() {
-      return C[50] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "crossAxisAlignment",
-        [_Location_column]: 21,
-        [_Location_line]: 71,
-        [_Location_file]: null
-      });
-    },
-    get C51() {
-      return C[51] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "mainAxisSize",
-        [_Location_column]: 21,
-        [_Location_line]: 72,
-        [_Location_file]: null
-      });
-    },
-    get C52() {
-      return C[52] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 21,
-        [_Location_line]: 73,
-        [_Location_file]: null
-      });
-    },
-    get C49() {
-      return C[49] = dart.constList([C[50] || CT.C50, C[51] || CT.C51, C[52] || CT.C52], widget_inspector._Location);
-    },
-    get C48() {
-      return C[48] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[49] || CT.C49,
-        [_Location_name]: null,
-        [_Location_column]: 26,
-        [_Location_line]: 70,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C55() {
-      return C[55] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 19,
-        [_Location_line]: 70,
-        [_Location_file]: null
-      });
-    },
-    get C54() {
-      return C[54] = dart.constList([C[55] || CT.C55], widget_inspector._Location);
-    },
-    get C53() {
-      return C[53] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[54] || CT.C54,
-        [_Location_name]: null,
-        [_Location_column]: 24,
-        [_Location_line]: 69,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C58() {
-      return C[58] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 17,
-        [_Location_line]: 68,
-        [_Location_file]: null
-      });
-    },
-    get C59() {
-      return C[59] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 17,
-        [_Location_line]: 69,
-        [_Location_file]: null
-      });
-    },
-    get C57() {
-      return C[57] = dart.constList([C[58] || CT.C58, C[59] || CT.C59], widget_inspector._Location);
-    },
-    get C56() {
-      return C[56] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[57] || CT.C57,
-        [_Location_name]: null,
-        [_Location_column]: 22,
-        [_Location_line]: 67,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C62() {
-      return C[62] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "shape",
-        [_Location_column]: 15,
-        [_Location_line]: 59,
-        [_Location_file]: null
-      });
-    },
-    get C63() {
-      return C[63] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "elevation",
-        [_Location_column]: 15,
-        [_Location_line]: 65,
-        [_Location_file]: null
-      });
-    },
-    get C64() {
-      return C[64] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 15,
-        [_Location_line]: 66,
-        [_Location_file]: null
-      });
-    },
-    get C65() {
-      return C[65] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 15,
-        [_Location_line]: 67,
-        [_Location_file]: null
-      });
-    },
-    get C61() {
-      return C[61] = dart.constList([C[62] || CT.C62, C[63] || CT.C63, C[64] || CT.C64, C[65] || CT.C65], widget_inspector._Location);
-    },
-    get C60() {
-      return C[60] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[61] || CT.C61,
-        [_Location_name]: null,
-        [_Location_column]: 20,
-        [_Location_line]: 58,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C68() {
-      return C[68] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 13,
-        [_Location_line]: 52,
-        [_Location_file]: null
-      });
-    },
-    get C69() {
-      return C[69] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 13,
-        [_Location_line]: 53,
-        [_Location_file]: null
-      });
-    },
-    get C70() {
-      return C[70] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 13,
-        [_Location_line]: 58,
-        [_Location_file]: null
-      });
-    },
-    get C67() {
-      return C[67] = dart.constList([C[68] || CT.C68, C[69] || CT.C69, C[70] || CT.C70], widget_inspector._Location);
-    },
-    get C66() {
-      return C[66] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[67] || CT.C67,
-        [_Location_name]: null,
-        [_Location_column]: 11,
-        [_Location_line]: 51,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C73() {
-      return C[73] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "backgroundColor",
-        [_Location_column]: 23,
-        [_Location_line]: 140,
-        [_Location_file]: null
-      });
-    },
-    get C74() {
-      return C[74] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "radius",
-        [_Location_column]: 23,
-        [_Location_line]: 141,
-        [_Location_file]: null
-      });
-    },
-    get C75() {
-      return C[75] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 23,
-        [_Location_line]: 142,
-        [_Location_file]: null
-      });
-    },
-    get C72() {
-      return C[72] = dart.constList([C[73] || CT.C73, C[74] || CT.C74, C[75] || CT.C75], widget_inspector._Location);
-    },
-    get C71() {
-      return C[71] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[72] || CT.C72,
-        [_Location_name]: null,
-        [_Location_column]: 28,
-        [_Location_line]: 139,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C78() {
-      return C[78] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "shape",
-        [_Location_column]: 21,
-        [_Location_line]: 136,
-        [_Location_file]: null
-      });
-    },
-    get C79() {
-      return C[79] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 21,
-        [_Location_line]: 139,
-        [_Location_file]: null
-      });
-    },
-    get C77() {
-      return C[77] = dart.constList([C[78] || CT.C78, C[79] || CT.C79], widget_inspector._Location);
-    },
-    get C76() {
-      return C[76] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[77] || CT.C77,
-        [_Location_name]: null,
-        [_Location_column]: 19,
-        [_Location_line]: 135,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C82() {
-      return C[82] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "mainAxisAlignment",
-        [_Location_column]: 17,
-        [_Location_line]: 133,
-        [_Location_file]: null
-      });
-    },
-    get C83() {
-      return C[83] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 17,
-        [_Location_line]: 134,
-        [_Location_file]: null
-      });
-    },
-    get C81() {
-      return C[81] = dart.constList([C[82] || CT.C82, C[83] || CT.C83], widget_inspector._Location);
-    },
-    get C80() {
-      return C[80] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[81] || CT.C81,
-        [_Location_name]: null,
-        [_Location_column]: 22,
-        [_Location_line]: 132,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C86() {
-      return C[86] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 15,
-        [_Location_line]: 131,
-        [_Location_file]: null
-      });
-    },
-    get C87() {
-      return C[87] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 15,
-        [_Location_line]: 132,
-        [_Location_file]: null
-      });
-    },
-    get C85() {
-      return C[85] = dart.constList([C[86] || CT.C86, C[87] || CT.C87], widget_inspector._Location);
-    },
-    get C84() {
-      return C[84] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[85] || CT.C85,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 130,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C91() {
-      return C[91] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 54,
-        [_Location_line]: 156,
-        [_Location_file]: null
-      });
-    },
-    get C90() {
-      return C[90] = dart.constList([C[91] || CT.C91], widget_inspector._Location);
-    },
-    get C89() {
-      return C[89] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[90] || CT.C90,
-        [_Location_name]: null,
-        [_Location_column]: 43,
-        [_Location_line]: 156,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C92() {
-      return C[92] = dart.const({
-        __proto__: icon_data.IconData.prototype,
-        [IconData_matchTextDirection]: false,
-        [IconData_fontPackage]: null,
-        [IconData_fontFamily]: "MaterialIcons",
-        [IconData_codePoint]: 57706
-      });
-    },
-    get C88() {
-      return C[88] = dart.const({
-        __proto__: icon.Icon.prototype,
-        [Widget__location]: C[89] || CT.C89,
-        [Widget_key]: null,
-        [Icon_textDirection]: null,
-        [Icon_semanticLabel]: null,
-        [Icon_color]: null,
-        [Icon_size]: null,
-        [Icon_icon]: C[92] || CT.C92
-      });
-    },
-    get C95() {
-      return C[95] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onTap",
-        [_Location_column]: 17,
-        [_Location_line]: 153,
-        [_Location_file]: null
-      });
-    },
-    get C96() {
-      return C[96] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 17,
-        [_Location_line]: 156,
-        [_Location_file]: null
-      });
-    },
-    get C94() {
-      return C[94] = dart.constList([C[95] || CT.C95, C[96] || CT.C96], widget_inspector._Location);
-    },
-    get C93() {
-      return C[93] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[94] || CT.C94,
-        [_Location_name]: null,
-        [_Location_column]: 22,
-        [_Location_line]: 152,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C99() {
-      return C[99] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "right",
-        [_Location_column]: 15,
-        [_Location_line]: 150,
-        [_Location_file]: null
-      });
-    },
-    get C100() {
-      return C[100] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "top",
-        [_Location_column]: 15,
-        [_Location_line]: 151,
-        [_Location_file]: null
-      });
-    },
-    get C101() {
-      return C[101] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 15,
-        [_Location_line]: 152,
-        [_Location_file]: null
-      });
-    },
-    get C98() {
-      return C[98] = dart.constList([C[99] || CT.C99, C[100] || CT.C100, C[101] || CT.C101], widget_inspector._Location);
-    },
-    get C97() {
-      return C[97] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[98] || CT.C98,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 149,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C104() {
-      return C[104] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 9,
-        [_Location_line]: 50,
-        [_Location_file]: null
-      });
-    },
-    get C103() {
-      return C[103] = dart.constList([C[104] || CT.C104], widget_inspector._Location);
-    },
-    get C102() {
-      return C[102] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[103] || CT.C103,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 49,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C107() {
-      return C[107] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "alignment",
-        [_Location_column]: 7,
-        [_Location_line]: 46,
-        [_Location_file]: null
-      });
-    },
-    get C108() {
-      return C[108] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 7,
-        [_Location_line]: 47,
-        [_Location_file]: null
-      });
-    },
-    get C109() {
-      return C[109] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 49,
-        [_Location_file]: null
-      });
-    },
-    get C106() {
-      return C[106] = dart.constList([C[107] || CT.C107, C[108] || CT.C108, C[109] || CT.C109], widget_inspector._Location);
-    },
-    get C105() {
-      return C[105] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[106] || CT.C106,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 45,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C112() {
-      return C[112] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 11,
-        [_Location_line]: 166,
-        [_Location_file]: null
-      });
-    },
-    get C113() {
-      return C[113] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "textAlign",
-        [_Location_column]: 11,
-        [_Location_line]: 167,
-        [_Location_file]: null
-      });
-    },
-    get C114() {
-      return C[114] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 11,
-        [_Location_line]: 168,
-        [_Location_file]: null
-      });
-    },
-    get C111() {
-      return C[111] = dart.constList([C[112] || CT.C112, C[113] || CT.C113, C[114] || CT.C114], widget_inspector._Location);
-    },
-    get C110() {
-      return C[110] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[111] || CT.C111,
-        [_Location_name]: null,
-        [_Location_column]: 9,
-        [_Location_line]: 165,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C118() {
-      return C[118] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 11,
-        [_Location_line]: 171,
-        [_Location_file]: null
-      });
-    },
-    get C117() {
-      return C[117] = dart.constList([C[118] || CT.C118], widget_inspector._Location);
-    },
-    get C116() {
-      return C[116] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[117] || CT.C117,
-        [_Location_name]: null,
-        [_Location_column]: 15,
-        [_Location_line]: 170,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/vertical_stack_header_dialog.dart"
-      });
-    },
-    get C115() {
-      return C[115] = dart.const({
-        __proto__: basic.SizedBox.prototype,
-        [Widget__location]: C[116] || CT.C116,
-        [Widget_key]: null,
-        [SingleChildRenderObjectWidget_child]: null,
-        [SizedBox_height]: 10,
-        [SizedBox_width]: null
+        __proto__: convert.Base64Decoder.prototype
       });
     }
   }, false);
-  var C = Array(119).fill(void 0);
-  var I = ["package:awesome_dialog/src/vertical_stack_header_dialog.dart"];
-  var title$ = dart.privateName(vertical_stack_header_dialog, "VerticalStackDialog.title");
-  var desc$ = dart.privateName(vertical_stack_header_dialog, "VerticalStackDialog.desc");
-  var btnOk$ = dart.privateName(vertical_stack_header_dialog, "VerticalStackDialog.btnOk");
-  var btnCancel$ = dart.privateName(vertical_stack_header_dialog, "VerticalStackDialog.btnCancel");
-  var header$ = dart.privateName(vertical_stack_header_dialog, "VerticalStackDialog.header");
-  var body$ = dart.privateName(vertical_stack_header_dialog, "VerticalStackDialog.body");
-  var isDense$ = dart.privateName(vertical_stack_header_dialog, "VerticalStackDialog.isDense");
-  var alignment$ = dart.privateName(vertical_stack_header_dialog, "VerticalStackDialog.alignment");
-  var padding$ = dart.privateName(vertical_stack_header_dialog, "VerticalStackDialog.padding");
-  var keyboardAware$ = dart.privateName(vertical_stack_header_dialog, "VerticalStackDialog.keyboardAware");
-  var width$ = dart.privateName(vertical_stack_header_dialog, "VerticalStackDialog.width");
-  var showCloseIcon$ = dart.privateName(vertical_stack_header_dialog, "VerticalStackDialog.showCloseIcon");
-  var onClose$ = dart.privateName(vertical_stack_header_dialog, "VerticalStackDialog.onClose");
-  var closeIcon$ = dart.privateName(vertical_stack_header_dialog, "VerticalStackDialog.closeIcon");
-  var dialogBackgroundColor$ = dart.privateName(vertical_stack_header_dialog, "VerticalStackDialog.dialogBackgroundColor");
-  var borderSide$ = dart.privateName(vertical_stack_header_dialog, "VerticalStackDialog.borderSide");
-  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
-  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
-  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
-  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
-  var Radius_y = dart.privateName(ui, "Radius.y");
-  var Radius_x = dart.privateName(ui, "Radius.x");
-  var BorderRadius_bottomRight = dart.privateName(border_radius, "BorderRadius.bottomRight");
-  var BorderRadius_bottomLeft = dart.privateName(border_radius, "BorderRadius.bottomLeft");
-  var BorderRadius_topRight = dart.privateName(border_radius, "BorderRadius.topRight");
-  var BorderRadius_topLeft = dart.privateName(border_radius, "BorderRadius.topLeft");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  var _titleBody = dart.privateName(vertical_stack_header_dialog, "_titleBody");
-  var Widget__location = dart.privateName(framework, "Widget._location");
-  var Widget_key = dart.privateName(framework, "Widget.key");
-  var SingleChildRenderObjectWidget_child = dart.privateName(framework, "SingleChildRenderObjectWidget.child");
-  var SizedBox_height = dart.privateName(basic, "SizedBox.height");
-  var SizedBox_width = dart.privateName(basic, "SizedBox.width");
-  var Icon_textDirection = dart.privateName(icon, "Icon.textDirection");
-  var Icon_semanticLabel = dart.privateName(icon, "Icon.semanticLabel");
-  var Icon_color = dart.privateName(icon, "Icon.color");
-  var Icon_size = dart.privateName(icon, "Icon.size");
-  var IconData_matchTextDirection = dart.privateName(icon_data, "IconData.matchTextDirection");
-  var IconData_fontPackage = dart.privateName(icon_data, "IconData.fontPackage");
-  var IconData_fontFamily = dart.privateName(icon_data, "IconData.fontFamily");
-  var IconData_codePoint = dart.privateName(icon_data, "IconData.codePoint");
-  var Icon_icon = dart.privateName(icon, "Icon.icon");
-  vertical_stack_header_dialog.VerticalStackDialog = class VerticalStackDialog extends framework.StatelessWidget {
-    get title() {
-      return this[title$];
+  var C = [void 0];
+  var I = [
+    "package:flare_flutter/base/json_reader.dart",
+    "package:flare_flutter/base/json_block_reader.dart",
+    "package:flare_flutter/base/binary_reader.dart",
+    "package:flare_flutter/base/block_reader.dart",
+    "package:flare_flutter/base/stream_reader.dart"
+  ];
+  var _context = dart.privateName(json_reader, "_context");
+  var _readObject = dart.privateName(json_reader, "_readObject");
+  var _readArray = dart.privateName(json_reader, "_readArray");
+  var _readLength = dart.privateName(json_reader, "_readLength");
+  json_reader.JSONReader = class JSONReader extends core.Object {
+    readProp(T, label) {
+      let head = this[_context].first;
+      if (core.Map.is(head)) {
+        let prop = head[$_get](label);
+        head[$remove](label);
+        if (T.is(prop)) {
+          return prop;
+        } else {
+          return null;
+        }
+      } else if (core.List.is(head)) {
+        let prop = head[$removeAt](0);
+        if (T.is(prop)) {
+          return prop;
+        } else {
+          return null;
+        }
+      }
+      return null;
     }
-    set title(value) {
-      super.title = value;
+    readFloat32(label) {
+      let t0, t0$;
+      let f = this.readProp(core.num, label);
+      t0$ = (t0 = f, t0 == null ? null : t0[$toDouble]());
+      return t0$ == null ? 0.0 : t0$;
     }
-    get desc() {
-      return this[desc$];
+    readFloat32Array(length, label) {
+      let ar = _native_typed_data.NativeFloat32List.new(length);
+      this[_readArray](ar, label);
+      return ar;
     }
-    set desc(value) {
-      super.desc = value;
+    [_readArray](ar, label) {
+      let array = this.readProp(core.List, label);
+      if (array == null) {
+        return;
+      }
+      for (let i = 0; i < ar[$length]; i = i + 1) {
+        let val = core.num.as(array[$_get](i));
+        ar[$_set](i, typeof ar[$first] == 'number' ? val[$toDouble]() : val[$toInt]());
+      }
     }
-    get btnOk() {
-      return this[btnOk$];
+    readFloat64(label) {
+      let t0, t0$;
+      let f = this.readProp(core.num, label);
+      t0$ = (t0 = f, t0 == null ? null : t0[$toDouble]());
+      return t0$ == null ? 0.0 : t0$;
     }
-    set btnOk(value) {
-      super.btnOk = value;
+    readUint8(label) {
+      let t0;
+      t0 = this.readProp(core.int, label);
+      return t0 == null ? 0 : t0;
     }
-    get btnCancel() {
-      return this[btnCancel$];
+    readUint8Length() {
+      return this[_readLength]();
     }
-    set btnCancel(value) {
-      super.btnCancel = value;
+    isEOF() {
+      return this[_context].length <= 1 && dart.equals(dart.dload(this[_readObject], 'length'), 0);
     }
-    get header() {
-      return this[header$];
+    readInt8(label) {
+      let t0;
+      t0 = this.readProp(core.int, label);
+      return t0 == null ? 0 : t0;
     }
-    set header(value) {
-      super.header = value;
+    readUint16(label) {
+      let t0;
+      t0 = this.readProp(core.int, label);
+      return t0 == null ? 0 : t0;
     }
-    get body() {
-      return this[body$];
+    readUint8Array(length, label) {
+      let ar = _native_typed_data.NativeUint8List.new(length);
+      this[_readArray](ar, label);
+      return ar;
     }
-    set body(value) {
-      super.body = value;
+    readUint16Array(length, label) {
+      let ar = _native_typed_data.NativeUint16List.new(length);
+      this[_readArray](ar, label);
+      return ar;
     }
-    get isDense() {
-      return this[isDense$];
+    readInt16(label) {
+      let t0;
+      t0 = this.readProp(core.int, label);
+      return t0 == null ? 0 : t0;
     }
-    set isDense(value) {
-      super.isDense = value;
+    readUint16Length() {
+      return this[_readLength]();
     }
-    get alignment() {
-      return this[alignment$];
+    readUint32Length() {
+      return this[_readLength]();
     }
-    set alignment(value) {
-      super.alignment = value;
+    readUint32(label) {
+      let t0;
+      t0 = this.readProp(core.int, label);
+      return t0 == null ? 0 : t0;
     }
-    get padding() {
-      return this[padding$];
+    readInt32(label) {
+      let t0;
+      t0 = this.readProp(core.int, label);
+      return t0 == null ? 0 : t0;
     }
-    set padding(value) {
-      super.padding = value;
+    readVersion() {
+      let t0;
+      t0 = this.readProp(core.int, "version");
+      return t0 == null ? 0 : t0;
     }
-    get keyboardAware() {
-      return this[keyboardAware$];
+    readString(label) {
+      let t0;
+      t0 = this.readProp(core.String, label);
+      return t0 == null ? "" : t0;
     }
-    set keyboardAware(value) {
-      super.keyboardAware = value;
+    readBool(label) {
+      let t0;
+      t0 = this.readProp(core.bool, label);
+      return t0 == null ? false : t0;
     }
-    get width() {
-      return this[width$];
+    readId(label) {
+      let val = this.readProp(core.num, label);
+      return val != null ? val[$toInt]() + 1 : 0;
     }
-    set width(value) {
-      super.width = value;
+    openArray(label) {
+      let array = this.readProp(dart.dynamic, label);
+      this[_context].addFirst(array);
     }
-    get showCloseIcon() {
-      return this[showCloseIcon$];
+    closeArray() {
+      this[_context].removeFirst();
     }
-    set showCloseIcon(value) {
-      super.showCloseIcon = value;
+    openObject(label) {
+      let o = this.readProp(dart.dynamic, label);
+      this[_context].addFirst(o);
     }
-    get onClose() {
-      return this[onClose$];
+    closeObject() {
+      this[_context].removeFirst();
     }
-    set onClose(value) {
-      super.onClose = value;
+    [_readLength]() {
+      if (core.List.is(this[_context].first)) {
+        return core.List.as(this[_context].first)[$length];
+      } else if (core.Map.is(this[_context].first)) {
+        return core.Map.as(this[_context].first)[$length];
+      }
+      return 0;
     }
-    get closeIcon() {
-      return this[closeIcon$];
+    readAsset() {
+      let encodedAsset = this.readString("data");
+      return (C[0] || CT.C0).convert(encodedAsset, 22);
     }
-    set closeIcon(value) {
-      super.closeIcon = value;
+    get containerType() {
+      return "json";
     }
-    get dialogBackgroundColor() {
-      return this[dialogBackgroundColor$];
-    }
-    set dialogBackgroundColor(value) {
-      super.dialogBackgroundColor = value;
-    }
-    get borderSide() {
-      return this[borderSide$];
-    }
-    set borderSide(value) {
-      super.borderSide = value;
-    }
-    build(context) {
-      let t1, t1$, t1$0, t2, t4, t4$, t4$0, t4$1, t4$2;
-      let theme = theme$.Theme.of(context);
-      let mediaQueryData = media_query.MediaQuery.of(context);
-      return new container.Container.new({alignment: this.alignment, padding: new edge_insets.EdgeInsets.only({bottom: this.keyboardAware ? mediaQueryData.viewInsets.bottom : 0.0}), child: new basic.Stack.new({children: (() => {
-            let t0 = T.JSArrayOfWidget().of([new container.Container.new({width: (t1 = this.width, t1 == null ? mediaQueryData.size.width : t1), padding: this.isDense ? C[0] || CT.C0 : C[1] || CT.C1, child: new material.Material.new({shape: new rounded_rectangle_border.RoundedRectangleBorder.new({borderRadius: C[2] || CT.C2, side: (t1$ = this.borderSide, t1$ == null ? borders.BorderSide.none : t1$)}), elevation: 0.5, color: (t1$0 = this.dialogBackgroundColor, t1$0 == null ? theme.cardColor : t1$0), child: new basic.Padding.new({padding: this.padding, child: new single_child_scroll_view.SingleChildScrollView.new({child: new basic.Column.new({crossAxisAlignment: flex.CrossAxisAlignment.center, mainAxisSize: flex.MainAxisSize.min, children: (() => {
-                          let t1 = T.JSArrayOfWidget().of([new basic.SizedBox.new({height: this.header != null ? 50.0 : 15.0, $creationLocationd_0dea112b090073317d4: C[4] || CT.C4}), (t2 = this.body, t2 == null ? new basic.Column.new({mainAxisSize: flex.MainAxisSize.min, children: (() => {
-                                let t3 = T.JSArrayOfWidget().of([]);
-                                if (this.title != null) t3[$addAll](this[_titleBody](dart.nullCheck(this.title), theme));
-                                if (this.desc != null) t3[$add](new basic.Flexible.new({fit: flex.FlexFit.loose, child: new single_child_scroll_view.SingleChildScrollView.new({physics: new scroll_physics.BouncingScrollPhysics.new(), child: new text.Text.new(dart.nullCheck(this.desc), {textAlign: ui.TextAlign.center, $creationLocationd_0dea112b090073317d4: C[7] || CT.C7}), $creationLocationd_0dea112b090073317d4: C[11] || CT.C11}), $creationLocationd_0dea112b090073317d4: C[15] || CT.C15}));
-                                return t3;
-                              })(), $creationLocationd_0dea112b090073317d4: C[19] || CT.C19}) : t2)]);
-                          if (this.desc != null) t1[$add](C[23] || CT.C23);
-                          if (this.btnOk != null || this.btnCancel != null) t1[$add](new container.Container.new({padding: C[27] || CT.C27, child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.center, children: (() => {
-                                let t3 = T.JSArrayOfWidget().of([]);
-                                if (this.btnCancel != null) t3[$add](new basic.Expanded.new({child: (t4 = this.btnCancel, t4 == null ? new container.Container.new({$creationLocationd_0dea112b090073317d4: C[28] || CT.C28}) : t4), $creationLocationd_0dea112b090073317d4: C[30] || CT.C30}));
-                                if (this.btnCancel != null && this.btnOk != null) t3[$add](C[33] || CT.C33);
-                                if (this.btnOk != null) t3[$add](new basic.Expanded.new({child: dart.nullCheck(this.btnOk), $creationLocationd_0dea112b090073317d4: C[37] || CT.C37}));
-                                return t3;
-                              })(), $creationLocationd_0dea112b090073317d4: C[40] || CT.C40}), $creationLocationd_0dea112b090073317d4: C[44] || CT.C44}));
-                          return t1;
-                        })(), $creationLocationd_0dea112b090073317d4: C[48] || CT.C48}), $creationLocationd_0dea112b090073317d4: C[53] || CT.C53}), $creationLocationd_0dea112b090073317d4: C[56] || CT.C56}), $creationLocationd_0dea112b090073317d4: C[60] || CT.C60}), $creationLocationd_0dea112b090073317d4: C[66] || CT.C66})]);
-            if (this.header != null) t0[$add](new container.Container.new({width: (t4$ = this.width, t4$ == null ? mediaQueryData.size.width : t4$), child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.center, children: T.JSArrayOfWidget().of([new material.Material.new({shape: new circle_border.CircleBorder.new({side: (t4$0 = this.borderSide, t4$0 == null ? borders.BorderSide.none : t4$0)}), child: new circle_avatar.CircleAvatar.new({backgroundColor: (t4$1 = this.dialogBackgroundColor, t4$1 == null ? theme.cardColor : t4$1), radius: 55.0, child: this.header, $creationLocationd_0dea112b090073317d4: C[71] || CT.C71}), $creationLocationd_0dea112b090073317d4: C[76] || CT.C76})]), $creationLocationd_0dea112b090073317d4: C[80] || CT.C80}), $creationLocationd_0dea112b090073317d4: C[84] || CT.C84}));
-            if (dart.nullCheck(this.showCloseIcon)) t0[$add](new basic.Positioned.new({right: 50.0, top: 75.0, child: new gesture_detector.GestureDetector.new({onTap: dart.fn(() => {
-                  dart.dcall(this.onClose, []);
-                }, T.VoidTovoid()), child: (t4$2 = this.closeIcon, t4$2 == null ? C[88] || CT.C88 : t4$2), $creationLocationd_0dea112b090073317d4: C[93] || CT.C93}), $creationLocationd_0dea112b090073317d4: C[97] || CT.C97}));
-            return t0;
-          })(), $creationLocationd_0dea112b090073317d4: C[102] || CT.C102}), $creationLocationd_0dea112b090073317d4: C[105] || CT.C105});
-    }
-    [_titleBody](title, theme) {
-      return T.JSArrayOfWidget().of([new text.Text.new(title, {textAlign: ui.TextAlign.center, style: theme.textTheme.headline6, $creationLocationd_0dea112b090073317d4: C[110] || CT.C110}), C[115] || CT.C115]);
+    get context() {
+      return this[_context];
     }
   };
-  (vertical_stack_header_dialog.VerticalStackDialog.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let title = opts && 'title' in opts ? opts.title : null;
-    let desc = opts && 'desc' in opts ? opts.desc : null;
-    let btnOk = opts && 'btnOk' in opts ? opts.btnOk : null;
-    let btnCancel = opts && 'btnCancel' in opts ? opts.btnCancel : null;
-    let body = opts && 'body' in opts ? opts.body : null;
-    let alignment = opts && 'alignment' in opts ? opts.alignment : null;
-    let isDense = opts && 'isDense' in opts ? opts.isDense : true;
-    let header = opts && 'header' in opts ? opts.header : null;
-    let padding = opts && 'padding' in opts ? opts.padding : null;
-    let keyboardAware = opts && 'keyboardAware' in opts ? opts.keyboardAware : true;
-    let width = opts && 'width' in opts ? opts.width : null;
-    let showCloseIcon = opts && 'showCloseIcon' in opts ? opts.showCloseIcon : null;
-    let onClose = opts && 'onClose' in opts ? opts.onClose : null;
-    let closeIcon = opts && 'closeIcon' in opts ? opts.closeIcon : null;
-    let dialogBackgroundColor = opts && 'dialogBackgroundColor' in opts ? opts.dialogBackgroundColor : null;
-    let borderSide = opts && 'borderSide' in opts ? opts.borderSide : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[title$] = title;
-    this[desc$] = desc;
-    this[btnOk$] = btnOk;
-    this[btnCancel$] = btnCancel;
-    this[body$] = body;
-    this[alignment$] = alignment;
-    this[isDense$] = isDense;
-    this[header$] = header;
-    this[padding$] = padding;
-    this[keyboardAware$] = keyboardAware;
-    this[width$] = width;
-    this[showCloseIcon$] = showCloseIcon;
-    this[onClose$] = onClose;
-    this[closeIcon$] = closeIcon;
-    this[dialogBackgroundColor$] = dialogBackgroundColor;
-    this[borderSide$] = borderSide;
-    vertical_stack_header_dialog.VerticalStackDialog.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (json_reader.JSONReader.new = function(object) {
+    this[_context] = new collection.ListQueue.new();
+    this[_readObject] = object[$_get]("container");
+    this[_context].addFirst(this[_readObject]);
+  }).prototype = json_reader.JSONReader.prototype;
+  dart.addTypeTests(json_reader.JSONReader);
+  dart.addTypeCaches(json_reader.JSONReader);
+  json_reader.JSONReader[dart.implements] = () => [stream_reader.StreamReader];
+  dart.setMethodSignature(json_reader.JSONReader, () => ({
+    __proto__: dart.getMethods(json_reader.JSONReader.__proto__),
+    readProp: dart.gFnType(T => [dart.nullable(T), [core.String]], T => [dart.nullable(core.Object)]),
+    readFloat32: dart.fnType(core.double, [core.String]),
+    readFloat32Array: dart.fnType(typed_data.Float32List, [core.int, core.String]),
+    [_readArray]: dart.fnType(dart.void, [core.List, core.String]),
+    readFloat64: dart.fnType(core.double, [core.String]),
+    readUint8: dart.fnType(core.int, [core.String]),
+    readUint8Length: dart.fnType(core.int, []),
+    isEOF: dart.fnType(core.bool, []),
+    readInt8: dart.fnType(core.int, [core.String]),
+    readUint16: dart.fnType(core.int, [core.String]),
+    readUint8Array: dart.fnType(typed_data.Uint8List, [core.int, core.String]),
+    readUint16Array: dart.fnType(typed_data.Uint16List, [core.int, core.String]),
+    readInt16: dart.fnType(core.int, [core.String]),
+    readUint16Length: dart.fnType(core.int, []),
+    readUint32Length: dart.fnType(core.int, []),
+    readUint32: dart.fnType(core.int, [core.String]),
+    readInt32: dart.fnType(core.int, [core.String]),
+    readVersion: dart.fnType(core.int, []),
+    readString: dart.fnType(core.String, [core.String]),
+    readBool: dart.fnType(core.bool, [core.String]),
+    readId: dart.fnType(core.int, [core.String]),
+    openArray: dart.fnType(dart.void, [core.String]),
+    closeArray: dart.fnType(dart.void, []),
+    openObject: dart.fnType(dart.void, [core.String]),
+    closeObject: dart.fnType(dart.void, []),
+    [_readLength]: dart.fnType(core.int, []),
+    readAsset: dart.fnType(typed_data.Uint8List, [])
+  }));
+  dart.setGetterSignature(json_reader.JSONReader, () => ({
+    __proto__: dart.getGetters(json_reader.JSONReader.__proto__),
+    containerType: core.String,
+    context: collection.ListQueue
+  }));
+  dart.setLibraryUri(json_reader.JSONReader, I[0]);
+  dart.setFieldSignature(json_reader.JSONReader, () => ({
+    __proto__: dart.getFields(json_reader.JSONReader.__proto__),
+    [_readObject]: dart.finalFieldType(dart.dynamic),
+    [_context]: dart.finalFieldType(collection.ListQueue)
+  }));
+  var blockType$ = dart.privateName(json_block_reader, "JSONBlockReader.blockType");
+  var _peek = dart.privateName(json_block_reader, "_peek");
+  json_block_reader.JSONBlockReader = class JSONBlockReader extends json_reader.JSONReader {
+    get blockType() {
+      return this[blockType$];
+    }
+    set blockType(value) {
+      this[blockType$] = value;
+    }
+    readNextBlock(blockTypes) {
+      if (this.isEOF()) {
+        return null;
+      }
+      let obj = new _js_helper.LinkedMap.new();
+      obj[$_set]("container", this[_peek]());
+      let type = this.readBlockType(blockTypes);
+      let c = this.context.first;
+      if (core.Map.is(c)) {
+        c[$remove](this.nextKey);
+      } else if (core.List.is(c)) {
+        c[$removeAt](0);
+      }
+      return new json_block_reader.JSONBlockReader.fromObject(type, obj);
+    }
+    readBlockType(blockTypes) {
+      let next = this[_peek]();
+      if (core.Map.is(next)) {
+        let c = this.context.first;
+        if (core.Map.is(c)) {
+          return dart.nullCheck(blockTypes[$_get](this.nextKey));
+        } else if (core.List.is(c)) {
+          return dart.nullCheck(blockTypes[$_get](next[$_get]("type")));
+        }
+      } else if (core.List.is(next)) {
+        return dart.nullCheck(blockTypes[$_get](this.nextKey));
+      }
+      return 0;
+    }
+    [_peek]() {
+      let stream = this.context.first;
+      let next = null;
+      if (core.Map.is(stream)) {
+        next = stream[$_get](this.nextKey);
+      } else if (core.List.is(stream)) {
+        next = stream[$_get](0);
+      }
+      return next;
+    }
+    get nextKey() {
+      return dart.dload(dart.dload(this.context.first, 'keys'), 'first');
+    }
+  };
+  (json_block_reader.JSONBlockReader.new = function(object) {
+    this[blockType$] = 0;
+    json_block_reader.JSONBlockReader.__proto__.new.call(this, object);
     ;
-  }).prototype = vertical_stack_header_dialog.VerticalStackDialog.prototype;
-  dart.addTypeTests(vertical_stack_header_dialog.VerticalStackDialog);
-  dart.addTypeCaches(vertical_stack_header_dialog.VerticalStackDialog);
-  dart.setMethodSignature(vertical_stack_header_dialog.VerticalStackDialog, () => ({
-    __proto__: dart.getMethods(vertical_stack_header_dialog.VerticalStackDialog.__proto__),
-    build: dart.fnType(framework.Widget, [framework.BuildContext]),
-    [_titleBody]: dart.fnType(core.List$(framework.Widget), [core.String, theme_data.ThemeData])
+  }).prototype = json_block_reader.JSONBlockReader.prototype;
+  (json_block_reader.JSONBlockReader.fromObject = function(blockType, object) {
+    this[blockType$] = blockType;
+    json_block_reader.JSONBlockReader.__proto__.new.call(this, object);
+    ;
+  }).prototype = json_block_reader.JSONBlockReader.prototype;
+  dart.addTypeTests(json_block_reader.JSONBlockReader);
+  dart.addTypeCaches(json_block_reader.JSONBlockReader);
+  dart.setMethodSignature(json_block_reader.JSONBlockReader, () => ({
+    __proto__: dart.getMethods(json_block_reader.JSONBlockReader.__proto__),
+    readNextBlock: dart.fnType(dart.nullable(json_block_reader.JSONBlockReader), [core.Map$(core.String, core.int)]),
+    readBlockType: dart.fnType(core.int, [core.Map$(core.String, core.int)]),
+    [_peek]: dart.fnType(dart.dynamic, [])
   }));
-  dart.setLibraryUri(vertical_stack_header_dialog.VerticalStackDialog, I[0]);
-  dart.setFieldSignature(vertical_stack_header_dialog.VerticalStackDialog, () => ({
-    __proto__: dart.getFields(vertical_stack_header_dialog.VerticalStackDialog.__proto__),
-    title: dart.finalFieldType(dart.nullable(core.String)),
-    desc: dart.finalFieldType(dart.nullable(core.String)),
-    btnOk: dart.finalFieldType(dart.nullable(framework.Widget)),
-    btnCancel: dart.finalFieldType(dart.nullable(framework.Widget)),
-    header: dart.finalFieldType(dart.nullable(framework.Widget)),
-    body: dart.finalFieldType(dart.nullable(framework.Widget)),
-    isDense: dart.finalFieldType(core.bool),
-    alignment: dart.finalFieldType(dart.nullable(alignment.AlignmentGeometry)),
-    padding: dart.finalFieldType(edge_insets.EdgeInsetsGeometry),
-    keyboardAware: dart.finalFieldType(core.bool),
-    width: dart.finalFieldType(dart.nullable(core.double)),
-    showCloseIcon: dart.finalFieldType(dart.nullable(core.bool)),
-    onClose: dart.finalFieldType(core.Function),
-    closeIcon: dart.finalFieldType(dart.nullable(framework.Widget)),
-    dialogBackgroundColor: dart.finalFieldType(dart.nullable(ui.Color)),
-    borderSide: dart.finalFieldType(dart.nullable(borders.BorderSide))
+  dart.setGetterSignature(json_block_reader.JSONBlockReader, () => ({
+    __proto__: dart.getGetters(json_block_reader.JSONBlockReader.__proto__),
+    nextKey: dart.dynamic
   }));
-  dart.trackLibraries("packages/awesome_dialog/src/vertical_stack_header_dialog.dart", {
-    "package:awesome_dialog/src/vertical_stack_header_dialog.dart": vertical_stack_header_dialog
+  dart.setLibraryUri(json_block_reader.JSONBlockReader, I[1]);
+  dart.setFieldSignature(json_block_reader.JSONBlockReader, () => ({
+    __proto__: dart.getFields(json_block_reader.JSONBlockReader.__proto__),
+    blockType: dart.fieldType(core.int)
+  }));
+  var _readIndex = dart.privateName(binary_reader, "_readIndex");
+  var _raw = dart.privateName(binary_reader, "_raw");
+  binary_reader.BinaryReader = class BinaryReader extends core.Object {
+    get raw() {
+      return this[_raw];
+    }
+    get readIndex() {
+      return this[_readIndex];
+    }
+    readBytes(length) {
+      let offset = this[_readIndex] + this.raw[$offsetInBytes];
+      this[_readIndex] = this[_readIndex] + length;
+      return this.raw[$buffer][$asByteData](offset, length);
+    }
+    readFloat32(label = null) {
+      let value = this[_raw][$getFloat32](this[_readIndex], typed_data.Endian.little);
+      this[_readIndex] = this[_readIndex] + 4;
+      return value;
+    }
+    readFloat64(label = null) {
+      let value = this[_raw][$getFloat64](this[_readIndex], typed_data.Endian.little);
+      this[_readIndex] = this[_readIndex] + 8;
+      return value;
+    }
+    readUint8(label = null) {
+      let t0;
+      return this[_raw][$getUint8]((t0 = this[_readIndex], this[_readIndex] = t0 + 1, t0));
+    }
+    isEOF() {
+      return this[_readIndex] >= this[_raw][$lengthInBytes];
+    }
+    readInt8(label = null) {
+      let t0;
+      return this[_raw][$getInt8]((t0 = this[_readIndex], this[_readIndex] = t0 + 1, t0));
+    }
+    readUint16(label = null) {
+      let value = this[_raw][$getUint16](this[_readIndex], typed_data.Endian.little);
+      this[_readIndex] = this[_readIndex] + 2;
+      return value;
+    }
+    readUint16Array(length, label = null) {
+      let list = _native_typed_data.NativeUint16List.new(length);
+      for (let i = 0; i < length; i = i + 1) {
+        list[$_set](i, this[_raw][$getUint16](this[_readIndex], typed_data.Endian.little));
+        this[_readIndex] = this[_readIndex] + 2;
+      }
+      return list;
+    }
+    readInt16(label = null) {
+      let value = this[_raw][$getInt16](this[_readIndex], typed_data.Endian.little);
+      this[_readIndex] = this[_readIndex] + 2;
+      return value;
+    }
+    readUint32(label = null) {
+      let value = this[_raw][$getUint32](this[_readIndex], typed_data.Endian.little);
+      this[_readIndex] = this[_readIndex] + 4;
+      return value;
+    }
+    readInt32(label = null) {
+      let value = this[_raw][$getInt32](this[_readIndex], typed_data.Endian.little);
+      this[_readIndex] = this[_readIndex] + 4;
+      return value;
+    }
+    readString(label = null) {
+      let length = this.readUint32();
+      let end = this[_readIndex] + length;
+      let stringBuffer = new core.StringBuffer.new();
+      while (this[_readIndex] < end) {
+        let c1 = this.readUint8();
+        if (c1 < 128) {
+          stringBuffer.writeCharCode(c1);
+        } else if (c1 > 191 && c1 < 224) {
+          let c2 = this.readUint8();
+          stringBuffer.writeCharCode((c1 & 31) << 6 | c2 & 63);
+        } else if (c1 > 239 && c1 < 365) {
+          let c2 = this.readUint8();
+          let c3 = this.readUint8();
+          let c4 = this.readUint8();
+          let u = ((c1 & 7) << 18 | (c2 & 63) << 12 | (c3 & 63) << 6 | c4 & 63) - 65536;
+          stringBuffer.writeCharCode(55296 + u[$rightShift](10));
+          stringBuffer.writeCharCode(56320 + (u & 1023));
+        } else {
+          let c2 = this.readUint8();
+          let c3 = this.readUint8();
+          stringBuffer.writeCharCode((c1 & 15) << 12 | (c2 & 63) << 6 | c3 & 63);
+        }
+      }
+      return stringBuffer.toString();
+    }
+    readUint8Array(length, label = null) {
+      let offset = this[_readIndex] + this[_raw][$offsetInBytes];
+      this[_readIndex] = this[_readIndex] + length;
+      return this[_raw][$buffer][$asUint8List](offset, length);
+    }
+    readVersion() {
+      return this.readUint32();
+    }
+    readUint8Length() {
+      return this.readUint8();
+    }
+    readUint32Length() {
+      return this.readUint32();
+    }
+    readUint16Length() {
+      return this.readUint16();
+    }
+    readId(label) {
+      return this.readUint16(label);
+    }
+    readFloat32Array(length, label) {
+      let list = _native_typed_data.NativeFloat32List.new(length);
+      for (let i = 0; i < length; i = i + 1) {
+        list[$_set](i, this[_raw][$getFloat32](this[_readIndex], typed_data.Endian.little));
+        this[_readIndex] = this[_readIndex] + 4;
+      }
+      return list;
+    }
+    readBool(label) {
+      return this.readUint8(label) === 1;
+    }
+    readAsset() {
+      let length = this.readUint32();
+      return this.readUint8Array(length);
+    }
+    openArray(label) {
+    }
+    closeArray() {
+    }
+    openObject(label) {
+    }
+    closeObject() {
+    }
+    get containerType() {
+      return "bin";
+    }
+  };
+  (binary_reader.BinaryReader.new = function(data) {
+    this[_readIndex] = 0;
+    this[_raw] = data;
+    ;
+  }).prototype = binary_reader.BinaryReader.prototype;
+  dart.addTypeTests(binary_reader.BinaryReader);
+  dart.addTypeCaches(binary_reader.BinaryReader);
+  binary_reader.BinaryReader[dart.implements] = () => [stream_reader.StreamReader];
+  dart.setMethodSignature(binary_reader.BinaryReader, () => ({
+    __proto__: dart.getMethods(binary_reader.BinaryReader.__proto__),
+    readBytes: dart.fnType(typed_data.ByteData, [core.int]),
+    readFloat32: dart.fnType(core.double, [], [dart.nullable(core.String)]),
+    readFloat64: dart.fnType(core.double, [], [dart.nullable(core.String)]),
+    readUint8: dart.fnType(core.int, [], [dart.nullable(core.String)]),
+    isEOF: dart.fnType(core.bool, []),
+    readInt8: dart.fnType(core.int, [], [dart.nullable(core.String)]),
+    readUint16: dart.fnType(core.int, [], [dart.nullable(core.String)]),
+    readUint16Array: dart.fnType(typed_data.Uint16List, [core.int], [dart.nullable(core.String)]),
+    readInt16: dart.fnType(core.int, [], [dart.nullable(core.String)]),
+    readUint32: dart.fnType(core.int, [], [dart.nullable(core.String)]),
+    readInt32: dart.fnType(core.int, [], [dart.nullable(core.String)]),
+    readString: dart.fnType(core.String, [], [dart.nullable(core.String)]),
+    readUint8Array: dart.fnType(typed_data.Uint8List, [core.int], [dart.nullable(core.String)]),
+    readVersion: dart.fnType(core.int, []),
+    readUint8Length: dart.fnType(core.int, []),
+    readUint32Length: dart.fnType(core.int, []),
+    readUint16Length: dart.fnType(core.int, []),
+    readId: dart.fnType(core.int, [core.String]),
+    readFloat32Array: dart.fnType(typed_data.Float32List, [core.int, core.String]),
+    readBool: dart.fnType(core.bool, [core.String]),
+    readAsset: dart.fnType(typed_data.Uint8List, []),
+    openArray: dart.fnType(dart.void, [core.String]),
+    closeArray: dart.fnType(dart.void, []),
+    openObject: dart.fnType(dart.void, [core.String]),
+    closeObject: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(binary_reader.BinaryReader, () => ({
+    __proto__: dart.getGetters(binary_reader.BinaryReader.__proto__),
+    raw: typed_data.ByteData,
+    readIndex: core.int,
+    containerType: core.String
+  }));
+  dart.setLibraryUri(binary_reader.BinaryReader, I[2]);
+  dart.setFieldSignature(binary_reader.BinaryReader, () => ({
+    __proto__: dart.getFields(binary_reader.BinaryReader.__proto__),
+    [_raw]: dart.finalFieldType(typed_data.ByteData),
+    [_readIndex]: dart.fieldType(core.int)
+  }));
+  var blockType$0 = dart.privateName(block_reader, "BlockReader.blockType");
+  block_reader.BlockReader = class BlockReader extends binary_reader.BinaryReader {
+    get blockType() {
+      return this[blockType$0];
+    }
+    set blockType(value) {
+      this[blockType$0] = value;
+    }
+    readNextBlock(types) {
+      if (this.isEOF()) {
+        return null;
+      }
+      let blockType = this.readUint8();
+      let length = this.readUint32();
+      return new block_reader.BlockReader.fromBlock(blockType, this.readBytes(length));
+    }
+  };
+  (block_reader.BlockReader.new = function(data) {
+    this[blockType$0] = 0;
+    block_reader.BlockReader.__proto__.new.call(this, data);
+    ;
+  }).prototype = block_reader.BlockReader.prototype;
+  (block_reader.BlockReader.fromBlock = function(blockType, stream) {
+    this[blockType$0] = blockType;
+    block_reader.BlockReader.__proto__.new.call(this, stream);
+    ;
+  }).prototype = block_reader.BlockReader.prototype;
+  dart.addTypeTests(block_reader.BlockReader);
+  dart.addTypeCaches(block_reader.BlockReader);
+  dart.setMethodSignature(block_reader.BlockReader, () => ({
+    __proto__: dart.getMethods(block_reader.BlockReader.__proto__),
+    readNextBlock: dart.fnType(dart.nullable(block_reader.BlockReader), [core.Map$(core.String, core.int)])
+  }));
+  dart.setLibraryUri(block_reader.BlockReader, I[3]);
+  dart.setFieldSignature(block_reader.BlockReader, () => ({
+    __proto__: dart.getFields(block_reader.BlockReader.__proto__),
+    blockType: dart.fieldType(core.int)
+  }));
+  var blockType = dart.privateName(stream_reader, "StreamReader.blockType");
+  stream_reader.StreamReader = class StreamReader extends core.Object {
+    get blockType() {
+      return this[blockType];
+    }
+    set blockType(value) {
+      this[blockType] = value;
+    }
+    static new(data) {
+      let t0;
+      if (typed_data.ByteData.is(data)) {
+        t0 = new block_reader.BlockReader.new(data);
+        return (() => {
+          t0.readUint8("F");
+          t0.readUint8("L");
+          t0.readUint8("A");
+          t0.readUint8("R");
+          t0.readUint8("E");
+          return t0;
+        })();
+      } else if (core.Map.is(data)) {
+        return new json_block_reader.JSONBlockReader.new(data);
+      } else {
+        dart.throw(new core.ArgumentError.new("Unexpected type for data"));
+      }
+    }
+  };
+  (stream_reader.StreamReader[dart.mixinNew] = function() {
+    this[blockType] = 0;
+  }).prototype = stream_reader.StreamReader.prototype;
+  dart.addTypeTests(stream_reader.StreamReader);
+  dart.addTypeCaches(stream_reader.StreamReader);
+  dart.setLibraryUri(stream_reader.StreamReader, I[4]);
+  dart.setFieldSignature(stream_reader.StreamReader, () => ({
+    __proto__: dart.getFields(stream_reader.StreamReader.__proto__),
+    blockType: dart.fieldType(core.int)
+  }));
+  dart.trackLibraries("packages/flare_flutter/base/json_reader.dart", {
+    "package:flare_flutter/base/json_reader.dart": json_reader,
+    "package:flare_flutter/base/json_block_reader.dart": json_block_reader,
+    "package:flare_flutter/base/binary_reader.dart": binary_reader,
+    "package:flare_flutter/base/block_reader.dart": block_reader,
+    "package:flare_flutter/base/stream_reader.dart": stream_reader
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["vertical_stack_header_dialog.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAGgB;;;;;;IACA;;;;;;IACA;;;;;;IACA;;;;;;IACA;;;;;;IACA;;;;;;IACH;;;;;;IACc;;;;;;IACA;;;;;;IACd;;;;;;IACG;;;;;;IACF;;;;;;IACG;;;;;;IACD;;;;;;IACD;;;;;;IACK;;;;;;UAuBQ;;AACR,kBAAc,gBAAG,OAAO;AACnB,2BAA4B,0BAAG,OAAO;AAC3D,YAAO,yCACM,yBACS,yCACR,qBAAgB,AAAe,AAAW,cAAZ,qBAAqB,cACxD,+BACa;6CAChB,qCACe,iBAAN,aAAS,AAAe,AAAK,cAAN,4BACrB,qDAKF,kCACE,6FAIY,uBAAX,cAAyB,6CAEtB,aACkB,mCAAtB,eAAyB,AAAM,KAAD,2BAC9B,gCACI,qBACF,+DACE,0CACkC,8CACZ,iCACT;2DAChB,gCACU,AAAO,sBAAU,OAAO,gEAE7B,gBAAL,aACI,oCAC6B,iCACT;;AAChB,oCAAI,oBAAkB,6BAAgB,eAAL,aAAQ,KAAK;AAC9C,oCAAI,mBACF,sCACe,2BACN,iEACI,uDACF,kBACD,eAAJ,wBACqB;;;AAMrC,8BAAI,mBACI;AAGR,8BAAI,sBAAiB,wBACnB,uEAKS,sCACgC,yCACnB;;AAChB,oCAAI,wBACF,yCACmB,qBAAV,aAAa;AAExB,oCAAI,0BAAqB,oBACjB;AAGR,oCAAI,oBACF,wCACc,eAAL;;;;;AAW/B,gBAAI,qBACF,8CACe,kBAAN,cAAS,AAAe,AAAK,cAAN,2BACvB,sCACgC,yCACnB,wBAChB,kCACS,2CACY,wBAAX,eAAyB,0CAE1B,sDACkC,mCAAtB,eAAyB,AAAM,KAAD,4BACvC,aACD;AAMnB,gBAAiB,eAAb,qBACF,0CACS,WACF,aACE,iDACE;AACS,kBAAN,WAAR;4CAEe,uBAAV;;;IAMrB;iBAE+B,OAAiB;AAAU,qCACpD,kBACE,KAAK,cACgB,4BACd,AAAM,AAAU,KAAX;IAKf;;;QAvJE;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACS;QACA;QACT;QACA;QACA;QACS;QACT;QACA;QACA;;IAfA;IACA;IACA;IACA;IACA;IACA;IACA;IACS;IACA;IACT;IACA;IACA;IACS;IACT;IACA;IACA;AACF,oFAAW,GAAG;;EAAC","file":"../../../../../../../../D:/packages/awesome_dialog/src/vertical_stack_header_dialog.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["json_reader.dart","json_block_reader.dart","binary_reader.dart","block_reader.dart","stream_reader.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;gBAcwB;AACZ,iBAAO,AAAS;AACxB,UAAS,YAAL,IAAI;AACE,mBAAO,AAAI,IAAA,QAAC,KAAK;AACP,QAAlB,AAAK,IAAD,UAAQ,KAAK;AACjB,YAAS,KAAL,IAAI;AACN,gBAAO,KAAI;;AAEX,gBAAO;;YAEJ,KAAS,aAAL,IAAI;AACL,mBAAO,AAAK,IAAD,YAAU;AAC7B,YAAS,KAAL,IAAI;AACN,gBAAO,KAAI;;AAEX,gBAAO;;;AAGX,YAAO;IACT;gBAG0B;;AACnB,cAAI,wBAAc,KAAK;AAC5B,kBAAO,CAAC,eAAD,OAAG;YAAH,eAAiB;IAC1B;qBAIiC,QAAe;AAC1C,eAAK,yCAAY,MAAM;AACN,MAArB,iBAAW,EAAE,EAAE,KAAK;AACpB,YAAO,GAAE;IACX;iBAEqB,IAAW;AACxB,kBAAQ,yBAAe,KAAK;AAClC,UAAI,AAAM,KAAD;AACP;;AAEF,eAAS,IAAI,GAAG,AAAE,CAAD,GAAG,AAAG,EAAD,WAAS,IAAA,AAAC,CAAA;AAC1B,kBAAe,YAAT,AAAK,KAAA,QAAC,CAAC;AACwC,QAAzD,AAAE,EAAA,QAAC,CAAC,EAAa,OAAT,AAAG,EAAD,uBAAmB,AAAI,GAAD,gBAAc,AAAI,GAAD;;IAErD;gBAG0B;;AACnB,cAAI,wBAAc,KAAK;AAC5B,kBAAO,CAAC,eAAD,OAAG;YAAH,eAAiB;IAC1B;cAGqB;;AACnB,WAAO,wBAAS,KAAK;YAAd,cAAmB;IAC5B;;AAIE,YAAO;IACT;;AAIE,YAAO,AAAS,AAAO,AAAK,0BAAF,KAAwB,YAAP,WAAZ,8BAAsB;IACvD;aAGoB;;AAClB,WAAO,wBAAc,KAAK;YAAnB,cAAwB;IACjC;eAGsB;;AACpB,WAAO,wBAAc,KAAK;YAAnB,cAAwB;IACjC;mBAG6B,QAAe;AACtC,eAAK,uCAAU,MAAM;AACJ,MAArB,iBAAW,EAAE,EAAE,KAAK;AACpB,YAAO,GAAE;IACX;oBAG+B,QAAe;AACxC,eAAK,wCAAW,MAAM;AACL,MAArB,iBAAW,EAAE,EAAE,KAAK;AACpB,YAAO,GAAE;IACX;cAGqB;;AACnB,WAAO,wBAAc,KAAK;YAAnB,cAAwB;IACjC;;AAIE,YAAO;IACT;;AAIE,YAAO;IACT;eAGsB;;AACpB,WAAO,wBAAc,KAAK;YAAnB,cAAwB;IACjC;cAGqB;;AACnB,WAAO,wBAAc,KAAK;YAAnB,cAAwB;IACjC;;;AAIE,WAAO,wBAAc;YAAd,cAA4B;IACrC;eAGyB;;AACvB,WAAO,2BAAiB,KAAK;YAAtB,cAA2B;IACpC;aAGqB;;AACnB,WAAO,yBAAe,KAAK;YAApB,cAAyB;IAClC;WAMkB;AACZ,gBAAM,wBAAc,KAAK;AAC7B,YAAO,AAAI,IAAD,WAAW,AAAI,AAAQ,GAAT,aAAW,IAAI;IACzC;cAGsB;AACZ,kBAAQ,4BAAkB,KAAK;AACf,MAAxB,AAAS,wBAAS,KAAK;IACzB;;AAIwB,MAAtB,AAAS;IACX;eAGuB;AACb,cAAI,4BAAkB,KAAK;AACf,MAApB,AAAS,wBAAS,CAAC;IACrB;;AAIwB,MAAtB,AAAS;IACX;;AAGE,UAAmB,aAAf,AAAS;AACX,cAAuB,AAAS,cAAxB,AAAS;YACZ,KAAmB,YAAf,AAAS;AAClB,cAAuB,AAAQ,aAAvB,AAAS;;AAEnB,YAAO;IACT;;AAIS,yBACH,gBAAW;AACf,YAA6B,yBAAQ,YAAY,EAAE;IACrD;;AAG4B;IAAM;;AACT;IAAQ;;yCAxLlB;IAFC,iBAAW;IAEU,oBAAE,AAAM,MAAA,QAAC;AACd,IAA9B,AAAS,wBAAS;EACpB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;ICRI;;;;;;kBAQ4C;AAC9C,UAAI;AACF,cAAO;;AAGL,gBAAwB;AACF,MAA1B,AAAG,GAAA,QAAC,aAAe;AACf,iBAAO,mBAAc,UAAU;AAC3B,cAAI,AAAQ;AACpB,UAAM,YAAF,CAAC;AACc,QAAjB,AAAE,CAAD,UAAQ;YACJ,KAAM,aAAF,CAAC;AACG,QAAb,AAAE,CAAD,YAAU;;AAGb,YAAuB,kDAAW,IAAI,EAAE,GAAG;IAC7C;kBAEmC;AACzB,iBAAO;AACf,UAAS,YAAL,IAAI;AACE,gBAAI,AAAQ;AACpB,YAAM,YAAF,CAAC;AACH,gBAA0B,gBAAnB,AAAU,UAAA,QAAC;cACb,KAAM,aAAF,CAAC;AAEV,gBAA+B,gBAAxB,AAAU,UAAA,QAAC,AAAI,IAAA,QAAC;;YAEpB,KAAS,aAAL,IAAI;AAEb,cAA0B,gBAAnB,AAAU,UAAA,QAAC;;AAGpB,YAAO;IACT;;AAGU,mBAAS,AAAQ;AACjB;AACR,UAAW,YAAP,MAAM;AACc,QAAtB,OAAO,AAAM,MAAA,QAAC;YACT,KAAW,aAAP,MAAM;AACC,QAAhB,OAAO,AAAM,MAAA,QAAC;;AAEhB,YAAO,KAAI;IACb;;AAEuB,YAAmB,YAAL,WAAd,AAAQ;IAAgB;;oDArD3B;IACJ,mBAAE;AACZ,+DAAM,MAAM;;EAAC;2DACa,WAAe;IAAf;AAAyB,+DAAM,MAAM;;EAAC;;;;;;;;;;;;;;;;;;;;;;ACClD;IAAI;;AACH;IAAU;cAIR;AACjB,mBAAS,AAAW,mBAAE,AAAI;AACV,MAApB,mBAAA,AAAW,mBAAG,MAAM;AACpB,YAAO,AAAI,AAAO,gCAAW,MAAM,EAAE,MAAM;IAC7C;gBAG4B;AACnB,kBAAQ,AAAK,wBAAW,kBAAmB;AACnC,MAAf,mBAAA,AAAW,mBAAG;AAEd,YAAO,MAAK;IACd;gBAG4B;AACnB,kBAAQ,AAAK,wBAAW,kBAAmB;AACnC,MAAf,mBAAA,AAAW,mBAAG;AAEd,YAAO,MAAK;IACd;cAGuB;;AACrB,YAAO,AAAK,wBAAmB,uBAAV,wBAAU;IACjC;;AAIE,YAAO,AAAW,qBAAG,AAAK;IAC5B;aAGsB;;AACpB,YAAO,AAAK,uBAAkB,uBAAV,wBAAU;IAChC;eAGwB;AAClB,kBAAQ,AAAK,uBAAU,kBAAmB;AAC/B,MAAf,mBAAA,AAAW,mBAAG;AAEd,YAAO,MAAK;IACd;oBAG+B,QAAiB;AACnC,iBAAO,wCAAW,MAAM;AACnC,eAAS,IAAI,GAAG,AAAE,CAAD,GAAG,MAAM,EAAE,IAAA,AAAC,CAAA;AACwB,QAAnD,AAAI,IAAA,QAAC,CAAC,EAAI,AAAK,uBAAU,kBAAmB;AAC7B,QAAf,mBAAA,AAAW,mBAAG;;AAEhB,YAAO,KAAI;IACb;cAGuB;AACjB,kBAAQ,AAAK,sBAAS,kBAAmB;AAC9B,MAAf,mBAAA,AAAW,mBAAG;AAEd,YAAO,MAAK;IACd;eAGwB;AAClB,kBAAQ,AAAK,uBAAU,kBAAmB;AAC/B,MAAf,mBAAA,AAAW,mBAAG;AAEd,YAAO,MAAK;IACd;cAGuB;AACjB,kBAAQ,AAAK,sBAAS,kBAAmB;AAC9B,MAAf,mBAAA,AAAW,mBAAG;AAEd,YAAO,MAAK;IACd;eAG2B;AACrB,mBAAS;AACT,gBAAM,AAAW,mBAAE,MAAM;AAChB,yBAAe;AAE5B,aAAO,AAAW,mBAAE,GAAG;AACjB,iBAAK;AACT,YAAI,AAAG,EAAD,GAAG;AACuB,UAA9B,AAAa,YAAD,eAAe,EAAE;cACxB,KAAI,AAAG,EAAD,GAAG,OAAO,AAAG,EAAD,GAAG;AACtB,mBAAK;AAC2C,UAApD,AAAa,YAAD,eAAyB,AAAK,CAAd,AAAG,EAAD,GAAG,OAAO,IAAI,AAAG,EAAD,GAAG;cAC5C,KAAI,AAAG,EAAD,GAAG,OAAO,AAAG,EAAD,GAAG;AACtB,mBAAK;AACL,mBAAK;AACL,mBAAK;AACL,kBAAkE,CAApD,AAAM,AAAkB,AAAiB,CAAjD,AAAG,EAAD,GAAG,MAAM,KAAe,CAAT,AAAG,EAAD,GAAG,OAAO,KAAe,CAAT,AAAG,EAAD,GAAG,OAAO,IAAI,AAAG,EAAD,GAAG,MAC9D;AAC0C,UAA9C,AAAa,YAAD,eAAe,AAAO,QAAG,AAAE,CAAD,cAAI;AACK,UAA/C,AAAa,YAAD,eAAe,AAAO,SAAG,AAAE,CAAD,GAAG;;AAErC,mBAAK;AACL,mBAAK;AAC6D,UAAtE,AAAa,YAAD,eAAyB,AAAM,AAAiB,CAAhC,AAAG,EAAD,GAAG,OAAO,KAAe,CAAT,AAAG,EAAD,GAAG,OAAO,IAAI,AAAG,EAAD,GAAG;;;AAGvE,YAAO,AAAa,aAAD;IACrB;mBAG6B,QAAiB;AACxC,mBAAS,AAAW,mBAAE,AAAK;AACX,MAApB,mBAAA,AAAW,mBAAG,MAAM;AACpB,YAAO,AAAK,AAAO,mCAAY,MAAM,EAAE,MAAM;IAC/C;;AAIE,YAAO;IACT;;AAIE,YAAO;IACT;;AAIE,YAAO;IACT;;AAIE,YAAO;IACT;WAGkB;AAChB,YAAO,iBAAW,KAAK;IACzB;qBAGiC,QAAe;AAClC,iBAAO,yCAAY,MAAM;AACrC,eAAS,IAAI,GAAG,AAAE,CAAD,GAAG,MAAM,EAAE,IAAA,AAAC,CAAA;AACyB,QAApD,AAAI,IAAA,QAAC,CAAC,EAAI,AAAK,wBAAW,kBAAmB;AAC9B,QAAf,mBAAA,AAAW,mBAAG;;AAEhB,YAAO,KAAI;IAGb;aAGqB;AACnB,YAAO,AAAiB,gBAAP,KAAK,MAAK;IAC7B;;AAIM,mBAAS;AACb,YAAO,qBAAe,MAAM;IAC9B;cAGsB;IAEtB;;IAKA;eAGuB;IAEvB;;IAKA;;AAG4B;IAAK;;6CA3LX;IALlB,mBAAa;IAKkB,aAAE,IAAI;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;ICPrC;;;;;;kBAUwC;AAC1C,UAAI;AACF,cAAO;;AAEL,sBAAY;AACZ,mBAAS;AACb,YAAmB,wCAAU,SAAS,EAAE,eAAU,MAAM;IAC1D;;2CAfqB;IACL,oBAAE;AACZ,sDAAM,IAAI;;EAAC;iDACU,WAAoB;IAApB;AAA8B,sDAAM,MAAM;;EAAC;;;;;;;;;;;;;;ICJlE;;;;;;eAGyB;;AAC3B,UAAS,uBAAL,IAAI;AAEN,aAAO,iCAAY,IAAI;cAAhB;AACH,uBAAU;AACV,uBAAU;AACV,uBAAU;AACV,uBAAU;AACV,uBAAU;;;YACT,KAAS,YAAL,IAAI;AACb,cAAO,2CAAgB,IAAI;;AAEoB,QAA/C,WAAM,2BAAc;;IAExB;;;IAjBI,kBAAY","file":"../../../../../../../../D:/packages/flare_flutter/base/json_reader.dart.lib.js"}');
   // Exports:
   return {
-    src__vertical_stack_header_dialog: vertical_stack_header_dialog
+    base__json_reader: json_reader,
+    base__json_block_reader: json_block_reader,
+    base__binary_reader: binary_reader,
+    base__block_reader: block_reader,
+    base__stream_reader: stream_reader
   };
 }));
 
-//# sourceMappingURL=vertical_stack_header_dialog.dart.lib.js.map
+//# sourceMappingURL=json_reader.dart.lib.js.map

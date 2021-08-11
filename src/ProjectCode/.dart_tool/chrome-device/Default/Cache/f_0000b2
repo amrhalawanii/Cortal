@@ -1,44 +1,91 @@
-define(['dart_sdk', 'packages/flutter/src/painting/box_fit.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flare_flutter/provider/asset_flare.dart', 'packages/flutter/src/services/system_channels.dart', 'packages/flare_flutter/provider/memory_flare.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flare_flutter/asset_provider.dart', 'packages/flare_flutter/flare_controller.dart', 'packages/flare_flutter/base/math/transform_components.dart', 'packages/flare_flutter/base/math/aabb.dart', 'packages/flare_flutter/base/dependency_sorter.dart', 'packages/flare_flutter/flare.dart', 'packages/flare_flutter/flare_render_box.dart'], (function load__packages__flare_flutter__flare_actor_dart(dart_sdk, packages__flutter__src__painting__box_fit$46dart, packages__flutter__src__painting__alignment$46dart, packages__flare_flutter__provider__asset_flare$46dart, packages__flutter__src__services__system_channels$46dart, packages__flare_flutter__provider__memory_flare$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__rendering__layer$46dart, packages__flare_flutter__asset_provider$46dart, packages__flare_flutter__flare_controller$46dart, packages__flare_flutter__base__math__transform_components$46dart, packages__flare_flutter__base__math__aabb$46dart, packages__flare_flutter__base__dependency_sorter$46dart, packages__flare_flutter__flare$46dart, packages__flare_flutter__flare_render_box$46dart) {
+define(['dart_sdk'], (function load__packages__supercharged_dart__supercharged_dart_dart(dart_sdk) {
   'use strict';
   const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
-  const _interceptors = dart_sdk._interceptors;
-  const _internal = dart_sdk._internal;
-  const _native_typed_data = dart_sdk._native_typed_data;
+  const _js_helper = dart_sdk._js_helper;
   const math = dart_sdk.math;
   const async = dart_sdk.async;
+  const _internal = dart_sdk._internal;
+  const _interceptors = dart_sdk._interceptors;
+  const convert = dart_sdk.convert;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const box_fit = packages__flutter__src__painting__box_fit$46dart.src__painting__box_fit;
-  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
-  const asset_flare = packages__flare_flutter__provider__asset_flare$46dart.provider__asset_flare;
-  const asset_bundle = packages__flutter__src__services__system_channels$46dart.src__services__asset_bundle;
-  const memory_flare = packages__flare_flutter__provider__memory_flare$46dart.provider__memory_flare;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
-  const asset_provider = packages__flare_flutter__asset_provider$46dart.asset_provider;
-  const flare_controller = packages__flare_flutter__flare_controller$46dart.flare_controller;
-  const mat2d = packages__flare_flutter__base__math__transform_components$46dart.base__math__mat2d;
-  const aabb = packages__flare_flutter__base__math__aabb$46dart.base__math__aabb;
-  const actor_node = packages__flare_flutter__base__dependency_sorter$46dart.base__actor_node;
-  const actor_drawable = packages__flare_flutter__base__dependency_sorter$46dart.base__actor_drawable;
-  const actor_animation = packages__flare_flutter__base__dependency_sorter$46dart.base__animation__actor_animation;
-  const flare = packages__flare_flutter__flare$46dart.flare;
-  const flare_render_box = packages__flare_flutter__flare_render_box$46dart.flare_render_box;
-  var flare_actor = Object.create(dart.library);
-  var $clear = dartx.clear;
-  var $isNotEmpty = dartx.isNotEmpty;
+  var supercharged_dart = Object.create(dart.library);
+  var $round = dartx.round;
+  var $toDouble = dartx.toDouble;
+  var $abs = dartx.abs;
+  var $sign = dartx.sign;
+  var $forEach = dartx.forEach;
+  var $compareTo = dartx.compareTo;
+  var $map = dartx.map;
+  var $fold = dartx.fold;
+  var $isEmpty = dartx.isEmpty;
   var $length = dartx.length;
-  var $_get = dartx._get;
-  var $modulo = dartx['%'];
+  var $ceil = dartx.ceil;
+  var $skip = dartx.skip;
+  var $take = dartx.take;
+  var $toList = dartx.toList;
   var $add = dartx.add;
-  var $removeRange = dartx.removeRange;
-  var $removeAt = dartx.removeAt;
-  var $remove = dartx.remove;
+  var $reduce = dartx.reduce;
+  var $where = dartx.where;
+  var $iterator = dartx.iterator;
+  var $elementAt = dartx.elementAt;
+  var $firstWhere = dartx.firstWhere;
+  var $lastWhere = dartx.lastWhere;
+  var $containsKey = dartx.containsKey;
+  var $_set = dartx._set;
+  var $_get = dartx._get;
+  var $sort = dartx.sort;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $shuffle = dartx.shuffle;
+  var $first = dartx.first;
+  var $entries = dartx.entries;
+  var $reversed = dartx.reversed;
+  var $split = dartx.split;
+  var $allMatches = dartx.allMatches;
+  var $substring = dartx.substring;
   dart._checkModuleNullSafetyMode(true);
-  var T = {
-    JSArrayOfFlareAnimationLayer: () => (T.JSArrayOfFlareAnimationLayer = dart.constFn(_interceptors.JSArray$(flare_actor.FlareAnimationLayer)))(),
-    JSArrayOfdouble: () => (T.JSArrayOfdouble = dart.constFn(_interceptors.JSArray$(core.double)))()
+  var T$ = {
+    SyncIterableOfDateTime: () => (T$.SyncIterableOfDateTime = dart.constFn(_js_helper.SyncIterable$(core.DateTime)))(),
+    IterableOfDateTime: () => (T$.IterableOfDateTime = dart.constFn(core.Iterable$(core.DateTime)))(),
+    DateTime__ToIterableOfDateTime: () => (T$.DateTime__ToIterableOfDateTime = dart.constFn(dart.fnType(T$.IterableOfDateTime(), [core.DateTime], {by: core.Duration}, {})))(),
+    VoidToDuration: () => (T$.VoidToDuration = dart.constFn(dart.fnType(core.Duration, [])))(),
+    DateTimeAndDateTimeTobool: () => (T$.DateTimeAndDateTimeTobool = dart.constFn(dart.fnType(core.bool, [core.DateTime, core.DateTime])))(),
+    numAndnumTobool: () => (T$.numAndnumTobool = dart.constFn(dart.fnType(core.bool, [core.num, core.num])))(),
+    VoidToDateTime: () => (T$.VoidToDateTime = dart.constFn(dart.fnType(core.DateTime, [])))(),
+    FutureOfvoid: () => (T$.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
+    IterableOfint: () => (T$.IterableOfint = dart.constFn(core.Iterable$(core.int)))(),
+    intToint: () => (T$.intToint = dart.constFn(dart.fnType(core.int, [core.int])))(),
+    intToIterableOfint: () => (T$.intToIterableOfint = dart.constFn(dart.fnType(T$.IterableOfint(), [core.int])))(),
+    EmptyIterableOfint: () => (T$.EmptyIterableOfint = dart.constFn(_internal.EmptyIterable$(core.int)))(),
+    intTovoid: () => (T$.intTovoid = dart.constFn(dart.fnType(dart.void, [core.int])))(),
+    VoidTovoid: () => (T$.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    FnTovoid: () => (T$.FnTovoid = dart.constFn(dart.fnType(dart.void, [T$.VoidTovoid()])))(),
+    doubleTodouble: () => (T$.doubleTodouble = dart.constFn(dart.fnType(core.double, [core.double])))(),
+    VoidTodouble: () => (T$.VoidTodouble = dart.constFn(dart.fnType(core.double, [])))(),
+    doubleN: () => (T$.doubleN = dart.constFn(dart.nullable(core.double)))(),
+    VoidTodoubleN: () => (T$.VoidTodoubleN = dart.constFn(dart.fnType(T$.doubleN(), [])))(),
+    doubleAnddoubleToint: () => (T$.doubleAnddoubleToint = dart.constFn(dart.fnType(core.int, [core.double, core.double])))(),
+    VoidToint: () => (T$.VoidToint = dart.constFn(dart.fnType(core.int, [])))(),
+    intAndintToint: () => (T$.intAndintToint = dart.constFn(dart.fnType(core.int, [core.int, core.int])))(),
+    intN: () => (T$.intN = dart.constFn(dart.nullable(core.int)))(),
+    VoidTointN: () => (T$.VoidTointN = dart.constFn(dart.fnType(T$.intN(), [])))(),
+    doubleAndnumTodouble: () => (T$.doubleAndnumTodouble = dart.constFn(dart.fnType(core.double, [core.double, core.num])))(),
+    ObjectN: () => (T$.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    RandomN: () => (T$.RandomN = dart.constFn(dart.nullable(math.Random)))(),
+    ObjectNToObjectN: () => (T$.ObjectNToObjectN = dart.constFn(dart.fnType(T$.ObjectN(), [T$.ObjectN()])))(),
+    ObjectNToNObjectN: () => (T$.ObjectNToNObjectN = dart.constFn(dart.nullable(T$.ObjectNToObjectN())))(),
+    __ToString: () => (T$.__ToString = dart.constFn(dart.fnType(core.String, [], {toEncodable: T$.ObjectNToNObjectN()}, {})))(),
+    int__ToString: () => (T$.int__ToString = dart.constFn(dart.fnType(core.String, [core.int], {separator: core.String}, {})))(),
+    VoidToArgumentError: () => (T$.VoidToArgumentError = dart.constFn(dart.fnType(core.ArgumentError, [])))(),
+    StringAndStringToString: () => (T$.StringAndStringToString = dart.constFn(dart.fnType(core.String, [core.String, core.String])))(),
+    ListOfString: () => (T$.ListOfString = dart.constFn(core.List$(core.String)))(),
+    VoidToListOfString: () => (T$.VoidToListOfString = dart.constFn(dart.fnType(T$.ListOfString(), [])))(),
+    ObjectNAndObjectNToObjectN: () => (T$.ObjectNAndObjectNToObjectN = dart.constFn(dart.fnType(T$.ObjectN(), [T$.ObjectN(), T$.ObjectN()])))(),
+    ObjectNAndObjectNToNObjectN: () => (T$.ObjectNAndObjectNToNObjectN = dart.constFn(dart.nullable(T$.ObjectNAndObjectNToObjectN())))(),
+    __Todynamic: () => (T$.__Todynamic = dart.constFn(dart.fnType(dart.dynamic, [], {reviver: T$.ObjectNAndObjectNToNObjectN()}, {})))(),
+    PatternToString: () => (T$.PatternToString = dart.constFn(dart.fnType(core.String, [core.Pattern])))(),
+    PatternAndPatternToString: () => (T$.PatternAndPatternToString = dart.constFn(dart.fnType(core.String, [core.Pattern, core.Pattern])))(),
+    __TointN: () => (T$.__TointN = dart.constFn(dart.fnType(T$.intN(), [], {radix: core.int}, {})))()
   };
   const CT = Object.create({
     _: () => (C, CT)
@@ -46,794 +93,750 @@ define(['dart_sdk', 'packages/flutter/src/painting/box_fit.dart', 'packages/flut
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: box_fit.BoxFit.prototype,
-        [_name]: "BoxFit.contain",
-        index: 1
-      });
-    },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: alignment.Alignment.prototype,
-        [Alignment_y]: 0,
-        [Alignment_x]: 0
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 86400000000.0
       });
     }
   }, false);
-  var C = Array(2).fill(void 0);
-  var I = ["package:flare_flutter/flare_actor.dart"];
-  var filename$ = dart.privateName(flare_actor, "FlareActor.filename");
-  var flareProvider$ = dart.privateName(flare_actor, "FlareActor.flareProvider");
-  var artboard$ = dart.privateName(flare_actor, "FlareActor.artboard");
-  var animation$ = dart.privateName(flare_actor, "FlareActor.animation");
-  var snapToEnd$ = dart.privateName(flare_actor, "FlareActor.snapToEnd");
-  var fit$ = dart.privateName(flare_actor, "FlareActor.fit");
-  var alignment$ = dart.privateName(flare_actor, "FlareActor.alignment");
-  var isPaused$ = dart.privateName(flare_actor, "FlareActor.isPaused");
-  var shouldClip$ = dart.privateName(flare_actor, "FlareActor.shouldClip");
-  var controller$ = dart.privateName(flare_actor, "FlareActor.controller");
-  var callback$ = dart.privateName(flare_actor, "FlareActor.callback");
-  var color$ = dart.privateName(flare_actor, "FlareActor.color");
-  var boundsNode$ = dart.privateName(flare_actor, "FlareActor.boundsNode");
-  var sizeFromArtboard$ = dart.privateName(flare_actor, "FlareActor.sizeFromArtboard");
-  var antialias$ = dart.privateName(flare_actor, "FlareActor.antialias");
-  var _name = dart.privateName(box_fit, "_name");
-  var Alignment_y = dart.privateName(alignment, "Alignment.y");
-  var Alignment_x = dart.privateName(alignment, "Alignment.x");
-  flare_actor.FlareActor = class FlareActor extends framework.LeafRenderObjectWidget {
-    get filename() {
-      return this[filename$];
-    }
-    set filename(value) {
-      super.filename = value;
-    }
-    get flareProvider() {
-      return this[flareProvider$];
-    }
-    set flareProvider(value) {
-      super.flareProvider = value;
-    }
-    get artboard() {
-      return this[artboard$];
-    }
-    set artboard(value) {
-      super.artboard = value;
-    }
-    get animation() {
-      return this[animation$];
-    }
-    set animation(value) {
-      super.animation = value;
-    }
-    get snapToEnd() {
-      return this[snapToEnd$];
-    }
-    set snapToEnd(value) {
-      super.snapToEnd = value;
-    }
-    get fit() {
-      return this[fit$];
-    }
-    set fit(value) {
-      super.fit = value;
-    }
-    get alignment() {
-      return this[alignment$];
-    }
-    set alignment(value) {
-      super.alignment = value;
-    }
-    get isPaused() {
-      return this[isPaused$];
-    }
-    set isPaused(value) {
-      super.isPaused = value;
-    }
-    get shouldClip() {
-      return this[shouldClip$];
-    }
-    set shouldClip(value) {
-      super.shouldClip = value;
-    }
-    get controller() {
-      return this[controller$];
-    }
-    set controller(value) {
-      super.controller = value;
-    }
-    get callback() {
-      return this[callback$];
-    }
-    set callback(value) {
-      super.callback = value;
-    }
-    get color() {
-      return this[color$];
-    }
-    set color(value) {
-      super.color = value;
-    }
-    get boundsNode() {
-      return this[boundsNode$];
-    }
-    set boundsNode(value) {
-      super.boundsNode = value;
-    }
-    get sizeFromArtboard() {
-      return this[sizeFromArtboard$];
-    }
-    set sizeFromArtboard(value) {
-      super.sizeFromArtboard = value;
-    }
-    get antialias() {
-      return this[antialias$];
-    }
-    set antialias(value) {
-      super.antialias = value;
-    }
-    createRenderObject(context) {
-      let t1, t0;
-      t0 = new flare_actor.FlareActorRenderObject.new();
-      return (() => {
-        t0.assetProvider = (t1 = this.flareProvider, t1 == null ? new asset_flare.AssetFlare.new({bundle: asset_bundle.rootBundle, name: dart.nullCheck(this.filename)}) : t1);
-        t0.fit = this.fit;
-        t0.alignment = this.alignment;
-        t0.animationName = this.animation;
-        t0.snapToEnd = this.snapToEnd;
-        t0.isPaused = this.isPaused;
-        t0.controller = this.controller;
-        t0.completed = this.callback;
-        t0.color = this.color;
-        t0.shouldClip = this.shouldClip;
-        t0.boundsNodeName = this.boundsNode;
-        t0.useIntrinsicSize = this.sizeFromArtboard;
-        t0.artboardName = this.artboard;
-        t0.useAntialias = this.antialias;
-        return t0;
-      })();
-    }
-    didUnmountRenderObject(renderObject) {
-      flare_actor.FlareActorRenderObject.as(renderObject);
-      renderObject.dispose();
-    }
-    updateRenderObject(context, renderObject) {
-      let t1, t0;
-      flare_actor.FlareActorRenderObject.as(renderObject);
-      t0 = renderObject;
-      (() => {
-        t0.assetProvider = (t1 = this.flareProvider, t1 == null ? new asset_flare.AssetFlare.new({bundle: asset_bundle.rootBundle, name: dart.nullCheck(this.filename)}) : t1);
-        t0.fit = this.fit;
-        t0.alignment = this.alignment;
-        t0.animationName = this.animation;
-        t0.snapToEnd = this.snapToEnd;
-        t0.isPaused = this.isPaused;
-        t0.color = this.color;
-        t0.shouldClip = this.shouldClip;
-        t0.boundsNodeName = this.boundsNode;
-        t0.useIntrinsicSize = this.sizeFromArtboard;
-        t0.artboardName = this.artboard;
-        t0.useAntialias = this.antialias;
-        return t0;
-      })();
+  var C = [void 0];
+  var I = ["package:supercharged_dart/supercharged_dart.dart"];
+  supercharged_dart.Supercharged = class Supercharged extends core.Object {};
+  (supercharged_dart.Supercharged.new = function() {
+    ;
+  }).prototype = supercharged_dart.Supercharged.prototype;
+  dart.addTypeTests(supercharged_dart.Supercharged);
+  dart.addTypeCaches(supercharged_dart.Supercharged);
+  dart.setLibraryUri(supercharged_dart.Supercharged, I[0]);
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  supercharged_dart['DateTimeSC|+'] = function DateTimeSC$124$43($this, duration) {
+    return $this.add(duration);
+  };
+  supercharged_dart['DateTimeSC|-'] = function DateTimeSC$124$45($this, duration) {
+    return $this.subtract(duration);
+  };
+  supercharged_dart['DateTimeSC|rangeTo'] = function DateTimeSC$124rangeTo($this, to, opts) {
+    let by = opts && 'by' in opts ? opts.by : C[0] || CT.C0;
+    return new (T$.SyncIterableOfDateTime()).new(function* DateTimeSC$124rangeTo() {
+      yield $this;
+      if ($this.isAtSameMomentAs(to)) return;
+      if ($this.isBefore(to)) {
+        let value = supercharged_dart['DateTimeSC|+']($this, by);
+        yield value;
+        let count = 1;
+        while (value.isBefore(to)) {
+          value = supercharged_dart['DateTimeSC|+']($this, by['*'](count = count + 1));
+          yield value;
+        }
+      } else {
+        let value = supercharged_dart['DateTimeSC|-']($this, by);
+        yield value;
+        let count = 1;
+        while (value.isAfter(to)) {
+          value = supercharged_dart['DateTimeSC|-']($this, by['*'](count = count + 1));
+          yield value;
+        }
+      }
+    });
+  };
+  supercharged_dart['DateTimeSC|get#rangeTo'] = function DateTimeSC$124get$35rangeTo($this) {
+    return dart.fn((to, opts) => {
+      let by = opts && 'by' in opts ? opts.by : C[0] || CT.C0;
+      return supercharged_dart['DateTimeSC|rangeTo']($this, to, {by: by});
+    }, T$.DateTime__ToIterableOfDateTime());
+  };
+  supercharged_dart['DateTimeSC|until'] = function DateTimeSC$124until($this, to, opts) {
+    let by = opts && 'by' in opts ? opts.by : C[0] || CT.C0;
+    return new (T$.SyncIterableOfDateTime()).new(function* DateTimeSC$124until() {
+      for (let date of supercharged_dart['IterableSC|withoutLast'](core.DateTime, supercharged_dart['DateTimeSC|rangeTo']($this, to, {by: by}))) {
+        yield date;
+      }
+    });
+  };
+  supercharged_dart['DateTimeSC|get#until'] = function DateTimeSC$124get$35until($this) {
+    return dart.fn((to, opts) => {
+      let by = opts && 'by' in opts ? opts.by : C[0] || CT.C0;
+      return supercharged_dart['DateTimeSC|until']($this, to, {by: by});
+    }, T$.DateTime__ToIterableOfDateTime());
+  };
+  supercharged_dart['DateTimeSC|duration'] = function DateTimeSC$124duration($this) {
+    return new core.Duration.new({milliseconds: $this.millisecondsSinceEpoch});
+  };
+  supercharged_dart['DateTimeSC|get#duration'] = function DateTimeSC$124get$35duration($this) {
+    return dart.fn(() => supercharged_dart['DateTimeSC|duration']($this), T$.VoidToDuration());
+  };
+  supercharged_dart['DateTimeSC|isBetween'] = function DateTimeSC$124isBetween($this, from, to) {
+    return $this.isAfter(from) && $this.isBefore(to) || $this._equals(from) || $this._equals(to);
+  };
+  supercharged_dart['DateTimeSC|get#isBetween'] = function DateTimeSC$124get$35isBetween($this) {
+    return dart.fn((from, to) => supercharged_dart['DateTimeSC|isBetween']($this, from, to), T$.DateTimeAndDateTimeTobool());
+  };
+  supercharged_dart['DoubleSC|get#seconds'] = function DoubleSC$124get$35seconds($this) {
+    return new core.Duration.new({microseconds: (1000000 * $this)[$round]()});
+  };
+  supercharged_dart['DoubleSC|get#minutes'] = function DoubleSC$124get$35minutes($this) {
+    return new core.Duration.new({milliseconds: (1000 * 60 * $this)[$round]()});
+  };
+  supercharged_dart['DoubleSC|get#hours'] = function DoubleSC$124get$35hours($this) {
+    return new core.Duration.new({milliseconds: (1000 * 60 * 60 * $this)[$round]()});
+  };
+  supercharged_dart['DoubleSC|get#days'] = function DoubleSC$124get$35days($this) {
+    return new core.Duration.new({milliseconds: (1000 * 60 * 60 * 24 * $this)[$round]()});
+  };
+  supercharged_dart['DoubleSC|get#isBetween'] = function DoubleSC$124get$35isBetween($this) {
+    return dart.fn((first, second) => supercharged_dart['DoubleSC|isBetween']($this, first, second), T$.numAndnumTobool());
+  };
+  supercharged_dart['DoubleSC|isBetween'] = function DoubleSC$124isBetween($this, first, second) {
+    let lower = math.min(core.num, first, second);
+    let upper = math.max(core.num, first, second);
+    return $this >= lower && $this <= upper;
+  };
+  supercharged_dart['DurationSC|fromNow'] = function DurationSC$124fromNow($this) {
+    return supercharged_dart['DateTimeSC|+'](new core.DateTime.now(), $this);
+  };
+  supercharged_dart['DurationSC|get#fromNow'] = function DurationSC$124get$35fromNow($this) {
+    return dart.fn(() => supercharged_dart['DurationSC|fromNow']($this), T$.VoidToDateTime());
+  };
+  supercharged_dart['DurationSC|ago'] = function DurationSC$124ago($this) {
+    return supercharged_dart['DateTimeSC|-'](new core.DateTime.now(), $this);
+  };
+  supercharged_dart['DurationSC|get#ago'] = function DurationSC$124get$35ago($this) {
+    return dart.fn(() => supercharged_dart['DurationSC|ago']($this), T$.VoidToDateTime());
+  };
+  supercharged_dart['DurationSC|/'] = function DurationSC$124$47($this, otherDuration) {
+    return $this.inMicroseconds[$toDouble]() / otherDuration.inMicroseconds[$toDouble]();
+  };
+  supercharged_dart['DurationSC|get#delay'] = function DurationSC$124get$35delay($this) {
+    return T$.FutureOfvoid().delayed($this);
+  };
+  supercharged_dart.throwIf = function throwIf(test, errorFactoryFunc) {
+    return supercharged_dart.throwIfNot(!test, errorFactoryFunc);
+  };
+  supercharged_dart.throwIfNot = function throwIfNot(test, errorFactoryFunc) {
+    if (!test) {
+      dart.throw(errorFactoryFunc());
     }
   };
-  (flare_actor.FlareActor.new = function(filename, opts) {
-    let boundsNode = opts && 'boundsNode' in opts ? opts.boundsNode : null;
-    let animation = opts && 'animation' in opts ? opts.animation : null;
-    let fit = opts && 'fit' in opts ? opts.fit : C[0] || CT.C0;
-    let alignment = opts && 'alignment' in opts ? opts.alignment : C[1] || CT.C1;
-    let isPaused = opts && 'isPaused' in opts ? opts.isPaused : false;
-    let snapToEnd = opts && 'snapToEnd' in opts ? opts.snapToEnd : false;
-    let controller = opts && 'controller' in opts ? opts.controller : null;
-    let callback = opts && 'callback' in opts ? opts.callback : null;
-    let color = opts && 'color' in opts ? opts.color : null;
-    let shouldClip = opts && 'shouldClip' in opts ? opts.shouldClip : true;
-    let sizeFromArtboard = opts && 'sizeFromArtboard' in opts ? opts.sizeFromArtboard : false;
-    let artboard = opts && 'artboard' in opts ? opts.artboard : null;
-    let antialias = opts && 'antialias' in opts ? opts.antialias : true;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[filename$] = filename;
-    this[boundsNode$] = boundsNode;
-    this[animation$] = animation;
-    this[fit$] = fit;
-    this[alignment$] = alignment;
-    this[isPaused$] = isPaused;
-    this[snapToEnd$] = snapToEnd;
-    this[controller$] = controller;
-    this[callback$] = callback;
-    this[color$] = color;
-    this[shouldClip$] = shouldClip;
-    this[sizeFromArtboard$] = sizeFromArtboard;
-    this[artboard$] = artboard;
-    this[antialias$] = antialias;
-    this[flareProvider$] = null;
-    flare_actor.FlareActor.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = flare_actor.FlareActor.prototype;
-  (flare_actor.FlareActor.asset = function(flareProvider, opts) {
-    let boundsNode = opts && 'boundsNode' in opts ? opts.boundsNode : null;
-    let animation = opts && 'animation' in opts ? opts.animation : null;
-    let fit = opts && 'fit' in opts ? opts.fit : C[0] || CT.C0;
-    let alignment = opts && 'alignment' in opts ? opts.alignment : C[1] || CT.C1;
-    let isPaused = opts && 'isPaused' in opts ? opts.isPaused : false;
-    let snapToEnd = opts && 'snapToEnd' in opts ? opts.snapToEnd : false;
-    let controller = opts && 'controller' in opts ? opts.controller : null;
-    let callback = opts && 'callback' in opts ? opts.callback : null;
-    let color = opts && 'color' in opts ? opts.color : null;
-    let shouldClip = opts && 'shouldClip' in opts ? opts.shouldClip : true;
-    let sizeFromArtboard = opts && 'sizeFromArtboard' in opts ? opts.sizeFromArtboard : false;
-    let artboard = opts && 'artboard' in opts ? opts.artboard : null;
-    let antialias = opts && 'antialias' in opts ? opts.antialias : true;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[flareProvider$] = flareProvider;
-    this[boundsNode$] = boundsNode;
-    this[animation$] = animation;
-    this[fit$] = fit;
-    this[alignment$] = alignment;
-    this[isPaused$] = isPaused;
-    this[snapToEnd$] = snapToEnd;
-    this[controller$] = controller;
-    this[callback$] = callback;
-    this[color$] = color;
-    this[shouldClip$] = shouldClip;
-    this[sizeFromArtboard$] = sizeFromArtboard;
-    this[artboard$] = artboard;
-    this[antialias$] = antialias;
-    this[filename$] = null;
-    flare_actor.FlareActor.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = flare_actor.FlareActor.prototype;
-  (flare_actor.FlareActor.bundle = function(name, opts) {
-    let t0;
-    let boundsNode = opts && 'boundsNode' in opts ? opts.boundsNode : null;
-    let animation = opts && 'animation' in opts ? opts.animation : null;
-    let fit = opts && 'fit' in opts ? opts.fit : C[0] || CT.C0;
-    let alignment = opts && 'alignment' in opts ? opts.alignment : C[1] || CT.C1;
-    let isPaused = opts && 'isPaused' in opts ? opts.isPaused : false;
-    let snapToEnd = opts && 'snapToEnd' in opts ? opts.snapToEnd : false;
-    let controller = opts && 'controller' in opts ? opts.controller : null;
-    let callback = opts && 'callback' in opts ? opts.callback : null;
-    let color = opts && 'color' in opts ? opts.color : null;
-    let shouldClip = opts && 'shouldClip' in opts ? opts.shouldClip : true;
-    let sizeFromArtboard = opts && 'sizeFromArtboard' in opts ? opts.sizeFromArtboard : false;
-    let artboard = opts && 'artboard' in opts ? opts.artboard : null;
-    let antialias = opts && 'antialias' in opts ? opts.antialias : true;
-    let bundle = opts && 'bundle' in opts ? opts.bundle : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[boundsNode$] = boundsNode;
-    this[animation$] = animation;
-    this[fit$] = fit;
-    this[alignment$] = alignment;
-    this[isPaused$] = isPaused;
-    this[snapToEnd$] = snapToEnd;
-    this[controller$] = controller;
-    this[callback$] = callback;
-    this[color$] = color;
-    this[shouldClip$] = shouldClip;
-    this[sizeFromArtboard$] = sizeFromArtboard;
-    this[artboard$] = artboard;
-    this[antialias$] = antialias;
-    this[filename$] = null;
-    this[flareProvider$] = new asset_flare.AssetFlare.new({bundle: (t0 = bundle, t0 == null ? asset_bundle.rootBundle : t0), name: name});
-    flare_actor.FlareActor.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = flare_actor.FlareActor.prototype;
-  (flare_actor.FlareActor.memory = function(bytes, opts) {
-    let boundsNode = opts && 'boundsNode' in opts ? opts.boundsNode : null;
-    let animation = opts && 'animation' in opts ? opts.animation : null;
-    let fit = opts && 'fit' in opts ? opts.fit : C[0] || CT.C0;
-    let alignment = opts && 'alignment' in opts ? opts.alignment : C[1] || CT.C1;
-    let isPaused = opts && 'isPaused' in opts ? opts.isPaused : false;
-    let snapToEnd = opts && 'snapToEnd' in opts ? opts.snapToEnd : false;
-    let controller = opts && 'controller' in opts ? opts.controller : null;
-    let callback = opts && 'callback' in opts ? opts.callback : null;
-    let color = opts && 'color' in opts ? opts.color : null;
-    let shouldClip = opts && 'shouldClip' in opts ? opts.shouldClip : true;
-    let sizeFromArtboard = opts && 'sizeFromArtboard' in opts ? opts.sizeFromArtboard : false;
-    let artboard = opts && 'artboard' in opts ? opts.artboard : null;
-    let antialias = opts && 'antialias' in opts ? opts.antialias : true;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[boundsNode$] = boundsNode;
-    this[animation$] = animation;
-    this[fit$] = fit;
-    this[alignment$] = alignment;
-    this[isPaused$] = isPaused;
-    this[snapToEnd$] = snapToEnd;
-    this[controller$] = controller;
-    this[callback$] = callback;
-    this[color$] = color;
-    this[shouldClip$] = shouldClip;
-    this[sizeFromArtboard$] = sizeFromArtboard;
-    this[artboard$] = artboard;
-    this[antialias$] = antialias;
-    this[filename$] = null;
-    this[flareProvider$] = new memory_flare.MemoryFlare.new({bytes: bytes});
-    flare_actor.FlareActor.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = flare_actor.FlareActor.prototype;
-  dart.addTypeTests(flare_actor.FlareActor);
-  dart.addTypeCaches(flare_actor.FlareActor);
-  dart.setMethodSignature(flare_actor.FlareActor, () => ({
-    __proto__: dart.getMethods(flare_actor.FlareActor.__proto__),
-    createRenderObject: dart.fnType(object.RenderObject, [framework.BuildContext])
-  }));
-  dart.setLibraryUri(flare_actor.FlareActor, I[0]);
-  dart.setFieldSignature(flare_actor.FlareActor, () => ({
-    __proto__: dart.getFields(flare_actor.FlareActor.__proto__),
-    filename: dart.finalFieldType(dart.nullable(core.String)),
-    flareProvider: dart.finalFieldType(dart.nullable(asset_provider.AssetProvider)),
-    artboard: dart.finalFieldType(dart.nullable(core.String)),
-    animation: dart.finalFieldType(dart.nullable(core.String)),
-    snapToEnd: dart.finalFieldType(core.bool),
-    fit: dart.finalFieldType(box_fit.BoxFit),
-    alignment: dart.finalFieldType(alignment.Alignment),
-    isPaused: dart.finalFieldType(core.bool),
-    shouldClip: dart.finalFieldType(core.bool),
-    controller: dart.finalFieldType(dart.nullable(flare_controller.FlareController)),
-    callback: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [core.String]))),
-    color: dart.finalFieldType(dart.nullable(ui.Color)),
-    boundsNode: dart.finalFieldType(dart.nullable(core.String)),
-    sizeFromArtboard: dart.finalFieldType(core.bool),
-    antialias: dart.finalFieldType(core.bool)
-  }));
-  var snapToEnd = dart.privateName(flare_actor, "FlareActorRenderObject.snapToEnd");
-  var shouldClip = dart.privateName(flare_actor, "FlareActorRenderObject.shouldClip");
-  var _lastControllerViewTransform = dart.privateName(flare_actor, "_lastControllerViewTransform");
-  var _assetProvider = dart.privateName(flare_actor, "_assetProvider");
-  var _artboardName = dart.privateName(flare_actor, "_artboardName");
-  var _animationName = dart.privateName(flare_actor, "_animationName");
-  var _boundsNodeName = dart.privateName(flare_actor, "_boundsNodeName");
-  var _controller = dart.privateName(flare_actor, "_controller");
-  var _completedCallback = dart.privateName(flare_actor, "_completedCallback");
-  var _isPaused = dart.privateName(flare_actor, "_isPaused");
-  var _useAntialias = dart.privateName(flare_actor, "_useAntialias");
-  var _actor = dart.privateName(flare_actor, "_actor");
-  var _animationLayers = dart.privateName(flare_actor, "_animationLayers");
-  var __FlareActorRenderObject__artboard = dart.privateName(flare_actor, "_#FlareActorRenderObject#_artboard");
-  var __FlareActorRenderObject__setupAABB = dart.privateName(flare_actor, "_#FlareActorRenderObject#_setupAABB");
-  var _color = dart.privateName(flare_actor, "_color");
-  var _artboard = dart.privateName(flare_actor, "_artboard");
-  var _setupAABB = dart.privateName(flare_actor, "_setupAABB");
-  var _updateAnimation = dart.privateName(flare_actor, "_updateAnimation");
-  var _instanceArtboard = dart.privateName(flare_actor, "_instanceArtboard");
-  flare_actor.FlareActorRenderObject = class FlareActorRenderObject extends flare_render_box.FlareRenderBox {
-    get snapToEnd() {
-      return this[snapToEnd];
+  supercharged_dart['IntSC|rangeTo'] = function IntSC$124rangeTo($this, n) {
+    let count = (n - $this)[$abs]() + 1;
+    let direction = (n - $this)[$sign];
+    let i = $this - direction;
+    return T$.IterableOfint().generate(count, dart.fn(index => i = i + direction, T$.intToint()));
+  };
+  supercharged_dart['IntSC|get#rangeTo'] = function IntSC$124get$35rangeTo($this) {
+    return dart.fn(n => supercharged_dart['IntSC|rangeTo']($this, n), T$.intToIterableOfint());
+  };
+  supercharged_dart['IntSC|until'] = function IntSC$124until($this, n) {
+    if ($this < n) {
+      return supercharged_dart['IntSC|rangeTo']($this, n - 1);
+    } else if ($this > n) {
+      return supercharged_dart['IntSC|rangeTo']($this, n + 1);
+    } else {
+      return new (T$.EmptyIterableOfint()).new();
     }
-    set snapToEnd(value) {
-      this[snapToEnd] = value;
+  };
+  supercharged_dart['IntSC|get#until'] = function IntSC$124get$35until($this) {
+    return dart.fn(n => supercharged_dart['IntSC|until']($this, n), T$.intToIterableOfint());
+  };
+  supercharged_dart['IntSC|times'] = function IntSC$124times($this, action) {
+    supercharged_dart['IntSC|until'](0, $this)[$forEach](dart.fn(_ => action(), T$.intTovoid()));
+  };
+  supercharged_dart['IntSC|get#times'] = function IntSC$124get$35times($this) {
+    return dart.fn(action => supercharged_dart['IntSC|times']($this, action), T$.FnTovoid());
+  };
+  supercharged_dart['IntSC|get#microseconds'] = function IntSC$124get$35microseconds($this) {
+    return new core.Duration.new({microseconds: $this});
+  };
+  supercharged_dart['IntSC|get#milliseconds'] = function IntSC$124get$35milliseconds($this) {
+    return new core.Duration.new({milliseconds: $this});
+  };
+  supercharged_dart['IntSC|get#seconds'] = function IntSC$124get$35seconds($this) {
+    return new core.Duration.new({seconds: $this});
+  };
+  supercharged_dart['IntSC|get#minutes'] = function IntSC$124get$35minutes($this) {
+    return new core.Duration.new({minutes: $this});
+  };
+  supercharged_dart['IntSC|get#hours'] = function IntSC$124get$35hours($this) {
+    return new core.Duration.new({hours: $this});
+  };
+  supercharged_dart['IntSC|get#days'] = function IntSC$124get$35days($this) {
+    return new core.Duration.new({days: $this});
+  };
+  supercharged_dart['IntSC|isBetween'] = function IntSC$124isBetween($this, first, second) {
+    if (first <= second) {
+      return $this >= first && $this <= second;
+    } else {
+      return $this >= second && $this <= first;
     }
-    get shouldClip() {
-      return this[shouldClip];
+  };
+  supercharged_dart['IntSC|get#isBetween'] = function IntSC$124get$35isBetween($this) {
+    return dart.fn((first, second) => supercharged_dart['IntSC|isBetween']($this, first, second), T$.numAndnumTobool());
+  };
+  supercharged_dart['IterableOfDoubleSC|sumSC'] = function IterableOfDoubleSC$124sumSC($this) {
+    return supercharged_dart['IterableSC|sumByDouble'](core.double, $this, dart.fn(n => n, T$.doubleTodouble()));
+  };
+  supercharged_dart['IterableOfDoubleSC|get#sumSC'] = function IterableOfDoubleSC$124get$35sumSC($this) {
+    return dart.fn(() => supercharged_dart['IterableOfDoubleSC|sumSC']($this), T$.VoidTodouble());
+  };
+  supercharged_dart['IterableOfDoubleSC|averageSC'] = function IterableOfDoubleSC$124averageSC($this) {
+    return supercharged_dart['IterableSC|averageBy'](core.double, $this, dart.fn(n => n, T$.doubleTodouble()));
+  };
+  supercharged_dart['IterableOfDoubleSC|get#averageSC'] = function IterableOfDoubleSC$124get$35averageSC($this) {
+    return dart.fn(() => supercharged_dart['IterableOfDoubleSC|averageSC']($this), T$.VoidTodoubleN());
+  };
+  supercharged_dart['IterableOfDoubleSC|max'] = function IterableOfDoubleSC$124max($this) {
+    return supercharged_dart['IterableSC|maxBy'](core.double, $this, dart.fn((a, b) => a[$compareTo](b), T$.doubleAnddoubleToint()));
+  };
+  supercharged_dart['IterableOfDoubleSC|get#max'] = function IterableOfDoubleSC$124get$35max($this) {
+    return dart.fn(() => supercharged_dart['IterableOfDoubleSC|max']($this), T$.VoidTodoubleN());
+  };
+  supercharged_dart['IterableOfDoubleSC|min'] = function IterableOfDoubleSC$124min($this) {
+    return supercharged_dart['IterableSC|minBy'](core.double, $this, dart.fn((a, b) => a[$compareTo](b), T$.doubleAnddoubleToint()));
+  };
+  supercharged_dart['IterableOfDoubleSC|get#min'] = function IterableOfDoubleSC$124get$35min($this) {
+    return dart.fn(() => supercharged_dart['IterableOfDoubleSC|min']($this), T$.VoidTodoubleN());
+  };
+  supercharged_dart['IterableOfIntSC|get#sumSC'] = function IterableOfIntSC$124get$35sumSC($this) {
+    return dart.fn(() => supercharged_dart['IterableOfIntSC|sumSC']($this), T$.VoidToint());
+  };
+  supercharged_dart['IterableOfIntSC|sumSC'] = function IterableOfIntSC$124sumSC($this) {
+    return supercharged_dart['IterableSC|sumBy'](core.int, $this, dart.fn(n => n, T$.intToint()));
+  };
+  supercharged_dart['IterableOfIntSC|averageSC'] = function IterableOfIntSC$124averageSC($this) {
+    return supercharged_dart['IterableSC|averageBy'](core.int, $this, dart.fn(n => n, T$.intToint()));
+  };
+  supercharged_dart['IterableOfIntSC|get#averageSC'] = function IterableOfIntSC$124get$35averageSC($this) {
+    return dart.fn(() => supercharged_dart['IterableOfIntSC|averageSC']($this), T$.VoidTodoubleN());
+  };
+  supercharged_dart['IterableOfIntSC|max'] = function IterableOfIntSC$124max($this) {
+    return supercharged_dart['IterableSC|maxBy'](core.int, $this, dart.fn((a, b) => a[$compareTo](b), T$.intAndintToint()));
+  };
+  supercharged_dart['IterableOfIntSC|get#max'] = function IterableOfIntSC$124get$35max($this) {
+    return dart.fn(() => supercharged_dart['IterableOfIntSC|max']($this), T$.VoidTointN());
+  };
+  supercharged_dart['IterableOfIntSC|min'] = function IterableOfIntSC$124min($this) {
+    return supercharged_dart['IterableSC|minBy'](core.int, $this, dart.fn((a, b) => a[$compareTo](b), T$.intAndintToint()));
+  };
+  supercharged_dart['IterableOfIntSC|get#min'] = function IterableOfIntSC$124get$35min($this) {
+    return dart.fn(() => supercharged_dart['IterableOfIntSC|min']($this), T$.VoidTointN());
+  };
+  supercharged_dart['IterableOfMapEntrySC|toMap'] = function IterableOfMapEntrySC$124toMap(K, V, $this) {
+    return core.Map$(K, V).fromEntries($this);
+  };
+  supercharged_dart['IterableOfMapEntrySC|get#toMap'] = function IterableOfMapEntrySC$124get$35toMap(K, V, $this) {
+    return dart.fn(() => supercharged_dart['IterableOfMapEntrySC|toMap'](K, V, $this), dart.fnType(core.Map$(K, V), []));
+  };
+  supercharged_dart['IterableSC|sumBy'] = function IterableSC$124sumBy(T, $this, selector) {
+    return $this[$map](core.int, selector)[$fold](core.int, 0, dart.fn((prev, curr) => prev + curr, T$.intAndintToint()));
+  };
+  supercharged_dart['IterableSC|get#sumBy'] = function IterableSC$124get$35sumBy(T, $this) {
+    return dart.fn(selector => supercharged_dart['IterableSC|sumBy'](T, $this, selector), dart.fnType(core.int, [dart.fnType(core.int, [T])]));
+  };
+  supercharged_dart['IterableSC|sumByDouble'] = function IterableSC$124sumByDouble(T, $this, selector) {
+    return $this[$map](core.num, selector)[$fold](core.double, 0.0, dart.fn((prev, curr) => prev + curr, T$.doubleAndnumTodouble()));
+  };
+  supercharged_dart['IterableSC|get#sumByDouble'] = function IterableSC$124get$35sumByDouble(T, $this) {
+    return dart.fn(selector => supercharged_dart['IterableSC|sumByDouble'](T, $this, selector), dart.fnType(core.double, [dart.fnType(core.num, [T])]));
+  };
+  supercharged_dart['IterableSC|averageBy'] = function IterableSC$124averageBy(T, $this, selector) {
+    if ($this[$isEmpty]) {
+      return null;
     }
-    set shouldClip(value) {
-      this[shouldClip] = value;
+    return supercharged_dart['IterableSC|sumByDouble'](T, $this, selector) / $this[$length];
+  };
+  supercharged_dart['IterableSC|get#averageBy'] = function IterableSC$124get$35averageBy(T, $this) {
+    return dart.fn(selector => supercharged_dart['IterableSC|averageBy'](T, $this, selector), dart.fnType(T$.doubleN(), [dart.fnType(core.num, [T])]));
+  };
+  supercharged_dart['IterableSC|chunked'] = function IterableSC$124chunked(T, $this, size, opts) {
+    let fill = opts && 'fill' in opts ? opts.fill : null;
+    if (size <= 0) {
+      dart.throw(new core.ArgumentError.new("chunkSize must be positive integer greater than 0."));
     }
-    set [_artboard](t0) {
-      this[__FlareActorRenderObject__artboard] = t0;
+    if ($this[$isEmpty]) {
+      return new (_internal.EmptyIterable$(core.List$(T))).new();
     }
-    get [_artboard]() {
-      let t1;
-      t1 = this[__FlareActorRenderObject__artboard];
-      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_artboard")) : t1;
-    }
-    get [_setupAABB]() {
-      let t1;
-      t1 = this[__FlareActorRenderObject__setupAABB];
-      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_setupAABB")) : t1;
-    }
-    set [_setupAABB](t1) {
-      this[__FlareActorRenderObject__setupAABB] = t1;
-    }
-    get aabb() {
-      return this[_actor] == null ? new aabb.AABB.new() : this[_setupAABB];
-    }
-    get animationName() {
-      return this[_animationName];
-    }
-    set animationName(value) {
-      if (value != this[_animationName]) {
-        this[_animationName] = value;
-        this[_updateAnimation]();
+    let countOfChunks = ($this[$length] / size[$toDouble]())[$ceil]();
+    return core.Iterable$(core.List$(T)).generate(countOfChunks, dart.fn(index => {
+      let chunk = $this[$skip](index * size)[$take](size)[$toList]();
+      if (fill != null) {
+        while (chunk[$length] < size) {
+          chunk[$add](fill());
+        }
       }
+      return chunk;
+    }, dart.fnType(core.List$(T), [core.int])));
+  };
+  supercharged_dart['IterableSC|get#chunked'] = function IterableSC$124get$35chunked(T, $this) {
+    return dart.fn((size, opts) => {
+      let fill = opts && 'fill' in opts ? opts.fill : null;
+      return supercharged_dart['IterableSC|chunked'](T, $this, size, {fill: fill});
+    }, dart.fnType(core.Iterable$(core.List$(T)), [core.int], {fill: dart.nullable(dart.fnType(T, []))}, {}));
+  };
+  supercharged_dart['IterableSC|count'] = function IterableSC$124count(T, $this, test = null) {
+    let t63;
+    let testFn = (t63 = test, t63 == null ? dart.fn(_ => true, dart.fnType(core.bool, [T])) : t63);
+    if ($this[$isEmpty]) {
+      return 0;
     }
-    get artboardName() {
-      return this[_artboardName];
+    return $this[$map](core.int, dart.fn(element => testFn(element) ? 1 : 0, dart.fnType(core.int, [T])))[$reduce](dart.fn((value, element) => value + element, T$.intAndintToint()));
+  };
+  supercharged_dart['IterableSC|get#count'] = function IterableSC$124get$35count(T, $this) {
+    return dart.fn((test = null) => supercharged_dart['IterableSC|count'](T, $this, test), dart.fnType(core.int, [], [dart.nullable(dart.fnType(core.bool, [T]))]));
+  };
+  supercharged_dart['IterableSC|filter'] = function IterableSC$124filter(T, $this, test) {
+    return $this[$where](test);
+  };
+  supercharged_dart['IterableSC|get#filter'] = function IterableSC$124get$35filter(T, $this) {
+    return dart.fn(test => supercharged_dart['IterableSC|filter'](T, $this, test), dart.fnType(core.Iterable$(T), [dart.fnType(core.bool, [T])]));
+  };
+  supercharged_dart['IterableSC|forEachIndexedSC'] = function IterableSC$124forEachIndexedSC(T, $this, funcIndexValue) {
+    let t67;
+    let index = 0;
+    let iter = $this[$iterator];
+    while (iter.moveNext()) {
+      funcIndexValue((t67 = index, index = t67 + 1, t67), iter.current);
     }
-    set artboardName(name) {
-      if (this[_artboardName] == name) {
+  };
+  supercharged_dart['IterableSC|get#forEachIndexedSC'] = function IterableSC$124get$35forEachIndexedSC(T, $this) {
+    return dart.fn(funcIndexValue => supercharged_dart['IterableSC|forEachIndexedSC'](T, $this, funcIndexValue), dart.fnType(dart.void, [dart.fnType(dart.void, [core.int, T])]));
+  };
+  supercharged_dart['IterableSC|elementAtOrElse'] = function IterableSC$124elementAtOrElse(T, $this, index, orElse) {
+    try {
+      return $this[$elementAt](index);
+    } catch (e) {
+      let error = dart.getThrown(e);
+      if (core.Object.is(error)) {
+        return orElse();
+      } else
+        throw e;
+    }
+  };
+  supercharged_dart['IterableSC|get#elementAtOrElse'] = function IterableSC$124get$35elementAtOrElse(T, $this) {
+    return dart.fn((index, orElse) => supercharged_dart['IterableSC|elementAtOrElse'](T, $this, index, orElse), dart.fnType(T, [core.int, dart.fnType(T, [])]));
+  };
+  supercharged_dart['IterableSC|elementAtOrNull'] = function IterableSC$124elementAtOrNull(T, $this, index) {
+    try {
+      return $this[$elementAt](index);
+    } catch (e) {
+      let error = dart.getThrown(e);
+      if (core.Object.is(error)) {
+        return null;
+      } else
+        throw e;
+    }
+  };
+  supercharged_dart['IterableSC|get#elementAtOrNull'] = function IterableSC$124get$35elementAtOrNull(T, $this) {
+    return dart.fn(index => supercharged_dart['IterableSC|elementAtOrNull'](T, $this, index), dart.fnType(dart.nullable(T), [core.int]));
+  };
+  supercharged_dart['IterableSC|firstOrElse'] = function IterableSC$124firstOrElse(T, $this, orElse) {
+    return $this[$firstWhere](dart.fn(_ => true, dart.fnType(core.bool, [T])), {orElse: orElse});
+  };
+  supercharged_dart['IterableSC|get#firstOrElse'] = function IterableSC$124get$35firstOrElse(T, $this) {
+    return dart.fn(orElse => supercharged_dart['IterableSC|firstOrElse'](T, $this, orElse), dart.fnType(T, [dart.fnType(T, [])]));
+  };
+  supercharged_dart['IterableSC|firstOrNullSC'] = function IterableSC$124firstOrNullSC(T, $this) {
+    if ($this[$isEmpty]) {
+      return null;
+    }
+    return $this[$firstWhere](dart.fn(_ => true, dart.fnType(core.bool, [T])), {orElse: null});
+  };
+  supercharged_dart['IterableSC|get#firstOrNullSC'] = function IterableSC$124get$35firstOrNullSC(T, $this) {
+    return dart.fn(() => supercharged_dart['IterableSC|firstOrNullSC'](T, $this), dart.fnType(dart.nullable(T), []));
+  };
+  supercharged_dart['IterableSC|get#lastOrElse'] = function IterableSC$124get$35lastOrElse(T, $this) {
+    return dart.fn(orElse => supercharged_dart['IterableSC|lastOrElse'](T, $this, orElse), dart.fnType(T, [dart.fnType(T, [])]));
+  };
+  supercharged_dart['IterableSC|lastOrElse'] = function IterableSC$124lastOrElse(T, $this, orElse) {
+    return $this[$lastWhere](dart.fn(_ => true, dart.fnType(core.bool, [T])), {orElse: orElse});
+  };
+  supercharged_dart['IterableSC|lastOrNullSC'] = function IterableSC$124lastOrNullSC(T, $this) {
+    if ($this[$isEmpty]) {
+      return null;
+    }
+    return $this[$lastWhere](dart.fn(_ => true, dart.fnType(core.bool, [T])), {orElse: null});
+  };
+  supercharged_dart['IterableSC|get#lastOrNullSC'] = function IterableSC$124get$35lastOrNullSC(T, $this) {
+    return dart.fn(() => supercharged_dart['IterableSC|lastOrNullSC'](T, $this), dart.fnType(dart.nullable(T), []));
+  };
+  supercharged_dart['IterableSC|groupBy'] = function IterableSC$124groupBy(T, K, V, $this, keySelector, opts) {
+    let t83;
+    let valueTransform = opts && 'valueTransform' in opts ? opts.valueTransform : null;
+    let transformFn = (t83 = valueTransform, t83 == null ? dart.fn(element => V.as(element), dart.fnType(V, [T])) : t83);
+    let map = new (_js_helper.LinkedMap$(K, core.List$(V))).new();
+    $this[$forEach](dart.fn(element => {
+      let key = keySelector(element);
+      if (!map[$containsKey](key)) {
+        map[$_set](key, _interceptors.JSArray$(V).of([]));
+      }
+      dart.nullCheck(map[$_get](key))[$add](transformFn(element));
+    }, dart.fnType(dart.void, [T])));
+    return map;
+  };
+  supercharged_dart['IterableSC|get#groupBy'] = function IterableSC$124get$35groupBy(T, $this) {
+    return dart.fn((K, V, keySelector, opts) => {
+      let valueTransform = opts && 'valueTransform' in opts ? opts.valueTransform : null;
+      return supercharged_dart['IterableSC|groupBy'](T, K, V, $this, keySelector, {valueTransform: valueTransform});
+    }, dart.gFnType((K, V) => {
+      var MapOfK$ListOfV = () => (MapOfK$ListOfV = dart.constFn(core.Map$(K, ListOfV())))();
+      var ListOfV = () => (ListOfV = dart.constFn(core.List$(V)))();
+      return [MapOfK$ListOfV(), [dart.fnType(K, [T])], {valueTransform: dart.nullable(dart.fnType(V, [T]))}, {}];
+    }, (K, V) => {
+      var MapOfK$ListOfV = () => (MapOfK$ListOfV = dart.constFn(core.Map$(K, ListOfV())))();
+      var ListOfV = () => (ListOfV = dart.constFn(core.List$(V)))();
+      return [T$.ObjectN(), T$.ObjectN()];
+    }));
+  };
+  supercharged_dart['IterableSC|associate'] = function IterableSC$124associate(T, K, V, $this, transform) {
+    return core.Map$(K, V).fromEntries($this[$map](core.MapEntry$(K, V), transform));
+  };
+  supercharged_dart['IterableSC|get#associate'] = function IterableSC$124get$35associate(T, $this) {
+    return dart.fn((K, V, transform) => supercharged_dart['IterableSC|associate'](T, K, V, $this, transform), dart.gFnType((K, V) => {
+      var MapOfK$V = () => (MapOfK$V = dart.constFn(core.Map$(K, V)))();
+      var MapEntryOfK$V = () => (MapEntryOfK$V = dart.constFn(core.MapEntry$(K, V)))();
+      return [MapOfK$V(), [dart.fnType(MapEntryOfK$V(), [T])]];
+    }, (K, V) => {
+      var MapOfK$V = () => (MapOfK$V = dart.constFn(core.Map$(K, V)))();
+      var MapEntryOfK$V = () => (MapEntryOfK$V = dart.constFn(core.MapEntry$(K, V)))();
+      return [T$.ObjectN(), T$.ObjectN()];
+    }));
+  };
+  supercharged_dart['IterableSC|associateBy'] = function IterableSC$124associateBy(T, K, $this, keySelector) {
+    let map = new (_js_helper.LinkedMap$(K, T)).new();
+    $this[$forEach](dart.fn(element => {
+      let key = keySelector(element);
+      map[$_set](key, element);
+    }, dart.fnType(dart.void, [T])));
+    return map;
+  };
+  supercharged_dart['IterableSC|get#associateBy'] = function IterableSC$124get$35associateBy(T, $this) {
+    return dart.fn((K, keySelector) => supercharged_dart['IterableSC|associateBy'](T, K, $this, keySelector), dart.gFnType(K => [core.Map$(K, T), [dart.fnType(K, [T])]], K => [T$.ObjectN()]));
+  };
+  supercharged_dart['IterableSC|associateWith'] = function IterableSC$124associateWith(T, V, $this, valueSelector) {
+    let map = new (_js_helper.LinkedMap$(T, V)).new();
+    $this[$forEach](dart.fn(element => {
+      map[$_set](element, valueSelector(element));
+    }, dart.fnType(dart.void, [T])));
+    return map;
+  };
+  supercharged_dart['IterableSC|get#associateWith'] = function IterableSC$124get$35associateWith(T, $this) {
+    return dart.fn((V, valueSelector) => supercharged_dart['IterableSC|associateWith'](T, V, $this, valueSelector), dart.gFnType(V => [core.Map$(T, V), [dart.fnType(V, [T])]], V => [T$.ObjectN()]));
+  };
+  supercharged_dart['IterableSC|minBy'] = function IterableSC$124minBy(T, $this, comparator) {
+    if ($this[$isEmpty]) {
+      return null;
+    }
+    return $this[$reduce](dart.fn((value, element) => comparator(value, element) < 0 ? value : element, dart.fnType(T, [T, T])));
+  };
+  supercharged_dart['IterableSC|get#minBy'] = function IterableSC$124get$35minBy(T, $this) {
+    return dart.fn(comparator => supercharged_dart['IterableSC|minBy'](T, $this, comparator), dart.fnType(dart.nullable(T), [dart.fnType(core.int, [T, T])]));
+  };
+  supercharged_dart['IterableSC|maxBy'] = function IterableSC$124maxBy(T, $this, comparator) {
+    if ($this[$isEmpty]) {
+      return null;
+    }
+    return $this[$reduce](dart.fn((value, element) => comparator(value, element) > 0 ? value : element, dart.fnType(T, [T, T])));
+  };
+  supercharged_dart['IterableSC|get#maxBy'] = function IterableSC$124get$35maxBy(T, $this) {
+    return dart.fn(comparator => supercharged_dart['IterableSC|maxBy'](T, $this, comparator), dart.fnType(dart.nullable(T), [dart.fnType(core.int, [T, T])]));
+  };
+  supercharged_dart['IterableSC|sortedBySC'] = function IterableSC$124sortedBySC(T, $this, comparator) {
+    let list = $this[$toList]();
+    list[$sort](comparator);
+    return list;
+  };
+  supercharged_dart['IterableSC|get#sortedBySC'] = function IterableSC$124get$35sortedBySC(T, $this) {
+    return dart.fn(comparator => supercharged_dart['IterableSC|sortedBySC'](T, $this, comparator), dart.fnType(core.List$(T), [dart.fnType(core.int, [T, T])]));
+  };
+  supercharged_dart['IterableSC|sortedByNumSC'] = function IterableSC$124sortedByNumSC(T, $this, valueProvider) {
+    return supercharged_dart['IterableSC|sortedBySC'](T, $this, dart.fn((a, b) => valueProvider(a)[$compareTo](valueProvider(b)), dart.fnType(core.int, [T, T])));
+  };
+  supercharged_dart['IterableSC|get#sortedByNumSC'] = function IterableSC$124get$35sortedByNumSC(T, $this) {
+    return dart.fn(valueProvider => supercharged_dart['IterableSC|sortedByNumSC'](T, $this, valueProvider), dart.fnType(core.List$(T), [dart.fnType(core.num, [T])]));
+  };
+  supercharged_dart['IterableSC|sortedByStringSC'] = function IterableSC$124sortedByStringSC(T, $this, valueProvider) {
+    return supercharged_dart['IterableSC|sortedBySC'](T, $this, dart.fn((a, b) => valueProvider(a)[$compareTo](valueProvider(b)), dart.fnType(core.int, [T, T])));
+  };
+  supercharged_dart['IterableSC|get#sortedByStringSC'] = function IterableSC$124get$35sortedByStringSC(T, $this) {
+    return dart.fn(valueProvider => supercharged_dart['IterableSC|sortedByStringSC'](T, $this, valueProvider), dart.fnType(core.List$(T), [dart.fnType(core.String, [T])]));
+  };
+  supercharged_dart['IterableSC|get#lastIndex'] = function IterableSC$124get$35lastIndex(T, $this) {
+    if ($this[$isNotEmpty]) {
+      return $this[$length] - 1;
+    } else {
+      return null;
+    }
+  };
+  supercharged_dart['IterableSC|withoutFirst'] = function IterableSC$124withoutFirst(T, $this) {
+    return new (_js_helper.SyncIterable$(T)).new(function* IterableSC$124withoutFirst() {
+      let iter = $this[$iterator];
+      iter.moveNext();
+      while (iter.moveNext()) {
+        yield iter.current;
+      }
+    });
+  };
+  supercharged_dart['IterableSC|get#withoutFirst'] = function IterableSC$124get$35withoutFirst(T, $this) {
+    return dart.fn(() => supercharged_dart['IterableSC|withoutFirst'](T, $this), dart.fnType(core.Iterable$(T), []));
+  };
+  supercharged_dart['IterableSC|withoutLast'] = function IterableSC$124withoutLast(T, $this) {
+    return new (_js_helper.SyncIterable$(T)).new(function* IterableSC$124withoutLast() {
+      let iter = $this[$iterator];
+      let hasFirst = iter.moveNext();
+      if (!hasFirst) {
         return;
       }
-      this[_artboardName] = name;
-      this[_instanceArtboard]();
-    }
-    get assetProvider() {
-      return this[_assetProvider];
-    }
-    set assetProvider(value) {
-      if (dart.equals(value, this[_assetProvider])) {
-        return;
-      }
-      this[_assetProvider] = value;
-      this.markNeedsPaint();
-      this[_animationLayers][$clear]();
-      this.load();
-    }
-    get boundsNodeName() {
-      return this[_boundsNodeName];
-    }
-    set boundsNodeName(value) {
-      if (this[_boundsNodeName] == value) {
-        return;
-      }
-      this[_boundsNodeName] = value;
-      this.updateBounds();
-    }
-    get color() {
-      return this[_color];
-    }
-    set color(value) {
-      if (!dart.equals(value, this[_color])) {
-        this[_color] = value;
-        if (this[_actor] != null) {
-          this[_artboard].overrideColor = value == null ? null : _native_typed_data.NativeFloat32List.fromList(T.JSArrayOfdouble().of([value.red / 255.0, value.green / 255.0, value.blue / 255.0, value.opacity]));
-        }
-        this.markNeedsPaint();
-      }
-    }
-    get completed() {
-      return this[_completedCallback];
-    }
-    set completed(value) {
-      if (!dart.equals(this[_completedCallback], value)) {
-        this[_completedCallback] = value;
-      }
-    }
-    get controller() {
-      return this[_controller];
-    }
-    set controller(c) {
-      let t2, t2$;
-      if (!dart.equals(this[_controller], c)) {
-        mat2d.Mat2D.copy(this[_lastControllerViewTransform], new mat2d.Mat2D.new());
-        t2 = this[_controller];
-        t2 == null ? null : t2.isActive.removeListener(dart.bind(this, 'onControllerActiveChange'));
-        this[_controller] = c;
-        t2$ = this[_controller];
-        t2$ == null ? null : t2$.isActive.addListener(dart.bind(this, 'onControllerActiveChange'));
-        if (this[_controller] != null && this[_actor] != null) {
-          dart.nullCheck(this[_controller]).initialize(this[_artboard]);
-        }
-      }
-    }
-    get isPaused() {
-      return this[_isPaused];
-    }
-    set isPaused(value) {
-      if (this[_isPaused] === value) {
-        return;
-      }
-      this[_isPaused] = value;
-      this.updatePlayState();
-    }
-    get isPlaying() {
-      let t2, t2$;
-      return !this[_isPaused] && (dart.test((t2$ = (t2 = this[_controller], t2 == null ? null : t2.isActive.value), t2$ == null ? false : t2$)) || this[_animationLayers][$isNotEmpty]);
-    }
-    get useAntialias() {
-      return this[_useAntialias];
-    }
-    set useAntialias(value) {
-      if (value !== this[_useAntialias]) {
-        this[_useAntialias] = value;
-        if (this[_actor] != null) {
-          this[_artboard].antialias = this[_useAntialias];
-        }
-        this.markNeedsPaint();
-      }
-    }
-    advance(elapsedSeconds) {
-      let t2, t2$, t2$0, t2$1;
-      if (this.isPlaying) {
-        let lastFullyMixed = -1;
-        let lastMix = 0.0;
-        let completed = T.JSArrayOfFlareAnimationLayer().of([]);
-        for (let i = 0; i < this[_animationLayers][$length]; i = i + 1) {
-          let layer = this[_animationLayers][$_get](i);
-          if (this.snapToEnd && !layer.animation.isLooping) {
-            layer.mix = 1.0;
-            layer.time = layer.duration;
-          } else {
-            t2 = layer;
-            t2.mix = t2.mix + elapsedSeconds;
-            t2$ = layer;
-            t2$.time = t2$.time + elapsedSeconds;
-          }
-          lastMix = layer.mixSeconds === 0.0 ? 1.0 : math.min(core.double, 1.0, layer.mix / layer.mixSeconds);
-          if (layer.animation.isLooping) {
-            t2$0 = layer;
-            t2$0.time = t2$0.time[$modulo](layer.animation.duration);
-          }
-          layer.animation.apply(layer.time, this[_artboard], lastMix);
-          if (lastMix === 1.0) {
-            lastFullyMixed = i;
-          }
-          if (layer.time > layer.animation.duration) {
-            completed[$add](layer);
-          }
-        }
-        if (lastFullyMixed !== -1) {
-          this[_animationLayers][$removeRange](0, lastFullyMixed);
-        }
-        if (this.animationName == null && this[_animationLayers][$length] === 1 && lastMix === 1.0) {
-          this[_animationLayers][$removeAt](0);
-        }
-        for (let animation of completed) {
-          this[_animationLayers][$remove](animation);
-          if (this[_completedCallback] != null) {
-            dart.nullCheck(this[_completedCallback])(animation.name);
-          }
-        }
-      }
-      if (this[_actor] != null && this[_controller] != null && !dart.nullCheck(this[_controller]).advance(this[_artboard], elapsedSeconds)) {
-        t2$1 = this[_controller];
-        t2$1 == null ? null : t2$1.isActive.value = false;
-      }
-      if (this[_actor] != null) {
-        this[_artboard].advance(elapsedSeconds);
-      }
-    }
-    coldLoad() {
-      return async.async(dart.void, (function* coldLoad() {
-        this[_actor] = (yield this.loadFlare(dart.nullCheck(this[_assetProvider])));
-        this[_instanceArtboard]();
-      }).bind(this));
-    }
-    onControllerActiveChange() {
-      this.updatePlayState();
-    }
-    onUnload() {
-      this[_animationLayers][$clear]();
-    }
-    paintFlare(canvas, viewTransform) {
-      let t2;
-      if (this[_actor] == null) {
-        return;
-      }
-      if (!mat2d.Mat2D.areEqual(this[_lastControllerViewTransform], viewTransform)) {
-        mat2d.Mat2D.copy(this[_lastControllerViewTransform], viewTransform);
-        t2 = this.controller;
-        t2 == null ? null : t2.setViewTransform(viewTransform);
-      }
-      this[_artboard].draw(canvas);
-    }
-    prePaint(canvas, offset) {
-      if (this.shouldClip) {
-        canvas.clipRect(offset['&'](this.size));
-      }
-    }
-    updateBounds() {
-      if (this[_actor] != null) {
-        let node = null;
-        if (this[_boundsNodeName] != null && actor_drawable.ActorDrawable.is(node = this[_artboard].getNode(actor_node.ActorNode, dart.nullCheck(this[_boundsNodeName])))) {
-          this[_setupAABB] = actor_drawable.ActorDrawable.as(node).computeAABB();
+      while (true) {
+        let value = iter.current;
+        let isLastOne = !iter.moveNext();
+        if (!isLastOne) {
+          yield value;
         } else {
-          this[_setupAABB] = this[_artboard].artboardAABB();
+          break;
         }
       }
-    }
-    warmLoad() {
-      let actor = this.getWarmFlare(dart.nullCheck(this[_assetProvider]));
-      if (actor == null) {
-        return false;
-      }
-      this[_actor] = actor;
-      return this[_instanceArtboard]();
-    }
-    [_instanceArtboard]() {
-      let t2, t2$;
-      let sourceArtboard = (t2 = this[_actor], t2 == null ? null : t2.getArtboard(this[_artboardName]));
-      if (sourceArtboard == null) {
-        return false;
-      }
-      let artboard = flare.FlutterActorArtboard.as(sourceArtboard.makeInstance());
-      artboard.initializeGraphics();
-      this[_artboard] = artboard;
-      this.intrinsicSize = new ui.Size.new(artboard.width, artboard.height);
-      this[_artboard].overrideColor = this[_color] == null ? null : _native_typed_data.NativeFloat32List.fromList(T.JSArrayOfdouble().of([dart.nullCheck(this[_color]).red / 255.0, dart.nullCheck(this[_color]).green / 255.0, dart.nullCheck(this[_color]).blue / 255.0, dart.nullCheck(this[_color]).opacity]));
-      this[_artboard].antialias = this[_useAntialias];
-      t2$ = this[_controller];
-      t2$ == null ? null : t2$.initialize(this[_artboard]);
-      this[_animationLayers][$clear]();
-      this[_updateAnimation]({onlyWhenMissing: true});
-      this.advance(0.0);
-      this.updateBounds();
-      this.markNeedsPaint();
-      return true;
-    }
-    [_updateAnimation](opts) {
-      let t2;
-      let onlyWhenMissing = opts && 'onlyWhenMissing' in opts ? opts.onlyWhenMissing : false;
-      if (onlyWhenMissing && this[_animationLayers][$isNotEmpty]) {
-        return;
-      }
-      if (this[_animationName] != null && this[_actor] != null) {
-        let animation = this[_artboard].getAnimation(dart.nullCheck(this[_animationName]));
-        if (animation != null) {
-          this[_animationLayers][$add]((t2 = new flare_actor.FlareAnimationLayer.new(dart.nullCheck(this[_animationName]), animation), (() => {
-            t2.mix = 1.0;
-            t2.mixSeconds = 0.2;
-            return t2;
-          })()));
-          animation.apply(0.0, this[_artboard], 1.0);
-          this[_artboard].advance(0.0);
-          this.updatePlayState();
+    });
+  };
+  supercharged_dart['IterableSC|get#withoutLast'] = function IterableSC$124get$35withoutLast(T, $this) {
+    return dart.fn(() => supercharged_dart['IterableSC|withoutLast'](T, $this), dart.fnType(core.Iterable$(T), []));
+  };
+  supercharged_dart['IterableSC|replaceWhere'] = function IterableSC$124replaceWhere(T, $this, comparator, newValue) {
+    return new (_js_helper.SyncIterable$(T)).new(function* IterableSC$124replaceWhere() {
+      let it = $this[$iterator];
+      while (it.moveNext()) {
+        if (comparator(it.current)) {
+          yield newValue;
+        } else {
+          yield it.current;
         }
       }
+    });
+  };
+  supercharged_dart['IterableSC|get#replaceWhere'] = function IterableSC$124get$35replaceWhere(T, $this) {
+    return dart.fn((comparator, newValue) => supercharged_dart['IterableSC|replaceWhere'](T, $this, comparator, newValue), dart.fnType(core.Iterable$(T), [dart.fnType(core.bool, [T]), T]));
+  };
+  supercharged_dart['IterableSC|replaceFirstWhere'] = function IterableSC$124replaceFirstWhere(T, $this, comparator, newValue) {
+    return new (_js_helper.SyncIterable$(T)).new(function* IterableSC$124replaceFirstWhere() {
+      let it = $this[$iterator];
+      while (it.moveNext()) {
+        if (comparator(it.current)) {
+          yield newValue;
+          while (it.moveNext()) {
+            yield it.current;
+          }
+        } else {
+          yield it.current;
+        }
+      }
+    });
+  };
+  supercharged_dart['IterableSC|get#replaceFirstWhere'] = function IterableSC$124get$35replaceFirstWhere(T, $this) {
+    return dart.fn((comparator, newValue) => supercharged_dart['IterableSC|replaceFirstWhere'](T, $this, comparator, newValue), dart.fnType(core.Iterable$(T), [dart.fnType(core.bool, [T]), T]));
+  };
+  supercharged_dart['IterableSC|mapIndexedSC'] = function IterableSC$124mapIndexedSC(T, U, $this, transformer) {
+    return new (_js_helper.SyncIterable$(U)).new(function* IterableSC$124mapIndexedSC() {
+      let t110;
+      let it = $this[$iterator];
+      let index = 0;
+      while (it.moveNext()) {
+        yield transformer(it.current, (t110 = index, index = t110 + 1, t110));
+      }
+    });
+  };
+  supercharged_dart['IterableSC|get#mapIndexedSC'] = function IterableSC$124get$35mapIndexedSC(T, $this) {
+    return dart.fn((U, transformer) => supercharged_dart['IterableSC|mapIndexedSC'](T, U, $this, transformer), dart.gFnType(U => {
+      var IterableOfU = () => (IterableOfU = dart.constFn(core.Iterable$(U)))();
+      return [IterableOfU(), [dart.fnType(U, [T, core.int])]];
+    }, U => {
+      var IterableOfU = () => (IterableOfU = dart.constFn(core.Iterable$(U)))();
+      return [T$.ObjectN()];
+    }));
+  };
+  supercharged_dart['IterableSC|onEach'] = function IterableSC$124onEach(T, $this, action) {
+    return new (_js_helper.SyncIterable$(T)).new(function* IterableSC$124onEach() {
+      let it = $this[$iterator];
+      while (it.moveNext()) {
+        action(it.current);
+        yield it.current;
+      }
+    });
+  };
+  supercharged_dart['IterableSC|get#onEach'] = function IterableSC$124get$35onEach(T, $this) {
+    return dart.fn(action => supercharged_dart['IterableSC|onEach'](T, $this, action), dart.fnType(core.Iterable$(T), [dart.fnType(dart.void, [T])]));
+  };
+  supercharged_dart['IterableSC|onEachIndexed'] = function IterableSC$124onEachIndexed(T, $this, action) {
+    return new (_js_helper.SyncIterable$(T)).new(function* IterableSC$124onEachIndexed() {
+      let t114;
+      let it = $this[$iterator];
+      let index = 0;
+      while (it.moveNext()) {
+        action(it.current, (t114 = index, index = t114 + 1, t114));
+        yield it.current;
+      }
+    });
+  };
+  supercharged_dart['IterableSC|get#onEachIndexed'] = function IterableSC$124get$35onEachIndexed(T, $this) {
+    return dart.fn(action => supercharged_dart['IterableSC|onEachIndexed'](T, $this, action), dart.fnType(core.Iterable$(T), [dart.fnType(dart.void, [T, core.int])]));
+  };
+  supercharged_dart['IterableSC|pickOne'] = function IterableSC$124pickOne(T, $this, random = null) {
+    let list = $this[$toList]();
+    list[$shuffle](random);
+    return list[$first];
+  };
+  supercharged_dart['IterableSC|get#pickOne'] = function IterableSC$124get$35pickOne(T, $this) {
+    return dart.fn((random = null) => supercharged_dart['IterableSC|pickOne'](T, $this, random), dart.fnType(T, [], [T$.RandomN()]));
+  };
+  supercharged_dart['IterableSC|pickSome'] = function IterableSC$124pickSome(T, $this, count, random = null) {
+    let list = $this[$toList]();
+    list[$shuffle](random);
+    return list[$take](math.min(core.int, count, $this[$length]))[$toList]();
+  };
+  supercharged_dart['IterableSC|get#pickSome'] = function IterableSC$124get$35pickSome(T, $this) {
+    return dart.fn((count, random = null) => supercharged_dart['IterableSC|pickSome'](T, $this, count, random), dart.fnType(core.List$(T), [core.int], [T$.RandomN()]));
+  };
+  supercharged_dart['ListSC|toJSON'] = function ListSC$124toJSON(T, $this, opts) {
+    let toEncodable = opts && 'toEncodable' in opts ? opts.toEncodable : null;
+    return convert.jsonEncode($this, {toEncodable: toEncodable});
+  };
+  supercharged_dart['ListSC|get#toJSON'] = function ListSC$124get$35toJSON(T, $this) {
+    return dart.fn(opts => {
+      let toEncodable = opts && 'toEncodable' in opts ? opts.toEncodable : null;
+      return supercharged_dart['ListSC|toJSON'](T, $this, {toEncodable: toEncodable});
+    }, T$.__ToString());
+  };
+  supercharged_dart['MapSC|filter'] = function MapSC$124filter(K, V, $this, test) {
+    return supercharged_dart['IterableSC|filter'](core.MapEntry$(K, V), $this[$entries], test);
+  };
+  supercharged_dart['MapSC|get#filter'] = function MapSC$124get$35filter(K, V, $this) {
+    return dart.fn(test => supercharged_dart['MapSC|filter'](K, V, $this, test), dart.fnType(core.Iterable$(core.MapEntry$(K, V)), [dart.fnType(core.bool, [core.MapEntry$(K, V)])]));
+  };
+  supercharged_dart['MapSC|count'] = function MapSC$124count(K, V, $this, test = null) {
+    return supercharged_dart['IterableSC|count'](core.MapEntry$(K, V), $this[$entries], test);
+  };
+  supercharged_dart['MapSC|get#count'] = function MapSC$124get$35count(K, V, $this) {
+    return dart.fn((test = null) => supercharged_dart['MapSC|count'](K, V, $this, test), dart.fnType(core.int, [], [dart.nullable(dart.fnType(core.bool, [core.MapEntry$(K, V)]))]));
+  };
+  supercharged_dart['MapSC|toJSON'] = function MapSC$124toJSON(K, V, $this, opts) {
+    let toEncodable = opts && 'toEncodable' in opts ? opts.toEncodable : null;
+    return convert.jsonEncode($this, {toEncodable: toEncodable});
+  };
+  supercharged_dart['MapSC|get#toJSON'] = function MapSC$124get$35toJSON(K, V, $this) {
+    return dart.fn(opts => {
+      let toEncodable = opts && 'toEncodable' in opts ? opts.toEncodable : null;
+      return supercharged_dart['MapSC|toJSON'](K, V, $this, {toEncodable: toEncodable});
+    }, T$.__ToString());
+  };
+  supercharged_dart['StringSC|get#repeat'] = function StringSC$124get$35repeat($this) {
+    return dart.fn((n, opts) => {
+      let separator = opts && 'separator' in opts ? opts.separator : "";
+      return supercharged_dart['StringSC|repeat']($this, n, {separator: separator});
+    }, T$.int__ToString());
+  };
+  supercharged_dart['StringSC|repeat'] = function StringSC$124repeat($this, n, opts) {
+    let separator = opts && 'separator' in opts ? opts.separator : "";
+    supercharged_dart.throwIfNot(n > 0, dart.fn(() => new core.ArgumentError.new("n must be a positive value greater then 0"), T$.VoidToArgumentError()));
+    let repeatedString = "";
+    for (let i = 0; i < n; i = i + 1) {
+      if (i > 0) {
+        repeatedString = repeatedString + separator;
+      }
+      repeatedString = repeatedString + $this;
+    }
+    return repeatedString;
+  };
+  supercharged_dart['StringSC|get#reverse'] = function StringSC$124get$35reverse($this) {
+    if ($this[$isEmpty]) {
+      return "";
+    }
+    return supercharged_dart['StringSC|toList']($this)[$reversed][$reduce](dart.fn((value, element) => value = value + element, T$.StringAndStringToString()));
+  };
+  supercharged_dart['StringSC|toList'] = function StringSC$124toList($this) {
+    return $this[$split]("");
+  };
+  supercharged_dart['StringSC|get#toList'] = function StringSC$124get$35toList($this) {
+    return dart.fn(() => supercharged_dart['StringSC|toList']($this), T$.VoidToListOfString());
+  };
+  supercharged_dart['StringSC|parseJSON'] = function StringSC$124parseJSON($this, opts) {
+    let reviver = opts && 'reviver' in opts ? opts.reviver : null;
+    return convert.jsonDecode($this, {reviver: reviver});
+  };
+  supercharged_dart['StringSC|get#parseJSON'] = function StringSC$124get$35parseJSON($this) {
+    return dart.fn(opts => {
+      let reviver = opts && 'reviver' in opts ? opts.reviver : null;
+      return supercharged_dart['StringSC|parseJSON']($this, {reviver: reviver});
+    }, T$.__Todynamic());
+  };
+  supercharged_dart['StringSC|allAfter'] = function StringSC$124allAfter($this, pattern) {
+    let matchIterator = pattern[$allMatches]($this)[$iterator];
+    if (matchIterator.moveNext()) {
+      let match = matchIterator.current;
+      let length = match.end - match.start;
+      return $this[$substring](match.start + length);
+    }
+    return "";
+  };
+  supercharged_dart['StringSC|get#allAfter'] = function StringSC$124get$35allAfter($this) {
+    return dart.fn(pattern => supercharged_dart['StringSC|allAfter']($this, pattern), T$.PatternToString());
+  };
+  supercharged_dart['StringSC|allBefore'] = function StringSC$124allBefore($this, pattern) {
+    let matchIterator = pattern[$allMatches]($this)[$iterator];
+    let match = null;
+    while (matchIterator.moveNext()) {
+      match = matchIterator.current;
+    }
+    if (match != null) {
+      return $this[$substring](0, match.start);
+    }
+    return "";
+  };
+  supercharged_dart['StringSC|get#allBefore'] = function StringSC$124get$35allBefore($this) {
+    return dart.fn(pattern => supercharged_dart['StringSC|allBefore']($this, pattern), T$.PatternToString());
+  };
+  supercharged_dart['StringSC|allBetween'] = function StringSC$124allBetween($this, startPattern, endPattern) {
+    return supercharged_dart['StringSC|allBefore'](supercharged_dart['StringSC|allAfter']($this, startPattern), endPattern);
+  };
+  supercharged_dart['StringSC|get#allBetween'] = function StringSC$124get$35allBetween($this) {
+    return dart.fn((startPattern, endPattern) => supercharged_dart['StringSC|allBetween']($this, startPattern, endPattern), T$.PatternAndPatternToString());
+  };
+  supercharged_dart['StringSC|toInt'] = function StringSC$124toInt($this, opts) {
+    let radix = opts && 'radix' in opts ? opts.radix : 10;
+    try {
+      return core.int.parse($this, {radix: radix});
+    } catch (e) {
+      let error = dart.getThrown(e);
+      if (core.Object.is(error)) {
+        return null;
+      } else
+        throw e;
     }
   };
-  (flare_actor.FlareActorRenderObject.new = function() {
-    this[_lastControllerViewTransform] = new mat2d.Mat2D.new();
-    this[_assetProvider] = null;
-    this[_artboardName] = null;
-    this[_animationName] = null;
-    this[_boundsNodeName] = null;
-    this[_controller] = null;
-    this[_completedCallback] = null;
-    this[snapToEnd] = false;
-    this[_isPaused] = false;
-    this[_useAntialias] = true;
-    this[_actor] = null;
-    this[_animationLayers] = T.JSArrayOfFlareAnimationLayer().of([]);
-    this[shouldClip] = true;
-    this[__FlareActorRenderObject__artboard] = null;
-    this[__FlareActorRenderObject__setupAABB] = null;
-    this[_color] = null;
-    flare_actor.FlareActorRenderObject.__proto__.new.call(this);
-    ;
-  }).prototype = flare_actor.FlareActorRenderObject.prototype;
-  dart.addTypeTests(flare_actor.FlareActorRenderObject);
-  dart.addTypeCaches(flare_actor.FlareActorRenderObject);
-  dart.setMethodSignature(flare_actor.FlareActorRenderObject, () => ({
-    __proto__: dart.getMethods(flare_actor.FlareActorRenderObject.__proto__),
-    advance: dart.fnType(dart.void, [core.double]),
-    onControllerActiveChange: dart.fnType(dart.void, []),
-    paintFlare: dart.fnType(dart.void, [ui.Canvas, mat2d.Mat2D]),
-    updateBounds: dart.fnType(dart.void, []),
-    [_instanceArtboard]: dart.fnType(core.bool, []),
-    [_updateAnimation]: dart.fnType(dart.void, [], {onlyWhenMissing: core.bool}, {})
-  }));
-  dart.setGetterSignature(flare_actor.FlareActorRenderObject, () => ({
-    __proto__: dart.getGetters(flare_actor.FlareActorRenderObject.__proto__),
-    [_artboard]: flare.FlutterActorArtboard,
-    [_setupAABB]: aabb.AABB,
-    aabb: aabb.AABB,
-    animationName: dart.nullable(core.String),
-    artboardName: dart.nullable(core.String),
-    assetProvider: dart.nullable(asset_provider.AssetProvider),
-    boundsNodeName: dart.nullable(core.String),
-    color: dart.nullable(ui.Color),
-    completed: dart.nullable(dart.fnType(dart.void, [core.String])),
-    controller: dart.nullable(flare_controller.FlareController),
-    isPaused: core.bool,
-    isPlaying: core.bool,
-    useAntialias: core.bool
-  }));
-  dart.setSetterSignature(flare_actor.FlareActorRenderObject, () => ({
-    __proto__: dart.getSetters(flare_actor.FlareActorRenderObject.__proto__),
-    [_artboard]: flare.FlutterActorArtboard,
-    [_setupAABB]: aabb.AABB,
-    animationName: dart.nullable(core.String),
-    artboardName: dart.nullable(core.String),
-    assetProvider: dart.nullable(asset_provider.AssetProvider),
-    boundsNodeName: dart.nullable(core.String),
-    color: dart.nullable(ui.Color),
-    completed: dart.nullable(dart.fnType(dart.void, [core.String])),
-    controller: dart.nullable(flare_controller.FlareController),
-    isPaused: core.bool,
-    useAntialias: core.bool
-  }));
-  dart.setLibraryUri(flare_actor.FlareActorRenderObject, I[0]);
-  dart.setFieldSignature(flare_actor.FlareActorRenderObject, () => ({
-    __proto__: dart.getFields(flare_actor.FlareActorRenderObject.__proto__),
-    [_lastControllerViewTransform]: dart.finalFieldType(mat2d.Mat2D),
-    [_assetProvider]: dart.fieldType(dart.nullable(asset_provider.AssetProvider)),
-    [_artboardName]: dart.fieldType(dart.nullable(core.String)),
-    [_animationName]: dart.fieldType(dart.nullable(core.String)),
-    [_boundsNodeName]: dart.fieldType(dart.nullable(core.String)),
-    [_controller]: dart.fieldType(dart.nullable(flare_controller.FlareController)),
-    [_completedCallback]: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.String]))),
-    snapToEnd: dart.fieldType(core.bool),
-    [_isPaused]: dart.fieldType(core.bool),
-    [_useAntialias]: dart.fieldType(core.bool),
-    [_actor]: dart.fieldType(dart.nullable(flare.FlutterActor)),
-    [_animationLayers]: dart.finalFieldType(core.List$(flare_actor.FlareAnimationLayer)),
-    shouldClip: dart.fieldType(core.bool),
-    [__FlareActorRenderObject__artboard]: dart.fieldType(dart.nullable(flare.FlutterActorArtboard)),
-    [__FlareActorRenderObject__setupAABB]: dart.fieldType(dart.nullable(aabb.AABB)),
-    [_color]: dart.fieldType(dart.nullable(ui.Color))
-  }));
-  var name$ = dart.privateName(flare_actor, "FlareAnimationLayer.name");
-  var animation$0 = dart.privateName(flare_actor, "FlareAnimationLayer.animation");
-  var time = dart.privateName(flare_actor, "FlareAnimationLayer.time");
-  var mix = dart.privateName(flare_actor, "FlareAnimationLayer.mix");
-  var mixSeconds = dart.privateName(flare_actor, "FlareAnimationLayer.mixSeconds");
-  flare_actor.FlareAnimationLayer = class FlareAnimationLayer extends core.Object {
-    get name() {
-      return this[name$];
-    }
-    set name(value) {
-      super.name = value;
-    }
-    get animation() {
-      return this[animation$0];
-    }
-    set animation(value) {
-      super.animation = value;
-    }
-    get time() {
-      return this[time];
-    }
-    set time(value) {
-      this[time] = value;
-    }
-    get mix() {
-      return this[mix];
-    }
-    set mix(value) {
-      this[mix] = value;
-    }
-    get mixSeconds() {
-      return this[mixSeconds];
-    }
-    set mixSeconds(value) {
-      this[mixSeconds] = value;
-    }
-    get duration() {
-      return this.animation.duration;
-    }
-    get isDone() {
-      return this.time >= this.animation.duration;
-    }
-    apply(artboard) {
-      this.animation.apply(this.time, artboard, this.mix);
+  supercharged_dart['StringSC|get#toInt'] = function StringSC$124get$35toInt($this) {
+    return dart.fn(opts => {
+      let radix = opts && 'radix' in opts ? opts.radix : 10;
+      return supercharged_dart['StringSC|toInt']($this, {radix: radix});
+    }, T$.__TointN());
+  };
+  supercharged_dart['StringSC|toDouble'] = function StringSC$124toDouble($this) {
+    try {
+      return core.double.parse($this);
+    } catch (e) {
+      let error = dart.getThrown(e);
+      if (core.Object.is(error)) {
+        return null;
+      } else
+        throw e;
     }
   };
-  (flare_actor.FlareAnimationLayer.new = function(name, animation) {
-    this[time] = 0.0;
-    this[mix] = 0.0;
-    this[mixSeconds] = 0.2;
-    this[name$] = name;
-    this[animation$0] = animation;
-    ;
-  }).prototype = flare_actor.FlareAnimationLayer.prototype;
-  dart.addTypeTests(flare_actor.FlareAnimationLayer);
-  dart.addTypeCaches(flare_actor.FlareAnimationLayer);
-  dart.setMethodSignature(flare_actor.FlareAnimationLayer, () => ({
-    __proto__: dart.getMethods(flare_actor.FlareAnimationLayer.__proto__),
-    apply: dart.fnType(dart.void, [flare.FlutterActorArtboard])
-  }));
-  dart.setGetterSignature(flare_actor.FlareAnimationLayer, () => ({
-    __proto__: dart.getGetters(flare_actor.FlareAnimationLayer.__proto__),
-    duration: core.double,
-    isDone: core.bool
-  }));
-  dart.setLibraryUri(flare_actor.FlareAnimationLayer, I[0]);
-  dart.setFieldSignature(flare_actor.FlareAnimationLayer, () => ({
-    __proto__: dart.getFields(flare_actor.FlareAnimationLayer.__proto__),
-    name: dart.finalFieldType(core.String),
-    animation: dart.finalFieldType(actor_animation.ActorAnimation),
-    time: dart.fieldType(core.double),
-    mix: dart.fieldType(core.double),
-    mixSeconds: dart.fieldType(core.double)
-  }));
-  dart.trackLibraries("packages/flare_flutter/flare_actor.dart", {
-    "package:flare_flutter/flare_actor.dart": flare_actor
+  supercharged_dart['StringSC|get#toDouble'] = function StringSC$124get$35toDouble($this) {
+    return dart.fn(() => supercharged_dart['StringSC|toDouble']($this), T$.VoidTodoubleN());
+  };
+  dart.trackLibraries("packages/supercharged_dart/supercharged_dart.dart", {
+    "package:supercharged_dart/supercharged_dart.dart": supercharged_dart
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["flare_actor.dart"],"names":[],"mappings":"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","file":"../../../../../../../D:/packages/flare_flutter/flare_actor.dart.lib.js"}');
+    "package:supercharged_dart/supercharged_dart.dart": ["datetime/datetime.dart", "double/double.dart", "duration/duration.dart", "error/throw_if.dart", "int/int.dart", "iterable/iterable_double.dart", "iterable/iterable_int.dart", "iterable/iterable_mapentry.dart", "iterable/iterable_object.dart", "list/list_object.dart", "map/map.dart", "string/string.dart"]
+  }, '{"version":3,"sourceRoot":"","sources":["supercharged_dart.dart","datetime/datetime.dart","double/double.dart","duration/duration.dart","error/throw_if.dart","int/int.dart","iterable/iterable_double.dart","iterable/iterable_int.dart","iterable/iterable_mapentry.dart","iterable/iterable_object.dart","list/list_object.dart","map/map.dart","string/string.dart"],"names":[],"mappings":"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","file":"../../../../../../../D:/packages/supercharged_dart/supercharged_dart.dart.lib.js"}');
   // Exports:
   return {
-    flare_actor: flare_actor
+    supercharged_dart: supercharged_dart
   };
 }));
 
-//# sourceMappingURL=flare_actor.dart.lib.js.map
+//# sourceMappingURL=supercharged_dart.dart.lib.js.map

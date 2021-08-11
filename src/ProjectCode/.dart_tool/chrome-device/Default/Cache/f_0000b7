@@ -1,461 +1,693 @@
-define(['dart_sdk'], (function load__packages__flare_flutter__base__math__transform_components_dart(dart_sdk) {
+define(['dart_sdk'], (function load__packages__file__src__interface__error_codes_dart(dart_sdk) {
   'use strict';
   const core = dart_sdk.core;
-  const _native_typed_data = dart_sdk._native_typed_data;
-  const _interceptors = dart_sdk._interceptors;
-  const typed_data = dart_sdk.typed_data;
-  const math = dart_sdk.math;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  var transform_components = Object.create(dart.library);
-  var mat2d = Object.create(dart.library);
-  var vec2d = Object.create(dart.library);
+  var error_codes = Object.create(dart.library);
   var $_get = dartx._get;
-  var $_set = dartx._set;
-  var $toString = dartx.toString;
-  var $sign = dartx.sign;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    JSArrayOfdouble: () => (T.JSArrayOfdouble = dart.constFn(_interceptors.JSArray$(core.double)))()
+    _CodesToint: () => (T._CodesToint = dart.constFn(dart.fnType(core.int, [error_codes._Codes])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
-  var I = [
-    "package:flare_flutter/base/math/transform_components.dart",
-    "package:flare_flutter/base/math/mat2d.dart",
-    "package:flare_flutter/base/math/vec2d.dart"
-  ];
-  var _buffer = dart.privateName(transform_components, "_buffer");
-  transform_components.TransformComponents = class TransformComponents extends core.Object {
-    get rotation() {
-      return this[_buffer][$_get](4);
+  dart.defineLazy(CT, {
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: error_codes._LinuxCodes.prototype
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: error_codes._MacOSCodes.prototype
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: error_codes._WindowsCodes.prototype
+      });
+    },
+    get C0() {
+      return C[0] = dart.constMap(core.String, error_codes._Codes, ["linux", C[1] || CT.C1, "macos", C[2] || CT.C2, "windows", C[3] || CT.C3]);
     }
-    set rotation(value) {
-      this[_buffer][$_set](4, value);
+  }, false);
+  var C = Array(4).fill(void 0);
+  var I = ["package:file/src/interface/error_codes.dart"];
+  error_codes.ErrorCodes = class ErrorCodes extends core.Object {
+    static get E2BIG() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.e2big, T._CodesToint()));
     }
-    get scale() {
-      return new vec2d.Vec2D.fromValues(this[_buffer][$_get](2), this[_buffer][$_get](3));
+    static get EACCES() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.eacces, T._CodesToint()));
     }
-    get scaleX() {
-      return this[_buffer][$_get](2);
+    static get EAGAIN() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.eagain, T._CodesToint()));
     }
-    set scaleX(value) {
-      this[_buffer][$_set](2, value);
+    static get EBADF() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.ebadf, T._CodesToint()));
     }
-    get scaleY() {
-      return this[_buffer][$_get](3);
+    static get EBUSY() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.ebusy, T._CodesToint()));
     }
-    set scaleY(value) {
-      this[_buffer][$_set](3, value);
+    static get ECHILD() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.echild, T._CodesToint()));
     }
-    get skew() {
-      return this[_buffer][$_get](5);
+    static get EDEADLK() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.edeadlk, T._CodesToint()));
     }
-    set skew(value) {
-      this[_buffer][$_set](5, value);
+    static get EDOM() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.edom, T._CodesToint()));
     }
-    get translation() {
-      return new vec2d.Vec2D.fromValues(this[_buffer][$_get](0), this[_buffer][$_get](1));
+    static get EEXIST() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.eexist, T._CodesToint()));
     }
-    get values() {
-      return this[_buffer];
+    static get EFAULT() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.efault, T._CodesToint()));
     }
-    get x() {
-      return this[_buffer][$_get](0);
+    static get EFBIG() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.efbig, T._CodesToint()));
     }
-    set x(value) {
-      this[_buffer][$_set](0, value);
+    static get EILSEQ() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.eilseq, T._CodesToint()));
     }
-    get y() {
-      return this[_buffer][$_get](1);
+    static get EINTR() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.eintr, T._CodesToint()));
     }
-    set y(value) {
-      this[_buffer][$_set](1, value);
+    static get EINVAL() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.einval, T._CodesToint()));
     }
-    _get(index) {
-      return this[_buffer][$_get](index);
+    static get EIO() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.eio, T._CodesToint()));
     }
-    _set(index, value$) {
-      let value = value$;
-      this[_buffer][$_set](index, value);
-      return value$;
+    static get EISDIR() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.eisdir, T._CodesToint()));
     }
-  };
-  (transform_components.TransformComponents.new = function() {
-    this[_buffer] = _native_typed_data.NativeFloat32List.fromList(T.JSArrayOfdouble().of([1.0, 0.0, 0.0, 1.0, 0.0, 0.0]));
-    ;
-  }).prototype = transform_components.TransformComponents.prototype;
-  (transform_components.TransformComponents.clone = function(copy) {
-    this[_buffer] = _native_typed_data.NativeFloat32List.fromList(copy.values);
-    ;
-  }).prototype = transform_components.TransformComponents.prototype;
-  dart.addTypeTests(transform_components.TransformComponents);
-  dart.addTypeCaches(transform_components.TransformComponents);
-  dart.setMethodSignature(transform_components.TransformComponents, () => ({
-    __proto__: dart.getMethods(transform_components.TransformComponents.__proto__),
-    _get: dart.fnType(core.double, [core.int]),
-    _set: dart.fnType(dart.void, [core.int, core.double])
-  }));
-  dart.setGetterSignature(transform_components.TransformComponents, () => ({
-    __proto__: dart.getGetters(transform_components.TransformComponents.__proto__),
-    rotation: core.double,
-    scale: vec2d.Vec2D,
-    scaleX: core.double,
-    scaleY: core.double,
-    skew: core.double,
-    translation: vec2d.Vec2D,
-    values: typed_data.Float32List,
-    x: core.double,
-    y: core.double
-  }));
-  dart.setSetterSignature(transform_components.TransformComponents, () => ({
-    __proto__: dart.getSetters(transform_components.TransformComponents.__proto__),
-    rotation: core.double,
-    scaleX: core.double,
-    scaleY: core.double,
-    skew: core.double,
-    x: core.double,
-    y: core.double
-  }));
-  dart.setLibraryUri(transform_components.TransformComponents, I[0]);
-  dart.setFieldSignature(transform_components.TransformComponents, () => ({
-    __proto__: dart.getFields(transform_components.TransformComponents.__proto__),
-    [_buffer]: dart.finalFieldType(typed_data.Float32List)
-  }));
-  var _buffer$ = dart.privateName(mat2d, "_buffer");
-  mat2d.Mat2D = class Mat2D extends core.Object {
-    get mat4() {
-      return _native_typed_data.NativeFloat64List.fromList(T.JSArrayOfdouble().of([this[_buffer$][$_get](0), this[_buffer$][$_get](1), 0.0, 0.0, this[_buffer$][$_get](2), this[_buffer$][$_get](3), 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, this[_buffer$][$_get](4), this[_buffer$][$_get](5), 0.0, 1.0]));
+    static get ELOOP() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.eloop, T._CodesToint()));
     }
-    get values() {
-      return this[_buffer$];
+    static get EMFILE() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.emfile, T._CodesToint()));
     }
-    _get(index) {
-      return this[_buffer$][$_get](index);
+    static get EMLINK() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.emlink, T._CodesToint()));
     }
-    _set(index, value$) {
-      let value = value$;
-      this[_buffer$][$_set](index, value);
-      return value$;
+    static get ENAMETOOLONG() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.enametoolong, T._CodesToint()));
     }
-    toString() {
-      return this[_buffer$][$toString]();
+    static get ENFILE() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.enfile, T._CodesToint()));
     }
-    static areEqual(a, b) {
-      return a._get(0) === b._get(0) && a._get(1) === b._get(1) && a._get(2) === b._get(2) && a._get(3) === b._get(3) && a._get(4) === b._get(4) && a._get(5) === b._get(5);
+    static get ENODEV() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.enodev, T._CodesToint()));
     }
-    static cCopy(o, a) {
-      o._set(0, a._get(0));
-      o._set(1, a._get(1));
-      o._set(2, a._get(2));
-      o._set(3, a._get(3));
-      o._set(4, a._get(4));
-      o._set(5, a._get(5));
+    static get ENOENT() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.enoent, T._CodesToint()));
     }
-    static compose(m, result) {
-      let r = result._get(4);
-      if (r !== 0.0) {
-        mat2d.Mat2D.fromRotation(m, r);
-      } else {
-        mat2d.Mat2D.identity(m);
-      }
-      m._set(4, result._get(0));
-      m._set(5, result._get(1));
-      mat2d.Mat2D.scale(m, m, result.scale);
-      let sk = result._get(5);
-      if (sk !== 0.0) {
-        m._set(2, m._get(0) * sk + m._get(2));
-        m._set(3, m._get(1) * sk + m._get(3));
-      }
+    static get ENOEXEC() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.enoexec, T._CodesToint()));
     }
-    static copy(o, f) {
-      o._set(0, f._get(0));
-      o._set(1, f._get(1));
-      o._set(2, f._get(2));
-      o._set(3, f._get(3));
-      o._set(4, f._get(4));
-      o._set(5, f._get(5));
+    static get ENOLCK() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.enolck, T._CodesToint()));
     }
-    static copyFromList(o, f) {
-      o._set(0, f[$_get](0));
-      o._set(1, f[$_get](1));
-      o._set(2, f[$_get](2));
-      o._set(3, f[$_get](3));
-      o._set(4, f[$_get](4));
-      o._set(5, f[$_get](5));
+    static get ENOMEM() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.enomem, T._CodesToint()));
     }
-    static decompose(m, result) {
-      let m0 = m._get(0);
-      let m1 = m._get(1);
-      let m2 = m._get(2);
-      let m3 = m._get(3);
-      let rotation = math.atan2(m1, m0);
-      let denom = m0 * m0 + m1 * m1;
-      let scaleX = math.sqrt(denom);
-      let scaleY = scaleX === 0 ? 0.0 : (m0 * m3 - m2 * m1) / scaleX;
-      let skewX = math.atan2(m0 * m2 + m1 * m3, denom);
-      result._set(0, m._get(4));
-      result._set(1, m._get(5));
-      result._set(2, scaleX);
-      result._set(3, scaleY);
-      result._set(4, rotation);
-      result._set(5, skewX);
+    static get ENOSPC() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.enospc, T._CodesToint()));
     }
-    static fromRotation(o, rad) {
-      let s = math.sin(rad);
-      let c = math.cos(rad);
-      o._set(0, c);
-      o._set(1, s);
-      o._set(2, -s);
-      o._set(3, c);
-      o._set(4, 0.0);
-      o._set(5, 0.0);
+    static get ENOSYS() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.enosys, T._CodesToint()));
     }
-    static getScale(m, s) {
-      let x = m._get(0);
-      let y = m._get(1);
-      s._set(0, x[$sign] * math.sqrt(x * x + y * y));
-      x = m._get(2);
-      y = m._get(3);
-      s._set(1, y[$sign] * math.sqrt(x * x + y * y));
+    static get ENOTDIR() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.enotdir, T._CodesToint()));
     }
-    static identity(mat) {
-      mat._set(0, 1.0);
-      mat._set(1, 0.0);
-      mat._set(2, 0.0);
-      mat._set(3, 1.0);
-      mat._set(4, 0.0);
-      mat._set(5, 0.0);
+    static get ENOTEMPTY() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.enotempty, T._CodesToint()));
     }
-    static invert(o, a) {
-      let aa = a._get(0);
-      let ab = a._get(1);
-      let ac = a._get(2);
-      let ad = a._get(3);
-      let atx = a._get(4);
-      let aty = a._get(5);
-      let det = aa * ad - ab * ac;
-      if (det === 0.0) {
-        return false;
-      }
-      det = 1.0 / det;
-      o._set(0, ad * det);
-      o._set(1, -ab * det);
-      o._set(2, -ac * det);
-      o._set(3, aa * det);
-      o._set(4, (ac * aty - ad * atx) * det);
-      o._set(5, (ab * atx - aa * aty) * det);
-      return true;
+    static get ENOTTY() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.enotty, T._CodesToint()));
     }
-    static multiply(o, a, b) {
-      let a0 = a._get(0);
-      let a1 = a._get(1);
-      let a2 = a._get(2);
-      let a3 = a._get(3);
-      let a4 = a._get(4);
-      let a5 = a._get(5);
-      let b0 = b._get(0);
-      let b1 = b._get(1);
-      let b2 = b._get(2);
-      let b3 = b._get(3);
-      let b4 = b._get(4);
-      let b5 = b._get(5);
-      o._set(0, a0 * b0 + a2 * b1);
-      o._set(1, a1 * b0 + a3 * b1);
-      o._set(2, a0 * b2 + a2 * b3);
-      o._set(3, a1 * b2 + a3 * b3);
-      o._set(4, a0 * b4 + a2 * b5 + a4);
-      o._set(5, a1 * b4 + a3 * b5 + a5);
+    static get ENXIO() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.enxio, T._CodesToint()));
     }
-    static scale(o, a, v) {
-      let a0 = a._get(0);
-      let a1 = a._get(1);
-      let a2 = a._get(2);
-      let a3 = a._get(3);
-      let a4 = a._get(4);
-      let a5 = a._get(5);
-      let v0 = v._get(0);
-      let v1 = v._get(1);
-      o._set(0, a0 * v0);
-      o._set(1, a1 * v0);
-      o._set(2, a2 * v1);
-      o._set(3, a3 * v1);
-      o._set(4, a4);
-      o._set(5, a5);
+    static get EPERM() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.eperm, T._CodesToint()));
+    }
+    static get EPIPE() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.epipe, T._CodesToint()));
+    }
+    static get ERANGE() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.erange, T._CodesToint()));
+    }
+    static get EROFS() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.erofs, T._CodesToint()));
+    }
+    static get ESPIPE() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.espipe, T._CodesToint()));
+    }
+    static get ESRCH() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.esrch, T._CodesToint()));
+    }
+    static get EXDEV() {
+      return error_codes.ErrorCodes._platform(dart.fn(codes => codes.exdev, T._CodesToint()));
+    }
+    static _platform(getCode) {
+      let t0;
+      let codes = dart.nullCheck((t0 = error_codes._platforms[$_get]("linux"), t0 == null ? error_codes._platforms[$_get]("linux") : t0));
+      return getCode(codes);
     }
   };
-  (mat2d.Mat2D.new = function() {
-    this[_buffer$] = _native_typed_data.NativeFloat32List.fromList(T.JSArrayOfdouble().of([1.0, 0.0, 0.0, 1.0, 0.0, 0.0]));
+  (error_codes.ErrorCodes.__ = function() {
     ;
-  }).prototype = mat2d.Mat2D.prototype;
-  (mat2d.Mat2D.clone = function(copy) {
-    this[_buffer$] = _native_typed_data.NativeFloat32List.fromList(copy.values);
+  }).prototype = error_codes.ErrorCodes.prototype;
+  dart.addTypeTests(error_codes.ErrorCodes);
+  dart.addTypeCaches(error_codes.ErrorCodes);
+  dart.setLibraryUri(error_codes.ErrorCodes, I[0]);
+  error_codes._Codes = class _Codes extends core.Object {};
+  (error_codes._Codes.new = function() {
     ;
-  }).prototype = mat2d.Mat2D.prototype;
-  dart.addTypeTests(mat2d.Mat2D);
-  dart.addTypeCaches(mat2d.Mat2D);
-  dart.setMethodSignature(mat2d.Mat2D, () => ({
-    __proto__: dart.getMethods(mat2d.Mat2D.__proto__),
-    _get: dart.fnType(core.double, [core.int]),
-    _set: dart.fnType(dart.void, [core.int, core.double])
-  }));
-  dart.setGetterSignature(mat2d.Mat2D, () => ({
-    __proto__: dart.getGetters(mat2d.Mat2D.__proto__),
-    mat4: typed_data.Float64List,
-    values: typed_data.Float32List
-  }));
-  dart.setLibraryUri(mat2d.Mat2D, I[1]);
-  dart.setFieldSignature(mat2d.Mat2D, () => ({
-    __proto__: dart.getFields(mat2d.Mat2D.__proto__),
-    [_buffer$]: dart.finalFieldType(typed_data.Float32List)
-  }));
-  dart.defineExtensionMethods(mat2d.Mat2D, ['toString']);
-  var _buffer$0 = dart.privateName(vec2d, "_buffer");
-  vec2d.Vec2D = class Vec2D extends core.Object {
-    get values() {
-      return this[_buffer$0];
+  }).prototype = error_codes._Codes.prototype;
+  dart.addTypeTests(error_codes._Codes);
+  dart.addTypeCaches(error_codes._Codes);
+  dart.setLibraryUri(error_codes._Codes, I[0]);
+  error_codes._LinuxCodes = class _LinuxCodes extends core.Object {
+    get e2big() {
+      return 7;
     }
-    _get(index) {
-      return this[_buffer$0][$_get](index);
+    get eacces() {
+      return 13;
     }
-    _set(index, value$) {
-      let value = value$;
-      this[_buffer$0][$_set](index, value);
-      return value$;
+    get eagain() {
+      return 11;
     }
-    static copy(o, a) {
-      o._set(0, a._get(0));
-      o._set(1, a._get(1));
+    get ebadf() {
+      return 9;
     }
-    static copyFromList(o, a) {
-      o._set(0, a[$_get](0));
-      o._set(1, a[$_get](1));
+    get ebusy() {
+      return 16;
     }
-    static transformMat2D(o, a, m) {
-      let x = a._get(0);
-      let y = a._get(1);
-      o._set(0, m._get(0) * x + m._get(2) * y + m._get(4));
-      o._set(1, m._get(1) * x + m._get(3) * y + m._get(5));
-      return o;
+    get echild() {
+      return 10;
     }
-    static transformMat2(o, a, m) {
-      let x = a._get(0);
-      let y = a._get(1);
-      o._set(0, m._get(0) * x + m._get(2) * y);
-      o._set(1, m._get(1) * x + m._get(3) * y);
-      return o;
+    get edeadlk() {
+      return 35;
     }
-    static subtract(o, a, b) {
-      o._set(0, a._get(0) - b._get(0));
-      o._set(1, a._get(1) - b._get(1));
-      return o;
+    get edom() {
+      return 33;
     }
-    static add(o, a, b) {
-      o._set(0, a._get(0) + b._get(0));
-      o._set(1, a._get(1) + b._get(1));
-      return o;
+    get eexist() {
+      return 17;
     }
-    static scale(o, a, scale) {
-      o._set(0, a._get(0) * scale);
-      o._set(1, a._get(1) * scale);
-      return o;
+    get efault() {
+      return 14;
     }
-    static lerp(o, a, b, f) {
-      let ax = a._get(0);
-      let ay = a._get(1);
-      o._set(0, ax + f * (b._get(0) - ax));
-      o._set(1, ay + f * (b._get(1) - ay));
-      return o;
+    get efbig() {
+      return 27;
     }
-    static length(a) {
-      let x = a._get(0);
-      let y = a._get(1);
-      return math.sqrt(x * x + y * y);
+    get eilseq() {
+      return 84;
     }
-    static squaredLength(a) {
-      let x = a._get(0);
-      let y = a._get(1);
-      return x * x + y * y;
+    get eintr() {
+      return 4;
     }
-    static distance(a, b) {
-      let x = b._get(0) - a._get(0);
-      let y = b._get(1) - a._get(1);
-      return math.sqrt(x * x + y * y);
+    get einval() {
+      return 22;
     }
-    static squaredDistance(a, b) {
-      let x = b._get(0) - a._get(0);
-      let y = b._get(1) - a._get(1);
-      return x * x + y * y;
+    get eio() {
+      return 5;
     }
-    static negate(result, a) {
-      result._set(0, -1 * a._get(0));
-      result._set(1, -1 * a._get(1));
-      return result;
+    get eisdir() {
+      return 21;
     }
-    static normalize(result, a) {
-      let x = a._get(0);
-      let y = a._get(1);
-      let len = x * x + y * y;
-      if (len > 0.0) {
-        len = 1.0 / math.sqrt(len);
-        result._set(0, a._get(0) * len);
-        result._set(1, a._get(1) * len);
-      }
+    get eloop() {
+      return 40;
     }
-    static dot(a, b) {
-      return a._get(0) * b._get(0) + a._get(1) * b._get(1);
+    get emfile() {
+      return 24;
     }
-    static scaleAndAdd(result, a, b, scale) {
-      result._set(0, a._get(0) + b._get(0) * scale);
-      result._set(1, a._get(1) + b._get(1) * scale);
-      return result;
+    get emlink() {
+      return 31;
     }
-    toString() {
-      return dart.str(this[_buffer$0][$_get](0)) + ", " + dart.str(this[_buffer$0][$_get](1));
+    get enametoolong() {
+      return 36;
+    }
+    get enfile() {
+      return 23;
+    }
+    get enodev() {
+      return 19;
+    }
+    get enoent() {
+      return 2;
+    }
+    get enoexec() {
+      return 8;
+    }
+    get enolck() {
+      return 37;
+    }
+    get enomem() {
+      return 12;
+    }
+    get enospc() {
+      return 28;
+    }
+    get enosys() {
+      return 38;
+    }
+    get enotdir() {
+      return 20;
+    }
+    get enotempty() {
+      return 39;
+    }
+    get enotty() {
+      return 25;
+    }
+    get enxio() {
+      return 6;
+    }
+    get eperm() {
+      return 1;
+    }
+    get epipe() {
+      return 32;
+    }
+    get erange() {
+      return 34;
+    }
+    get erofs() {
+      return 30;
+    }
+    get espipe() {
+      return 29;
+    }
+    get esrch() {
+      return 3;
+    }
+    get exdev() {
+      return 18;
     }
   };
-  (vec2d.Vec2D.new = function() {
-    this[_buffer$0] = _native_typed_data.NativeFloat32List.fromList(T.JSArrayOfdouble().of([0.0, 0.0]));
+  (error_codes._LinuxCodes.new = function() {
     ;
-  }).prototype = vec2d.Vec2D.prototype;
-  (vec2d.Vec2D.clone = function(copy) {
-    this[_buffer$0] = _native_typed_data.NativeFloat32List.fromList(copy[_buffer$0]);
+  }).prototype = error_codes._LinuxCodes.prototype;
+  dart.addTypeTests(error_codes._LinuxCodes);
+  dart.addTypeCaches(error_codes._LinuxCodes);
+  error_codes._LinuxCodes[dart.implements] = () => [error_codes._Codes];
+  dart.setGetterSignature(error_codes._LinuxCodes, () => ({
+    __proto__: dart.getGetters(error_codes._LinuxCodes.__proto__),
+    e2big: core.int,
+    eacces: core.int,
+    eagain: core.int,
+    ebadf: core.int,
+    ebusy: core.int,
+    echild: core.int,
+    edeadlk: core.int,
+    edom: core.int,
+    eexist: core.int,
+    efault: core.int,
+    efbig: core.int,
+    eilseq: core.int,
+    eintr: core.int,
+    einval: core.int,
+    eio: core.int,
+    eisdir: core.int,
+    eloop: core.int,
+    emfile: core.int,
+    emlink: core.int,
+    enametoolong: core.int,
+    enfile: core.int,
+    enodev: core.int,
+    enoent: core.int,
+    enoexec: core.int,
+    enolck: core.int,
+    enomem: core.int,
+    enospc: core.int,
+    enosys: core.int,
+    enotdir: core.int,
+    enotempty: core.int,
+    enotty: core.int,
+    enxio: core.int,
+    eperm: core.int,
+    epipe: core.int,
+    erange: core.int,
+    erofs: core.int,
+    espipe: core.int,
+    esrch: core.int,
+    exdev: core.int
+  }));
+  dart.setLibraryUri(error_codes._LinuxCodes, I[0]);
+  error_codes._MacOSCodes = class _MacOSCodes extends core.Object {
+    get e2big() {
+      return 7;
+    }
+    get eacces() {
+      return 13;
+    }
+    get eagain() {
+      return 35;
+    }
+    get ebadf() {
+      return 9;
+    }
+    get ebusy() {
+      return 16;
+    }
+    get echild() {
+      return 10;
+    }
+    get edeadlk() {
+      return 11;
+    }
+    get edom() {
+      return 33;
+    }
+    get eexist() {
+      return 17;
+    }
+    get efault() {
+      return 14;
+    }
+    get efbig() {
+      return 27;
+    }
+    get eilseq() {
+      return 92;
+    }
+    get eintr() {
+      return 4;
+    }
+    get einval() {
+      return 22;
+    }
+    get eio() {
+      return 5;
+    }
+    get eisdir() {
+      return 21;
+    }
+    get eloop() {
+      return 62;
+    }
+    get emfile() {
+      return 24;
+    }
+    get emlink() {
+      return 31;
+    }
+    get enametoolong() {
+      return 63;
+    }
+    get enfile() {
+      return 23;
+    }
+    get enodev() {
+      return 19;
+    }
+    get enoent() {
+      return 2;
+    }
+    get enoexec() {
+      return 8;
+    }
+    get enolck() {
+      return 77;
+    }
+    get enomem() {
+      return 12;
+    }
+    get enospc() {
+      return 28;
+    }
+    get enosys() {
+      return 78;
+    }
+    get enotdir() {
+      return 20;
+    }
+    get enotempty() {
+      return 66;
+    }
+    get enotty() {
+      return 25;
+    }
+    get enxio() {
+      return 6;
+    }
+    get eperm() {
+      return 1;
+    }
+    get epipe() {
+      return 32;
+    }
+    get erange() {
+      return 34;
+    }
+    get erofs() {
+      return 30;
+    }
+    get espipe() {
+      return 29;
+    }
+    get esrch() {
+      return 3;
+    }
+    get exdev() {
+      return 18;
+    }
+  };
+  (error_codes._MacOSCodes.new = function() {
     ;
-  }).prototype = vec2d.Vec2D.prototype;
-  (vec2d.Vec2D.fromValues = function(x, y) {
-    this[_buffer$0] = _native_typed_data.NativeFloat32List.fromList(T.JSArrayOfdouble().of([x, y]));
+  }).prototype = error_codes._MacOSCodes.prototype;
+  dart.addTypeTests(error_codes._MacOSCodes);
+  dart.addTypeCaches(error_codes._MacOSCodes);
+  error_codes._MacOSCodes[dart.implements] = () => [error_codes._Codes];
+  dart.setGetterSignature(error_codes._MacOSCodes, () => ({
+    __proto__: dart.getGetters(error_codes._MacOSCodes.__proto__),
+    e2big: core.int,
+    eacces: core.int,
+    eagain: core.int,
+    ebadf: core.int,
+    ebusy: core.int,
+    echild: core.int,
+    edeadlk: core.int,
+    edom: core.int,
+    eexist: core.int,
+    efault: core.int,
+    efbig: core.int,
+    eilseq: core.int,
+    eintr: core.int,
+    einval: core.int,
+    eio: core.int,
+    eisdir: core.int,
+    eloop: core.int,
+    emfile: core.int,
+    emlink: core.int,
+    enametoolong: core.int,
+    enfile: core.int,
+    enodev: core.int,
+    enoent: core.int,
+    enoexec: core.int,
+    enolck: core.int,
+    enomem: core.int,
+    enospc: core.int,
+    enosys: core.int,
+    enotdir: core.int,
+    enotempty: core.int,
+    enotty: core.int,
+    enxio: core.int,
+    eperm: core.int,
+    epipe: core.int,
+    erange: core.int,
+    erofs: core.int,
+    espipe: core.int,
+    esrch: core.int,
+    exdev: core.int
+  }));
+  dart.setLibraryUri(error_codes._MacOSCodes, I[0]);
+  error_codes._WindowsCodes = class _WindowsCodes extends core.Object {
+    get e2big() {
+      return 7;
+    }
+    get eacces() {
+      return 13;
+    }
+    get eagain() {
+      return 11;
+    }
+    get ebadf() {
+      return 9;
+    }
+    get ebusy() {
+      return 16;
+    }
+    get echild() {
+      return 10;
+    }
+    get edeadlk() {
+      return 36;
+    }
+    get edom() {
+      return 33;
+    }
+    get eexist() {
+      return 17;
+    }
+    get efault() {
+      return 14;
+    }
+    get efbig() {
+      return 27;
+    }
+    get eilseq() {
+      return 42;
+    }
+    get eintr() {
+      return 4;
+    }
+    get einval() {
+      return 22;
+    }
+    get eio() {
+      return 5;
+    }
+    get eisdir() {
+      return 21;
+    }
+    get eloop() {
+      return -1;
+    }
+    get emfile() {
+      return 24;
+    }
+    get emlink() {
+      return 31;
+    }
+    get enametoolong() {
+      return 38;
+    }
+    get enfile() {
+      return 23;
+    }
+    get enodev() {
+      return 19;
+    }
+    get enoent() {
+      return 2;
+    }
+    get enoexec() {
+      return 8;
+    }
+    get enolck() {
+      return 39;
+    }
+    get enomem() {
+      return 12;
+    }
+    get enospc() {
+      return 28;
+    }
+    get enosys() {
+      return 40;
+    }
+    get enotdir() {
+      return 20;
+    }
+    get enotempty() {
+      return 41;
+    }
+    get enotty() {
+      return 25;
+    }
+    get enxio() {
+      return 6;
+    }
+    get eperm() {
+      return 1;
+    }
+    get epipe() {
+      return 32;
+    }
+    get erange() {
+      return 34;
+    }
+    get erofs() {
+      return 30;
+    }
+    get espipe() {
+      return 29;
+    }
+    get esrch() {
+      return 3;
+    }
+    get exdev() {
+      return 18;
+    }
+  };
+  (error_codes._WindowsCodes.new = function() {
     ;
-  }).prototype = vec2d.Vec2D.prototype;
-  dart.addTypeTests(vec2d.Vec2D);
-  dart.addTypeCaches(vec2d.Vec2D);
-  dart.setMethodSignature(vec2d.Vec2D, () => ({
-    __proto__: dart.getMethods(vec2d.Vec2D.__proto__),
-    _get: dart.fnType(core.double, [core.int]),
-    _set: dart.fnType(dart.void, [core.int, core.double])
+  }).prototype = error_codes._WindowsCodes.prototype;
+  dart.addTypeTests(error_codes._WindowsCodes);
+  dart.addTypeCaches(error_codes._WindowsCodes);
+  error_codes._WindowsCodes[dart.implements] = () => [error_codes._Codes];
+  dart.setGetterSignature(error_codes._WindowsCodes, () => ({
+    __proto__: dart.getGetters(error_codes._WindowsCodes.__proto__),
+    e2big: core.int,
+    eacces: core.int,
+    eagain: core.int,
+    ebadf: core.int,
+    ebusy: core.int,
+    echild: core.int,
+    edeadlk: core.int,
+    edom: core.int,
+    eexist: core.int,
+    efault: core.int,
+    efbig: core.int,
+    eilseq: core.int,
+    eintr: core.int,
+    einval: core.int,
+    eio: core.int,
+    eisdir: core.int,
+    eloop: core.int,
+    emfile: core.int,
+    emlink: core.int,
+    enametoolong: core.int,
+    enfile: core.int,
+    enodev: core.int,
+    enoent: core.int,
+    enoexec: core.int,
+    enolck: core.int,
+    enomem: core.int,
+    enospc: core.int,
+    enosys: core.int,
+    enotdir: core.int,
+    enotempty: core.int,
+    enotty: core.int,
+    enxio: core.int,
+    eperm: core.int,
+    epipe: core.int,
+    erange: core.int,
+    erofs: core.int,
+    espipe: core.int,
+    esrch: core.int,
+    exdev: core.int
   }));
-  dart.setGetterSignature(vec2d.Vec2D, () => ({
-    __proto__: dart.getGetters(vec2d.Vec2D.__proto__),
-    values: typed_data.Float32List
-  }));
-  dart.setLibraryUri(vec2d.Vec2D, I[2]);
-  dart.setFieldSignature(vec2d.Vec2D, () => ({
-    __proto__: dart.getFields(vec2d.Vec2D.__proto__),
-    [_buffer$0]: dart.finalFieldType(typed_data.Float32List)
-  }));
-  dart.defineExtensionMethods(vec2d.Vec2D, ['toString']);
-  dart.trackLibraries("packages/flare_flutter/base/math/transform_components.dart", {
-    "package:flare_flutter/base/math/transform_components.dart": transform_components,
-    "package:flare_flutter/base/math/mat2d.dart": mat2d,
-    "package:flare_flutter/base/math/vec2d.dart": vec2d
+  dart.setLibraryUri(error_codes._WindowsCodes, I[0]);
+  dart.defineLazy(error_codes, {
+    /*error_codes._platforms*/get _platforms() {
+      return C[0] || CT.C0;
+    }
+  }, false);
+  dart.trackLibraries("packages/file/src/interface/error_codes.dart", {
+    "package:file/src/interface/error_codes.dart": error_codes
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["transform_components.dart","mat2d.dart","vec2d.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../D:/packages/flare_flutter/base/math/transform_components.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["error_codes.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../D:/packages/file/src/interface/error_codes.dart.lib.js"}');
   // Exports:
   return {
-    base__math__transform_components: transform_components,
-    base__math__mat2d: mat2d,
-    base__math__vec2d: vec2d
+    src__interface__error_codes: error_codes
   };
 }));
 
-//# sourceMappingURL=transform_components.dart.lib.js.map
+//# sourceMappingURL=error_codes.dart.lib.js.map

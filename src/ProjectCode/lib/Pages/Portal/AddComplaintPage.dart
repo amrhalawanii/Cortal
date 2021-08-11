@@ -1,7 +1,12 @@
+import 'package:cortal/Configuration/Complaint.dart';
+import 'package:cortal/Configuration/api_manager.dart';
 import 'package:cortal/Helpers/Constants.dart';
+import 'package:cortal/Helpers/ShowMessage.dart';
 import 'package:cortal/UI_Elements/Background.dart';
+import 'package:cortal/UI_Elements/Circular_progrss.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:uuid/uuid.dart';
 
 class AddComplaintPage extends StatefulWidget {
   const AddComplaintPage({Key? key}) : super(key: key);
@@ -11,7 +16,6 @@ class AddComplaintPage extends StatefulWidget {
 }
 
 class _AddComplaintPageState extends State<AddComplaintPage> {
-  bool value = false;
   final complaintsTypes = [
     CheckBoxState(title: 'Extra Charge'),
     CheckBoxState(title: 'Service Delay'),
@@ -19,6 +23,54 @@ class _AddComplaintPageState extends State<AddComplaintPage> {
     CheckBoxState(title: 'Issue related to COVID-19'),
     CheckBoxState(title: 'Other'),
   ];
+
+  bool _isLoading = false;
+  String _title = "";
+  String _description = "";
+  final GlobalKey<FormState> _formKey = GlobalKey();
+
+  List<String>? types = [];
+
+  ///=============================| To Check if all textfields are valid |=============================
+  checkFields() {
+    final form = _formKey.currentState;
+    if (form!.validate()) {
+      form.save();
+
+      for (var type in complaintsTypes) {
+        if (type.value) {
+          setState(() {
+            types!.add(type.title.toString());
+          });
+        }
+      }
+      if (types!.isNotEmpty) {
+        return true;
+      } else {
+        ShowMessage().showErrorDialog(context, "No Complaint Type",
+            "Please check a complaint type to proceed");
+      }
+    }
+    return false;
+  }
+
+  ///=============================| Submit Form and send complaint |=============================
+
+  _submitAddForm() async {
+    if (checkFields()) {
+      setState(() {
+        _isLoading = true;
+      });
+
+      Complaint complaint = Complaint(Uuid().v1(), activeUser!.userId, _title,
+          DateTime.now().toString(), "Pending", _description, types!);
+
+      // print(complaint);
+      API_Manager().add_complaint(context, complaint).onError((e) {
+        ShowMessage().showErrorDialog(context, "Error", e.toString());
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +90,7 @@ class _AddComplaintPageState extends State<AddComplaintPage> {
         child: LayoutBuilder(builder: (context, constraints) {
           isPhone = constraints.maxWidth < kTabletBreakPoint;
           return Form(
+            key: _formKey,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(36.0),
               child: SingleChildScrollView(
@@ -95,6 +148,14 @@ class _AddComplaintPageState extends State<AddComplaintPage> {
                           labelStyle: TextStyle(
                               fontSize: 18, color: ConstantColors.navyBlue),
                           filled: true),
+                      validator: (title) {
+                        if (title!.isEmpty) return "Can't be empty";
+                      },
+                      onSaved: (title) {
+                        setState(() {
+                          _title = title!;
+                        });
+                      },
                     ),
                     const Divider(
                       height: 60,
@@ -153,6 +214,14 @@ class _AddComplaintPageState extends State<AddComplaintPage> {
                               fontSize: 18, color: ConstantColors.navyBlue),
                           filled: true),
                       maxLines: 12,
+                      validator: (desc) {
+                        if (desc!.isEmpty) return "Please insert a desciption";
+                      },
+                      onSaved: (desc) {
+                        setState(() {
+                          _description = desc!;
+                        });
+                      },
                     ),
                     const SizedBox(
                       height: 20,
@@ -160,32 +229,35 @@ class _AddComplaintPageState extends State<AddComplaintPage> {
                     //-----------------------------------------------------------------------
                     //-------------------------Send Complaint Button ------------------------
                     //-----------------------------------------------------------------------
-
-                    Container(
-                      height: 50,
-                      width: Device.width! * 0.8,
-                      child: OutlinedButton(
-                          onPressed: () {},
-                          child: Text(
-                            "Send Complaint",
-                            style: GoogleFonts.lato(
-                                letterSpacing: 1,
-                                fontSize: 16,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600),
+                    _isLoading
+                        ? ShowCircularProgressIndicator()
+                        : Container(
+                            height: 50,
+                            width: Device.width! * 0.8,
+                            child: OutlinedButton(
+                                onPressed: () {
+                                  _submitAddForm();
+                                },
+                                child: Text(
+                                  "Send Complaint",
+                                  style: GoogleFonts.lato(
+                                      letterSpacing: 1,
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                style: OutlinedButton.styleFrom(
+                                  backgroundColor: ConstantColors.navyBlue,
+                                  primary: ConstantColors.navyBlue,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10.0),
+                                        topRight: Radius.circular(10.0),
+                                        bottomLeft: Radius.circular(30.0),
+                                        bottomRight: Radius.circular(30.0)),
+                                  ),
+                                )),
                           ),
-                          style: OutlinedButton.styleFrom(
-                            backgroundColor: ConstantColors.navyBlue,
-                            primary: ConstantColors.navyBlue,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10.0),
-                                  topRight: Radius.circular(10.0),
-                                  bottomLeft: Radius.circular(30.0),
-                                  bottomRight: Radius.circular(30.0)),
-                            ),
-                          )),
-                    ),
                   ],
                 ),
               ),

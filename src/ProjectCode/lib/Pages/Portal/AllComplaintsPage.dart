@@ -1,9 +1,14 @@
+import 'dart:convert';
+
+import 'package:cortal/Configuration/Complaint.dart';
 import 'package:cortal/Configuration/SharedPreferencesMethods.dart';
+import 'package:cortal/Configuration/api_manager.dart';
 import 'package:cortal/Configuration/auth.dart';
 import 'package:cortal/Helpers/Constants.dart';
 import 'package:cortal/Pages/Portal/AddComplaintPage.dart';
 import 'package:cortal/Pages/Registration/Login/LoginPage.dart';
 import 'package:cortal/UI_Elements/Background.dart';
+import 'package:cortal/UI_Elements/Circular_progrss.dart';
 import 'package:cortal/UI_Elements/Complaint_Box.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +22,24 @@ class AllComplaintsPage extends StatefulWidget {
 }
 
 class _AllComplaintsPageState extends State<AllComplaintsPage> {
+  bool _isLoading = true;
+
+  List<Complaint> complaints = [];
+  @override
+  void initState() {
+    Future.delayed(Duration.zero).then((_) {
+      API_Manager().get_complaints(context, activeUser!.userId).then((list) {
+        setState(() {
+          complaints = list;
+          _isLoading = false;
+        });
+
+        // print(complaintsList);
+      });
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,14 +98,20 @@ class _AllComplaintsPageState extends State<AllComplaintsPage> {
                 ///--------------------------------------------------------------------------------
                 ///---------------------------------- List Of Complaints  -------------------------
                 ///--------------------------------------------------------------------------------
-                child: ListView.builder(
-                    itemCount: 500,
-                    itemBuilder: (context, index) => Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: ComplaintBox(
-                            isAdmin: false,
-                          ),
-                        )),
+                child: _isLoading
+                    ? ShowCircularProgressIndicator()
+                    : ListView.builder(
+                        itemCount: complaints.length,
+                        itemBuilder: (context, index) => Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: complaints[index].senderId ==
+                                      activeUser!.userId
+                                  ? ComplaintBox(
+                                      isAdmin: false,
+                                      complaint: complaints[index],
+                                    )
+                                  : Container(),
+                            )),
               ),
             );
           }),

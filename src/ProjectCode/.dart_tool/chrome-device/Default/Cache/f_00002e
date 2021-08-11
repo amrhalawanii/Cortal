@@ -1,29 +1,21 @@
-define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/foundation/collections.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__painting__colors_dart(dart_sdk, packages__flutter__src__foundation__object$46dart, packages__flutter__src__foundation__collections$46dart, packages__flutter__src__foundation__debug$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/widgets/will_pop_scope.dart'], (function load__packages__flutter__src__widgets__form_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__widgets__will_pop_scope$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const math = dart_sdk.math;
-  const ui = dart_sdk.ui;
-  const _js_helper = dart_sdk._js_helper;
-  const _internal = dart_sdk._internal;
+  const async = dart_sdk.async;
+  const collection = dart_sdk.collection;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  const collections = packages__flutter__src__foundation__collections$46dart.src__foundation__collections;
-  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  var colors = Object.create(dart.library);
-  var $modulo = dartx['%'];
-  var $abs = dartx.abs;
-  var $clamp = dartx.clamp;
-  var $_get = dartx._get;
-  var $runtimeType = dartx.runtimeType;
-  var $_set = dartx._set;
-  var $isNaN = dartx.isNaN;
-  var $round = dartx.round;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const will_pop_scope = packages__flutter__src__widgets__will_pop_scope$46dart.src__widgets__will_pop_scope;
+  var form = Object.create(dart.library);
+  var $any = dartx.any;
   dart._checkModuleNullSafetyMode(true);
-  var T = {
-    IdentityMapOfString$Object: () => (T.IdentityMapOfString$Object = dart.constFn(_js_helper.IdentityMap$(core.String, core.Object)))(),
-    VoidTodouble: () => (T.VoidTodouble = dart.constFn(dart.fnType(core.double, [])))(),
-    doubleTodynamic: () => (T.doubleTodynamic = dart.constFn(dart.fnType(dart.dynamic, [core.double])))()
+  var T$ = {
+    LinkedHashSetOfFormFieldState: () => (T$.LinkedHashSetOfFormFieldState = dart.constFn(collection.LinkedHashSet$(form.FormFieldState)))(),
+    FormFieldStateTobool: () => (T$.FormFieldStateTobool = dart.constFn(dart.fnType(core.bool, [form.FormFieldState])))(),
+    VoidTovoid: () => (T$.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    StringN: () => (T$.StringN = dart.constFn(dart.nullable(core.String)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
@@ -31,412 +23,618 @@ define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flu
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: diagnostics._NoDefaultValue.prototype
+        __proto__: form.AutovalidateMode.prototype,
+        [_name$]: "AutovalidateMode.always",
+        index: 1
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: diagnostics.DiagnosticsTreeStyle.prototype,
-        [_name]: "DiagnosticsTreeStyle.singleLine",
-        index: 8
+        __proto__: form.AutovalidateMode.prototype,
+        [_name$]: "AutovalidateMode.onUserInteraction",
+        index: 2
       });
     },
     get C2() {
       return C[2] = dart.const({
-        __proto__: diagnostics.DiagnosticLevel.prototype,
-        [_name]: "DiagnosticLevel.info",
-        index: 3
+        __proto__: form.AutovalidateMode.prototype,
+        [_name$]: "AutovalidateMode.disabled",
+        index: 0
       });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "formState",
+        [_Location_column]: 9,
+        [_Location_line]: 209,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "generation",
+        [_Location_column]: 9,
+        [_Location_line]: 210,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 211,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[5] || CT.C5, C[6] || CT.C6, C[7] || CT.C7], widget_inspector._Location);
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 208,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/widgets/form.dart"
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onWillPop",
+        [_Location_column]: 7,
+        [_Location_line]: 207,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 208,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11], widget_inspector._Location);
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[9] || CT.C9,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 206,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/widgets/form.dart"
+      });
+    },
+    get C12() {
+      return C[12] = dart.constList([C[2] || CT.C2, C[0] || CT.C0, C[1] || CT.C1], form.AutovalidateMode);
     }
   }, false);
-  var C = Array(3).fill(void 0);
+  var C = Array(13).fill(void 0);
   var I = [
-    "file:///C:/flutter/packages/flutter/lib/src/painting/colors.dart",
-    "package:flutter/src/painting/colors.dart"
+    "file:///C:/flutter/packages/flutter/lib/src/widgets/form.dart",
+    "package:flutter/src/widgets/form.dart"
   ];
-  var alpha$ = dart.privateName(colors, "HSVColor.alpha");
-  var hue$ = dart.privateName(colors, "HSVColor.hue");
-  var saturation$ = dart.privateName(colors, "HSVColor.saturation");
-  var value$ = dart.privateName(colors, "HSVColor.value");
-  var _scaleAlpha = dart.privateName(colors, "_scaleAlpha");
-  colors.HSVColor = class HSVColor extends core.Object {
-    get alpha() {
-      return this[alpha$];
+  var child$ = dart.privateName(form, "Form.child");
+  var onWillPop$ = dart.privateName(form, "Form.onWillPop");
+  var onChanged$ = dart.privateName(form, "Form.onChanged");
+  var autovalidateMode$ = dart.privateName(form, "Form.autovalidateMode");
+  var autovalidate$ = dart.privateName(form, "Form.autovalidate");
+  var _formState = dart.privateName(form, "_formState");
+  form.Form = class Form extends framework.StatefulWidget {
+    get child() {
+      return this[child$];
     }
-    set alpha(value) {
-      super.alpha = value;
+    set child(value) {
+      super.child = value;
     }
-    get hue() {
-      return this[hue$];
+    get onWillPop() {
+      return this[onWillPop$];
     }
-    set hue(value) {
-      super.hue = value;
+    set onWillPop(value) {
+      super.onWillPop = value;
     }
-    get saturation() {
-      return this[saturation$];
+    get onChanged() {
+      return this[onChanged$];
     }
-    set saturation(value) {
-      super.saturation = value;
+    set onChanged(value) {
+      super.onChanged = value;
     }
-    get value() {
-      return this[value$];
+    get autovalidateMode() {
+      return this[autovalidateMode$];
     }
-    set value(value) {
-      super.value = value;
+    set autovalidateMode(value) {
+      super.autovalidateMode = value;
     }
-    static fromColor(color) {
-      let red = color.red / 255;
-      let green = color.green / 255;
-      let blue = color.blue / 255;
-      let max = math.max(core.double, red, math.max(core.double, green, blue));
-      let min = math.min(core.double, red, math.min(core.double, green, blue));
-      let delta = max - min;
-      let alpha = color.alpha / 255;
-      let hue = colors._getHue(red, green, blue, max, delta);
-      let saturation = max === 0.0 ? 0.0 : delta / max;
-      return new colors.HSVColor.fromAHSV(alpha, hue, saturation, max);
+    get autovalidate() {
+      return this[autovalidate$];
     }
-    withAlpha(alpha) {
-      return new colors.HSVColor.fromAHSV(alpha, this.hue, this.saturation, this.value);
+    set autovalidate(value) {
+      super.autovalidate = value;
     }
-    withHue(hue) {
-      return new colors.HSVColor.fromAHSV(this.alpha, hue, this.saturation, this.value);
+    static of(context) {
+      let t0;
+      let scope = context.dependOnInheritedWidgetOfExactType(form._FormScope);
+      t0 = scope;
+      return t0 == null ? null : t0[_formState];
     }
-    withSaturation(saturation) {
-      return new colors.HSVColor.fromAHSV(this.alpha, this.hue, saturation, this.value);
-    }
-    withValue(value) {
-      return new colors.HSVColor.fromAHSV(this.alpha, this.hue, this.saturation, value);
-    }
-    toColor() {
-      let chroma = this.saturation * this.value;
-      let secondary = chroma * (1.0 - ((this.hue / 60.0)[$modulo](2.0) - 1.0)[$abs]());
-      let match = this.value - chroma;
-      return colors._colorFromHue(this.alpha, this.hue, chroma, secondary, match);
-    }
-    [_scaleAlpha](factor) {
-      return this.withAlpha(this.alpha * factor);
-    }
-    static lerp(a, b, t) {
-      if (!(t !== null)) dart.assertFailed(null, I[0], 202, 12, "t != null");
-      if (a == null && b == null) return null;
-      if (a == null) return dart.nullCheck(b)[_scaleAlpha](t);
-      if (b == null) return a[_scaleAlpha](1.0 - t);
-      return new colors.HSVColor.fromAHSV(dart.nullCheck(ui.lerpDouble(a.alpha, b.alpha, t))[$clamp](0.0, 1.0), dart.nullCheck(ui.lerpDouble(a.hue, b.hue, t))[$modulo](360.0), dart.nullCheck(ui.lerpDouble(a.saturation, b.saturation, t))[$clamp](0.0, 1.0), dart.nullCheck(ui.lerpDouble(a.value, b.value, t))[$clamp](0.0, 1.0));
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      return colors.HSVColor.is(other) && other.alpha === this.alpha && other.hue === this.hue && other.saturation === this.saturation && other.value === this.value;
-    }
-    get hashCode() {
-      return ui.hashValues(this.alpha, this.hue, this.saturation, this.value);
-    }
-    toString() {
-      return object.objectRuntimeType(this, "HSVColor") + "(" + dart.str(this.alpha) + ", " + dart.str(this.hue) + ", " + dart.str(this.saturation) + ", " + dart.str(this.value) + ")";
+    createState() {
+      return new form.FormState.new();
     }
   };
-  (colors.HSVColor.fromAHSV = function(alpha, hue, saturation, value) {
-    this[alpha$] = alpha;
-    this[hue$] = hue;
-    this[saturation$] = saturation;
-    this[value$] = value;
-    if (!(alpha !== null)) dart.assertFailed(null, I[0], 93, 14, "alpha != null");
-    if (!(hue !== null)) dart.assertFailed(null, I[0], 94, 14, "hue != null");
-    if (!(saturation !== null)) dart.assertFailed(null, I[0], 95, 14, "saturation != null");
-    if (!(value !== null)) dart.assertFailed(null, I[0], 96, 14, "value != null");
-    if (!(alpha >= 0.0)) dart.assertFailed(null, I[0], 97, 14, "alpha >= 0.0");
-    if (!(alpha <= 1.0)) dart.assertFailed(null, I[0], 98, 14, "alpha <= 1.0");
-    if (!(hue >= 0.0)) dart.assertFailed(null, I[0], 99, 14, "hue >= 0.0");
-    if (!(hue <= 360.0)) dart.assertFailed(null, I[0], 100, 14, "hue <= 360.0");
-    if (!(saturation >= 0.0)) dart.assertFailed(null, I[0], 101, 14, "saturation >= 0.0");
-    if (!(saturation <= 1.0)) dart.assertFailed(null, I[0], 102, 14, "saturation <= 1.0");
-    if (!(value >= 0.0)) dart.assertFailed(null, I[0], 103, 14, "value >= 0.0");
-    if (!(value <= 1.0)) dart.assertFailed(null, I[0], 104, 14, "value <= 1.0");
+  (form.Form.new = function(opts) {
+    let t0;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let autovalidate = opts && 'autovalidate' in opts ? opts.autovalidate : false;
+    let onWillPop = opts && 'onWillPop' in opts ? opts.onWillPop : null;
+    let onChanged = opts && 'onChanged' in opts ? opts.onChanged : null;
+    let autovalidateMode = opts && 'autovalidateMode' in opts ? opts.autovalidateMode : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[child$] = child;
+    this[autovalidate$] = autovalidate;
+    this[onWillPop$] = onWillPop;
+    this[onChanged$] = onChanged;
+    if (!(child !== null)) dart.assertFailed(null, I[0], 88, 15, "child != null");
+    if (!(autovalidate !== null)) dart.assertFailed(null, I[0], 89, 15, "autovalidate != null");
+    if (!(autovalidate === false || autovalidate === true && autovalidateMode == null)) dart.assertFailed("autovalidate and autovalidateMode should not be used together.", I[0], 91, 10, "autovalidate == false ||\r\n         autovalidate == true && autovalidateMode == null");
+    this[autovalidateMode$] = (t0 = autovalidateMode, t0 == null ? autovalidate ? form.AutovalidateMode.always : form.AutovalidateMode.disabled : t0);
+    form.Form.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = colors.HSVColor.prototype;
-  dart.addTypeTests(colors.HSVColor);
-  dart.addTypeCaches(colors.HSVColor);
-  dart.setMethodSignature(colors.HSVColor, () => ({
-    __proto__: dart.getMethods(colors.HSVColor.__proto__),
-    withAlpha: dart.fnType(colors.HSVColor, [core.double]),
-    withHue: dart.fnType(colors.HSVColor, [core.double]),
-    withSaturation: dart.fnType(colors.HSVColor, [core.double]),
-    withValue: dart.fnType(colors.HSVColor, [core.double]),
-    toColor: dart.fnType(ui.Color, []),
-    [_scaleAlpha]: dart.fnType(colors.HSVColor, [core.double])
+  }).prototype = form.Form.prototype;
+  dart.addTypeTests(form.Form);
+  dart.addTypeCaches(form.Form);
+  dart.setMethodSignature(form.Form, () => ({
+    __proto__: dart.getMethods(form.Form.__proto__),
+    createState: dart.fnType(form.FormState, [])
   }));
-  dart.setLibraryUri(colors.HSVColor, I[1]);
-  dart.setFieldSignature(colors.HSVColor, () => ({
-    __proto__: dart.getFields(colors.HSVColor.__proto__),
-    alpha: dart.finalFieldType(core.double),
-    hue: dart.finalFieldType(core.double),
-    saturation: dart.finalFieldType(core.double),
-    value: dart.finalFieldType(core.double)
+  dart.setLibraryUri(form.Form, I[1]);
+  dart.setFieldSignature(form.Form, () => ({
+    __proto__: dart.getFields(form.Form.__proto__),
+    child: dart.finalFieldType(framework.Widget),
+    onWillPop: dart.finalFieldType(dart.nullable(dart.fnType(async.Future$(core.bool), []))),
+    onChanged: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    autovalidateMode: dart.finalFieldType(form.AutovalidateMode),
+    autovalidate: dart.finalFieldType(core.bool)
   }));
-  dart.defineExtensionMethods(colors.HSVColor, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(colors.HSVColor, ['hashCode']);
-  var alpha$0 = dart.privateName(colors, "HSLColor.alpha");
-  var hue$0 = dart.privateName(colors, "HSLColor.hue");
-  var saturation$0 = dart.privateName(colors, "HSLColor.saturation");
-  var lightness$ = dart.privateName(colors, "HSLColor.lightness");
-  colors.HSLColor = class HSLColor extends core.Object {
-    get alpha() {
-      return this[alpha$0];
+  var _generation = dart.privateName(form, "_generation");
+  var _hasInteractedByUser = dart.privateName(form, "_hasInteractedByUser");
+  var _fields = dart.privateName(form, "_fields");
+  var _forceRebuild = dart.privateName(form, "_forceRebuild");
+  var _fieldDidChange = dart.privateName(form, "_fieldDidChange");
+  var _register = dart.privateName(form, "_register");
+  var _unregister = dart.privateName(form, "_unregister");
+  var _validate = dart.privateName(form, "_validate");
+  var _name$ = dart.privateName(form, "_name");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  form.FormState = class FormState extends framework.State$(form.Form) {
+    [_fieldDidChange]() {
+      let t0;
+      t0 = this.widget.onChanged;
+      t0 == null ? null : t0();
+      this[_hasInteractedByUser] = this[_fields][$any](dart.fn(field => field[_hasInteractedByUser], T$.FormFieldStateTobool()));
+      this[_forceRebuild]();
     }
-    set alpha(value) {
-      super.alpha = value;
+    [_forceRebuild]() {
+      this.setState(dart.fn(() => {
+        this[_generation] = this[_generation] + 1;
+      }, T$.VoidTovoid()));
     }
-    get hue() {
-      return this[hue$0];
+    [_register](field) {
+      this[_fields].add(field);
     }
-    set hue(value) {
-      super.hue = value;
+    [_unregister](field) {
+      this[_fields].remove(field);
     }
-    get saturation() {
-      return this[saturation$0];
+    build(context) {
+      switch (this.widget.autovalidateMode) {
+        case C[0] || CT.C0:
+        {
+          this[_validate]();
+          break;
+        }
+        case C[1] || CT.C1:
+        {
+          if (this[_hasInteractedByUser]) {
+            this[_validate]();
+          }
+          break;
+        }
+        case C[2] || CT.C2:
+        {
+          break;
+        }
+      }
+      return new will_pop_scope.WillPopScope.new({onWillPop: this.widget.onWillPop, child: new form._FormScope.new({formState: this, generation: this[_generation], child: this.widget.child, $creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8});
     }
-    set saturation(value) {
-      super.saturation = value;
+    save() {
+      for (let field of this[_fields])
+        field.save();
     }
-    get lightness() {
-      return this[lightness$];
+    reset() {
+      for (let field of this[_fields])
+        field.reset();
+      this[_hasInteractedByUser] = false;
+      this[_fieldDidChange]();
     }
-    set lightness(value) {
-      super.lightness = value;
+    validate() {
+      this[_hasInteractedByUser] = true;
+      this[_forceRebuild]();
+      return this[_validate]();
     }
-    static fromColor(color) {
-      let red = color.red / 255;
-      let green = color.green / 255;
-      let blue = color.blue / 255;
-      let max = math.max(core.double, red, math.max(core.double, green, blue));
-      let min = math.min(core.double, red, math.min(core.double, green, blue));
-      let delta = max - min;
-      let alpha = color.alpha / 255;
-      let hue = colors._getHue(red, green, blue, max, delta);
-      let lightness = (max + min) / 2.0;
-      let saturation = lightness === 1.0 ? 0.0 : (delta / (1.0 - (2.0 * lightness - 1.0)[$abs]()))[$clamp](0.0, 1.0);
-      return new colors.HSLColor.fromAHSL(alpha, hue, saturation, lightness);
-    }
-    withAlpha(alpha) {
-      return new colors.HSLColor.fromAHSL(alpha, this.hue, this.saturation, this.lightness);
-    }
-    withHue(hue) {
-      return new colors.HSLColor.fromAHSL(this.alpha, hue, this.saturation, this.lightness);
-    }
-    withSaturation(saturation) {
-      return new colors.HSLColor.fromAHSL(this.alpha, this.hue, saturation, this.lightness);
-    }
-    withLightness(lightness) {
-      return new colors.HSLColor.fromAHSL(this.alpha, this.hue, this.saturation, lightness);
-    }
-    toColor() {
-      let chroma = (1.0 - (2.0 * this.lightness - 1.0)[$abs]()) * this.saturation;
-      let secondary = chroma * (1.0 - ((this.hue / 60.0)[$modulo](2.0) - 1.0)[$abs]());
-      let match = this.lightness - chroma / 2.0;
-      return colors._colorFromHue(this.alpha, this.hue, chroma, secondary, match);
-    }
-    [_scaleAlpha](factor) {
-      return this.withAlpha(this.alpha * factor);
-    }
-    static lerp(a, b, t) {
-      if (!(t !== null)) dart.assertFailed(null, I[0], 386, 12, "t != null");
-      if (a == null && b == null) return null;
-      if (a == null) return dart.nullCheck(b)[_scaleAlpha](t);
-      if (b == null) return a[_scaleAlpha](1.0 - t);
-      return new colors.HSLColor.fromAHSL(dart.nullCheck(ui.lerpDouble(a.alpha, b.alpha, t))[$clamp](0.0, 1.0), dart.nullCheck(ui.lerpDouble(a.hue, b.hue, t))[$modulo](360.0), dart.nullCheck(ui.lerpDouble(a.saturation, b.saturation, t))[$clamp](0.0, 1.0), dart.nullCheck(ui.lerpDouble(a.lightness, b.lightness, t))[$clamp](0.0, 1.0));
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      return colors.HSLColor.is(other) && other.alpha === this.alpha && other.hue === this.hue && other.saturation === this.saturation && other.lightness === this.lightness;
-    }
-    get hashCode() {
-      return ui.hashValues(this.alpha, this.hue, this.saturation, this.lightness);
-    }
-    toString() {
-      return object.objectRuntimeType(this, "HSLColor") + "(" + dart.str(this.alpha) + ", " + dart.str(this.hue) + ", " + dart.str(this.saturation) + ", " + dart.str(this.lightness) + ")";
+    [_validate]() {
+      let hasError = false;
+      for (let field of this[_fields])
+        hasError = !field.validate() || hasError;
+      return !hasError;
     }
   };
-  (colors.HSLColor.fromAHSL = function(alpha, hue, saturation, lightness) {
-    this[alpha$0] = alpha;
-    this[hue$0] = hue;
-    this[saturation$0] = saturation;
-    this[lightness$] = lightness;
-    if (!(alpha !== null)) dart.assertFailed(null, I[0], 262, 14, "alpha != null");
-    if (!(hue !== null)) dart.assertFailed(null, I[0], 263, 14, "hue != null");
-    if (!(saturation !== null)) dart.assertFailed(null, I[0], 264, 14, "saturation != null");
-    if (!(lightness !== null)) dart.assertFailed(null, I[0], 265, 14, "lightness != null");
-    if (!(alpha >= 0.0)) dart.assertFailed(null, I[0], 266, 14, "alpha >= 0.0");
-    if (!(alpha <= 1.0)) dart.assertFailed(null, I[0], 267, 14, "alpha <= 1.0");
-    if (!(hue >= 0.0)) dart.assertFailed(null, I[0], 268, 14, "hue >= 0.0");
-    if (!(hue <= 360.0)) dart.assertFailed(null, I[0], 269, 14, "hue <= 360.0");
-    if (!(saturation >= 0.0)) dart.assertFailed(null, I[0], 270, 14, "saturation >= 0.0");
-    if (!(saturation <= 1.0)) dart.assertFailed(null, I[0], 271, 14, "saturation <= 1.0");
-    if (!(lightness >= 0.0)) dart.assertFailed(null, I[0], 272, 14, "lightness >= 0.0");
-    if (!(lightness <= 1.0)) dart.assertFailed(null, I[0], 273, 14, "lightness <= 1.0");
+  (form.FormState.new = function() {
+    this[_generation] = 0;
+    this[_hasInteractedByUser] = false;
+    this[_fields] = T$.LinkedHashSetOfFormFieldState().new();
+    form.FormState.__proto__.new.call(this);
     ;
-  }).prototype = colors.HSLColor.prototype;
-  dart.addTypeTests(colors.HSLColor);
-  dart.addTypeCaches(colors.HSLColor);
-  dart.setMethodSignature(colors.HSLColor, () => ({
-    __proto__: dart.getMethods(colors.HSLColor.__proto__),
-    withAlpha: dart.fnType(colors.HSLColor, [core.double]),
-    withHue: dart.fnType(colors.HSLColor, [core.double]),
-    withSaturation: dart.fnType(colors.HSLColor, [core.double]),
-    withLightness: dart.fnType(colors.HSLColor, [core.double]),
-    toColor: dart.fnType(ui.Color, []),
-    [_scaleAlpha]: dart.fnType(colors.HSLColor, [core.double])
+  }).prototype = form.FormState.prototype;
+  dart.addTypeTests(form.FormState);
+  dart.addTypeCaches(form.FormState);
+  dart.setMethodSignature(form.FormState, () => ({
+    __proto__: dart.getMethods(form.FormState.__proto__),
+    [_fieldDidChange]: dart.fnType(dart.void, []),
+    [_forceRebuild]: dart.fnType(dart.void, []),
+    [_register]: dart.fnType(dart.void, [form.FormFieldState]),
+    [_unregister]: dart.fnType(dart.void, [form.FormFieldState]),
+    build: dart.fnType(framework.Widget, [framework.BuildContext]),
+    save: dart.fnType(dart.void, []),
+    reset: dart.fnType(dart.void, []),
+    validate: dart.fnType(core.bool, []),
+    [_validate]: dart.fnType(core.bool, [])
   }));
-  dart.setLibraryUri(colors.HSLColor, I[1]);
-  dart.setFieldSignature(colors.HSLColor, () => ({
-    __proto__: dart.getFields(colors.HSLColor.__proto__),
-    alpha: dart.finalFieldType(core.double),
-    hue: dart.finalFieldType(core.double),
-    saturation: dart.finalFieldType(core.double),
-    lightness: dart.finalFieldType(core.double)
+  dart.setLibraryUri(form.FormState, I[1]);
+  dart.setFieldSignature(form.FormState, () => ({
+    __proto__: dart.getFields(form.FormState.__proto__),
+    [_generation]: dart.fieldType(core.int),
+    [_hasInteractedByUser]: dart.fieldType(core.bool),
+    [_fields]: dart.finalFieldType(core.Set$(form.FormFieldState))
   }));
-  dart.defineExtensionMethods(colors.HSLColor, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(colors.HSLColor, ['hashCode']);
-  var _swatch$ = dart.privateName(colors, "ColorSwatch._swatch");
-  var _swatch = dart.privateName(colors, "_swatch");
-  const _is_ColorSwatch_default = Symbol('_is_ColorSwatch_default');
-  colors.ColorSwatch$ = dart.generic(T => {
-    var ColorSwatchOfT = () => (ColorSwatchOfT = dart.constFn(colors.ColorSwatch$(T)))();
-    class ColorSwatch extends ui.Color {
-      get [_swatch]() {
-        return this[_swatch$];
+  var _formState$ = dart.privateName(form, "_FormScope._formState");
+  var _generation$ = dart.privateName(form, "_FormScope._generation");
+  form._FormScope = class _FormScope extends framework.InheritedWidget {
+    get [_formState]() {
+      return this[_formState$];
+    }
+    set [_formState](value) {
+      super[_formState] = value;
+    }
+    get [_generation]() {
+      return this[_generation$];
+    }
+    set [_generation](value) {
+      super[_generation] = value;
+    }
+    get form() {
+      return this[_formState].widget;
+    }
+    updateShouldNotify(old) {
+      form._FormScope.as(old);
+      return this[_generation] !== old[_generation];
+    }
+  };
+  (form._FormScope.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let formState = opts && 'formState' in opts ? opts.formState : null;
+    let generation = opts && 'generation' in opts ? opts.generation : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[_formState$] = formState;
+    this[_generation$] = generation;
+    form._FormScope.__proto__.new.call(this, {key: key, child: child, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = form._FormScope.prototype;
+  dart.addTypeTests(form._FormScope);
+  dart.addTypeCaches(form._FormScope);
+  dart.setMethodSignature(form._FormScope, () => ({
+    __proto__: dart.getMethods(form._FormScope.__proto__),
+    updateShouldNotify: dart.fnType(core.bool, [dart.nullable(core.Object)])
+  }));
+  dart.setGetterSignature(form._FormScope, () => ({
+    __proto__: dart.getGetters(form._FormScope.__proto__),
+    form: form.Form
+  }));
+  dart.setLibraryUri(form._FormScope, I[1]);
+  dart.setFieldSignature(form._FormScope, () => ({
+    __proto__: dart.getFields(form._FormScope.__proto__),
+    [_formState]: dart.finalFieldType(form.FormState),
+    [_generation]: dart.finalFieldType(core.int)
+  }));
+  var onSaved$ = dart.privateName(form, "FormField.onSaved");
+  var validator$ = dart.privateName(form, "FormField.validator");
+  var builder$ = dart.privateName(form, "FormField.builder");
+  var initialValue$ = dart.privateName(form, "FormField.initialValue");
+  var enabled$ = dart.privateName(form, "FormField.enabled");
+  var autovalidateMode$0 = dart.privateName(form, "FormField.autovalidateMode");
+  var autovalidate$0 = dart.privateName(form, "FormField.autovalidate");
+  const _is_FormField_default = Symbol('_is_FormField_default');
+  form.FormField$ = dart.generic(T => {
+    var FormFieldStateOfT = () => (FormFieldStateOfT = dart.constFn(form.FormFieldState$(T)))();
+    class FormField extends framework.StatefulWidget {
+      get onSaved() {
+        return this[onSaved$];
       }
-      set [_swatch](value) {
-        super[_swatch] = value;
+      set onSaved(value) {
+        super.onSaved = value;
       }
-      _get(index) {
-        T.as(index);
-        return this[_swatch][$_get](index);
+      get validator() {
+        return this[validator$];
       }
-      _equals(other) {
-        if (other == null) return false;
-        if (this === other) return true;
-        if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
-        return super._equals(other) && ColorSwatchOfT().is(other) && collections.mapEquals(T, ui.Color, other[_swatch], this[_swatch]);
+      set validator(value) {
+        super.validator = value;
       }
-      get hashCode() {
-        return ui.hashValues(this[$runtimeType], this.value, this[_swatch]);
+      get builder() {
+        return this[builder$];
       }
-      toString() {
-        return object.objectRuntimeType(this, "ColorSwatch") + "(primary value: " + super.toString() + ")";
+      set builder(value) {
+        super.builder = value;
+      }
+      get initialValue() {
+        return this[initialValue$];
+      }
+      set initialValue(value) {
+        super.initialValue = value;
+      }
+      get enabled() {
+        return this[enabled$];
+      }
+      set enabled(value) {
+        super.enabled = value;
+      }
+      get autovalidateMode() {
+        return this[autovalidateMode$0];
+      }
+      set autovalidateMode(value) {
+        super.autovalidateMode = value;
+      }
+      get autovalidate() {
+        return this[autovalidate$0];
+      }
+      set autovalidate(value) {
+        super.autovalidate = value;
+      }
+      createState() {
+        return new (FormFieldStateOfT()).new();
       }
     }
-    (ColorSwatch.new = function(primary, _swatch) {
-      this[_swatch$] = _swatch;
-      ColorSwatch.__proto__.new.call(this, primary);
+    (FormField.new = function(opts) {
+      let t0;
+      let key = opts && 'key' in opts ? opts.key : null;
+      let builder = opts && 'builder' in opts ? opts.builder : null;
+      let onSaved = opts && 'onSaved' in opts ? opts.onSaved : null;
+      let validator = opts && 'validator' in opts ? opts.validator : null;
+      let initialValue = opts && 'initialValue' in opts ? opts.initialValue : null;
+      let autovalidate = opts && 'autovalidate' in opts ? opts.autovalidate : false;
+      let enabled = opts && 'enabled' in opts ? opts.enabled : true;
+      let autovalidateMode = opts && 'autovalidateMode' in opts ? opts.autovalidateMode : null;
+      let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+      this[builder$] = builder;
+      this[onSaved$] = onSaved;
+      this[validator$] = validator;
+      this[initialValue$] = initialValue;
+      this[autovalidate$0] = autovalidate;
+      this[enabled$] = enabled;
+      if (!(builder !== null)) dart.assertFailed(null, I[0], 334, 15, "builder != null");
+      if (!(autovalidate === false || autovalidate === true && autovalidateMode == null)) dart.assertFailed("autovalidate and autovalidateMode should not be used together.", I[0], 336, 10, "autovalidate == false ||\r\n         autovalidate == true && autovalidateMode == null");
+      this[autovalidateMode$0] = (t0 = autovalidateMode, t0 == null ? autovalidate ? form.AutovalidateMode.always : form.AutovalidateMode.disabled : t0);
+      FormField.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
       ;
-    }).prototype = ColorSwatch.prototype;
-    dart.addTypeTests(ColorSwatch);
-    ColorSwatch.prototype[_is_ColorSwatch_default] = true;
-    dart.addTypeCaches(ColorSwatch);
-    dart.setMethodSignature(ColorSwatch, () => ({
-      __proto__: dart.getMethods(ColorSwatch.__proto__),
-      _get: dart.fnType(dart.nullable(ui.Color), [dart.nullable(core.Object)])
+    }).prototype = FormField.prototype;
+    dart.addTypeTests(FormField);
+    FormField.prototype[_is_FormField_default] = true;
+    dart.addTypeCaches(FormField);
+    dart.setMethodSignature(FormField, () => ({
+      __proto__: dart.getMethods(FormField.__proto__),
+      createState: dart.fnType(form.FormFieldState$(T), [])
     }));
-    dart.setLibraryUri(ColorSwatch, I[1]);
-    dart.setFieldSignature(ColorSwatch, () => ({
-      __proto__: dart.getFields(ColorSwatch.__proto__),
-      [_swatch]: dart.finalFieldType(core.Map$(T, ui.Color))
+    dart.setLibraryUri(FormField, I[1]);
+    dart.setFieldSignature(FormField, () => ({
+      __proto__: dart.getFields(FormField.__proto__),
+      onSaved: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [dart.nullable(T)]))),
+      validator: dart.finalFieldType(dart.nullable(dart.fnType(dart.nullable(core.String), [dart.nullable(T)]))),
+      builder: dart.finalFieldType(dart.fnType(framework.Widget, [form.FormFieldState$(T)])),
+      initialValue: dart.finalFieldType(dart.nullable(T)),
+      enabled: dart.finalFieldType(core.bool),
+      autovalidateMode: dart.finalFieldType(form.AutovalidateMode),
+      autovalidate: dart.finalFieldType(core.bool)
     }));
-    dart.defineExtensionMethods(ColorSwatch, ['_equals', 'toString']);
-    dart.defineExtensionAccessors(ColorSwatch, ['hashCode']);
-    return ColorSwatch;
+    return FormField;
   });
-  colors.ColorSwatch = colors.ColorSwatch$();
-  dart.addTypeTests(colors.ColorSwatch, _is_ColorSwatch_default);
-  var _name = dart.privateName(diagnostics, "_name");
-  colors.ColorProperty = class ColorProperty extends diagnostics.DiagnosticsProperty$(ui.Color) {
-    toJsonMap(delegate) {
-      let json = super.toJsonMap(delegate);
-      if (this.value != null) {
-        json[$_set]("valueProperties", new (T.IdentityMapOfString$Object()).from(["red", dart.nullCheck(this.value).red, "green", dart.nullCheck(this.value).green, "blue", dart.nullCheck(this.value).blue, "alpha", dart.nullCheck(this.value).alpha]));
+  form.FormField = form.FormField$();
+  dart.addTypeTests(form.FormField, _is_FormField_default);
+  var _value = dart.privateName(form, "_value");
+  var _errorText = dart.privateName(form, "_errorText");
+  const _is_FormFieldState_default = Symbol('_is_FormFieldState_default');
+  form.FormFieldState$ = dart.generic(T => {
+    var TN = () => (TN = dart.constFn(dart.nullable(T)))();
+    var TNToStringN = () => (TNToStringN = dart.constFn(dart.fnType(T$.StringN(), [TN()])))();
+    var TNToNStringN = () => (TNToNStringN = dart.constFn(dart.nullable(TNToStringN())))();
+    var TNTovoid = () => (TNTovoid = dart.constFn(dart.fnType(dart.void, [TN()])))();
+    var TNToNvoid = () => (TNToNvoid = dart.constFn(dart.nullable(TNTovoid())))();
+    var FormFieldStateOfT = () => (FormFieldStateOfT = dart.constFn(form.FormFieldState$(T)))();
+    var FormFieldStateOfTToWidget = () => (FormFieldStateOfTToWidget = dart.constFn(dart.fnType(framework.Widget, [FormFieldStateOfT()])))();
+    class FormFieldState extends framework.State$(form.FormField$(T)) {
+      get value() {
+        return this[_value];
       }
-      return json;
+      get errorText() {
+        return this[_errorText];
+      }
+      get hasError() {
+        return this[_errorText] != null;
+      }
+      get isValid() {
+        let t0;
+        return (t0 = TNToNStringN().as(this.widget.validator), t0 == null ? null : t0(this[_value])) == null;
+      }
+      save() {
+        let t0;
+        t0 = TNToNvoid().as(this.widget.onSaved);
+        t0 == null ? null : t0(this.value);
+      }
+      reset() {
+        let t0;
+        this.setState(dart.fn(() => {
+          this[_value] = this.widget.initialValue;
+          this[_hasInteractedByUser] = false;
+          this[_errorText] = null;
+        }, T$.VoidTovoid()));
+        t0 = form.Form.of(this.context);
+        t0 == null ? null : t0[_fieldDidChange]();
+      }
+      validate() {
+        this.setState(dart.fn(() => {
+          this[_validate]();
+        }, T$.VoidTovoid()));
+        return !this.hasError;
+      }
+      [_validate]() {
+        if (TNToNStringN().as(this.widget.validator) != null) this[_errorText] = dart.nullCheck(TNToNStringN().as(this.widget.validator))(this[_value]);
+      }
+      didChange(value) {
+        let t0;
+        TN().as(value);
+        this.setState(dart.fn(() => {
+          this[_value] = value;
+          this[_hasInteractedByUser] = true;
+        }, T$.VoidTovoid()));
+        t0 = form.Form.of(this.context);
+        t0 == null ? null : t0[_fieldDidChange]();
+      }
+      setValue(value) {
+        TN().as(value);
+        this[_value] = value;
+      }
+      initState() {
+        super.initState();
+        this[_value] = this.widget.initialValue;
+      }
+      deactivate() {
+        let t0;
+        t0 = form.Form.of(this.context);
+        t0 == null ? null : t0[_unregister](this);
+        super.deactivate();
+      }
+      build(context) {
+        let t0, t0$;
+        if (this.widget.enabled) {
+          switch (this.widget.autovalidateMode) {
+            case C[0] || CT.C0:
+            {
+              this[_validate]();
+              break;
+            }
+            case C[1] || CT.C1:
+            {
+              if (this[_hasInteractedByUser]) {
+                this[_validate]();
+              }
+              break;
+            }
+            case C[2] || CT.C2:
+            {
+              break;
+            }
+          }
+        }
+        t0 = form.Form.of(context);
+        t0 == null ? null : t0[_register](this);
+        t0$ = this.widget;
+        return FormFieldStateOfTToWidget().as(t0$.builder)(this);
+      }
+    }
+    (FormFieldState.new = function() {
+      this[_value] = null;
+      this[_errorText] = null;
+      this[_hasInteractedByUser] = false;
+      FormFieldState.__proto__.new.call(this);
+      ;
+    }).prototype = FormFieldState.prototype;
+    dart.addTypeTests(FormFieldState);
+    FormFieldState.prototype[_is_FormFieldState_default] = true;
+    dart.addTypeCaches(FormFieldState);
+    dart.setMethodSignature(FormFieldState, () => ({
+      __proto__: dart.getMethods(FormFieldState.__proto__),
+      save: dart.fnType(dart.void, []),
+      reset: dart.fnType(dart.void, []),
+      validate: dart.fnType(core.bool, []),
+      [_validate]: dart.fnType(dart.void, []),
+      didChange: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      setValue: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      build: dart.fnType(framework.Widget, [framework.BuildContext])
+    }));
+    dart.setGetterSignature(FormFieldState, () => ({
+      __proto__: dart.getGetters(FormFieldState.__proto__),
+      value: dart.nullable(T),
+      errorText: dart.nullable(core.String),
+      hasError: core.bool,
+      isValid: core.bool
+    }));
+    dart.setLibraryUri(FormFieldState, I[1]);
+    dart.setFieldSignature(FormFieldState, () => ({
+      __proto__: dart.getFields(FormFieldState.__proto__),
+      [_value]: dart.fieldType(dart.nullable(T)),
+      [_errorText]: dart.fieldType(dart.nullable(core.String)),
+      [_hasInteractedByUser]: dart.fieldType(core.bool)
+    }));
+    return FormFieldState;
+  });
+  form.FormFieldState = form.FormFieldState$();
+  dart.addTypeTests(form.FormFieldState, _is_FormFieldState_default);
+  form.AutovalidateMode = class AutovalidateMode extends core.Object {
+    toString() {
+      return this[_name$];
     }
   };
-  (colors.ColorProperty.new = function(name, value, opts) {
-    let showName = opts && 'showName' in opts ? opts.showName : true;
-    let defaultValue = opts && 'defaultValue' in opts ? opts.defaultValue : C[0] || CT.C0;
-    let style = opts && 'style' in opts ? opts.style : C[1] || CT.C1;
-    let level = opts && 'level' in opts ? opts.level : C[2] || CT.C2;
-    if (!(showName !== null)) dart.assertFailed(null, I[0], 475, 15, "showName != null");
-    if (!(style !== null)) dart.assertFailed(null, I[0], 476, 15, "style != null");
-    if (!(level !== null)) dart.assertFailed(null, I[0], 477, 15, "level != null");
-    colors.ColorProperty.__proto__.new.call(this, name, value, {defaultValue: defaultValue, showName: showName, style: style, level: level});
+  (form.AutovalidateMode.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
     ;
-  }).prototype = colors.ColorProperty.prototype;
-  dart.addTypeTests(colors.ColorProperty);
-  dart.addTypeCaches(colors.ColorProperty);
-  dart.setLibraryUri(colors.ColorProperty, I[1]);
-  colors._getHue = function _getHue(red, green, blue, max, delta) {
-    let hue = null;
-    function hue$35get() {
-      let t1;
-      t1 = hue;
-      return t1 == null ? dart.throw(new _internal.LateError.localNI("hue")) : t1;
-    }
-    dart.fn(hue$35get, T.VoidTodouble());
-    function hue$35set(t2) {
-      return hue = t2;
-    }
-    dart.fn(hue$35set, T.doubleTodynamic());
-    if (max === 0.0) {
-      hue$35set(0.0);
-    } else if (max === red) {
-      hue$35set(60.0 * ((green - blue) / delta)[$modulo](6));
-    } else if (max === green) {
-      hue$35set(60.0 * ((blue - red) / delta + 2));
-    } else if (max === blue) {
-      hue$35set(60.0 * ((red - green) / delta + 4));
-    }
-    hue$35set(hue$35get()[$isNaN] ? 0.0 : hue$35get());
-    return hue$35get();
-  };
-  colors._colorFromHue = function _colorFromHue(alpha, hue, chroma, secondary, match) {
-    let red = null;
-    let green = null;
-    let blue = null;
-    if (hue < 60.0) {
-      red = chroma;
-      green = secondary;
-      blue = 0.0;
-    } else if (hue < 120.0) {
-      red = secondary;
-      green = chroma;
-      blue = 0.0;
-    } else if (hue < 180.0) {
-      red = 0.0;
-      green = chroma;
-      blue = secondary;
-    } else if (hue < 240.0) {
-      red = 0.0;
-      green = secondary;
-      blue = chroma;
-    } else if (hue < 300.0) {
-      red = secondary;
-      green = 0.0;
-      blue = chroma;
-    } else {
-      red = chroma;
-      green = 0.0;
-      blue = secondary;
-    }
-    return new ui.Color.fromARGB((alpha * 255)[$round](), ((red + match) * 255)[$round](), ((green + match) * 255)[$round](), ((blue + match) * 255)[$round]());
-  };
-  dart.trackLibraries("packages/flutter/src/painting/colors.dart", {
-    "package:flutter/src/painting/colors.dart": colors
+  }).prototype = form.AutovalidateMode.prototype;
+  dart.addTypeTests(form.AutovalidateMode);
+  dart.addTypeCaches(form.AutovalidateMode);
+  dart.setLibraryUri(form.AutovalidateMode, I[1]);
+  dart.setFieldSignature(form.AutovalidateMode, () => ({
+    __proto__: dart.getFields(form.AutovalidateMode.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(form.AutovalidateMode, ['toString']);
+  form.AutovalidateMode.disabled = C[2] || CT.C2;
+  form.AutovalidateMode.always = C[0] || CT.C0;
+  form.AutovalidateMode.onUserInteraction = C[1] || CT.C1;
+  form.AutovalidateMode.values = C[12] || CT.C12;
+  dart.trackLibraries("packages/flutter/src/widgets/form.dart", {
+    "package:flutter/src/widgets/form.dart": form
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["colors.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA+He;;;;;;IAMA;;;;;;IAMA;;;;;;IAMA;;;;;;qBApCoB;AAClB,gBAAM,AAAM,AAAI,KAAL,OAAO;AAClB,kBAAQ,AAAM,AAAM,KAAP,SAAS;AACtB,iBAAO,AAAM,AAAK,KAAN,QAAQ;AAEpB,gBAAM,sBAAS,GAAG,EAAE,sBAAS,KAAK,EAAE,IAAI;AACxC,gBAAM,sBAAS,GAAG,EAAE,sBAAS,KAAK,EAAE,IAAI;AACxC,kBAAQ,AAAI,GAAD,GAAG,GAAG;AAEjB,kBAAQ,AAAM,AAAM,KAAP,SAAS;AACtB,gBAAM,eAAQ,GAAG,EAAE,KAAK,EAAE,IAAI,EAAE,GAAG,EAAE,KAAK;AAC1C,uBAAa,AAAI,GAAD,KAAI,MAAM,MAAM,AAAM,KAAD,GAAG,GAAG;AAExD,YAAgB,8BAAS,KAAK,EAAE,GAAG,EAAE,UAAU,EAAE,GAAG;IACtD;cA0B0B;AACxB,YAAgB,8BAAS,KAAK,EAAE,UAAK,iBAAY;IACnD;YAIwB;AACtB,YAAgB,8BAAS,YAAO,GAAG,EAAE,iBAAY;IACnD;mBAI+B;AAC7B,YAAgB,8BAAS,YAAO,UAAK,UAAU,EAAE;IACnD;cAI0B;AACxB,YAAgB,8BAAS,YAAO,UAAK,iBAAY,KAAK;IACxD;;AAIe,mBAAS,AAAW,kBAAE;AACtB,sBAAY,AAAO,MAAD,IAAI,AAAI,MAA+B,CAAd,AAAO,CAAnB,AAAI,WAAE,eAAQ,OAAO;AACpD,kBAAQ,AAAM,aAAE,MAAM;AAEnC,YAAO,sBAAc,YAAO,UAAK,MAAM,EAAE,SAAS,EAAE,KAAK;IAC3D;kBAE4B;AAC1B,YAAO,gBAAU,AAAM,aAAE,MAAM;IACjC;gBAkBgC,GAAa,GAAU;AACrD,YAAO,AAAE,CAAD;AACR,UAAI,AAAE,CAAD,YAAY,AAAE,CAAD,UAChB,MAAO;AACT,UAAI,AAAE,CAAD,UACH,MAAQ,AAAE,gBAAH,CAAC,eAAc,CAAC;AACzB,UAAI,AAAE,CAAD,UACH,MAAO,AAAE,EAAD,cAAa,AAAI,MAAE,CAAC;AAC9B,YAAgB,8BACiB,AAAE,eAAjC,cAAW,AAAE,CAAD,QAAQ,AAAE,CAAD,QAAQ,CAAC,WAAS,KAAK,MACjB,AAAE,eAA7B,cAAW,AAAE,CAAD,MAAM,AAAE,CAAD,MAAM,CAAC,YAAK,QACU,AAAE,eAA3C,cAAW,AAAE,CAAD,aAAa,AAAE,CAAD,aAAa,CAAC,WAAS,KAAK,MACvB,AAAE,eAAjC,cAAW,AAAE,CAAD,QAAQ,AAAE,CAAD,QAAQ,CAAC,WAAS,KAAK;IAEhD;;UAGwB;AACtB,UAAI,AAAU,SAAM,KAAK,EACvB,MAAO;AACT,YAAa,AAIT,oBAJG,KAAK,KACL,AAAM,AAAM,KAAP,WAAU,cACf,AAAM,AAAI,KAAL,SAAQ,YACb,AAAM,AAAW,KAAZ,gBAAe,mBACpB,AAAM,AAAM,KAAP,WAAU;IACxB;;AAGoB,2BAAW,YAAO,UAAK,iBAAY;IAAM;;AAGxC,YAAG,AAAwE,0BAAtD,MAAM,cAAY,eAAE,cAAK,gBAAG,YAAG,gBAAG,mBAAU,gBAAG,cAAK;IAAE;;uCA5InE,OAAY,KAAU,YAAiB;IAAvC;IAAY;IAAU;IAAiB;UACzD,AAAM,KAAD;UACL,AAAI,GAAD;UACH,AAAW,UAAD;UACV,AAAM,KAAD;UACL,AAAM,KAAD,IAAI;UACT,AAAM,KAAD,IAAI;UACT,AAAI,GAAD,IAAI;UACP,AAAI,GAAD,IAAI;UACP,AAAW,UAAD,IAAI;UACd,AAAW,UAAD,IAAI;UACd,AAAM,KAAD,IAAI;UACT,AAAM,KAAD,IAAI;;EAAI;;;;;;;;;;;;;;;;;;;;;;;;;;;IAoMX;;;;;;IAMA;;;;;;IAMA;;;;;;IAQA;;;;;;qBAzCoB;AAClB,gBAAM,AAAM,AAAI,KAAL,OAAO;AAClB,kBAAQ,AAAM,AAAM,KAAP,SAAS;AACtB,iBAAO,AAAM,AAAK,KAAN,QAAQ;AAEpB,gBAAM,sBAAS,GAAG,EAAE,sBAAS,KAAK,EAAE,IAAI;AACxC,gBAAM,sBAAS,GAAG,EAAE,sBAAS,KAAK,EAAE,IAAI;AACxC,kBAAQ,AAAI,GAAD,GAAG,GAAG;AAEjB,kBAAQ,AAAM,AAAM,KAAP,SAAS;AACtB,gBAAM,eAAQ,GAAG,EAAE,KAAK,EAAE,IAAI,EAAE,GAAG,EAAE,KAAK;AAC1C,sBAAwB,CAAX,AAAI,GAAD,GAAG,GAAG,IAAI;AAE1B,uBAAa,AAAU,SAAD,KAAI,MACnC,MACiD,CAA/C,AAAM,KAAD,IAAI,AAAI,MAA0B,CAAvB,AAAI,AAAY,MAAV,SAAS,GAAG,uBAAmB,KAAK;AAChE,YAAgB,8BAAS,KAAK,EAAE,GAAG,EAAE,UAAU,EAAE,SAAS;IAC5D;cA4B0B;AACxB,YAAgB,8BAAS,KAAK,EAAE,UAAK,iBAAY;IACnD;YAIwB;AACtB,YAAgB,8BAAS,YAAO,GAAG,EAAE,iBAAY;IACnD;mBAI+B;AAC7B,YAAgB,8BAAS,YAAO,UAAK,UAAU,EAAE;IACnD;kBAI8B;AAC5B,YAAgB,8BAAS,YAAO,UAAK,iBAAY,SAAS;IAC5D;;AAIe,mBAA+C,CAArC,AAAI,MAA0B,CAAvB,AAAI,AAAY,MAAV,iBAAY,gBAAc;AACjD,sBAAY,AAAO,MAAD,IAAI,AAAI,MAA+B,CAAd,AAAO,CAAnB,AAAI,WAAE,eAAQ,OAAO;AACpD,kBAAQ,AAAU,iBAAE,AAAO,MAAD,GAAG;AAE1C,YAAO,sBAAc,YAAO,UAAK,MAAM,EAAE,SAAS,EAAE,KAAK;IAC3D;kBAE4B;AAC1B,YAAO,gBAAU,AAAM,aAAE,MAAM;IACjC;gBA4BgC,GAAa,GAAU;AACrD,YAAO,AAAE,CAAD;AACR,UAAI,AAAE,CAAD,YAAY,AAAE,CAAD,UAChB,MAAO;AACT,UAAI,AAAE,CAAD,UACH,MAAQ,AAAE,gBAAH,CAAC,eAAc,CAAC;AACzB,UAAI,AAAE,CAAD,UACH,MAAO,AAAE,EAAD,cAAa,AAAI,MAAE,CAAC;AAC9B,YAAgB,8BACiB,AAAE,eAAjC,cAAW,AAAE,CAAD,QAAQ,AAAE,CAAD,QAAQ,CAAC,WAAS,KAAK,MACjB,AAAE,eAA7B,cAAW,AAAE,CAAD,MAAM,AAAE,CAAD,MAAM,CAAC,YAAK,QACU,AAAE,eAA3C,cAAW,AAAE,CAAD,aAAa,AAAE,CAAD,aAAa,CAAC,WAAS,KAAK,MACf,AAAE,eAAzC,cAAW,AAAE,CAAD,YAAY,AAAE,CAAD,YAAY,CAAC,WAAS,KAAK;IAExD;;UAGwB;AACtB,UAAI,AAAU,SAAM,KAAK,EACvB,MAAO;AACT,YAAa,AAIT,oBAJG,KAAK,KACL,AAAM,AAAM,KAAP,WAAU,cACf,AAAM,AAAI,KAAL,SAAQ,YACb,AAAM,AAAW,KAAZ,gBAAe,mBACpB,AAAM,AAAU,KAAX,eAAc;IAC5B;;AAGoB,2BAAW,YAAO,UAAK,iBAAY;IAAU;;AAG5C,YAAG,AAA4E,0BAA1D,MAAM,cAAY,eAAE,cAAK,gBAAG,YAAG,gBAAG,mBAAU,gBAAG,kBAAS;IAAE;;uCA3JvE,OAAY,KAAU,YAAiB;IAAvC;IAAY;IAAU;IAAiB;UACzD,AAAM,KAAD;UACL,AAAI,GAAD;UACH,AAAW,UAAD;UACV,AAAU,SAAD;UACT,AAAM,KAAD,IAAI;UACT,AAAM,KAAD,IAAI;UACT,AAAI,GAAD,IAAI;UACP,AAAI,GAAD,IAAI;UACP,AAAW,UAAD,IAAI;UACd,AAAW,UAAD,IAAI;UACd,AAAU,SAAD,IAAI;UACb,AAAU,SAAD,IAAI;;EAAI;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAuKR;;;;;;;aAGC;AAAU,cAAA,AAAO,sBAAC,KAAK;MAAC;;YAGrB;AACtB,YAAI,AAAU,SAAM,KAAK,EACvB,MAAO;AACT,aAAI,AAAM,KAAD,uBAAgB,qBACvB,MAAO;AACT,cAAa,AAET,eAFY,KAAK,KACR,oBAAN,KAAK,KACL,mCAAoB,AAAM,KAAD,WAAU;MAC5C;;AAGoB,6BAAW,oBAAa,YAAO;MAAQ;;AAGtC,cAAG,AAA4E,0BAA1D,MAAM,iBAAe,qBAAwB,mBAAW;MAAE;;gCAvB9E;MAAc;AAAW,2CAAM,OAAO;;IAAC;;;;;;;;;;;;;;;;;;;;;cAiDG;AACnC,iBAAa,gBAAU,QAAQ;AAC1D,UAAI;AAMD,QALD,AAAI,IAAA,QAAC,mBAAqC,2CACxC,OAAY,AAAE,eAAP,iBACP,SAAc,AAAE,eAAP,mBACT,QAAa,AAAE,eAAP,kBACR,SAAc,AAAE,eAAP;;AAGb,YAAO,KAAI;IACb;;uCA5BS,MACA;QACF;QACG;QACa;QACL;UACN,AAAS,QAAD;UACR,AAAM,KAAD;UACL,AAAM,KAAD;AACZ,kDAAM,IAAI,EAAE,KAAK,iBACD,YAAY,YAChB,QAAQ,SACX,KAAK,SACL,KAAK;;EACb;;;;oCAxdc,KAAY,OAAc,MAAa,KAAY;AAC3D;;;;;;;;;;;AACZ,QAAI,AAAI,GAAD,KAAI;AACA,MAAT,UAAM;UACD,KAAI,AAAI,GAAD,KAAI,GAAG;AACwB,MAA3C,UAAM,AAAK,OAA4B,CAAT,CAAd,AAAM,KAAD,GAAG,IAAI,IAAI,KAAK,WAAI;UACpC,KAAI,AAAI,GAAD,KAAI,KAAK;AACoB,MAAzC,UAAM,AAAK,QAAiB,AAAS,CAArB,AAAK,IAAD,GAAG,GAAG,IAAI,KAAK,GAAI;UAClC,KAAI,AAAI,GAAD,KAAI,IAAI;AACsB,MAA1C,UAAM,AAAK,QAAkB,AAAS,CAAtB,AAAI,GAAD,GAAG,KAAK,IAAI,KAAK,GAAI;;AAIf,IAA3B,UAAM,AAAI,sBAAQ,MAAM;AACxB,UAAO;EACT;gDAGS,OACA,KACA,QACA,WACA;AAEA;AACA;AACA;AACP,QAAI,AAAI,GAAD,GAAG;AACI,MAAZ,MAAM,MAAM;AACK,MAAjB,QAAQ,SAAS;AACP,MAAV,OAAO;UACF,KAAI,AAAI,GAAD,GAAG;AACA,MAAf,MAAM,SAAS;AACD,MAAd,QAAQ,MAAM;AACJ,MAAV,OAAO;UACF,KAAI,AAAI,GAAD,GAAG;AACN,MAAT,MAAM;AACQ,MAAd,QAAQ,MAAM;AACE,MAAhB,OAAO,SAAS;UACX,KAAI,AAAI,GAAD,GAAG;AACN,MAAT,MAAM;AACW,MAAjB,QAAQ,SAAS;AACJ,MAAb,OAAO,MAAM;UACR,KAAI,AAAI,GAAD,GAAG;AACA,MAAf,MAAM,SAAS;AACJ,MAAX,QAAQ;AACK,MAAb,OAAO,MAAM;;AAED,MAAZ,MAAM,MAAM;AACD,MAAX,QAAQ;AACQ,MAAhB,OAAO,SAAS;;AAElB,UAAa,uBAAwB,CAAd,AAAM,KAAD,GAAG,gBAAsC,CAAR,CAAb,AAAI,GAAD,GAAG,KAAK,IAAI,gBAAwC,CAAR,CAAf,AAAM,KAAD,GAAG,KAAK,IAAI,gBAAuC,CAAR,CAAd,AAAK,IAAD,GAAG,KAAK,IAAI;EACpI","file":"../../../../../../../D:/packages/flutter/src/painting/colors.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["form.dart"],"names":[],"mappings":"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","file":"../../../../../../../D:/packages/flutter/src/widgets/form.dart.lib.js"}');
   // Exports:
   return {
-    src__painting__colors: colors
+    src__widgets__form: form
   };
 }));
 
-//# sourceMappingURL=colors.dart.lib.js.map
+//# sourceMappingURL=form.dart.lib.js.map

@@ -59,7 +59,8 @@ class _SplashPageState extends State<SplashPage> {
       //   ShowMessage().showErrorDialog(context, "ERROR", e.toString());
       // });
 
-      await SharedPreferencesMethods.getIsAdmin().then((v) {
+      await SharedPreferencesMethods.getIsAdmin().then((v) async {
+        await SharedPreferencesMethods.getUserSharedPreferences();
         if (activeIsAdmin == "NONE") {
           Navigator.pushReplacement(
               context, MaterialPageRoute(builder: (context) => LoginPage()));

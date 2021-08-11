@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cortal/Configuration/SharedPreferencesMethods.dart';
 import 'package:cortal/Configuration/User.dart';
+import 'package:cortal/Helpers/Constants.dart';
 import 'package:cortal/Helpers/ShowMessage.dart';
 import 'package:cortal/Pages/Portal/AdminPanel/AdminPanel.dart';
 import 'package:cortal/Pages/Portal/AllComplaintsPage.dart';
@@ -39,6 +40,8 @@ class authServices {
         CortalUser user = CortalUser(value.user!.uid, email);
         SharedPreferencesMethods.saveUserSharedPreferences(user);
         SharedPreferencesMethods.saveIsAdmin("USER");
+
+        activeUser = user;
         Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) => AllComplaintsPage()));
       });
@@ -75,6 +78,8 @@ class authServices {
       SharedPreferencesMethods.saveUserSharedPreferences(user);
 
       SharedPreferencesMethods.saveIsAdmin("USER");
+      activeUser = user;
+
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (context) => AllComplaintsPage()));
     }).catchError((e, stackTrace) {
@@ -105,6 +110,8 @@ class authServices {
       CortalUser user = CortalUser(value.user!.uid, "admin@cortal.com");
       SharedPreferencesMethods.saveUserSharedPreferences(user);
       SharedPreferencesMethods.saveIsAdmin("ADMIN");
+
+      activeUser = user;
 
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => AdminPanelPage()));

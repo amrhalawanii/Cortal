@@ -19,16 +19,16 @@ define("main_module.bootstrap", ["web_entrypoint.dart", "dart_sdk"], function(ap
          main();
       });
     }
-    window.$dartAppId = "GMF6q4MuioIfCoh6IGCBoA==";
+    window.$dartAppId = "rIakDS7NNeLNsOb8u/79Jw==";
 window.$dartReloadConfiguration = "ReloadConfiguration.none";
 window.$dartModuleStrategy = "require-js";
 window.$loadModuleConfig = require;
 window.$dwdsVersion = "10.0.1";
-window.$dwdsDevHandlerPath = "http://localhost:49571/$dwdsSseHandler";
+window.$dwdsDevHandlerPath = "http://localhost:60772/$dwdsSseHandler";
 window.$dwdsEnableDevtoolsLaunch = true;
 window.$dartEntrypointPath = "main_module.bootstrap.js";
 window.$requireLoader.forceLoadModule("dwds/src/injected/client");
-window.$dartExtensionUri = "http://127.0.0.1:49573/$debug";
+window.$dartExtensionUri = "http://127.0.0.1:60775/$debug";
 
   } else {
     if(window.$dartMainExecuted){
@@ -187,6 +187,8 @@ let modulePaths = {
  "packages/flutter_web_plugins/src/navigation/utils.dart": "packages/flutter_web_plugins/src/navigation/utils.dart.lib",
  "packages/flutter_web_plugins/src/navigation/url_strategy.dart": "packages/flutter_web_plugins/src/navigation/url_strategy.dart.lib",
  "packages/js/js.dart": "packages/js/js.dart.lib",
+ "packages/shared_preferences_web/shared_preferences_web.dart": "packages/shared_preferences_web/shared_preferences_web.dart.lib",
+ "packages/shared_preferences_platform_interface/method_channel_shared_preferences.dart": "packages/shared_preferences_platform_interface/method_channel_shared_preferences.dart.lib",
  "packages/firebase_core_web/firebase_core_web.dart": "packages/firebase_core_web/firebase_core_web.dart.lib",
  "packages/firebase_core_web/src/interop/core.dart": "packages/firebase_core_web/src/interop/core.dart.lib",
  "packages/firebase_core_web/src/interop/core_interop.dart": "packages/firebase_core_web/src/interop/core_interop.dart.lib",
@@ -585,6 +587,7 @@ let modulePaths = {
  "packages/flutter_spinkit/src/cube_grid.dart": "packages/flutter_spinkit/src/cube_grid.dart.lib",
  "packages/flutter_spinkit/src/circle.dart": "packages/flutter_spinkit/src/circle.dart.lib",
  "packages/flutter_spinkit/src/chasing_dots.dart": "packages/flutter_spinkit/src/chasing_dots.dart.lib",
+ "packages/firebase_auth/firebase_auth.dart": "packages/firebase_auth/firebase_auth.dart.lib",
  "packages/cortal/Pages/Registration/Signup/SignUpForm.dart": "packages/cortal/Pages/Registration/Signup/SignUpForm.dart.lib",
  "packages/google_fonts/src/google_fonts_base.dart": "packages/google_fonts/src/google_fonts_base.dart.lib",
  "packages/google_fonts/src/google_fonts_variant.dart": "packages/google_fonts/src/google_fonts_variant.dart.lib",
@@ -612,11 +615,13 @@ let modulePaths = {
  "packages/crypto/src/hmac.dart": "packages/crypto/src/hmac.dart.lib",
  "packages/cortal/UI_Elements/MiddleLine.dart": "packages/cortal/UI_Elements/MiddleLine.dart.lib",
  "packages/cortal/Helpers/Constants.dart": "packages/cortal/Helpers/Constants.dart.lib",
+ "packages/cortal/Configuration/User.dart": "packages/cortal/Configuration/User.dart.lib",
+ "packages/cortal/Configuration/Complaint.dart": "packages/cortal/Configuration/Complaint.dart.lib",
  "packages/cortal/UI_Elements/Background.dart": "packages/cortal/UI_Elements/Background.dart.lib",
  "packages/cortal/UI_Elements/Circular_progrss.dart": "packages/cortal/UI_Elements/Circular_progrss.dart.lib",
- "packages/cortal/Pages/Portal/AdminPanel/AdminPanel.dart": "packages/cortal/Pages/Portal/AdminPanel/AdminPanel.dart.lib",
  "packages/cortal/Pages/Portal/AdminPanel/AdminViewAll.dart": "packages/cortal/Pages/Portal/AdminPanel/AdminViewAll.dart.lib",
  "packages/cortal/Pages/Portal/ViewFullComplaintPage.dart": "packages/cortal/Pages/Portal/ViewFullComplaintPage.dart.lib",
+ "packages/cortal/Configuration/api_manager.dart": "packages/cortal/Configuration/api_manager.dart.lib",
  "packages/cortal/Helpers/ShowMessage.dart": "packages/cortal/Helpers/ShowMessage.dart.lib",
  "packages/awesome_dialog/src/anims/flare_header.dart": "packages/awesome_dialog/src/anims/flare_header.dart.lib",
  "packages/awesome_dialog/src/anims/anims.dart": "packages/awesome_dialog/src/anims/anims.dart.lib",
@@ -650,11 +655,42 @@ let modulePaths = {
  "packages/flare_flutter/flare_controller.dart": "packages/flare_flutter/flare_controller.dart.lib",
  "packages/awesome_dialog/src/animated_button.dart": "packages/awesome_dialog/src/animated_button.dart.lib",
  "packages/awesome_dialog/src/vertical_stack_header_dialog.dart": "packages/awesome_dialog/src/vertical_stack_header_dialog.dart.lib",
- "packages/cortal/Configuration/auth.dart": "packages/cortal/Configuration/auth.dart.lib",
- "packages/firebase_auth/firebase_auth.dart": "packages/firebase_auth/firebase_auth.dart.lib",
- "packages/cloud_firestore/cloud_firestore.dart": "packages/cloud_firestore/cloud_firestore.dart.lib",
- "packages/cortal/Pages/Portal/AllComplaintsPage.dart": "packages/cortal/Pages/Portal/AllComplaintsPage.dart.lib",
- "packages/cortal/Pages/Portal/AddComplaintPage.dart": "packages/cortal/Pages/Portal/AddComplaintPage.dart.lib"
+ "packages/cortal/Pages/Portal/AddComplaintPage.dart": "packages/cortal/Pages/Portal/AddComplaintPage.dart.lib",
+ "packages/uuid/uuid.dart": "packages/uuid/uuid.dart.lib",
+ "packages/uuid/uuid_util.dart": "packages/uuid/uuid_util.dart.lib",
+ "packages/cortal/Configuration/SharedPreferencesMethods.dart": "packages/cortal/Configuration/SharedPreferencesMethods.dart.lib",
+ "packages/shared_preferences/shared_preferences.dart": "packages/shared_preferences/shared_preferences.dart.lib",
+ "packages/shared_preferences_windows/shared_preferences_windows.dart": "packages/shared_preferences_windows/shared_preferences_windows.dart.lib",
+ "packages/path_provider_windows/path_provider_windows.dart": "packages/path_provider_windows/path_provider_windows.dart.lib",
+ "packages/path_provider_windows/src/path_provider_windows_stub.dart": "packages/path_provider_windows/src/path_provider_windows_stub.dart.lib",
+ "packages/path_provider_platform_interface/src/method_channel_path_provider.dart": "packages/path_provider_platform_interface/src/method_channel_path_provider.dart.lib",
+ "packages/path_provider_platform_interface/src/enums.dart": "packages/path_provider_platform_interface/src/enums.dart.lib",
+ "packages/platform/platform.dart": "packages/platform/platform.dart.lib",
+ "packages/platform/src/testing/fake_platform.dart": "packages/platform/src/testing/fake_platform.dart.lib",
+ "packages/platform/src/interface/platform.dart": "packages/platform/src/interface/platform.dart.lib",
+ "packages/platform/src/interface/local_platform.dart": "packages/platform/src/interface/local_platform.dart.lib",
+ "packages/path_provider_windows/src/folders_stub.dart": "packages/path_provider_windows/src/folders_stub.dart.lib",
+ "packages/file/local.dart": "packages/file/local.dart.lib",
+ "packages/file/src/backends/local.dart": "packages/file/src/backends/local.dart.lib",
+ "packages/file/src/backends/local/local_file_system.dart": "packages/file/src/backends/local/local_file_system.dart.lib",
+ "packages/file/src/backends/local/local_link.dart": "packages/file/src/backends/local/local_link.dart.lib",
+ "packages/file/src/forwarding/forwarding_link.dart": "packages/file/src/forwarding/forwarding_link.dart.lib",
+ "packages/file/src/interface.dart": "packages/file/src/interface.dart.lib",
+ "packages/file/src/io.dart": "packages/file/src/io.dart.lib",
+ "packages/file/src/interface/link.dart": "packages/file/src/interface/link.dart.lib",
+ "packages/file/src/interface/error_codes.dart": "packages/file/src/interface/error_codes.dart.lib",
+ "packages/file/src/interface/error_codes_internal.dart": "packages/file/src/interface/error_codes_internal.dart.lib",
+ "packages/file/src/forwarding/forwarding_random_access_file.dart": "packages/file/src/forwarding/forwarding_random_access_file.dart.lib",
+ "packages/file/src/common.dart": "packages/file/src/common.dart.lib",
+ "packages/shared_preferences_linux/shared_preferences_linux.dart": "packages/shared_preferences_linux/shared_preferences_linux.dart.lib",
+ "packages/path_provider_linux/path_provider_linux.dart": "packages/path_provider_linux/path_provider_linux.dart.lib",
+ "packages/xdg_directories/xdg_directories.dart": "packages/xdg_directories/xdg_directories.dart.lib",
+ "packages/process/src/interface/local_process_manager.dart": "packages/process/src/interface/local_process_manager.dart.lib",
+ "packages/process/src/interface/process_wrapper.dart": "packages/process/src/interface/process_wrapper.dart.lib",
+ "packages/process/src/interface/process_manager.dart": "packages/process/src/interface/process_manager.dart.lib",
+ "packages/process/src/interface/exceptions.dart": "packages/process/src/interface/exceptions.dart.lib",
+ "packages/process/src/interface/common.dart": "packages/process/src/interface/common.dart.lib",
+ "packages/cloud_firestore/cloud_firestore.dart": "packages/cloud_firestore/cloud_firestore.dart.lib"
 };
 let moduleNames = {
  "web_entrypoint.dart.lib": "web_entrypoint.dart",
@@ -763,6 +799,8 @@ let moduleNames = {
  "packages/flutter_web_plugins/src/navigation/utils.dart.lib": "packages/flutter_web_plugins/src/navigation/utils.dart",
  "packages/flutter_web_plugins/src/navigation/url_strategy.dart.lib": "packages/flutter_web_plugins/src/navigation/url_strategy.dart",
  "packages/js/js.dart.lib": "packages/js/js.dart",
+ "packages/shared_preferences_web/shared_preferences_web.dart.lib": "packages/shared_preferences_web/shared_preferences_web.dart",
+ "packages/shared_preferences_platform_interface/method_channel_shared_preferences.dart.lib": "packages/shared_preferences_platform_interface/method_channel_shared_preferences.dart",
  "packages/firebase_core_web/firebase_core_web.dart.lib": "packages/firebase_core_web/firebase_core_web.dart",
  "packages/firebase_core_web/src/interop/core.dart.lib": "packages/firebase_core_web/src/interop/core.dart",
  "packages/firebase_core_web/src/interop/core_interop.dart.lib": "packages/firebase_core_web/src/interop/core_interop.dart",
@@ -1161,6 +1199,7 @@ let moduleNames = {
  "packages/flutter_spinkit/src/cube_grid.dart.lib": "packages/flutter_spinkit/src/cube_grid.dart",
  "packages/flutter_spinkit/src/circle.dart.lib": "packages/flutter_spinkit/src/circle.dart",
  "packages/flutter_spinkit/src/chasing_dots.dart.lib": "packages/flutter_spinkit/src/chasing_dots.dart",
+ "packages/firebase_auth/firebase_auth.dart.lib": "packages/firebase_auth/firebase_auth.dart",
  "packages/cortal/Pages/Registration/Signup/SignUpForm.dart.lib": "packages/cortal/Pages/Registration/Signup/SignUpForm.dart",
  "packages/google_fonts/src/google_fonts_base.dart.lib": "packages/google_fonts/src/google_fonts_base.dart",
  "packages/google_fonts/src/google_fonts_variant.dart.lib": "packages/google_fonts/src/google_fonts_variant.dart",
@@ -1188,11 +1227,13 @@ let moduleNames = {
  "packages/crypto/src/hmac.dart.lib": "packages/crypto/src/hmac.dart",
  "packages/cortal/UI_Elements/MiddleLine.dart.lib": "packages/cortal/UI_Elements/MiddleLine.dart",
  "packages/cortal/Helpers/Constants.dart.lib": "packages/cortal/Helpers/Constants.dart",
+ "packages/cortal/Configuration/User.dart.lib": "packages/cortal/Configuration/User.dart",
+ "packages/cortal/Configuration/Complaint.dart.lib": "packages/cortal/Configuration/Complaint.dart",
  "packages/cortal/UI_Elements/Background.dart.lib": "packages/cortal/UI_Elements/Background.dart",
  "packages/cortal/UI_Elements/Circular_progrss.dart.lib": "packages/cortal/UI_Elements/Circular_progrss.dart",
- "packages/cortal/Pages/Portal/AdminPanel/AdminPanel.dart.lib": "packages/cortal/Pages/Portal/AdminPanel/AdminPanel.dart",
  "packages/cortal/Pages/Portal/AdminPanel/AdminViewAll.dart.lib": "packages/cortal/Pages/Portal/AdminPanel/AdminViewAll.dart",
  "packages/cortal/Pages/Portal/ViewFullComplaintPage.dart.lib": "packages/cortal/Pages/Portal/ViewFullComplaintPage.dart",
+ "packages/cortal/Configuration/api_manager.dart.lib": "packages/cortal/Configuration/api_manager.dart",
  "packages/cortal/Helpers/ShowMessage.dart.lib": "packages/cortal/Helpers/ShowMessage.dart",
  "packages/awesome_dialog/src/anims/flare_header.dart.lib": "packages/awesome_dialog/src/anims/flare_header.dart",
  "packages/awesome_dialog/src/anims/anims.dart.lib": "packages/awesome_dialog/src/anims/anims.dart",
@@ -1226,11 +1267,42 @@ let moduleNames = {
  "packages/flare_flutter/flare_controller.dart.lib": "packages/flare_flutter/flare_controller.dart",
  "packages/awesome_dialog/src/animated_button.dart.lib": "packages/awesome_dialog/src/animated_button.dart",
  "packages/awesome_dialog/src/vertical_stack_header_dialog.dart.lib": "packages/awesome_dialog/src/vertical_stack_header_dialog.dart",
- "packages/cortal/Configuration/auth.dart.lib": "packages/cortal/Configuration/auth.dart",
- "packages/firebase_auth/firebase_auth.dart.lib": "packages/firebase_auth/firebase_auth.dart",
- "packages/cloud_firestore/cloud_firestore.dart.lib": "packages/cloud_firestore/cloud_firestore.dart",
- "packages/cortal/Pages/Portal/AllComplaintsPage.dart.lib": "packages/cortal/Pages/Portal/AllComplaintsPage.dart",
- "packages/cortal/Pages/Portal/AddComplaintPage.dart.lib": "packages/cortal/Pages/Portal/AddComplaintPage.dart"
+ "packages/cortal/Pages/Portal/AddComplaintPage.dart.lib": "packages/cortal/Pages/Portal/AddComplaintPage.dart",
+ "packages/uuid/uuid.dart.lib": "packages/uuid/uuid.dart",
+ "packages/uuid/uuid_util.dart.lib": "packages/uuid/uuid_util.dart",
+ "packages/cortal/Configuration/SharedPreferencesMethods.dart.lib": "packages/cortal/Configuration/SharedPreferencesMethods.dart",
+ "packages/shared_preferences/shared_preferences.dart.lib": "packages/shared_preferences/shared_preferences.dart",
+ "packages/shared_preferences_windows/shared_preferences_windows.dart.lib": "packages/shared_preferences_windows/shared_preferences_windows.dart",
+ "packages/path_provider_windows/path_provider_windows.dart.lib": "packages/path_provider_windows/path_provider_windows.dart",
+ "packages/path_provider_windows/src/path_provider_windows_stub.dart.lib": "packages/path_provider_windows/src/path_provider_windows_stub.dart",
+ "packages/path_provider_platform_interface/src/method_channel_path_provider.dart.lib": "packages/path_provider_platform_interface/src/method_channel_path_provider.dart",
+ "packages/path_provider_platform_interface/src/enums.dart.lib": "packages/path_provider_platform_interface/src/enums.dart",
+ "packages/platform/platform.dart.lib": "packages/platform/platform.dart",
+ "packages/platform/src/testing/fake_platform.dart.lib": "packages/platform/src/testing/fake_platform.dart",
+ "packages/platform/src/interface/platform.dart.lib": "packages/platform/src/interface/platform.dart",
+ "packages/platform/src/interface/local_platform.dart.lib": "packages/platform/src/interface/local_platform.dart",
+ "packages/path_provider_windows/src/folders_stub.dart.lib": "packages/path_provider_windows/src/folders_stub.dart",
+ "packages/file/local.dart.lib": "packages/file/local.dart",
+ "packages/file/src/backends/local.dart.lib": "packages/file/src/backends/local.dart",
+ "packages/file/src/backends/local/local_file_system.dart.lib": "packages/file/src/backends/local/local_file_system.dart",
+ "packages/file/src/backends/local/local_link.dart.lib": "packages/file/src/backends/local/local_link.dart",
+ "packages/file/src/forwarding/forwarding_link.dart.lib": "packages/file/src/forwarding/forwarding_link.dart",
+ "packages/file/src/interface.dart.lib": "packages/file/src/interface.dart",
+ "packages/file/src/io.dart.lib": "packages/file/src/io.dart",
+ "packages/file/src/interface/link.dart.lib": "packages/file/src/interface/link.dart",
+ "packages/file/src/interface/error_codes.dart.lib": "packages/file/src/interface/error_codes.dart",
+ "packages/file/src/interface/error_codes_internal.dart.lib": "packages/file/src/interface/error_codes_internal.dart",
+ "packages/file/src/forwarding/forwarding_random_access_file.dart.lib": "packages/file/src/forwarding/forwarding_random_access_file.dart",
+ "packages/file/src/common.dart.lib": "packages/file/src/common.dart",
+ "packages/shared_preferences_linux/shared_preferences_linux.dart.lib": "packages/shared_preferences_linux/shared_preferences_linux.dart",
+ "packages/path_provider_linux/path_provider_linux.dart.lib": "packages/path_provider_linux/path_provider_linux.dart",
+ "packages/xdg_directories/xdg_directories.dart.lib": "packages/xdg_directories/xdg_directories.dart",
+ "packages/process/src/interface/local_process_manager.dart.lib": "packages/process/src/interface/local_process_manager.dart",
+ "packages/process/src/interface/process_wrapper.dart.lib": "packages/process/src/interface/process_wrapper.dart",
+ "packages/process/src/interface/process_manager.dart.lib": "packages/process/src/interface/process_manager.dart",
+ "packages/process/src/interface/exceptions.dart.lib": "packages/process/src/interface/exceptions.dart",
+ "packages/process/src/interface/common.dart.lib": "packages/process/src/interface/common.dart",
+ "packages/cloud_firestore/cloud_firestore.dart.lib": "packages/cloud_firestore/cloud_firestore.dart"
 };
 if(!window.$requireLoader) {
    window.$requireLoader = {

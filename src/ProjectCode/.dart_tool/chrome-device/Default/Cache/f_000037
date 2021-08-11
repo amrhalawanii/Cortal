@@ -1,549 +1,377 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/services/mouse_cursor.dart', 'packages/flutter/src/material/material_state.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/material/toggleable.dart', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/flutter/src/rendering/custom_paint.dart'], (function load__packages__flutter__src__material__radio_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__services__mouse_cursor$46dart, packages__flutter__src__material__material_state$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__material__toggleable$46dart, packages__flutter__src__foundation__change_notifier$46dart, packages__flutter__src__rendering__custom_paint$46dart) {
+define(['dart_sdk', 'packages/flutter/src/painting/borders.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/circle_border.dart', 'packages/flutter/src/foundation/object.dart'], (function load__packages__flutter__src__painting__rounded_rectangle_border_dart(dart_sdk, packages__flutter__src__painting__borders$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__circle_border$46dart, packages__flutter__src__foundation__object$46dart) {
   'use strict';
   const core = dart_sdk.core;
   const ui = dart_sdk.ui;
-  const _js_helper = dart_sdk._js_helper;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const focus_manager = packages__flutter__src__widgets__widget_span$46dart.src__widgets__focus_manager;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
-  const mouse_cursor = packages__flutter__src__services__mouse_cursor$46dart.src__services__mouse_cursor;
-  const material_state = packages__flutter__src__material__material_state$46dart.src__material__material_state;
-  const theme_data = packages__flutter__src__material__icon_button$46dart.src__material__theme_data;
-  const theme = packages__flutter__src__material__icon_button$46dart.src__material__theme;
-  const debug = packages__flutter__src__material__icon_button$46dart.src__material__debug;
-  const toggleable = packages__flutter__src__material__toggleable$46dart.src__material__toggleable;
-  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
-  const custom_paint = packages__flutter__src__rendering__custom_paint$46dart.src__rendering__custom_paint;
-  var radio = Object.create(dart.library);
-  var $noSuchMethod = dartx.noSuchMethod;
+  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const circle_border = packages__flutter__src__painting__circle_border$46dart.src__painting__circle_border;
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  var rounded_rectangle_border = Object.create(dart.library);
+  var $runtimeType = dartx.runtimeType;
+  var $toStringAsFixed = dartx.toStringAsFixed;
   dart._checkModuleNullSafetyMode(true);
-  var T$ = {
-    ColorN: () => (T$.ColorN = dart.constFn(dart.nullable(ui.Color)))(),
-    SetOfMaterialState: () => (T$.SetOfMaterialState = dart.constFn(core.Set$(material_state.MaterialState)))(),
-    SetOfMaterialStateToColorN: () => (T$.SetOfMaterialStateToColorN = dart.constFn(dart.fnType(T$.ColorN(), [T$.SetOfMaterialState()])))(),
-    SetOfMaterialStateToColor: () => (T$.SetOfMaterialStateToColor = dart.constFn(dart.fnType(ui.Color, [T$.SetOfMaterialState()])))(),
-    MouseCursorN: () => (T$.MouseCursorN = dart.constFn(dart.nullable(mouse_cursor.MouseCursor)))(),
-    SetOfMaterialStateToMouseCursor: () => (T$.SetOfMaterialStateToMouseCursor = dart.constFn(dart.fnType(mouse_cursor.MouseCursor, [T$.SetOfMaterialState()])))(),
-    ListenableN: () => (T$.ListenableN = dart.constFn(dart.nullable(change_notifier.Listenable)))()
-  };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: ui.Size.prototype,
-        [OffsetBase__dy]: 48,
-        [OffsetBase__dx]: 48
-      });
-    },
     get C1() {
       return C[1] = dart.const({
-        __proto__: theme_data.MaterialTapTargetSize.prototype,
-        [_name]: "MaterialTapTargetSize.padded",
+        __proto__: borders.BorderStyle.prototype,
+        [_name]: "BorderStyle.none",
         index: 0
       });
     },
     get C2() {
       return C[2] = dart.const({
-        __proto__: ui.Size.prototype,
-        [OffsetBase__dy]: 40,
-        [OffsetBase__dx]: 40
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278190080.0
+      });
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: borders.BorderSide.prototype,
+        [BorderSide_style]: C[1] || CT.C1,
+        [BorderSide_width]: 0,
+        [BorderSide_color]: C[2] || CT.C2
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: ui.Radius.prototype,
+        [Radius_y]: 0,
+        [Radius_x]: 0
       });
     },
     get C3() {
       return C[3] = dart.const({
-        __proto__: theme_data.MaterialTapTargetSize.prototype,
-        [_name]: "MaterialTapTargetSize.shrinkWrap",
-        index: 1
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "inMutuallyExclusiveGroup",
-        [_Location_column]: 7,
-        [_Location_line]: 486,
-        [_Location_file]: null
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "checked",
-        [_Location_column]: 7,
-        [_Location_line]: 487,
-        [_Location_file]: null
-      });
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 488,
-        [_Location_file]: null
+        __proto__: border_radius.BorderRadius.prototype,
+        [BorderRadius_bottomRight]: C[4] || CT.C4,
+        [BorderRadius_bottomLeft]: C[4] || CT.C4,
+        [BorderRadius_topRight]: C[4] || CT.C4,
+        [BorderRadius_topLeft]: C[4] || CT.C4
       });
     },
     get C5() {
-      return C[5] = dart.constList([C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8], widget_inspector._Location);
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[5] || CT.C5,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 485,
-        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/material/radio.dart"
+      return C[5] = dart.const({
+        __proto__: borders.BorderStyle.prototype,
+        [_name]: "BorderStyle.solid",
+        index: 1
       });
-    },
-    get C9() {
-      return C[9] = dart.const(new _js_helper.PrivateSymbol.new('_repaint', _repaint));
     }
   }, false);
-  var C = Array(10).fill(void 0);
+  var C = Array(6).fill(void 0);
   var I = [
-    "file:///C:/flutter/packages/flutter/lib/src/material/radio.dart",
-    "package:flutter/src/material/radio.dart"
+    "file:///C:/flutter/packages/flutter/lib/src/painting/rounded_rectangle_border.dart",
+    "package:flutter/src/painting/rounded_rectangle_border.dart"
   ];
-  var value$ = dart.privateName(radio, "Radio.value");
-  var groupValue$ = dart.privateName(radio, "Radio.groupValue");
-  var onChanged$ = dart.privateName(radio, "Radio.onChanged");
-  var mouseCursor$ = dart.privateName(radio, "Radio.mouseCursor");
-  var toggleable$ = dart.privateName(radio, "Radio.toggleable");
-  var activeColor$ = dart.privateName(radio, "Radio.activeColor");
-  var fillColor$ = dart.privateName(radio, "Radio.fillColor");
-  var materialTapTargetSize$ = dart.privateName(radio, "Radio.materialTapTargetSize");
-  var visualDensity$ = dart.privateName(radio, "Radio.visualDensity");
-  var focusColor$ = dart.privateName(radio, "Radio.focusColor");
-  var hoverColor$ = dart.privateName(radio, "Radio.hoverColor");
-  var overlayColor$ = dart.privateName(radio, "Radio.overlayColor");
-  var splashRadius$ = dart.privateName(radio, "Radio.splashRadius");
-  var focusNode$ = dart.privateName(radio, "Radio.focusNode");
-  var autofocus$ = dart.privateName(radio, "Radio.autofocus");
-  var _selected = dart.privateName(radio, "_selected");
-  const _is_Radio_default = Symbol('_is_Radio_default');
-  radio.Radio$ = dart.generic(T => {
-    var _RadioStateOfT = () => (_RadioStateOfT = dart.constFn(radio._RadioState$(T)))();
-    class Radio extends framework.StatefulWidget {
-      get value() {
-        return this[value$];
-      }
-      set value(value) {
-        super.value = value;
-      }
-      get groupValue() {
-        return this[groupValue$];
-      }
-      set groupValue(value) {
-        super.groupValue = value;
-      }
-      get onChanged() {
-        return this[onChanged$];
-      }
-      set onChanged(value) {
-        super.onChanged = value;
-      }
-      get mouseCursor() {
-        return this[mouseCursor$];
-      }
-      set mouseCursor(value) {
-        super.mouseCursor = value;
-      }
-      get toggleable() {
-        return this[toggleable$];
-      }
-      set toggleable(value) {
-        super.toggleable = value;
-      }
-      get activeColor() {
-        return this[activeColor$];
-      }
-      set activeColor(value) {
-        super.activeColor = value;
-      }
-      get fillColor() {
-        return this[fillColor$];
-      }
-      set fillColor(value) {
-        super.fillColor = value;
-      }
-      get materialTapTargetSize() {
-        return this[materialTapTargetSize$];
-      }
-      set materialTapTargetSize(value) {
-        super.materialTapTargetSize = value;
-      }
-      get visualDensity() {
-        return this[visualDensity$];
-      }
-      set visualDensity(value) {
-        super.visualDensity = value;
-      }
-      get focusColor() {
-        return this[focusColor$];
-      }
-      set focusColor(value) {
-        super.focusColor = value;
-      }
-      get hoverColor() {
-        return this[hoverColor$];
-      }
-      set hoverColor(value) {
-        super.hoverColor = value;
-      }
-      get overlayColor() {
-        return this[overlayColor$];
-      }
-      set overlayColor(value) {
-        super.overlayColor = value;
-      }
-      get splashRadius() {
-        return this[splashRadius$];
-      }
-      set splashRadius(value) {
-        super.splashRadius = value;
-      }
-      get focusNode() {
-        return this[focusNode$];
-      }
-      set focusNode(value) {
-        super.focusNode = value;
-      }
-      get autofocus() {
-        return this[autofocus$];
-      }
-      set autofocus(value) {
-        super.autofocus = value;
-      }
-      get [_selected]() {
-        return dart.equals(this.value, this.groupValue);
-      }
-      createState() {
-        return new (_RadioStateOfT()).new();
-      }
+  var borderRadius$ = dart.privateName(rounded_rectangle_border, "RoundedRectangleBorder.borderRadius");
+  var _name = dart.privateName(borders, "_name");
+  var BorderSide_style = dart.privateName(borders, "BorderSide.style");
+  var BorderSide_width = dart.privateName(borders, "BorderSide.width");
+  var Color_value = dart.privateName(ui, "Color.value");
+  var BorderSide_color = dart.privateName(borders, "BorderSide.color");
+  var Radius_y = dart.privateName(ui, "Radius.y");
+  var Radius_x = dart.privateName(ui, "Radius.x");
+  var BorderRadius_bottomRight = dart.privateName(border_radius, "BorderRadius.bottomRight");
+  var BorderRadius_bottomLeft = dart.privateName(border_radius, "BorderRadius.bottomLeft");
+  var BorderRadius_topRight = dart.privateName(border_radius, "BorderRadius.topRight");
+  var BorderRadius_topLeft = dart.privateName(border_radius, "BorderRadius.topLeft");
+  rounded_rectangle_border.RoundedRectangleBorder = class RoundedRectangleBorder extends borders.OutlinedBorder {
+    get borderRadius() {
+      return this[borderRadius$];
     }
-    (Radio.new = function(opts) {
-      let key = opts && 'key' in opts ? opts.key : null;
-      let value = opts && 'value' in opts ? opts.value : null;
-      let groupValue = opts && 'groupValue' in opts ? opts.groupValue : null;
-      let onChanged = opts && 'onChanged' in opts ? opts.onChanged : null;
-      let mouseCursor = opts && 'mouseCursor' in opts ? opts.mouseCursor : null;
-      let toggleable = opts && 'toggleable' in opts ? opts.toggleable : false;
-      let activeColor = opts && 'activeColor' in opts ? opts.activeColor : null;
-      let fillColor = opts && 'fillColor' in opts ? opts.fillColor : null;
-      let focusColor = opts && 'focusColor' in opts ? opts.focusColor : null;
-      let hoverColor = opts && 'hoverColor' in opts ? opts.hoverColor : null;
-      let overlayColor = opts && 'overlayColor' in opts ? opts.overlayColor : null;
-      let splashRadius = opts && 'splashRadius' in opts ? opts.splashRadius : null;
-      let materialTapTargetSize = opts && 'materialTapTargetSize' in opts ? opts.materialTapTargetSize : null;
-      let visualDensity = opts && 'visualDensity' in opts ? opts.visualDensity : null;
-      let focusNode = opts && 'focusNode' in opts ? opts.focusNode : null;
-      let autofocus = opts && 'autofocus' in opts ? opts.autofocus : false;
-      let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-      this[value$] = value;
-      this[groupValue$] = groupValue;
-      this[onChanged$] = onChanged;
-      this[mouseCursor$] = mouseCursor;
-      this[toggleable$] = toggleable;
-      this[activeColor$] = activeColor;
-      this[fillColor$] = fillColor;
-      this[focusColor$] = focusColor;
-      this[hoverColor$] = hoverColor;
-      this[overlayColor$] = overlayColor;
-      this[splashRadius$] = splashRadius;
-      this[materialTapTargetSize$] = materialTapTargetSize;
-      this[visualDensity$] = visualDensity;
-      this[focusNode$] = focusNode;
-      this[autofocus$] = autofocus;
-      if (!(autofocus !== null)) dart.assertFailed(null, I[0], 122, 15, "autofocus != null");
-      if (!(toggleable !== null)) dart.assertFailed(null, I[0], 123, 15, "toggleable != null");
-      Radio.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-      ;
-    }).prototype = Radio.prototype;
-    dart.addTypeTests(Radio);
-    Radio.prototype[_is_Radio_default] = true;
-    dart.addTypeCaches(Radio);
-    dart.setMethodSignature(Radio, () => ({
-      __proto__: dart.getMethods(Radio.__proto__),
-      createState: dart.fnType(radio._RadioState$(T), [])
-    }));
-    dart.setGetterSignature(Radio, () => ({
-      __proto__: dart.getGetters(Radio.__proto__),
-      [_selected]: core.bool
-    }));
-    dart.setLibraryUri(Radio, I[1]);
-    dart.setFieldSignature(Radio, () => ({
-      __proto__: dart.getFields(Radio.__proto__),
-      value: dart.finalFieldType(T),
-      groupValue: dart.finalFieldType(dart.nullable(T)),
-      onChanged: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [dart.nullable(T)]))),
-      mouseCursor: dart.finalFieldType(dart.nullable(mouse_cursor.MouseCursor)),
-      toggleable: dart.finalFieldType(core.bool),
-      activeColor: dart.finalFieldType(dart.nullable(ui.Color)),
-      fillColor: dart.finalFieldType(dart.nullable(material_state.MaterialStateProperty$(dart.nullable(ui.Color)))),
-      materialTapTargetSize: dart.finalFieldType(dart.nullable(theme_data.MaterialTapTargetSize)),
-      visualDensity: dart.finalFieldType(dart.nullable(theme_data.VisualDensity)),
-      focusColor: dart.finalFieldType(dart.nullable(ui.Color)),
-      hoverColor: dart.finalFieldType(dart.nullable(ui.Color)),
-      overlayColor: dart.finalFieldType(dart.nullable(material_state.MaterialStateProperty$(dart.nullable(ui.Color)))),
-      splashRadius: dart.finalFieldType(dart.nullable(core.double)),
-      focusNode: dart.finalFieldType(dart.nullable(focus_manager.FocusNode)),
-      autofocus: dart.finalFieldType(core.bool)
-    }));
-    return Radio;
-  });
-  radio.Radio = radio.Radio$();
-  dart.addTypeTests(radio.Radio, _is_Radio_default);
-  var _painter = dart.privateName(radio, "_painter");
-  var _handleChanged = dart.privateName(radio, "_handleChanged");
-  var _widgetFillColor = dart.privateName(radio, "_widgetFillColor");
-  var _defaultFillColor = dart.privateName(radio, "_defaultFillColor");
-  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
-  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
-  var _name = dart.privateName(theme_data, "_name");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  const _is__RadioState_default = Symbol('_is__RadioState_default');
-  radio._RadioState$ = dart.generic(T => {
-    var TN = () => (TN = dart.constFn(dart.nullable(T)))();
-    var TNTovoid = () => (TNTovoid = dart.constFn(dart.fnType(dart.void, [TN()])))();
-    var TNToNvoid = () => (TNToNvoid = dart.constFn(dart.nullable(TNTovoid())))();
-    var RadioOfT = () => (RadioOfT = dart.constFn(radio.Radio$(T)))();
-    const State_TickerProviderStateMixin$36 = class State_TickerProviderStateMixin extends framework.State$(radio.Radio$(T)) {};
-    (State_TickerProviderStateMixin$36.new = function() {
-      ticker_provider.TickerProviderStateMixin$(radio.Radio$(T))[dart.mixinNew].call(this);
-      State_TickerProviderStateMixin$36.__proto__.new.call(this);
-    }).prototype = State_TickerProviderStateMixin$36.prototype;
-    dart.applyMixin(State_TickerProviderStateMixin$36, ticker_provider.TickerProviderStateMixin$(radio.Radio$(T)));
-    const State_ToggleableStateMixin$36 = class State_ToggleableStateMixin extends State_TickerProviderStateMixin$36 {};
-    (State_ToggleableStateMixin$36.new = function() {
-      toggleable.ToggleableStateMixin$(radio.Radio$(T))[dart.mixinNew].call(this);
-      State_ToggleableStateMixin$36.__proto__.new.call(this);
-    }).prototype = State_ToggleableStateMixin$36.prototype;
-    dart.applyMixin(State_ToggleableStateMixin$36, toggleable.ToggleableStateMixin$(radio.Radio$(T)));
-    class _RadioState extends State_ToggleableStateMixin$36 {
-      [_handleChanged](selected) {
-        if (selected == null) {
-          dart.nullCheck(TNToNvoid().as(this.widget.onChanged))(null);
-          return;
-        }
-        if (dart.test(selected)) {
-          dart.nullCheck(TNToNvoid().as(this.widget.onChanged))(this.widget.value);
-        }
-      }
-      didUpdateWidget(oldWidget) {
-        RadioOfT().as(oldWidget);
-        super.didUpdateWidget(oldWidget);
-        if (this.widget[_selected] !== oldWidget[_selected]) {
-          this.animateToValue();
-        }
-      }
-      dispose() {
-        this[_painter].dispose();
-        super.dispose();
-      }
-      get onChanged() {
-        return TNToNvoid().as(this.widget.onChanged) != null ? dart.bind(this, _handleChanged) : null;
-      }
-      get tristate() {
-        return this.widget.toggleable;
-      }
-      get value() {
-        return this.widget[_selected];
-      }
-      get [_widgetFillColor]() {
-        return material_state.MaterialStateProperty.resolveWith(T$.ColorN(), dart.fn(states => {
-          if (states.contains(material_state.MaterialState.disabled)) {
-            return null;
-          }
-          if (states.contains(material_state.MaterialState.selected)) {
-            return this.widget.activeColor;
-          }
-          return null;
-        }, T$.SetOfMaterialStateToColorN()));
-      }
-      get [_defaultFillColor]() {
-        let themeData = theme.Theme.of(this.context);
-        return material_state.MaterialStateProperty.resolveWith(ui.Color, dart.fn(states => {
-          if (states.contains(material_state.MaterialState.disabled)) {
-            return themeData.disabledColor;
-          }
-          if (states.contains(material_state.MaterialState.selected)) {
-            return themeData.toggleableActiveColor;
-          }
-          return themeData.unselectedWidgetColor;
-        }, T$.SetOfMaterialStateToColor()));
-      }
-      build(context) {
-        let t0, t0$, t0$0, t0$1, t0$2, t0$3, t0$4, t0$5, t1, t0$6, t0$7, t0$8, t0$9, t1$, t0$10, t0$11, t0$12, t0$13, t0$14, t1$0, t0$15, t0$16, t0$17, t0$18, t0$19, t1$1, t0$20, t0$21, t0$22, t0$23, t1$2, t0$24, t0$25, t0$26, t0$27, t1$3, t0$28, t0$29, t1$4, t1$5, t0$30;
-        if (!debug.debugCheckHasMaterial(context)) dart.assertFailed(null, I[0], 425, 12, "debugCheckHasMaterial(context)");
-        let themeData = theme.Theme.of(context);
-        let effectiveMaterialTapTargetSize = (t0$ = (t0 = this.widget.materialTapTargetSize, t0 == null ? themeData.radioTheme.materialTapTargetSize : t0), t0$ == null ? themeData.materialTapTargetSize : t0$);
-        let effectiveVisualDensity = (t0$1 = (t0$0 = this.widget.visualDensity, t0$0 == null ? themeData.radioTheme.visualDensity : t0$0), t0$1 == null ? themeData.visualDensity : t0$1);
-        let size = null;
-        switch (effectiveMaterialTapTargetSize) {
-          case C[1] || CT.C1:
-          {
-            size = C[0] || CT.C0;
-            break;
-          }
-          case C[3] || CT.C3:
-          {
-            size = C[2] || CT.C2;
-            break;
-          }
-        }
-        size = size['+'](effectiveVisualDensity.baseSizeAdjustment);
-        let effectiveMouseCursor = material_state.MaterialStateProperty.resolveWith(mouse_cursor.MouseCursor, dart.fn(states => {
-          let t1, t0, t0$;
-          t0$ = (t0 = material_state.MaterialStateProperty.resolveAs(T$.MouseCursorN(), this.widget.mouseCursor, states), t0 == null ? (t1 = themeData.radioTheme.mouseCursor, t1 == null ? null : t1.resolve(states)) : t0);
-          return t0$ == null ? material_state.MaterialStateProperty.resolveAs(mouse_cursor.MouseCursor, material_state.MaterialStateMouseCursor.clickable, states) : t0$;
-        }, T$.SetOfMaterialStateToMouseCursor()));
-        let activeStates = (t0$2 = this.states, (() => {
-          t0$2.add(material_state.MaterialState.selected);
-          return t0$2;
-        })());
-        let inactiveStates = (t0$3 = this.states, (() => {
-          t0$3.remove(material_state.MaterialState.selected);
-          return t0$3;
-        })());
-        let effectiveActiveColor = (t0$7 = (t0$6 = (t0$5 = (t0$4 = this.widget.fillColor, t0$4 == null ? null : t0$4.resolve(activeStates)), t0$5 == null ? this[_widgetFillColor].resolve(activeStates) : t0$5), t0$6 == null ? (t1 = themeData.radioTheme.fillColor, t1 == null ? null : t1.resolve(activeStates)) : t0$6), t0$7 == null ? this[_defaultFillColor].resolve(activeStates) : t0$7);
-        let effectiveInactiveColor = (t0$11 = (t0$10 = (t0$9 = (t0$8 = this.widget.fillColor, t0$8 == null ? null : t0$8.resolve(inactiveStates)), t0$9 == null ? this[_widgetFillColor].resolve(inactiveStates) : t0$9), t0$10 == null ? (t1$ = themeData.radioTheme.fillColor, t1$ == null ? null : t1$.resolve(inactiveStates)) : t0$10), t0$11 == null ? this[_defaultFillColor].resolve(inactiveStates) : t0$11);
-        let focusedStates = (t0$12 = this.states, (() => {
-          t0$12.add(material_state.MaterialState.focused);
-          return t0$12;
-        })());
-        let effectiveFocusOverlayColor = (t0$16 = (t0$15 = (t0$14 = (t0$13 = this.widget.overlayColor, t0$13 == null ? null : t0$13.resolve(focusedStates)), t0$14 == null ? this.widget.focusColor : t0$14), t0$15 == null ? (t1$0 = themeData.radioTheme.overlayColor, t1$0 == null ? null : t1$0.resolve(focusedStates)) : t0$15), t0$16 == null ? themeData.focusColor : t0$16);
-        let hoveredStates = (t0$17 = this.states, (() => {
-          t0$17.add(material_state.MaterialState.hovered);
-          return t0$17;
-        })());
-        let effectiveHoverOverlayColor = (t0$21 = (t0$20 = (t0$19 = (t0$18 = this.widget.overlayColor, t0$18 == null ? null : t0$18.resolve(hoveredStates)), t0$19 == null ? this.widget.hoverColor : t0$19), t0$20 == null ? (t1$1 = themeData.radioTheme.overlayColor, t1$1 == null ? null : t1$1.resolve(hoveredStates)) : t0$20), t0$21 == null ? themeData.hoverColor : t0$21);
-        let activePressedStates = (t0$22 = activeStates, (() => {
-          t0$22.add(material_state.MaterialState.pressed);
-          return t0$22;
-        })());
-        let effectiveActivePressedOverlayColor = (t0$25 = (t0$24 = (t0$23 = this.widget.overlayColor, t0$23 == null ? null : t0$23.resolve(activePressedStates)), t0$24 == null ? (t1$2 = themeData.radioTheme.overlayColor, t1$2 == null ? null : t1$2.resolve(activePressedStates)) : t0$24), t0$25 == null ? effectiveActiveColor.withAlpha(31) : t0$25);
-        let inactivePressedStates = (t0$26 = inactiveStates, (() => {
-          t0$26.add(material_state.MaterialState.pressed);
-          return t0$26;
-        })());
-        let effectiveInactivePressedOverlayColor = (t0$29 = (t0$28 = (t0$27 = this.widget.overlayColor, t0$27 == null ? null : t0$27.resolve(inactivePressedStates)), t0$28 == null ? (t1$3 = themeData.radioTheme.overlayColor, t1$3 == null ? null : t1$3.resolve(inactivePressedStates)) : t0$28), t0$29 == null ? effectiveActiveColor.withAlpha(31) : t0$29);
-        return new basic.Semantics.new({inMutuallyExclusiveGroup: true, checked: this.widget[_selected], child: this.buildToggleable({focusNode: this.widget.focusNode, autofocus: this.widget.autofocus, mouseCursor: effectiveMouseCursor, size: size, painter: (t0$30 = this[_painter], (() => {
-              t0$30.position = this.position;
-              t0$30.reaction = this.reaction;
-              t0$30.reactionFocusFade = this.reactionFocusFade;
-              t0$30.reactionHoverFade = this.reactionHoverFade;
-              t0$30.inactiveReactionColor = effectiveInactivePressedOverlayColor;
-              t0$30.reactionColor = effectiveActivePressedOverlayColor;
-              t0$30.hoverColor = effectiveHoverOverlayColor;
-              t0$30.focusColor = effectiveFocusOverlayColor;
-              t0$30.splashRadius = (t1$5 = (t1$4 = this.widget.splashRadius, t1$4 == null ? themeData.radioTheme.splashRadius : t1$4), t1$5 == null ? 20 : t1$5);
-              t0$30.downPosition = this.downPosition;
-              t0$30.isFocused = this.states.contains(material_state.MaterialState.focused);
-              t0$30.isHovered = this.states.contains(material_state.MaterialState.hovered);
-              t0$30.activeColor = effectiveActiveColor;
-              t0$30.inactiveColor = effectiveInactiveColor;
-              return t0$30;
-            })())}), $creationLocationd_0dea112b090073317d4: C[4] || CT.C4});
-      }
+    set borderRadius(value) {
+      super.borderRadius = value;
     }
-    (_RadioState.new = function() {
-      this[_painter] = new radio._RadioPainter.new();
-      _RadioState.__proto__.new.call(this);
-      ;
-    }).prototype = _RadioState.prototype;
-    dart.addTypeTests(_RadioState);
-    _RadioState.prototype[_is__RadioState_default] = true;
-    dart.addTypeCaches(_RadioState);
-    dart.setMethodSignature(_RadioState, () => ({
-      __proto__: dart.getMethods(_RadioState.__proto__),
-      [_handleChanged]: dart.fnType(dart.void, [dart.nullable(core.bool)]),
-      build: dart.fnType(framework.Widget, [framework.BuildContext])
-    }));
-    dart.setGetterSignature(_RadioState, () => ({
-      __proto__: dart.getGetters(_RadioState.__proto__),
-      onChanged: dart.nullable(dart.fnType(dart.void, [dart.nullable(core.bool)])),
-      tristate: core.bool,
-      value: dart.nullable(core.bool),
-      [_widgetFillColor]: material_state.MaterialStateProperty$(dart.nullable(ui.Color)),
-      [_defaultFillColor]: material_state.MaterialStateProperty$(ui.Color)
-    }));
-    dart.setLibraryUri(_RadioState, I[1]);
-    dart.setFieldSignature(_RadioState, () => ({
-      __proto__: dart.getFields(_RadioState.__proto__),
-      [_painter]: dart.finalFieldType(radio._RadioPainter)
-    }));
-    return _RadioState;
-  });
-  radio._RadioState = radio._RadioState$();
-  dart.addTypeTests(radio._RadioState, _is__RadioState_default);
-  var _repaint = dart.privateName(radio, "_repaint");
-  var _repaint$ = dart.privateName(custom_paint, "_repaint");
-  radio._RadioPainter = class _RadioPainter extends toggleable.ToggleablePainter {
-    paint(canvas, size) {
+    get dimensions() {
+      return new edge_insets.EdgeInsets.all(this.side.width);
+    }
+    scale(t) {
+      return new rounded_rectangle_border.RoundedRectangleBorder.new({side: this.side.scale(t), borderRadius: this.borderRadius['*'](t)});
+    }
+    lerpFrom(a, t) {
+      if (!(t !== null)) dart.assertFailed(null, I[0], 57, 12, "t != null");
+      if (rounded_rectangle_border.RoundedRectangleBorder.is(a)) {
+        return new rounded_rectangle_border.RoundedRectangleBorder.new({side: borders.BorderSide.lerp(a.side, this.side, t), borderRadius: dart.nullCheck(border_radius.BorderRadiusGeometry.lerp(a.borderRadius, this.borderRadius, t))});
+      }
+      if (circle_border.CircleBorder.is(a)) {
+        return new rounded_rectangle_border._RoundedRectangleToCircleBorder.new({side: borders.BorderSide.lerp(a.side, this.side, t), borderRadius: this.borderRadius, circleness: 1.0 - t});
+      }
+      return super.lerpFrom(a, t);
+    }
+    lerpTo(b, t) {
+      if (!(t !== null)) dart.assertFailed(null, I[0], 76, 12, "t != null");
+      if (rounded_rectangle_border.RoundedRectangleBorder.is(b)) {
+        return new rounded_rectangle_border.RoundedRectangleBorder.new({side: borders.BorderSide.lerp(this.side, b.side, t), borderRadius: dart.nullCheck(border_radius.BorderRadiusGeometry.lerp(this.borderRadius, b.borderRadius, t))});
+      }
+      if (circle_border.CircleBorder.is(b)) {
+        return new rounded_rectangle_border._RoundedRectangleToCircleBorder.new({side: borders.BorderSide.lerp(this.side, b.side, t), borderRadius: this.borderRadius, circleness: t});
+      }
+      return super.lerpTo(b, t);
+    }
+    copyWith(opts) {
+      let t0, t0$;
+      let side = opts && 'side' in opts ? opts.side : null;
+      let borderRadius = opts && 'borderRadius' in opts ? opts.borderRadius : null;
+      return new rounded_rectangle_border.RoundedRectangleBorder.new({side: (t0 = side, t0 == null ? this.side : t0), borderRadius: (t0$ = borderRadius, t0$ == null ? this.borderRadius : t0$)});
+    }
+    getInnerPath(rect, opts) {
       let t0;
-      this.paintRadialReaction({canvas: canvas, origin: size.center(ui.Offset.zero)});
-      let center = ui.Offset.zero['&'](size).center;
-      let paint = (t0 = ui.Paint.new(), (() => {
-        t0.color = dart.nullCheck(ui.Color.lerp(this.inactiveColor, this.activeColor, this.position.value));
-        t0.style = ui.PaintingStyle.stroke;
-        t0.strokeWidth = 2.0;
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      t0 = ui.Path.new();
+      return (() => {
+        t0.addRRect(this.borderRadius.resolve(textDirection).toRRect(rect).deflate(this.side.width));
         return t0;
-      })());
-      canvas.drawCircle(center, 8, paint);
-      if (!this.position.isDismissed) {
-        paint.style = ui.PaintingStyle.fill;
-        canvas.drawCircle(center, 4.5 * this.position.value, paint);
+      })();
+    }
+    getOuterPath(rect, opts) {
+      let t0;
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      t0 = ui.Path.new();
+      return (() => {
+        t0.addRRect(this.borderRadius.resolve(textDirection).toRRect(rect));
+        return t0;
+      })();
+    }
+    paint(canvas, rect, opts) {
+      let t0;
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      switch (this.side.style) {
+        case C[1] || CT.C1:
+        {
+          break;
+        }
+        case C[5] || CT.C5:
+        {
+          let width = this.side.width;
+          if (width === 0.0) {
+            canvas.drawRRect(this.borderRadius.resolve(textDirection).toRRect(rect), this.side.toPaint());
+          } else {
+            let outer = this.borderRadius.resolve(textDirection).toRRect(rect);
+            let inner = outer.deflate(width);
+            let paint = (t0 = ui.Paint.new(), (() => {
+              t0.color = this.side.color;
+              return t0;
+            })());
+            canvas.drawDRRect(outer, inner, paint);
+          }
+        }
       }
     }
-    get [_repaint$]() {
-      return T$.ListenableN().as(this[$noSuchMethod](new core._Invocation.getter(C[9] || CT.C9)));
+    _equals(other) {
+      if (other == null) return false;
+      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
+      return rounded_rectangle_border.RoundedRectangleBorder.is(other) && other.side._equals(this.side) && other.borderRadius._equals(this.borderRadius);
+    }
+    get hashCode() {
+      return ui.hashValues(this.side, this.borderRadius);
+    }
+    toString() {
+      return object.objectRuntimeType(this, "RoundedRectangleBorder") + "(" + dart.str(this.side) + ", " + dart.str(this.borderRadius) + ")";
     }
   };
-  (radio._RadioPainter.new = function() {
-    radio._RadioPainter.__proto__.new.call(this);
+  (rounded_rectangle_border.RoundedRectangleBorder.new = function(opts) {
+    let side = opts && 'side' in opts ? opts.side : C[0] || CT.C0;
+    let borderRadius = opts && 'borderRadius' in opts ? opts.borderRadius : C[3] || CT.C3;
+    this[borderRadius$] = borderRadius;
+    if (!(side !== null)) dart.assertFailed(null, I[0], 35, 15, "side != null");
+    if (!(borderRadius !== null)) dart.assertFailed(null, I[0], 36, 15, "borderRadius != null");
+    rounded_rectangle_border.RoundedRectangleBorder.__proto__.new.call(this, {side: side});
     ;
-  }).prototype = radio._RadioPainter.prototype;
-  dart.addTypeTests(radio._RadioPainter);
-  dart.addTypeCaches(radio._RadioPainter);
-  dart.setMethodSignature(radio._RadioPainter, () => ({
-    __proto__: dart.getMethods(radio._RadioPainter.__proto__),
-    paint: dart.fnType(dart.void, [ui.Canvas, ui.Size])
+  }).prototype = rounded_rectangle_border.RoundedRectangleBorder.prototype;
+  dart.addTypeTests(rounded_rectangle_border.RoundedRectangleBorder);
+  dart.addTypeCaches(rounded_rectangle_border.RoundedRectangleBorder);
+  dart.setMethodSignature(rounded_rectangle_border.RoundedRectangleBorder, () => ({
+    __proto__: dart.getMethods(rounded_rectangle_border.RoundedRectangleBorder.__proto__),
+    scale: dart.fnType(borders.ShapeBorder, [core.double]),
+    copyWith: dart.fnType(rounded_rectangle_border.RoundedRectangleBorder, [], {borderRadius: dart.nullable(border_radius.BorderRadius), side: dart.nullable(borders.BorderSide)}, {}),
+    getInnerPath: dart.fnType(ui.Path, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
+    getOuterPath: dart.fnType(ui.Path, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {})
   }));
-  dart.setGetterSignature(radio._RadioPainter, () => ({
-    __proto__: dart.getGetters(radio._RadioPainter.__proto__),
-    [_repaint$]: dart.nullable(change_notifier.Listenable)
+  dart.setGetterSignature(rounded_rectangle_border.RoundedRectangleBorder, () => ({
+    __proto__: dart.getGetters(rounded_rectangle_border.RoundedRectangleBorder.__proto__),
+    dimensions: edge_insets.EdgeInsetsGeometry
   }));
-  dart.setLibraryUri(radio._RadioPainter, I[1]);
-  dart.defineLazy(radio, {
-    /*radio._kOuterRadius*/get _kOuterRadius() {
-      return 8;
-    },
-    /*radio._kInnerRadius*/get _kInnerRadius() {
-      return 4.5;
+  dart.setLibraryUri(rounded_rectangle_border.RoundedRectangleBorder, I[1]);
+  dart.setFieldSignature(rounded_rectangle_border.RoundedRectangleBorder, () => ({
+    __proto__: dart.getFields(rounded_rectangle_border.RoundedRectangleBorder.__proto__),
+    borderRadius: dart.finalFieldType(border_radius.BorderRadiusGeometry)
+  }));
+  dart.defineExtensionMethods(rounded_rectangle_border.RoundedRectangleBorder, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(rounded_rectangle_border.RoundedRectangleBorder, ['hashCode']);
+  var borderRadius$0 = dart.privateName(rounded_rectangle_border, "_RoundedRectangleToCircleBorder.borderRadius");
+  var circleness$ = dart.privateName(rounded_rectangle_border, "_RoundedRectangleToCircleBorder.circleness");
+  var _adjustRect = dart.privateName(rounded_rectangle_border, "_adjustRect");
+  var _adjustBorderRadius = dart.privateName(rounded_rectangle_border, "_adjustBorderRadius");
+  rounded_rectangle_border._RoundedRectangleToCircleBorder = class _RoundedRectangleToCircleBorder extends borders.OutlinedBorder {
+    get borderRadius() {
+      return this[borderRadius$0];
     }
-  }, false);
-  dart.trackLibraries("packages/flutter/src/material/radio.dart", {
-    "package:flutter/src/material/radio.dart": radio
+    set borderRadius(value) {
+      super.borderRadius = value;
+    }
+    get circleness() {
+      return this[circleness$];
+    }
+    set circleness(value) {
+      super.circleness = value;
+    }
+    get dimensions() {
+      return new edge_insets.EdgeInsets.all(this.side.width);
+    }
+    scale(t) {
+      return new rounded_rectangle_border._RoundedRectangleToCircleBorder.new({side: this.side.scale(t), borderRadius: this.borderRadius['*'](t), circleness: t});
+    }
+    lerpFrom(a, t) {
+      if (!(t !== null)) dart.assertFailed(null, I[0], 182, 12, "t != null");
+      if (rounded_rectangle_border.RoundedRectangleBorder.is(a)) {
+        return new rounded_rectangle_border._RoundedRectangleToCircleBorder.new({side: borders.BorderSide.lerp(a.side, this.side, t), borderRadius: dart.nullCheck(border_radius.BorderRadiusGeometry.lerp(a.borderRadius, this.borderRadius, t)), circleness: this.circleness * t});
+      }
+      if (circle_border.CircleBorder.is(a)) {
+        return new rounded_rectangle_border._RoundedRectangleToCircleBorder.new({side: borders.BorderSide.lerp(a.side, this.side, t), borderRadius: this.borderRadius, circleness: this.circleness + (1.0 - this.circleness) * (1.0 - t)});
+      }
+      if (rounded_rectangle_border._RoundedRectangleToCircleBorder.is(a)) {
+        return new rounded_rectangle_border._RoundedRectangleToCircleBorder.new({side: borders.BorderSide.lerp(a.side, this.side, t), borderRadius: dart.nullCheck(border_radius.BorderRadiusGeometry.lerp(a.borderRadius, this.borderRadius, t)), circleness: dart.nullCheck(ui.lerpDouble(a.circleness, this.circleness, t))});
+      }
+      return super.lerpFrom(a, t);
+    }
+    lerpTo(b, t) {
+      if (rounded_rectangle_border.RoundedRectangleBorder.is(b)) {
+        return new rounded_rectangle_border._RoundedRectangleToCircleBorder.new({side: borders.BorderSide.lerp(this.side, b.side, t), borderRadius: dart.nullCheck(border_radius.BorderRadiusGeometry.lerp(this.borderRadius, b.borderRadius, t)), circleness: this.circleness * (1.0 - t)});
+      }
+      if (circle_border.CircleBorder.is(b)) {
+        return new rounded_rectangle_border._RoundedRectangleToCircleBorder.new({side: borders.BorderSide.lerp(this.side, b.side, t), borderRadius: this.borderRadius, circleness: this.circleness + (1.0 - this.circleness) * t});
+      }
+      if (rounded_rectangle_border._RoundedRectangleToCircleBorder.is(b)) {
+        return new rounded_rectangle_border._RoundedRectangleToCircleBorder.new({side: borders.BorderSide.lerp(this.side, b.side, t), borderRadius: dart.nullCheck(border_radius.BorderRadiusGeometry.lerp(this.borderRadius, b.borderRadius, t)), circleness: dart.nullCheck(ui.lerpDouble(this.circleness, b.circleness, t))});
+      }
+      return super.lerpTo(b, t);
+    }
+    [_adjustRect](rect) {
+      if (this.circleness === 0.0 || rect.width === rect.height) return rect;
+      if (rect.width < rect.height) {
+        let delta = this.circleness * (rect.height - rect.width) / 2.0;
+        return new ui.Rect.fromLTRB(rect.left, rect.top + delta, rect.right, rect.bottom - delta);
+      } else {
+        let delta = this.circleness * (rect.width - rect.height) / 2.0;
+        return new ui.Rect.fromLTRB(rect.left + delta, rect.top, rect.right - delta, rect.bottom);
+      }
+    }
+    [_adjustBorderRadius](rect, textDirection) {
+      let resolvedRadius = this.borderRadius.resolve(textDirection);
+      if (this.circleness === 0.0) return resolvedRadius;
+      return border_radius.BorderRadius.lerp(resolvedRadius, new border_radius.BorderRadius.circular(rect.shortestSide / 2.0), this.circleness);
+    }
+    getInnerPath(rect, opts) {
+      let t0;
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      t0 = ui.Path.new();
+      return (() => {
+        t0.addRRect(dart.nullCheck(this[_adjustBorderRadius](rect, textDirection)).toRRect(this[_adjustRect](rect)).deflate(this.side.width));
+        return t0;
+      })();
+    }
+    getOuterPath(rect, opts) {
+      let t0;
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      t0 = ui.Path.new();
+      return (() => {
+        t0.addRRect(dart.nullCheck(this[_adjustBorderRadius](rect, textDirection)).toRRect(this[_adjustRect](rect)));
+        return t0;
+      })();
+    }
+    copyWith(opts) {
+      let t0, t0$, t0$0;
+      let side = opts && 'side' in opts ? opts.side : null;
+      let borderRadius = opts && 'borderRadius' in opts ? opts.borderRadius : null;
+      let circleness = opts && 'circleness' in opts ? opts.circleness : null;
+      return new rounded_rectangle_border._RoundedRectangleToCircleBorder.new({side: (t0 = side, t0 == null ? this.side : t0), borderRadius: (t0$ = borderRadius, t0$ == null ? this.borderRadius : t0$), circleness: (t0$0 = circleness, t0$0 == null ? this.circleness : t0$0)});
+    }
+    paint(canvas, rect, opts) {
+      let t0;
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      switch (this.side.style) {
+        case C[1] || CT.C1:
+        {
+          break;
+        }
+        case C[5] || CT.C5:
+        {
+          let width = this.side.width;
+          if (width === 0.0) {
+            canvas.drawRRect(dart.nullCheck(this[_adjustBorderRadius](rect, textDirection)).toRRect(this[_adjustRect](rect)), this.side.toPaint());
+          } else {
+            let outer = dart.nullCheck(this[_adjustBorderRadius](rect, textDirection)).toRRect(this[_adjustRect](rect));
+            let inner = outer.deflate(width);
+            let paint = (t0 = ui.Paint.new(), (() => {
+              t0.color = this.side.color;
+              return t0;
+            })());
+            canvas.drawDRRect(outer, inner, paint);
+          }
+        }
+      }
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
+      return rounded_rectangle_border._RoundedRectangleToCircleBorder.is(other) && other.side._equals(this.side) && other.borderRadius._equals(this.borderRadius) && other.circleness === this.circleness;
+    }
+    get hashCode() {
+      return ui.hashValues(this.side, this.borderRadius, this.circleness);
+    }
+    toString() {
+      return "RoundedRectangleBorder(" + dart.str(this.side) + ", " + dart.str(this.borderRadius) + ", " + (this.circleness * 100)[$toStringAsFixed](1) + "% of the way to being a CircleBorder)";
+    }
+  };
+  (rounded_rectangle_border._RoundedRectangleToCircleBorder.new = function(opts) {
+    let side = opts && 'side' in opts ? opts.side : C[0] || CT.C0;
+    let borderRadius = opts && 'borderRadius' in opts ? opts.borderRadius : C[3] || CT.C3;
+    let circleness = opts && 'circleness' in opts ? opts.circleness : null;
+    this[borderRadius$0] = borderRadius;
+    this[circleness$] = circleness;
+    if (!(side !== null)) dart.assertFailed(null, I[0], 157, 15, "side != null");
+    if (!(borderRadius !== null)) dart.assertFailed(null, I[0], 158, 15, "borderRadius != null");
+    if (!(circleness !== null)) dart.assertFailed(null, I[0], 159, 15, "circleness != null");
+    rounded_rectangle_border._RoundedRectangleToCircleBorder.__proto__.new.call(this, {side: side});
+    ;
+  }).prototype = rounded_rectangle_border._RoundedRectangleToCircleBorder.prototype;
+  dart.addTypeTests(rounded_rectangle_border._RoundedRectangleToCircleBorder);
+  dart.addTypeCaches(rounded_rectangle_border._RoundedRectangleToCircleBorder);
+  dart.setMethodSignature(rounded_rectangle_border._RoundedRectangleToCircleBorder, () => ({
+    __proto__: dart.getMethods(rounded_rectangle_border._RoundedRectangleToCircleBorder.__proto__),
+    scale: dart.fnType(borders.ShapeBorder, [core.double]),
+    [_adjustRect]: dart.fnType(ui.Rect, [ui.Rect]),
+    [_adjustBorderRadius]: dart.fnType(dart.nullable(border_radius.BorderRadius), [ui.Rect, dart.nullable(ui.TextDirection)]),
+    getInnerPath: dart.fnType(ui.Path, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
+    getOuterPath: dart.fnType(ui.Path, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
+    copyWith: dart.fnType(rounded_rectangle_border._RoundedRectangleToCircleBorder, [], {borderRadius: dart.nullable(border_radius.BorderRadius), circleness: dart.nullable(core.double), side: dart.nullable(borders.BorderSide)}, {}),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {})
+  }));
+  dart.setGetterSignature(rounded_rectangle_border._RoundedRectangleToCircleBorder, () => ({
+    __proto__: dart.getGetters(rounded_rectangle_border._RoundedRectangleToCircleBorder.__proto__),
+    dimensions: edge_insets.EdgeInsetsGeometry
+  }));
+  dart.setLibraryUri(rounded_rectangle_border._RoundedRectangleToCircleBorder, I[1]);
+  dart.setFieldSignature(rounded_rectangle_border._RoundedRectangleToCircleBorder, () => ({
+    __proto__: dart.getFields(rounded_rectangle_border._RoundedRectangleToCircleBorder.__proto__),
+    borderRadius: dart.finalFieldType(border_radius.BorderRadiusGeometry),
+    circleness: dart.finalFieldType(core.double)
+  }));
+  dart.defineExtensionMethods(rounded_rectangle_border._RoundedRectangleToCircleBorder, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(rounded_rectangle_border._RoundedRectangleToCircleBorder, ['hashCode']);
+  dart.trackLibraries("packages/flutter/src/painting/rounded_rectangle_border.dart", {
+    "package:flutter/src/painting/rounded_rectangle_border.dart": rounded_rectangle_border
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["radio.dart"],"names":[],"mappings":"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","file":"../../../../../../../D:/packages/flutter/src/material/radio.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["rounded_rectangle_border.dart"],"names":[],"mappings":"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","file":"../../../../../../../D:/packages/flutter/src/painting/rounded_rectangle_border.dart.lib.js"}');
   // Exports:
   return {
-    src__material__radio: radio
+    src__painting__rounded_rectangle_border: rounded_rectangle_border
   };
 }));
 
-//# sourceMappingURL=radio.dart.lib.js.map
+//# sourceMappingURL=rounded_rectangle_border.dart.lib.js.map

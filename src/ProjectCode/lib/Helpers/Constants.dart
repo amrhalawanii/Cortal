@@ -1,3 +1,4 @@
+import 'package:cortal/Configuration/Complaint.dart';
 import 'package:cortal/Configuration/User.dart';
 import 'package:flutter/material.dart';
 
@@ -29,3 +30,5 @@ bool? isPhone;
 CortalUser? activeUser;
 
 String? activeIsAdmin = "NONE";
+
+List<Complaint>? complaintsList;
