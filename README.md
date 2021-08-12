@@ -6,7 +6,8 @@ Cortal is a web app that helps you manage customer complaints. With the ability 
   - Front End :
       - WebApp = The web app was designed and developed using Flutter Web
   - Back End :
-      - User Authentication & user management: Firebase Authentication 
+      - User Authentication: Firebase Authentication 
+      - User Management: Firebase Firestore NoSQL database
       - REST API For complaints management: Firestore RESR API
  #-------------
  **Functionalities:**
@@ -54,6 +55,23 @@ Cortal is a web app that helps you manage customer complaints. With the ability 
 **Admin can either resolve or dismiss the complaint**
 ![image](https://user-images.githubusercontent.com/32065167/129202835-ddd42b52-ca48-436f-a7ab-1623d5c4c38d.png)
 
+##-----------------------------------------------------------------------------
+
+**User Authentication using firebase auth**
+![image](https://user-images.githubusercontent.com/32065167/129203012-27992b8e-11b2-4ea9-aa81-e3b15f4fedb7.png)
+ 
+**User Management using firestore NoSQL Database**
+![image](https://user-images.githubusercontent.com/32065167/129203311-0cdaa93d-5ba9-45b0-85e7-91aed4a6ac43.png)
+
+
+**Complaints management using REST API**
+![image](https://user-images.githubusercontent.com/32065167/129203444-a8daeae0-2c4c-41b7-959e-3578de59dcd8.png)
+
+##-----------------------------------------------------------------------------
+
+**Code Structure**
+As you can see, the code is organized into different files; I built it this way to facilitate maintenance and portability.
+![image](https://user-images.githubusercontent.com/32065167/129204045-cba25098-5f64-485a-a7ae-3338c3c6d73a.png)
 
 
  
