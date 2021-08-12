@@ -1,9 +1,9 @@
 You can find the code in the Master branch :D
 
-<h1>**Cortal- Complaint Management Portal**</h1>
+<h1>Cortal- Complaint Management Portal</h1>
 Cortal is a web app that helps you manage customer complaints. With the ability to set up detailed workflows, Cortal gives you the control to manage your customer's experience.
-
-<h2>**Technologies used:**</h2>
+<h1>
+<h2>Technologies used:</h2>
  <h3> - Front End :</h3>
       - WebApp: The web app was designed and developed using Flutter Web <br>
  <h3> - Back End :</h3>
@@ -14,18 +14,19 @@ Cortal is a web app that helps you manage customer complaints. With the ability 
  
  
  
+ <h1>
  
- 
- **Functionalities:**
-    1. Registration system:
-        - Sign in (As user / As Admin)
-        - Sign Up
-    2. User Complaints Panel
-        - View Complaints
-        - Add Complaints
-    3. Admin Panel
-        - View Complaints 
-        - Edit Complaints Status
+ <h2>Functionalities:</h2>
+   <h3>  1. Registration system:</h3>
+        - Sign in (As user / As Admin)<br>
+        - Sign Up<br>
+   <h3>  2. User Complaints Panel</h3>
+        - View Complaints<br>
+        - Add Complaints<br>
+   <h3>  3. Admin Panel</h3>
+        - View Complaints <br>
+        - Edit Complaints Status<br>
+  <hr>
         
  ** 1. Registration**
   **user Log in:** 
