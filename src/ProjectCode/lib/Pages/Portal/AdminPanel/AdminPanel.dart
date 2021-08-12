@@ -12,6 +12,7 @@ import 'package:cortal/UI_Elements/Circular_progrss.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 class AdminPanelPage extends StatefulWidget {
   const AdminPanelPage({Key? key}) : super(key: key);
@@ -23,6 +24,7 @@ class AdminPanelPage extends StatefulWidget {
 class _AdminPanelPageState extends State<AdminPanelPage> {
   List<Complaint> complaints = [];
   bool _isLoading = true;
+  late List<CTAData> _chartData;
 
   int counterPending = 0;
   int counterResolved = 0;
@@ -42,6 +44,7 @@ class _AdminPanelPageState extends State<AdminPanelPage> {
         }
         setState(() {
           complaints = list;
+          _chartData = getChartData();
           _isLoading = false;
         });
         // print(complaintsList);
@@ -93,6 +96,7 @@ class _AdminPanelPageState extends State<AdminPanelPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        buildPieChart(),
                         //-------------------------------------------------------------
                         //----------------------- Status Boxes ------------------------
                         //-------------------------------------------------------------
@@ -323,4 +327,83 @@ class _AdminPanelPageState extends State<AdminPanelPage> {
       ),
     );
   }
+
+  buildPieChart() {
+    return SfCircularChart(
+      series: <CircularSeries>[
+        PieSeries<CTAData, String>(
+            dataSource: _chartData,
+            xValueMapper: (CTAData data, _) => data.title,
+            yValueMapper: (CTAData data, _) => data.num,
+            dataLabelMapper: (CTAData data, _) => data.title,
+            startAngle: 100,
+            endAngle: 100,
+            dataLabelSettings: const DataLabelSettings(
+                isVisible: true, labelPosition: ChartDataLabelPosition.outside))
+      ],
+      tooltipBehavior: TooltipBehavior(enable: true),
+    );
+  }
+
+  List<CTAData> getChartData() {
+    int extraCharge = 0;
+    int serviceDelay = 0;
+    int reportStaff = 0;
+    int covid = 0;
+    int other = 0;
+
+    for (var complaint in complaints) {
+      for (var type in complaint.types) {
+        switch (type) {
+          case 'Extra Charge':
+            extraCharge++;
+            break;
+          case 'Service Delay':
+            serviceDelay++;
+            break;
+          case 'Report Staff':
+            reportStaff++;
+            break;
+          case 'Issue related to COVID-19':
+            covid++;
+            break;
+
+          case 'Other':
+            other++;
+            break;
+        }
+      }
+    }
+    final List<CTAData> chartData = [
+      CTAData(
+        "Extra Charge",
+        extraCharge,
+      ),
+      CTAData(
+        "Service Delay",
+        serviceDelay,
+      ),
+      CTAData(
+        "Report Staff",
+        reportStaff,
+      ),
+      CTAData(
+        "Issue related to COVID-19",
+        covid,
+      ),
+      CTAData(
+        "Other",
+        other,
+      ),
+    ];
+
+    return chartData;
+  }
+}
+
+class CTAData {
+  final String title;
+  final int num;
+
+  CTAData(this.title, this.num);
 }

@@ -52,6 +52,7 @@ class _AllComplaintsPageState extends State<AllComplaintsPage> {
             "All Complaints",
             style: GoogleFonts.lato(color: Colors.white),
           ),
+          leading: Container(),
           centerTitle: true,
           elevation: 0.0,
           actions: [
