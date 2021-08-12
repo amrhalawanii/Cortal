@@ -75,7 +75,7 @@ Cortal is a web app that helps you manage customer complaints. With the ability 
  
 ![image](https://user-images.githubusercontent.com/32065167/129203012-27992b8e-11b2-4ea9-aa81-e3b15f4fedb7.png)
  
-**User Management using firestore NoSQL Database</h3>
+<h3>User Management using firestore NoSQL Database</h3>
  
 ![image](https://user-images.githubusercontent.com/32065167/129203311-0cdaa93d-5ba9-45b0-85e7-91aed4a6ac43.png)
 
@@ -87,7 +87,7 @@ Cortal is a web app that helps you manage customer complaints. With the ability 
 <hr>
 
 <h2>Code Structure</h2>
-As you can see, the code is organized into different files; I built it this way to facilitate maintenance and portability.
+<h3>As you can see, the code is organized into different files; I built it this way to facilitate maintenance and portability.</h3>
  
 ![image](https://user-images.githubusercontent.com/32065167/129204045-cba25098-5f64-485a-a7ae-3338c3c6d73a.png)
 
