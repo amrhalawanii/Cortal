@@ -3,12 +3,12 @@ You can find the code in the Master branch :D
 <h1>**Cortal- Complaint Management Portal**</h1>
 Cortal is a web app that helps you manage customer complaints. With the ability to set up detailed workflows, Cortal gives you the control to manage your customer's experience.
 
-**Technologies used:**
-  - Front End :
-      - WebApp = The web app was designed and developed using Flutter Web
-  - Back End :
-      - User Authentication: Firebase Authentication 
-      - User Management: Firebase Firestore NoSQL database
+<h2>**Technologies used:**</h2>
+ <h3> - Front End :</h3>
+      - WebApp: The web app was designed and developed using Flutter Web <br>
+ <h3> - Back End :</h3>
+      - User Authentication: Firebase Authentication <br>
+      - User Management: Firebase Firestore NoSQL database<br>
       - REST API For complaints management: Firestore RESR API
 
  
