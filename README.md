@@ -1,7 +1,9 @@
-You can find the code in the Master branch :D
 
 <h1>Cortal- Complaint Management Portal</h1>
 Cortal is a web app that helps you manage customer complaints. With the ability to set up detailed workflows, Cortal gives you the control to manage your customer's experience.
+
+You can find the code in the Master branch :D
+
 <br>
 <h2>Technologies used:</h2>
  <h3> - Front End :</h3>
