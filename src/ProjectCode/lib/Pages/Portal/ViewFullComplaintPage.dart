@@ -1,4 +1,4 @@
-import 'package:cortal/Configuration/Complaint.dart';
+import 'package:cortal/Models/Complaint.dart';
 import 'package:cortal/UI_Elements/Background.dart';
 import 'package:cortal/UI_Elements/Complaint_Box.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +16,9 @@ class _ViewFullComplaintPageState extends State<ViewFullComplaintPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      ///-------------------------------------------------------------
+      ///---------------------------- App Bar ------------------------
+      ///-------------------------------------------------------------
       appBar: AppBar(),
       body: BackgroundWithNoCard(
           child: Center(

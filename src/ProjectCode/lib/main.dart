@@ -1,4 +1,3 @@
-import 'package:cortal/Pages/Registration/Login/LoginPage.dart';
 import 'package:cortal/Pages/Splashpage/SplashPage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +10,7 @@ Future main() async {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  // This widget is the root of our application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

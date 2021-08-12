@@ -1,45 +1,34 @@
-define(['dart_sdk', 'packages/firebase_auth_platform_interface/src/types.dart', 'packages/firebase_core/firebase_core.dart', 'packages/flutter/src/foundation/_platform_web.dart', 'packages/firebase_core_platform_interface/firebase_core_platform_interface.dart', 'packages/firebase_auth_platform_interface/src/action_code_info.dart', 'packages/firebase_auth_platform_interface/src/action_code_settings.dart', 'packages/firebase_auth_platform_interface/src/auth_credential.dart', 'packages/firebase_auth_platform_interface/src/auth_provider.dart', 'packages/firebase_auth_platform_interface/src/firebase_auth_exception.dart', 'packages/firebase_auth_platform_interface/src/additional_user_info.dart', 'packages/firebase_auth_platform_interface/src/user_metadata.dart', 'packages/firebase_auth_platform_interface/src/user_info.dart', 'packages/firebase_auth_platform_interface/src/id_token_result.dart'], (function load__packages__firebase_auth__firebase_auth_dart(dart_sdk, packages__firebase_auth_platform_interface__src__types$46dart, packages__firebase_core__firebase_core$46dart, packages__flutter__src__foundation___platform_web$46dart, packages__firebase_core_platform_interface__firebase_core_platform_interface$46dart, packages__firebase_auth_platform_interface__src__action_code_info$46dart, packages__firebase_auth_platform_interface__src__action_code_settings$46dart, packages__firebase_auth_platform_interface__src__auth_credential$46dart, packages__firebase_auth_platform_interface__src__auth_provider$46dart, packages__firebase_auth_platform_interface__src__firebase_auth_exception$46dart, packages__firebase_auth_platform_interface__src__additional_user_info$46dart, packages__firebase_auth_platform_interface__src__user_metadata$46dart, packages__firebase_auth_platform_interface__src__user_info$46dart, packages__firebase_auth_platform_interface__src__id_token_result$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/services/mouse_cursor.dart', 'packages/flutter/src/material/material_state.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/material/toggleable.dart', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/flutter/src/rendering/custom_paint.dart'], (function load__packages__flutter__src__material__radio_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__services__mouse_cursor$46dart, packages__flutter__src__material__material_state$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__material__toggleable$46dart, packages__flutter__src__foundation__change_notifier$46dart, packages__flutter__src__rendering__custom_paint$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const async = dart_sdk.async;
+  const ui = dart_sdk.ui;
   const _js_helper = dart_sdk._js_helper;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const platform_interface_firebase_auth = packages__firebase_auth_platform_interface__src__types$46dart.src__platform_interface__platform_interface_firebase_auth;
-  const platform_interface_user = packages__firebase_auth_platform_interface__src__types$46dart.src__platform_interface__platform_interface_user;
-  const types = packages__firebase_auth_platform_interface__src__types$46dart.src__types;
-  const phone_auth = packages__firebase_auth_platform_interface__src__types$46dart.src__providers__phone_auth;
-  const platform_interface_user_credential = packages__firebase_auth_platform_interface__src__types$46dart.src__platform_interface__platform_interface_user_credential;
-  const platform_interface_confirmation_result = packages__firebase_auth_platform_interface__src__types$46dart.src__platform_interface__platform_interface_confirmation_result;
-  const platform_interface_recaptcha_verifier_factory = packages__firebase_auth_platform_interface__src__types$46dart.src__platform_interface__platform_interface_recaptcha_verifier_factory;
-  const firebase_core = packages__firebase_core__firebase_core$46dart.firebase_core;
-  const platform = packages__flutter__src__foundation___platform_web$46dart.src__foundation__platform;
-  const firebase_core_platform_interface = packages__firebase_core_platform_interface__firebase_core_platform_interface$46dart.firebase_core_platform_interface;
-  const action_code_info = packages__firebase_auth_platform_interface__src__action_code_info$46dart.src__action_code_info;
-  const action_code_settings = packages__firebase_auth_platform_interface__src__action_code_settings$46dart.src__action_code_settings;
-  const auth_credential = packages__firebase_auth_platform_interface__src__auth_credential$46dart.src__auth_credential;
-  const auth_provider = packages__firebase_auth_platform_interface__src__auth_provider$46dart.src__auth_provider;
-  const firebase_auth_exception = packages__firebase_auth_platform_interface__src__firebase_auth_exception$46dart.src__firebase_auth_exception;
-  const additional_user_info = packages__firebase_auth_platform_interface__src__additional_user_info$46dart.src__additional_user_info;
-  const user_metadata = packages__firebase_auth_platform_interface__src__user_metadata$46dart.src__user_metadata;
-  const user_info = packages__firebase_auth_platform_interface__src__user_info$46dart.src__user_info;
-  const id_token_result = packages__firebase_auth_platform_interface__src__id_token_result$46dart.src__id_token_result;
-  var firebase_auth = Object.create(dart.library);
-  var $putIfAbsent = dartx.putIfAbsent;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $startsWith = dartx.startsWith;
-  var $replaceFirst = dartx.replaceFirst;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const focus_manager = packages__flutter__src__widgets__widget_span$46dart.src__widgets__focus_manager;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const mouse_cursor = packages__flutter__src__services__mouse_cursor$46dart.src__services__mouse_cursor;
+  const material_state = packages__flutter__src__material__material_state$46dart.src__material__material_state;
+  const theme_data = packages__flutter__src__material__icon_button$46dart.src__material__theme_data;
+  const theme = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const debug = packages__flutter__src__material__icon_button$46dart.src__material__debug;
+  const toggleable = packages__flutter__src__material__toggleable$46dart.src__material__toggleable;
+  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
+  const custom_paint = packages__flutter__src__rendering__custom_paint$46dart.src__rendering__custom_paint;
+  var radio = Object.create(dart.library);
+  var $noSuchMethod = dartx.noSuchMethod;
   dart._checkModuleNullSafetyMode(true);
-  var T = {
-    VoidToFirebaseAuth: () => (T.VoidToFirebaseAuth = dart.constFn(dart.fnType(firebase_auth.FirebaseAuth, [])))(),
-    UserN: () => (T.UserN = dart.constFn(dart.nullable(firebase_auth.User)))(),
-    UserPlatformN: () => (T.UserPlatformN = dart.constFn(dart.nullable(platform_interface_user.UserPlatform)))(),
-    UserPlatformNToUserN: () => (T.UserPlatformNToUserN = dart.constFn(dart.fnType(T.UserN(), [T.UserPlatformN()])))(),
-    StreamSubscriptionOfUserN: () => (T.StreamSubscriptionOfUserN = dart.constFn(async.StreamSubscription$(T.UserN())))(),
-    StreamSubscriptionOfUserNTovoid: () => (T.StreamSubscriptionOfUserNTovoid = dart.constFn(dart.fnType(dart.void, [T.StreamSubscriptionOfUserN()])))(),
-    IdentityMapOfString$FirebaseAuth: () => (T.IdentityMapOfString$FirebaseAuth = dart.constFn(_js_helper.IdentityMap$(core.String, firebase_auth.FirebaseAuth)))(),
-    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
-    IdentityMapOfString$StringN: () => (T.IdentityMapOfString$StringN = dart.constFn(_js_helper.IdentityMap$(core.String, T.StringN())))()
+  var T$ = {
+    ColorN: () => (T$.ColorN = dart.constFn(dart.nullable(ui.Color)))(),
+    SetOfMaterialState: () => (T$.SetOfMaterialState = dart.constFn(core.Set$(material_state.MaterialState)))(),
+    SetOfMaterialStateToColorN: () => (T$.SetOfMaterialStateToColorN = dart.constFn(dart.fnType(T$.ColorN(), [T$.SetOfMaterialState()])))(),
+    SetOfMaterialStateToColor: () => (T$.SetOfMaterialStateToColor = dart.constFn(dart.fnType(ui.Color, [T$.SetOfMaterialState()])))(),
+    MouseCursorN: () => (T$.MouseCursorN = dart.constFn(dart.nullable(mouse_cursor.MouseCursor)))(),
+    SetOfMaterialStateToMouseCursor: () => (T$.SetOfMaterialStateToMouseCursor = dart.constFn(dart.fnType(mouse_cursor.MouseCursor, [T$.SetOfMaterialState()])))(),
+    ListenableN: () => (T$.ListenableN = dart.constFn(dart.nullable(change_notifier.Listenable)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
@@ -47,611 +36,514 @@ define(['dart_sdk', 'packages/firebase_auth_platform_interface/src/types.dart', 
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: core.Duration.prototype,
-        [Duration__duration]: 30000000
+        __proto__: ui.Size.prototype,
+        [OffsetBase__dy]: 48,
+        [OffsetBase__dx]: 48
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: platform_interface_recaptcha_verifier_factory.RecaptchaVerifierSize.prototype,
-        [_name]: "RecaptchaVerifierSize.normal",
+        __proto__: theme_data.MaterialTapTargetSize.prototype,
+        [_name]: "MaterialTapTargetSize.padded",
         index: 0
       });
     },
     get C2() {
       return C[2] = dart.const({
-        __proto__: platform_interface_recaptcha_verifier_factory.RecaptchaVerifierTheme.prototype,
-        [_name]: "RecaptchaVerifierTheme.light",
-        index: 0
+        __proto__: ui.Size.prototype,
+        [OffsetBase__dy]: 40,
+        [OffsetBase__dx]: 40
       });
-    }
-  }, false);
-  var C = Array(3).fill(void 0);
-  var I = [
-    "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/firebase_auth-3.0.1/lib/src/firebase_auth.dart",
-    "package:firebase_auth/firebase_auth.dart",
-    "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/firebase_auth-3.0.1/lib/src/user.dart"
-  ];
-  var app$ = dart.privateName(firebase_auth, "FirebaseAuth.app");
-  var _delegatePackingProperty = dart.privateName(firebase_auth, "_delegatePackingProperty");
-  var _delegate$ = dart.privateName(firebase_auth, "_delegate");
-  var _pipeStreamChanges = dart.privateName(firebase_auth, "_pipeStreamChanges");
-  var Duration__duration = dart.privateName(core, "Duration._duration");
-  firebase_auth.FirebaseAuth = class FirebaseAuth extends firebase_core_platform_interface.FirebasePluginPlatform {
-    get app() {
-      return this[app$];
-    }
-    set app(value) {
-      this[app$] = value;
-    }
-    get [_delegate$]() {
-      this[_delegatePackingProperty] == null ? this[_delegatePackingProperty] = platform_interface_firebase_auth.FirebaseAuthPlatform.instanceFor({app: this.app, pluginConstants: this.pluginConstants}) : null;
-      return dart.nullCheck(this[_delegatePackingProperty]);
-    }
-    static get instance() {
-      let defaultAppInstance = firebase_core.Firebase.app();
-      return firebase_auth.FirebaseAuth.instanceFor({app: defaultAppInstance});
-    }
-    static instanceFor(opts) {
-      let app = opts && 'app' in opts ? opts.app : null;
-      return firebase_auth.FirebaseAuth._firebaseAuthInstances[$putIfAbsent](app.name, dart.fn(() => new firebase_auth.FirebaseAuth.__({app: app}), T.VoidToFirebaseAuth()));
-    }
-    get currentUser() {
-      if (this[_delegate$].currentUser != null) {
-        return new firebase_auth.User.__(this, dart.nullCheck(this[_delegate$].currentUser));
-      }
-      return null;
-    }
-    get languageCode() {
-      if (this[_delegate$].languageCode != null) {
-        return this[_delegate$].languageCode;
-      }
-      return null;
-    }
-    useEmulator(origin) {
-      return async.async(dart.void, (function* useEmulator() {
-        if (!origin[$isNotEmpty]) dart.assertFailed(null, I[0], 88, 12, "origin.isNotEmpty");
-        let mappedOrigin = origin;
-        if (platform.defaultTargetPlatform === platform.TargetPlatform.android && !true) {
-          if (mappedOrigin[$startsWith]("http://localhost")) {
-            mappedOrigin = mappedOrigin[$replaceFirst]("http://localhost", "http://10.0.2.2");
-          } else if (mappedOrigin[$startsWith]("http://127.0.0.1")) {
-            mappedOrigin = mappedOrigin[$replaceFirst]("http://127.0.0.1", "http://10.0.2.2");
-          }
-        }
-        let hostPortRegex = core.RegExp.new("^http:\\/\\/([\\w\\d.]+):(\\d+)$");
-        let match = hostPortRegex.firstMatch(mappedOrigin);
-        if (match == null) {
-          dart.throw(new core.ArgumentError.new("firebase.auth().useEmulator() origin format error"));
-        }
-        let host = dart.nullCheck(match.group(1));
-        let port = core.int.parse(dart.nullCheck(match.group(2)));
-        yield this.useAuthEmulator(host, port);
-      }).bind(this));
-    }
-    useAuthEmulator(host, port) {
-      return async.async(dart.void, (function* useAuthEmulator() {
-        let mappedHost = host;
-        if (!true && platform.defaultTargetPlatform === platform.TargetPlatform.android) {
-          if (mappedHost === "localhost" || mappedHost === "127.0.0.1") {
-            core.print("Mapping Auth Emulator host \"" + mappedHost + "\" to \"10.0.2.2\".");
-            mappedHost = "10.0.2.2";
-          }
-        }
-        yield this[_delegate$].useAuthEmulator(mappedHost, port);
-      }).bind(this));
-    }
-    get tenantId() {
-      return this[_delegate$].tenantId;
-    }
-    set tenantId(tenantId) {
-      this[_delegate$].tenantId = tenantId;
-    }
-    applyActionCode(code) {
-      return async.async(dart.void, (function* applyActionCode() {
-        yield this[_delegate$].applyActionCode(code);
-      }).bind(this));
-    }
-    checkActionCode(code) {
-      return this[_delegate$].checkActionCode(code);
-    }
-    confirmPasswordReset(opts) {
-      let code = opts && 'code' in opts ? opts.code : null;
-      let newPassword = opts && 'newPassword' in opts ? opts.newPassword : null;
-      return async.async(dart.void, (function* confirmPasswordReset() {
-        yield this[_delegate$].confirmPasswordReset(code, newPassword);
-      }).bind(this));
-    }
-    createUserWithEmailAndPassword(opts) {
-      let email = opts && 'email' in opts ? opts.email : null;
-      let password = opts && 'password' in opts ? opts.password : null;
-      return async.async(firebase_auth.UserCredential, (function* createUserWithEmailAndPassword() {
-        return new firebase_auth.UserCredential.__(this, yield this[_delegate$].createUserWithEmailAndPassword(email, password));
-      }).bind(this));
-    }
-    fetchSignInMethodsForEmail(email) {
-      return this[_delegate$].fetchSignInMethodsForEmail(email);
-    }
-    getRedirectResult() {
-      return async.async(firebase_auth.UserCredential, (function* getRedirectResult() {
-        return new firebase_auth.UserCredential.__(this, yield this[_delegate$].getRedirectResult());
-      }).bind(this));
-    }
-    isSignInWithEmailLink(emailLink) {
-      return this[_delegate$].isSignInWithEmailLink(emailLink);
-    }
-    [_pipeStreamChanges](stream) {
-      return stream.map(T.UserN(), dart.fn(delegateUser => {
-        if (delegateUser == null) {
-          return null;
-        }
-        return new firebase_auth.User.__(this, delegateUser);
-      }, T.UserPlatformNToUserN())).asBroadcastStream({onCancel: dart.fn(sub => sub.cancel(), T.StreamSubscriptionOfUserNTovoid())});
-    }
-    authStateChanges() {
-      return this[_pipeStreamChanges](this[_delegate$].authStateChanges());
-    }
-    idTokenChanges() {
-      return this[_pipeStreamChanges](this[_delegate$].idTokenChanges());
-    }
-    userChanges() {
-      return this[_pipeStreamChanges](this[_delegate$].userChanges());
-    }
-    sendPasswordResetEmail(opts) {
-      let email = opts && 'email' in opts ? opts.email : null;
-      let actionCodeSettings = opts && 'actionCodeSettings' in opts ? opts.actionCodeSettings : null;
-      return this[_delegate$].sendPasswordResetEmail(email, actionCodeSettings);
-    }
-    sendSignInLinkToEmail(opts) {
-      let email = opts && 'email' in opts ? opts.email : null;
-      let actionCodeSettings = opts && 'actionCodeSettings' in opts ? opts.actionCodeSettings : null;
-      return async.async(dart.void, (function* sendSignInLinkToEmail() {
-        if (actionCodeSettings.handleCodeInApp !== true) {
-          dart.throw(new core.ArgumentError.new("The [handleCodeInApp] value of [ActionCodeSettings] must be `true`."));
-        }
-        yield this[_delegate$].sendSignInLinkToEmail(email, actionCodeSettings);
-      }).bind(this));
-    }
-    setLanguageCode(languageCode) {
-      return this[_delegate$].setLanguageCode(languageCode);
-    }
-    setSettings(opts) {
-      let appVerificationDisabledForTesting = opts && 'appVerificationDisabledForTesting' in opts ? opts.appVerificationDisabledForTesting : null;
-      let userAccessGroup = opts && 'userAccessGroup' in opts ? opts.userAccessGroup : null;
-      let phoneNumber = opts && 'phoneNumber' in opts ? opts.phoneNumber : null;
-      let smsCode = opts && 'smsCode' in opts ? opts.smsCode : null;
-      let forceRecaptchaFlow = opts && 'forceRecaptchaFlow' in opts ? opts.forceRecaptchaFlow : null;
-      return this[_delegate$].setSettings({appVerificationDisabledForTesting: appVerificationDisabledForTesting, userAccessGroup: userAccessGroup, phoneNumber: phoneNumber, smsCode: smsCode, forceRecaptchaFlow: forceRecaptchaFlow});
-    }
-    setPersistence(persistence) {
-      return async.async(dart.void, (function* setPersistence() {
-        return this[_delegate$].setPersistence(persistence);
-      }).bind(this));
-    }
-    signInAnonymously() {
-      return async.async(firebase_auth.UserCredential, (function* signInAnonymously() {
-        return new firebase_auth.UserCredential.__(this, yield this[_delegate$].signInAnonymously());
-      }).bind(this));
-    }
-    signInWithCredential(credential) {
-      return async.async(firebase_auth.UserCredential, (function* signInWithCredential() {
-        return new firebase_auth.UserCredential.__(this, yield this[_delegate$].signInWithCredential(credential));
-      }).bind(this));
-    }
-    signInWithCustomToken(token) {
-      return async.async(firebase_auth.UserCredential, (function* signInWithCustomToken() {
-        return new firebase_auth.UserCredential.__(this, yield this[_delegate$].signInWithCustomToken(token));
-      }).bind(this));
-    }
-    signInWithEmailAndPassword(opts) {
-      let email = opts && 'email' in opts ? opts.email : null;
-      let password = opts && 'password' in opts ? opts.password : null;
-      return async.async(firebase_auth.UserCredential, (function* signInWithEmailAndPassword() {
-        return new firebase_auth.UserCredential.__(this, yield this[_delegate$].signInWithEmailAndPassword(email, password));
-      }).bind(this));
-    }
-    signInWithEmailLink(opts) {
-      let email = opts && 'email' in opts ? opts.email : null;
-      let emailLink = opts && 'emailLink' in opts ? opts.emailLink : null;
-      return async.async(firebase_auth.UserCredential, (function* signInWithEmailLink() {
-        return new firebase_auth.UserCredential.__(this, yield this[_delegate$].signInWithEmailLink(email, emailLink));
-      }).bind(this));
-    }
-    signInWithPhoneNumber(phoneNumber, verifier = null) {
-      return async.async(firebase_auth.ConfirmationResult, (function* signInWithPhoneNumber() {
-        if (!phoneNumber[$isNotEmpty]) dart.assertFailed(null, I[0], 591, 12, "phoneNumber.isNotEmpty");
-        verifier == null ? verifier = firebase_auth.RecaptchaVerifier.new() : null;
-        return new firebase_auth.ConfirmationResult.__(this, yield this[_delegate$].signInWithPhoneNumber(phoneNumber, verifier.delegate));
-      }).bind(this));
-    }
-    signInWithPopup(provider) {
-      return async.async(firebase_auth.UserCredential, (function* signInWithPopup() {
-        return new firebase_auth.UserCredential.__(this, yield this[_delegate$].signInWithPopup(provider));
-      }).bind(this));
-    }
-    signInWithRedirect(provider) {
-      return this[_delegate$].signInWithRedirect(provider);
-    }
-    signOut() {
-      return async.async(dart.void, (function* signOut() {
-        yield this[_delegate$].signOut();
-      }).bind(this));
-    }
-    verifyPasswordResetCode(code) {
-      return this[_delegate$].verifyPasswordResetCode(code);
-    }
-    verifyPhoneNumber(opts) {
-      let phoneNumber = opts && 'phoneNumber' in opts ? opts.phoneNumber : null;
-      let verificationCompleted = opts && 'verificationCompleted' in opts ? opts.verificationCompleted : null;
-      let verificationFailed = opts && 'verificationFailed' in opts ? opts.verificationFailed : null;
-      let codeSent = opts && 'codeSent' in opts ? opts.codeSent : null;
-      let codeAutoRetrievalTimeout = opts && 'codeAutoRetrievalTimeout' in opts ? opts.codeAutoRetrievalTimeout : null;
-      let autoRetrievedSmsCodeForTesting = opts && 'autoRetrievedSmsCodeForTesting' in opts ? opts.autoRetrievedSmsCodeForTesting : null;
-      let timeout = opts && 'timeout' in opts ? opts.timeout : C[0] || CT.C0;
-      let forceResendingToken = opts && 'forceResendingToken' in opts ? opts.forceResendingToken : null;
-      return this[_delegate$].verifyPhoneNumber({phoneNumber: phoneNumber, timeout: timeout, forceResendingToken: forceResendingToken, verificationCompleted: verificationCompleted, verificationFailed: verificationFailed, codeSent: codeSent, codeAutoRetrievalTimeout: codeAutoRetrievalTimeout, autoRetrievedSmsCodeForTesting: autoRetrievedSmsCodeForTesting});
-    }
-    toString() {
-      return "FirebaseAuth(app: " + this.app.name + ")";
-    }
-  };
-  (firebase_auth.FirebaseAuth.__ = function(opts) {
-    let app = opts && 'app' in opts ? opts.app : null;
-    this[_delegatePackingProperty] = null;
-    this[app$] = app;
-    firebase_auth.FirebaseAuth.__proto__.new.call(this, app.name, "plugins.flutter.io/firebase_auth");
-    ;
-  }).prototype = firebase_auth.FirebaseAuth.prototype;
-  dart.addTypeTests(firebase_auth.FirebaseAuth);
-  dart.addTypeCaches(firebase_auth.FirebaseAuth);
-  dart.setMethodSignature(firebase_auth.FirebaseAuth, () => ({
-    __proto__: dart.getMethods(firebase_auth.FirebaseAuth.__proto__),
-    useEmulator: dart.fnType(async.Future$(dart.void), [core.String]),
-    useAuthEmulator: dart.fnType(async.Future$(dart.void), [core.String, core.int]),
-    applyActionCode: dart.fnType(async.Future$(dart.void), [core.String]),
-    checkActionCode: dart.fnType(async.Future$(action_code_info.ActionCodeInfo), [core.String]),
-    confirmPasswordReset: dart.fnType(async.Future$(dart.void), [], {}, {code: core.String, newPassword: core.String}),
-    createUserWithEmailAndPassword: dart.fnType(async.Future$(firebase_auth.UserCredential), [], {}, {email: core.String, password: core.String}),
-    fetchSignInMethodsForEmail: dart.fnType(async.Future$(core.List$(core.String)), [core.String]),
-    getRedirectResult: dart.fnType(async.Future$(firebase_auth.UserCredential), []),
-    isSignInWithEmailLink: dart.fnType(core.bool, [core.String]),
-    [_pipeStreamChanges]: dart.fnType(async.Stream$(dart.nullable(firebase_auth.User)), [async.Stream$(dart.nullable(platform_interface_user.UserPlatform))]),
-    authStateChanges: dart.fnType(async.Stream$(dart.nullable(firebase_auth.User)), []),
-    idTokenChanges: dart.fnType(async.Stream$(dart.nullable(firebase_auth.User)), []),
-    userChanges: dart.fnType(async.Stream$(dart.nullable(firebase_auth.User)), []),
-    sendPasswordResetEmail: dart.fnType(async.Future$(dart.void), [], {actionCodeSettings: dart.nullable(action_code_settings.ActionCodeSettings)}, {email: core.String}),
-    sendSignInLinkToEmail: dart.fnType(async.Future$(dart.void), [], {}, {actionCodeSettings: action_code_settings.ActionCodeSettings, email: core.String}),
-    setLanguageCode: dart.fnType(async.Future$(dart.void), [core.String]),
-    setSettings: dart.fnType(async.Future$(dart.void), [], {appVerificationDisabledForTesting: dart.nullable(core.bool), forceRecaptchaFlow: dart.nullable(core.bool), phoneNumber: dart.nullable(core.String), smsCode: dart.nullable(core.String), userAccessGroup: dart.nullable(core.String)}, {}),
-    setPersistence: dart.fnType(async.Future$(dart.void), [types.Persistence]),
-    signInAnonymously: dart.fnType(async.Future$(firebase_auth.UserCredential), []),
-    signInWithCredential: dart.fnType(async.Future$(firebase_auth.UserCredential), [auth_credential.AuthCredential]),
-    signInWithCustomToken: dart.fnType(async.Future$(firebase_auth.UserCredential), [core.String]),
-    signInWithEmailAndPassword: dart.fnType(async.Future$(firebase_auth.UserCredential), [], {}, {email: core.String, password: core.String}),
-    signInWithEmailLink: dart.fnType(async.Future$(firebase_auth.UserCredential), [], {}, {email: core.String, emailLink: core.String}),
-    signInWithPhoneNumber: dart.fnType(async.Future$(firebase_auth.ConfirmationResult), [core.String], [dart.nullable(firebase_auth.RecaptchaVerifier)]),
-    signInWithPopup: dart.fnType(async.Future$(firebase_auth.UserCredential), [auth_provider.AuthProvider]),
-    signInWithRedirect: dart.fnType(async.Future$(dart.void), [auth_provider.AuthProvider]),
-    signOut: dart.fnType(async.Future$(dart.void), []),
-    verifyPasswordResetCode: dart.fnType(async.Future$(core.String), [core.String]),
-    verifyPhoneNumber: dart.fnType(async.Future$(dart.void), [], {autoRetrievedSmsCodeForTesting: dart.nullable(core.String), forceResendingToken: dart.nullable(core.int), timeout: core.Duration}, {codeAutoRetrievalTimeout: dart.fnType(dart.void, [core.String]), codeSent: dart.fnType(dart.void, [core.String, dart.nullable(core.int)]), phoneNumber: core.String, verificationCompleted: dart.fnType(dart.void, [phone_auth.PhoneAuthCredential]), verificationFailed: dart.fnType(dart.void, [firebase_auth_exception.FirebaseAuthException])})
-  }));
-  dart.setGetterSignature(firebase_auth.FirebaseAuth, () => ({
-    __proto__: dart.getGetters(firebase_auth.FirebaseAuth.__proto__),
-    [_delegate$]: platform_interface_firebase_auth.FirebaseAuthPlatform,
-    currentUser: dart.nullable(firebase_auth.User),
-    languageCode: dart.nullable(core.String),
-    tenantId: dart.nullable(core.String)
-  }));
-  dart.setSetterSignature(firebase_auth.FirebaseAuth, () => ({
-    __proto__: dart.getSetters(firebase_auth.FirebaseAuth.__proto__),
-    tenantId: dart.nullable(core.String)
-  }));
-  dart.setLibraryUri(firebase_auth.FirebaseAuth, I[1]);
-  dart.setFieldSignature(firebase_auth.FirebaseAuth, () => ({
-    __proto__: dart.getFields(firebase_auth.FirebaseAuth.__proto__),
-    [_delegatePackingProperty]: dart.fieldType(dart.nullable(platform_interface_firebase_auth.FirebaseAuthPlatform)),
-    app: dart.fieldType(firebase_core.FirebaseApp)
-  }));
-  dart.defineExtensionMethods(firebase_auth.FirebaseAuth, ['toString']);
-  dart.defineLazy(firebase_auth.FirebaseAuth, {
-    /*firebase_auth.FirebaseAuth._firebaseAuthInstances*/get _firebaseAuthInstances() {
-      return new (T.IdentityMapOfString$FirebaseAuth()).new();
     },
-    set _firebaseAuthInstances(_) {}
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: theme_data.MaterialTapTargetSize.prototype,
+        [_name]: "MaterialTapTargetSize.shrinkWrap",
+        index: 1
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "inMutuallyExclusiveGroup",
+        [_Location_column]: 7,
+        [_Location_line]: 486,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "checked",
+        [_Location_column]: 7,
+        [_Location_line]: 487,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 488,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C[5] = dart.constList([C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8], widget_inspector._Location);
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 485,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/material/radio.dart"
+      });
+    },
+    get C9() {
+      return C[9] = dart.const(new _js_helper.PrivateSymbol.new('_repaint', _repaint));
+    }
   }, false);
-  var _auth$ = dart.privateName(firebase_auth, "_auth");
-  firebase_auth.UserCredential = class UserCredential extends core.Object {
-    get additionalUserInfo() {
-      return this[_delegate$].additionalUserInfo;
+  var C = Array(10).fill(void 0);
+  var I = [
+    "file:///C:/flutter/packages/flutter/lib/src/material/radio.dart",
+    "package:flutter/src/material/radio.dart"
+  ];
+  var value$ = dart.privateName(radio, "Radio.value");
+  var groupValue$ = dart.privateName(radio, "Radio.groupValue");
+  var onChanged$ = dart.privateName(radio, "Radio.onChanged");
+  var mouseCursor$ = dart.privateName(radio, "Radio.mouseCursor");
+  var toggleable$ = dart.privateName(radio, "Radio.toggleable");
+  var activeColor$ = dart.privateName(radio, "Radio.activeColor");
+  var fillColor$ = dart.privateName(radio, "Radio.fillColor");
+  var materialTapTargetSize$ = dart.privateName(radio, "Radio.materialTapTargetSize");
+  var visualDensity$ = dart.privateName(radio, "Radio.visualDensity");
+  var focusColor$ = dart.privateName(radio, "Radio.focusColor");
+  var hoverColor$ = dart.privateName(radio, "Radio.hoverColor");
+  var overlayColor$ = dart.privateName(radio, "Radio.overlayColor");
+  var splashRadius$ = dart.privateName(radio, "Radio.splashRadius");
+  var focusNode$ = dart.privateName(radio, "Radio.focusNode");
+  var autofocus$ = dart.privateName(radio, "Radio.autofocus");
+  var _selected = dart.privateName(radio, "_selected");
+  const _is_Radio_default = Symbol('_is_Radio_default');
+  radio.Radio$ = dart.generic(T => {
+    var _RadioStateOfT = () => (_RadioStateOfT = dart.constFn(radio._RadioState$(T)))();
+    class Radio extends framework.StatefulWidget {
+      get value() {
+        return this[value$];
+      }
+      set value(value) {
+        super.value = value;
+      }
+      get groupValue() {
+        return this[groupValue$];
+      }
+      set groupValue(value) {
+        super.groupValue = value;
+      }
+      get onChanged() {
+        return this[onChanged$];
+      }
+      set onChanged(value) {
+        super.onChanged = value;
+      }
+      get mouseCursor() {
+        return this[mouseCursor$];
+      }
+      set mouseCursor(value) {
+        super.mouseCursor = value;
+      }
+      get toggleable() {
+        return this[toggleable$];
+      }
+      set toggleable(value) {
+        super.toggleable = value;
+      }
+      get activeColor() {
+        return this[activeColor$];
+      }
+      set activeColor(value) {
+        super.activeColor = value;
+      }
+      get fillColor() {
+        return this[fillColor$];
+      }
+      set fillColor(value) {
+        super.fillColor = value;
+      }
+      get materialTapTargetSize() {
+        return this[materialTapTargetSize$];
+      }
+      set materialTapTargetSize(value) {
+        super.materialTapTargetSize = value;
+      }
+      get visualDensity() {
+        return this[visualDensity$];
+      }
+      set visualDensity(value) {
+        super.visualDensity = value;
+      }
+      get focusColor() {
+        return this[focusColor$];
+      }
+      set focusColor(value) {
+        super.focusColor = value;
+      }
+      get hoverColor() {
+        return this[hoverColor$];
+      }
+      set hoverColor(value) {
+        super.hoverColor = value;
+      }
+      get overlayColor() {
+        return this[overlayColor$];
+      }
+      set overlayColor(value) {
+        super.overlayColor = value;
+      }
+      get splashRadius() {
+        return this[splashRadius$];
+      }
+      set splashRadius(value) {
+        super.splashRadius = value;
+      }
+      get focusNode() {
+        return this[focusNode$];
+      }
+      set focusNode(value) {
+        super.focusNode = value;
+      }
+      get autofocus() {
+        return this[autofocus$];
+      }
+      set autofocus(value) {
+        super.autofocus = value;
+      }
+      get [_selected]() {
+        return dart.equals(this.value, this.groupValue);
+      }
+      createState() {
+        return new (_RadioStateOfT()).new();
+      }
     }
-    get credential() {
-      return this[_delegate$].credential;
+    (Radio.new = function(opts) {
+      let key = opts && 'key' in opts ? opts.key : null;
+      let value = opts && 'value' in opts ? opts.value : null;
+      let groupValue = opts && 'groupValue' in opts ? opts.groupValue : null;
+      let onChanged = opts && 'onChanged' in opts ? opts.onChanged : null;
+      let mouseCursor = opts && 'mouseCursor' in opts ? opts.mouseCursor : null;
+      let toggleable = opts && 'toggleable' in opts ? opts.toggleable : false;
+      let activeColor = opts && 'activeColor' in opts ? opts.activeColor : null;
+      let fillColor = opts && 'fillColor' in opts ? opts.fillColor : null;
+      let focusColor = opts && 'focusColor' in opts ? opts.focusColor : null;
+      let hoverColor = opts && 'hoverColor' in opts ? opts.hoverColor : null;
+      let overlayColor = opts && 'overlayColor' in opts ? opts.overlayColor : null;
+      let splashRadius = opts && 'splashRadius' in opts ? opts.splashRadius : null;
+      let materialTapTargetSize = opts && 'materialTapTargetSize' in opts ? opts.materialTapTargetSize : null;
+      let visualDensity = opts && 'visualDensity' in opts ? opts.visualDensity : null;
+      let focusNode = opts && 'focusNode' in opts ? opts.focusNode : null;
+      let autofocus = opts && 'autofocus' in opts ? opts.autofocus : false;
+      let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+      this[value$] = value;
+      this[groupValue$] = groupValue;
+      this[onChanged$] = onChanged;
+      this[mouseCursor$] = mouseCursor;
+      this[toggleable$] = toggleable;
+      this[activeColor$] = activeColor;
+      this[fillColor$] = fillColor;
+      this[focusColor$] = focusColor;
+      this[hoverColor$] = hoverColor;
+      this[overlayColor$] = overlayColor;
+      this[splashRadius$] = splashRadius;
+      this[materialTapTargetSize$] = materialTapTargetSize;
+      this[visualDensity$] = visualDensity;
+      this[focusNode$] = focusNode;
+      this[autofocus$] = autofocus;
+      if (!(autofocus !== null)) dart.assertFailed(null, I[0], 122, 15, "autofocus != null");
+      if (!(toggleable !== null)) dart.assertFailed(null, I[0], 123, 15, "toggleable != null");
+      Radio.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+      ;
+    }).prototype = Radio.prototype;
+    dart.addTypeTests(Radio);
+    Radio.prototype[_is_Radio_default] = true;
+    dart.addTypeCaches(Radio);
+    dart.setMethodSignature(Radio, () => ({
+      __proto__: dart.getMethods(Radio.__proto__),
+      createState: dart.fnType(radio._RadioState$(T), [])
+    }));
+    dart.setGetterSignature(Radio, () => ({
+      __proto__: dart.getGetters(Radio.__proto__),
+      [_selected]: core.bool
+    }));
+    dart.setLibraryUri(Radio, I[1]);
+    dart.setFieldSignature(Radio, () => ({
+      __proto__: dart.getFields(Radio.__proto__),
+      value: dart.finalFieldType(T),
+      groupValue: dart.finalFieldType(dart.nullable(T)),
+      onChanged: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [dart.nullable(T)]))),
+      mouseCursor: dart.finalFieldType(dart.nullable(mouse_cursor.MouseCursor)),
+      toggleable: dart.finalFieldType(core.bool),
+      activeColor: dart.finalFieldType(dart.nullable(ui.Color)),
+      fillColor: dart.finalFieldType(dart.nullable(material_state.MaterialStateProperty$(dart.nullable(ui.Color)))),
+      materialTapTargetSize: dart.finalFieldType(dart.nullable(theme_data.MaterialTapTargetSize)),
+      visualDensity: dart.finalFieldType(dart.nullable(theme_data.VisualDensity)),
+      focusColor: dart.finalFieldType(dart.nullable(ui.Color)),
+      hoverColor: dart.finalFieldType(dart.nullable(ui.Color)),
+      overlayColor: dart.finalFieldType(dart.nullable(material_state.MaterialStateProperty$(dart.nullable(ui.Color)))),
+      splashRadius: dart.finalFieldType(dart.nullable(core.double)),
+      focusNode: dart.finalFieldType(dart.nullable(focus_manager.FocusNode)),
+      autofocus: dart.finalFieldType(core.bool)
+    }));
+    return Radio;
+  });
+  radio.Radio = radio.Radio$();
+  dart.addTypeTests(radio.Radio, _is_Radio_default);
+  var _painter = dart.privateName(radio, "_painter");
+  var _handleChanged = dart.privateName(radio, "_handleChanged");
+  var _widgetFillColor = dart.privateName(radio, "_widgetFillColor");
+  var _defaultFillColor = dart.privateName(radio, "_defaultFillColor");
+  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
+  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
+  var _name = dart.privateName(theme_data, "_name");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  const _is__RadioState_default = Symbol('_is__RadioState_default');
+  radio._RadioState$ = dart.generic(T => {
+    var TN = () => (TN = dart.constFn(dart.nullable(T)))();
+    var TNTovoid = () => (TNTovoid = dart.constFn(dart.fnType(dart.void, [TN()])))();
+    var TNToNvoid = () => (TNToNvoid = dart.constFn(dart.nullable(TNTovoid())))();
+    var RadioOfT = () => (RadioOfT = dart.constFn(radio.Radio$(T)))();
+    const State_TickerProviderStateMixin$36 = class State_TickerProviderStateMixin extends framework.State$(radio.Radio$(T)) {};
+    (State_TickerProviderStateMixin$36.new = function() {
+      ticker_provider.TickerProviderStateMixin$(radio.Radio$(T))[dart.mixinNew].call(this);
+      State_TickerProviderStateMixin$36.__proto__.new.call(this);
+    }).prototype = State_TickerProviderStateMixin$36.prototype;
+    dart.applyMixin(State_TickerProviderStateMixin$36, ticker_provider.TickerProviderStateMixin$(radio.Radio$(T)));
+    const State_ToggleableStateMixin$36 = class State_ToggleableStateMixin extends State_TickerProviderStateMixin$36 {};
+    (State_ToggleableStateMixin$36.new = function() {
+      toggleable.ToggleableStateMixin$(radio.Radio$(T))[dart.mixinNew].call(this);
+      State_ToggleableStateMixin$36.__proto__.new.call(this);
+    }).prototype = State_ToggleableStateMixin$36.prototype;
+    dart.applyMixin(State_ToggleableStateMixin$36, toggleable.ToggleableStateMixin$(radio.Radio$(T)));
+    class _RadioState extends State_ToggleableStateMixin$36 {
+      [_handleChanged](selected) {
+        if (selected == null) {
+          dart.nullCheck(TNToNvoid().as(this.widget.onChanged))(null);
+          return;
+        }
+        if (dart.test(selected)) {
+          dart.nullCheck(TNToNvoid().as(this.widget.onChanged))(this.widget.value);
+        }
+      }
+      didUpdateWidget(oldWidget) {
+        RadioOfT().as(oldWidget);
+        super.didUpdateWidget(oldWidget);
+        if (this.widget[_selected] !== oldWidget[_selected]) {
+          this.animateToValue();
+        }
+      }
+      dispose() {
+        this[_painter].dispose();
+        super.dispose();
+      }
+      get onChanged() {
+        return TNToNvoid().as(this.widget.onChanged) != null ? dart.bind(this, _handleChanged) : null;
+      }
+      get tristate() {
+        return this.widget.toggleable;
+      }
+      get value() {
+        return this.widget[_selected];
+      }
+      get [_widgetFillColor]() {
+        return material_state.MaterialStateProperty.resolveWith(T$.ColorN(), dart.fn(states => {
+          if (states.contains(material_state.MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(material_state.MaterialState.selected)) {
+            return this.widget.activeColor;
+          }
+          return null;
+        }, T$.SetOfMaterialStateToColorN()));
+      }
+      get [_defaultFillColor]() {
+        let themeData = theme.Theme.of(this.context);
+        return material_state.MaterialStateProperty.resolveWith(ui.Color, dart.fn(states => {
+          if (states.contains(material_state.MaterialState.disabled)) {
+            return themeData.disabledColor;
+          }
+          if (states.contains(material_state.MaterialState.selected)) {
+            return themeData.toggleableActiveColor;
+          }
+          return themeData.unselectedWidgetColor;
+        }, T$.SetOfMaterialStateToColor()));
+      }
+      build(context) {
+        let t0, t0$, t0$0, t0$1, t0$2, t0$3, t0$4, t0$5, t1, t0$6, t0$7, t0$8, t0$9, t1$, t0$10, t0$11, t0$12, t0$13, t0$14, t1$0, t0$15, t0$16, t0$17, t0$18, t0$19, t1$1, t0$20, t0$21, t0$22, t0$23, t1$2, t0$24, t0$25, t0$26, t0$27, t1$3, t0$28, t0$29, t1$4, t1$5, t0$30;
+        if (!debug.debugCheckHasMaterial(context)) dart.assertFailed(null, I[0], 425, 12, "debugCheckHasMaterial(context)");
+        let themeData = theme.Theme.of(context);
+        let effectiveMaterialTapTargetSize = (t0$ = (t0 = this.widget.materialTapTargetSize, t0 == null ? themeData.radioTheme.materialTapTargetSize : t0), t0$ == null ? themeData.materialTapTargetSize : t0$);
+        let effectiveVisualDensity = (t0$1 = (t0$0 = this.widget.visualDensity, t0$0 == null ? themeData.radioTheme.visualDensity : t0$0), t0$1 == null ? themeData.visualDensity : t0$1);
+        let size = null;
+        switch (effectiveMaterialTapTargetSize) {
+          case C[1] || CT.C1:
+          {
+            size = C[0] || CT.C0;
+            break;
+          }
+          case C[3] || CT.C3:
+          {
+            size = C[2] || CT.C2;
+            break;
+          }
+        }
+        size = size['+'](effectiveVisualDensity.baseSizeAdjustment);
+        let effectiveMouseCursor = material_state.MaterialStateProperty.resolveWith(mouse_cursor.MouseCursor, dart.fn(states => {
+          let t1, t0, t0$;
+          t0$ = (t0 = material_state.MaterialStateProperty.resolveAs(T$.MouseCursorN(), this.widget.mouseCursor, states), t0 == null ? (t1 = themeData.radioTheme.mouseCursor, t1 == null ? null : t1.resolve(states)) : t0);
+          return t0$ == null ? material_state.MaterialStateProperty.resolveAs(mouse_cursor.MouseCursor, material_state.MaterialStateMouseCursor.clickable, states) : t0$;
+        }, T$.SetOfMaterialStateToMouseCursor()));
+        let activeStates = (t0$2 = this.states, (() => {
+          t0$2.add(material_state.MaterialState.selected);
+          return t0$2;
+        })());
+        let inactiveStates = (t0$3 = this.states, (() => {
+          t0$3.remove(material_state.MaterialState.selected);
+          return t0$3;
+        })());
+        let effectiveActiveColor = (t0$7 = (t0$6 = (t0$5 = (t0$4 = this.widget.fillColor, t0$4 == null ? null : t0$4.resolve(activeStates)), t0$5 == null ? this[_widgetFillColor].resolve(activeStates) : t0$5), t0$6 == null ? (t1 = themeData.radioTheme.fillColor, t1 == null ? null : t1.resolve(activeStates)) : t0$6), t0$7 == null ? this[_defaultFillColor].resolve(activeStates) : t0$7);
+        let effectiveInactiveColor = (t0$11 = (t0$10 = (t0$9 = (t0$8 = this.widget.fillColor, t0$8 == null ? null : t0$8.resolve(inactiveStates)), t0$9 == null ? this[_widgetFillColor].resolve(inactiveStates) : t0$9), t0$10 == null ? (t1$ = themeData.radioTheme.fillColor, t1$ == null ? null : t1$.resolve(inactiveStates)) : t0$10), t0$11 == null ? this[_defaultFillColor].resolve(inactiveStates) : t0$11);
+        let focusedStates = (t0$12 = this.states, (() => {
+          t0$12.add(material_state.MaterialState.focused);
+          return t0$12;
+        })());
+        let effectiveFocusOverlayColor = (t0$16 = (t0$15 = (t0$14 = (t0$13 = this.widget.overlayColor, t0$13 == null ? null : t0$13.resolve(focusedStates)), t0$14 == null ? this.widget.focusColor : t0$14), t0$15 == null ? (t1$0 = themeData.radioTheme.overlayColor, t1$0 == null ? null : t1$0.resolve(focusedStates)) : t0$15), t0$16 == null ? themeData.focusColor : t0$16);
+        let hoveredStates = (t0$17 = this.states, (() => {
+          t0$17.add(material_state.MaterialState.hovered);
+          return t0$17;
+        })());
+        let effectiveHoverOverlayColor = (t0$21 = (t0$20 = (t0$19 = (t0$18 = this.widget.overlayColor, t0$18 == null ? null : t0$18.resolve(hoveredStates)), t0$19 == null ? this.widget.hoverColor : t0$19), t0$20 == null ? (t1$1 = themeData.radioTheme.overlayColor, t1$1 == null ? null : t1$1.resolve(hoveredStates)) : t0$20), t0$21 == null ? themeData.hoverColor : t0$21);
+        let activePressedStates = (t0$22 = activeStates, (() => {
+          t0$22.add(material_state.MaterialState.pressed);
+          return t0$22;
+        })());
+        let effectiveActivePressedOverlayColor = (t0$25 = (t0$24 = (t0$23 = this.widget.overlayColor, t0$23 == null ? null : t0$23.resolve(activePressedStates)), t0$24 == null ? (t1$2 = themeData.radioTheme.overlayColor, t1$2 == null ? null : t1$2.resolve(activePressedStates)) : t0$24), t0$25 == null ? effectiveActiveColor.withAlpha(31) : t0$25);
+        let inactivePressedStates = (t0$26 = inactiveStates, (() => {
+          t0$26.add(material_state.MaterialState.pressed);
+          return t0$26;
+        })());
+        let effectiveInactivePressedOverlayColor = (t0$29 = (t0$28 = (t0$27 = this.widget.overlayColor, t0$27 == null ? null : t0$27.resolve(inactivePressedStates)), t0$28 == null ? (t1$3 = themeData.radioTheme.overlayColor, t1$3 == null ? null : t1$3.resolve(inactivePressedStates)) : t0$28), t0$29 == null ? effectiveActiveColor.withAlpha(31) : t0$29);
+        return new basic.Semantics.new({inMutuallyExclusiveGroup: true, checked: this.widget[_selected], child: this.buildToggleable({focusNode: this.widget.focusNode, autofocus: this.widget.autofocus, mouseCursor: effectiveMouseCursor, size: size, painter: (t0$30 = this[_painter], (() => {
+              t0$30.position = this.position;
+              t0$30.reaction = this.reaction;
+              t0$30.reactionFocusFade = this.reactionFocusFade;
+              t0$30.reactionHoverFade = this.reactionHoverFade;
+              t0$30.inactiveReactionColor = effectiveInactivePressedOverlayColor;
+              t0$30.reactionColor = effectiveActivePressedOverlayColor;
+              t0$30.hoverColor = effectiveHoverOverlayColor;
+              t0$30.focusColor = effectiveFocusOverlayColor;
+              t0$30.splashRadius = (t1$5 = (t1$4 = this.widget.splashRadius, t1$4 == null ? themeData.radioTheme.splashRadius : t1$4), t1$5 == null ? 20 : t1$5);
+              t0$30.downPosition = this.downPosition;
+              t0$30.isFocused = this.states.contains(material_state.MaterialState.focused);
+              t0$30.isHovered = this.states.contains(material_state.MaterialState.hovered);
+              t0$30.activeColor = effectiveActiveColor;
+              t0$30.inactiveColor = effectiveInactiveColor;
+              return t0$30;
+            })())}), $creationLocationd_0dea112b090073317d4: C[4] || CT.C4});
+      }
     }
-    get user() {
-      return this[_delegate$].user == null ? null : new firebase_auth.User.__(this[_auth$], dart.nullCheck(this[_delegate$].user));
+    (_RadioState.new = function() {
+      this[_painter] = new radio._RadioPainter.new();
+      _RadioState.__proto__.new.call(this);
+      ;
+    }).prototype = _RadioState.prototype;
+    dart.addTypeTests(_RadioState);
+    _RadioState.prototype[_is__RadioState_default] = true;
+    dart.addTypeCaches(_RadioState);
+    dart.setMethodSignature(_RadioState, () => ({
+      __proto__: dart.getMethods(_RadioState.__proto__),
+      [_handleChanged]: dart.fnType(dart.void, [dart.nullable(core.bool)]),
+      build: dart.fnType(framework.Widget, [framework.BuildContext])
+    }));
+    dart.setGetterSignature(_RadioState, () => ({
+      __proto__: dart.getGetters(_RadioState.__proto__),
+      onChanged: dart.nullable(dart.fnType(dart.void, [dart.nullable(core.bool)])),
+      tristate: core.bool,
+      value: dart.nullable(core.bool),
+      [_widgetFillColor]: material_state.MaterialStateProperty$(dart.nullable(ui.Color)),
+      [_defaultFillColor]: material_state.MaterialStateProperty$(ui.Color)
+    }));
+    dart.setLibraryUri(_RadioState, I[1]);
+    dart.setFieldSignature(_RadioState, () => ({
+      __proto__: dart.getFields(_RadioState.__proto__),
+      [_painter]: dart.finalFieldType(radio._RadioPainter)
+    }));
+    return _RadioState;
+  });
+  radio._RadioState = radio._RadioState$();
+  dart.addTypeTests(radio._RadioState, _is__RadioState_default);
+  var _repaint = dart.privateName(radio, "_repaint");
+  var _repaint$ = dart.privateName(custom_paint, "_repaint");
+  radio._RadioPainter = class _RadioPainter extends toggleable.ToggleablePainter {
+    paint(canvas, size) {
+      let t0;
+      this.paintRadialReaction({canvas: canvas, origin: size.center(ui.Offset.zero)});
+      let center = ui.Offset.zero['&'](size).center;
+      let paint = (t0 = ui.Paint.new(), (() => {
+        t0.color = dart.nullCheck(ui.Color.lerp(this.inactiveColor, this.activeColor, this.position.value));
+        t0.style = ui.PaintingStyle.stroke;
+        t0.strokeWidth = 2.0;
+        return t0;
+      })());
+      canvas.drawCircle(center, 8, paint);
+      if (!this.position.isDismissed) {
+        paint.style = ui.PaintingStyle.fill;
+        canvas.drawCircle(center, 4.5 * this.position.value, paint);
+      }
     }
-    toString() {
-      return "UserCredential(" + "additionalUserInfo: " + dart.str(this.additionalUserInfo) + ", " + "credential: " + dart.str(this.credential) + ", " + "user: " + dart.str(this.user) + ")";
+    get [_repaint$]() {
+      return T$.ListenableN().as(this[$noSuchMethod](new core._Invocation.getter(C[9] || CT.C9)));
     }
   };
-  (firebase_auth.UserCredential.__ = function(_auth, _delegate) {
-    this[_auth$] = _auth;
-    this[_delegate$] = _delegate;
-    platform_interface_user_credential.UserCredentialPlatform.verifyExtends(this[_delegate$]);
-  }).prototype = firebase_auth.UserCredential.prototype;
-  dart.addTypeTests(firebase_auth.UserCredential);
-  dart.addTypeCaches(firebase_auth.UserCredential);
-  dart.setGetterSignature(firebase_auth.UserCredential, () => ({
-    __proto__: dart.getGetters(firebase_auth.UserCredential.__proto__),
-    additionalUserInfo: dart.nullable(additional_user_info.AdditionalUserInfo),
-    credential: dart.nullable(auth_credential.AuthCredential),
-    user: dart.nullable(firebase_auth.User)
-  }));
-  dart.setLibraryUri(firebase_auth.UserCredential, I[1]);
-  dart.setFieldSignature(firebase_auth.UserCredential, () => ({
-    __proto__: dart.getFields(firebase_auth.UserCredential.__proto__),
-    [_auth$]: dart.finalFieldType(firebase_auth.FirebaseAuth),
-    [_delegate$]: dart.finalFieldType(platform_interface_user_credential.UserCredentialPlatform)
-  }));
-  dart.defineExtensionMethods(firebase_auth.UserCredential, ['toString']);
-  firebase_auth.User = class User extends core.Object {
-    get displayName() {
-      return this[_delegate$].displayName;
-    }
-    get email() {
-      return this[_delegate$].email;
-    }
-    get emailVerified() {
-      return this[_delegate$].emailVerified;
-    }
-    get isAnonymous() {
-      return this[_delegate$].isAnonymous;
-    }
-    get metadata() {
-      return this[_delegate$].metadata;
-    }
-    get phoneNumber() {
-      return this[_delegate$].phoneNumber;
-    }
-    get photoURL() {
-      return this[_delegate$].photoURL;
-    }
-    get providerData() {
-      return this[_delegate$].providerData;
-    }
-    get refreshToken() {
-      return this[_delegate$].refreshToken;
-    }
-    get tenantId() {
-      return this[_delegate$].tenantId;
-    }
-    get uid() {
-      return this[_delegate$].uid;
-    }
-    delete() {
-      return async.async(dart.void, (function* $delete() {
-        return this[_delegate$].delete();
-      }).bind(this));
-    }
-    getIdToken(forceRefresh = false) {
-      return this[_delegate$].getIdToken(forceRefresh);
-    }
-    getIdTokenResult(forceRefresh = false) {
-      return this[_delegate$].getIdTokenResult(forceRefresh);
-    }
-    linkWithCredential(credential) {
-      return async.async(firebase_auth.UserCredential, (function* linkWithCredential() {
-        return new firebase_auth.UserCredential.__(this[_auth$], yield this[_delegate$].linkWithCredential(credential));
-      }).bind(this));
-    }
-    linkWithPhoneNumber(phoneNumber, verifier = null) {
-      return async.async(firebase_auth.ConfirmationResult, (function* linkWithPhoneNumber() {
-        if (!phoneNumber[$isNotEmpty]) dart.assertFailed(null, I[2], 218, 12, "phoneNumber.isNotEmpty");
-        verifier == null ? verifier = firebase_auth.RecaptchaVerifier.new() : null;
-        return new firebase_auth.ConfirmationResult.__(this[_auth$], yield this[_delegate$].linkWithPhoneNumber(phoneNumber, verifier.delegate));
-      }).bind(this));
-    }
-    reauthenticateWithCredential(credential) {
-      return async.async(firebase_auth.UserCredential, (function* reauthenticateWithCredential() {
-        return new firebase_auth.UserCredential.__(this[_auth$], yield this[_delegate$].reauthenticateWithCredential(credential));
-      }).bind(this));
-    }
-    reload() {
-      return async.async(dart.void, (function* reload() {
-        yield this[_delegate$].reload();
-      }).bind(this));
-    }
-    sendEmailVerification(actionCodeSettings = null) {
-      return async.async(dart.void, (function* sendEmailVerification() {
-        yield this[_delegate$].sendEmailVerification(actionCodeSettings);
-      }).bind(this));
-    }
-    unlink(providerId) {
-      return async.async(firebase_auth.User, (function* unlink() {
-        return new firebase_auth.User.__(this[_auth$], yield this[_delegate$].unlink(providerId));
-      }).bind(this));
-    }
-    updateEmail(newEmail) {
-      return async.async(dart.void, (function* updateEmail() {
-        yield this[_delegate$].updateEmail(newEmail);
-      }).bind(this));
-    }
-    updatePassword(newPassword) {
-      return async.async(dart.void, (function* updatePassword() {
-        yield this[_delegate$].updatePassword(newPassword);
-      }).bind(this));
-    }
-    updatePhoneNumber(phoneCredential) {
-      return async.async(dart.void, (function* updatePhoneNumber() {
-        yield this[_delegate$].updatePhoneNumber(phoneCredential);
-      }).bind(this));
-    }
-    updateDisplayName(displayName) {
-      return this[_delegate$].updateProfile(new (T.IdentityMapOfString$StringN()).from(["displayName", displayName]));
-    }
-    updatePhotoURL(photoURL) {
-      return this[_delegate$].updateProfile(new (T.IdentityMapOfString$StringN()).from(["photoURL", photoURL]));
-    }
-    updateProfile(opts) {
-      let displayName = opts && 'displayName' in opts ? opts.displayName : null;
-      let photoURL = opts && 'photoURL' in opts ? opts.photoURL : null;
-      return this[_delegate$].updateProfile(new (T.IdentityMapOfString$StringN()).from(["displayName", displayName, "photoURL", photoURL]));
-    }
-    verifyBeforeUpdateEmail(newEmail, actionCodeSettings = null) {
-      return async.async(dart.void, (function* verifyBeforeUpdateEmail() {
-        yield this[_delegate$].verifyBeforeUpdateEmail(newEmail, actionCodeSettings);
-      }).bind(this));
-    }
-    toString() {
-      return dart.str(dart.wrapType(firebase_auth.User)) + "(" + "displayName: " + dart.str(this.displayName) + ", " + "email: " + dart.str(this.email) + ", " + "emailVerified: " + dart.str(this.emailVerified) + ", " + "isAnonymous: " + dart.str(this.isAnonymous) + ", " + "metadata: " + dart.str(this.metadata) + ", " + "phoneNumber: " + dart.str(this.phoneNumber) + ", " + "photoURL: " + dart.str(this.photoURL) + ", " + "providerData, " + dart.str(this.providerData) + ", " + "refreshToken: " + dart.str(this.refreshToken) + ", " + "tenantId: " + dart.str(this.tenantId) + ", " + "uid: " + this.uid + ")";
-    }
-  };
-  (firebase_auth.User.__ = function(_auth, _delegate) {
-    this[_auth$] = _auth;
-    this[_delegate$] = _delegate;
-    platform_interface_user.UserPlatform.verifyExtends(this[_delegate$]);
-  }).prototype = firebase_auth.User.prototype;
-  dart.addTypeTests(firebase_auth.User);
-  dart.addTypeCaches(firebase_auth.User);
-  dart.setMethodSignature(firebase_auth.User, () => ({
-    __proto__: dart.getMethods(firebase_auth.User.__proto__),
-    delete: dart.fnType(async.Future$(dart.void), []),
-    getIdToken: dart.fnType(async.Future$(core.String), [], [core.bool]),
-    getIdTokenResult: dart.fnType(async.Future$(id_token_result.IdTokenResult), [], [core.bool]),
-    linkWithCredential: dart.fnType(async.Future$(firebase_auth.UserCredential), [auth_credential.AuthCredential]),
-    linkWithPhoneNumber: dart.fnType(async.Future$(firebase_auth.ConfirmationResult), [core.String], [dart.nullable(firebase_auth.RecaptchaVerifier)]),
-    reauthenticateWithCredential: dart.fnType(async.Future$(firebase_auth.UserCredential), [auth_credential.AuthCredential]),
-    reload: dart.fnType(async.Future$(dart.void), []),
-    sendEmailVerification: dart.fnType(async.Future$(dart.void), [], [dart.nullable(action_code_settings.ActionCodeSettings)]),
-    unlink: dart.fnType(async.Future$(firebase_auth.User), [core.String]),
-    updateEmail: dart.fnType(async.Future$(dart.void), [core.String]),
-    updatePassword: dart.fnType(async.Future$(dart.void), [core.String]),
-    updatePhoneNumber: dart.fnType(async.Future$(dart.void), [phone_auth.PhoneAuthCredential]),
-    updateDisplayName: dart.fnType(async.Future$(dart.void), [dart.nullable(core.String)]),
-    updatePhotoURL: dart.fnType(async.Future$(dart.void), [dart.nullable(core.String)]),
-    updateProfile: dart.fnType(async.Future$(dart.void), [], {displayName: dart.nullable(core.String), photoURL: dart.nullable(core.String)}, {}),
-    verifyBeforeUpdateEmail: dart.fnType(async.Future$(dart.void), [core.String], [dart.nullable(action_code_settings.ActionCodeSettings)])
-  }));
-  dart.setGetterSignature(firebase_auth.User, () => ({
-    __proto__: dart.getGetters(firebase_auth.User.__proto__),
-    displayName: dart.nullable(core.String),
-    email: dart.nullable(core.String),
-    emailVerified: core.bool,
-    isAnonymous: core.bool,
-    metadata: user_metadata.UserMetadata,
-    phoneNumber: dart.nullable(core.String),
-    photoURL: dart.nullable(core.String),
-    providerData: core.List$(user_info.UserInfo),
-    refreshToken: dart.nullable(core.String),
-    tenantId: dart.nullable(core.String),
-    uid: core.String
-  }));
-  dart.setLibraryUri(firebase_auth.User, I[1]);
-  dart.setFieldSignature(firebase_auth.User, () => ({
-    __proto__: dart.getFields(firebase_auth.User.__proto__),
-    [_delegate$]: dart.fieldType(platform_interface_user.UserPlatform),
-    [_auth$]: dart.finalFieldType(firebase_auth.FirebaseAuth)
-  }));
-  dart.defineExtensionMethods(firebase_auth.User, ['toString']);
-  firebase_auth.ConfirmationResult = class ConfirmationResult extends core.Object {
-    get verificationId() {
-      return this[_delegate$].verificationId;
-    }
-    confirm(verificationCode) {
-      return async.async(firebase_auth.UserCredential, (function* confirm() {
-        return new firebase_auth.UserCredential.__(this[_auth$], yield this[_delegate$].confirm(verificationCode));
-      }).bind(this));
-    }
-  };
-  (firebase_auth.ConfirmationResult.__ = function(_auth, _delegate) {
-    this[_auth$] = _auth;
-    this[_delegate$] = _delegate;
-    platform_interface_confirmation_result.ConfirmationResultPlatform.verifyExtends(this[_delegate$]);
-  }).prototype = firebase_auth.ConfirmationResult.prototype;
-  dart.addTypeTests(firebase_auth.ConfirmationResult);
-  dart.addTypeCaches(firebase_auth.ConfirmationResult);
-  dart.setMethodSignature(firebase_auth.ConfirmationResult, () => ({
-    __proto__: dart.getMethods(firebase_auth.ConfirmationResult.__proto__),
-    confirm: dart.fnType(async.Future$(firebase_auth.UserCredential), [core.String])
-  }));
-  dart.setGetterSignature(firebase_auth.ConfirmationResult, () => ({
-    __proto__: dart.getGetters(firebase_auth.ConfirmationResult.__proto__),
-    verificationId: core.String
-  }));
-  dart.setLibraryUri(firebase_auth.ConfirmationResult, I[1]);
-  dart.setFieldSignature(firebase_auth.ConfirmationResult, () => ({
-    __proto__: dart.getFields(firebase_auth.ConfirmationResult.__proto__),
-    [_delegate$]: dart.fieldType(platform_interface_confirmation_result.ConfirmationResultPlatform),
-    [_auth$]: dart.finalFieldType(firebase_auth.FirebaseAuth)
-  }));
-  var _name = dart.privateName(platform_interface_recaptcha_verifier_factory, "_name");
-  firebase_auth.RecaptchaVerifier = class RecaptchaVerifier extends core.Object {
-    static new(opts) {
-      let container = opts && 'container' in opts ? opts.container : null;
-      let size = opts && 'size' in opts ? opts.size : C[1] || CT.C1;
-      let theme = opts && 'theme' in opts ? opts.theme : C[2] || CT.C2;
-      let onSuccess = opts && 'onSuccess' in opts ? opts.onSuccess : null;
-      let onError = opts && 'onError' in opts ? opts.onError : null;
-      let onExpired = opts && 'onExpired' in opts ? opts.onExpired : null;
-      return new firebase_auth.RecaptchaVerifier.__(firebase_auth.RecaptchaVerifier._factory.delegateFor({container: container, size: size, theme: theme, onSuccess: onSuccess, onError: onError, onExpired: onExpired}));
-    }
-    get delegate() {
-      return this[_delegate$];
-    }
-    get type() {
-      return this[_delegate$].type;
-    }
-    clear() {
-      return this[_delegate$].clear();
-    }
-    render() {
-      return async.async(core.int, (function* render() {
-        return this[_delegate$].render();
-      }).bind(this));
-    }
-    verify() {
-      return async.async(core.String, (function* verify() {
-        return this[_delegate$].verify();
-      }).bind(this));
-    }
-  };
-  (firebase_auth.RecaptchaVerifier.__ = function(_delegate) {
-    this[_delegate$] = _delegate;
+  (radio._RadioPainter.new = function() {
+    radio._RadioPainter.__proto__.new.call(this);
     ;
-  }).prototype = firebase_auth.RecaptchaVerifier.prototype;
-  dart.addTypeTests(firebase_auth.RecaptchaVerifier);
-  dart.addTypeCaches(firebase_auth.RecaptchaVerifier);
-  dart.setMethodSignature(firebase_auth.RecaptchaVerifier, () => ({
-    __proto__: dart.getMethods(firebase_auth.RecaptchaVerifier.__proto__),
-    clear: dart.fnType(dart.void, []),
-    render: dart.fnType(async.Future$(core.int), []),
-    verify: dart.fnType(async.Future$(core.String), [])
+  }).prototype = radio._RadioPainter.prototype;
+  dart.addTypeTests(radio._RadioPainter);
+  dart.addTypeCaches(radio._RadioPainter);
+  dart.setMethodSignature(radio._RadioPainter, () => ({
+    __proto__: dart.getMethods(radio._RadioPainter.__proto__),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Size])
   }));
-  dart.setGetterSignature(firebase_auth.RecaptchaVerifier, () => ({
-    __proto__: dart.getGetters(firebase_auth.RecaptchaVerifier.__proto__),
-    delegate: platform_interface_recaptcha_verifier_factory.RecaptchaVerifierFactoryPlatform,
-    type: core.String
+  dart.setGetterSignature(radio._RadioPainter, () => ({
+    __proto__: dart.getGetters(radio._RadioPainter.__proto__),
+    [_repaint$]: dart.nullable(change_notifier.Listenable)
   }));
-  dart.setLibraryUri(firebase_auth.RecaptchaVerifier, I[1]);
-  dart.setFieldSignature(firebase_auth.RecaptchaVerifier, () => ({
-    __proto__: dart.getFields(firebase_auth.RecaptchaVerifier.__proto__),
-    [_delegate$]: dart.fieldType(platform_interface_recaptcha_verifier_factory.RecaptchaVerifierFactoryPlatform)
-  }));
-  dart.defineLazy(firebase_auth.RecaptchaVerifier, {
-    /*firebase_auth.RecaptchaVerifier._factory*/get _factory() {
-      return platform_interface_recaptcha_verifier_factory.RecaptchaVerifierFactoryPlatform.instance;
+  dart.setLibraryUri(radio._RadioPainter, I[1]);
+  dart.defineLazy(radio, {
+    /*radio._kOuterRadius*/get _kOuterRadius() {
+      return 8;
+    },
+    /*radio._kInnerRadius*/get _kInnerRadius() {
+      return 4.5;
     }
   }, false);
-  dart.trackLibraries("packages/firebase_auth/firebase_auth.dart", {
-    "package:firebase_auth/firebase_auth.dart": firebase_auth
+  dart.trackLibraries("packages/flutter/src/material/radio.dart", {
+    "package:flutter/src/material/radio.dart": radio
   }, {
-    "package:firebase_auth/firebase_auth.dart": ["src/firebase_auth.dart", "src/user_credential.dart", "src/user.dart", "src/confirmation_result.dart", "src/recaptcha_verifier.dart"]
-  }, '{"version":3,"sourceRoot":"","sources":["src/firebase_auth.dart","src/user_credential.dart","src/user.dart","src/confirmation_result.dart","src/recaptcha_verifier.dart"],"names":[],"mappings":"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","file":"../../../../../../../D:/packages/firebase_auth/firebase_auth.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["radio.dart"],"names":[],"mappings":"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","file":"../../../../../../../D:/packages/flutter/src/material/radio.dart.lib.js"}');
   // Exports:
   return {
-    firebase_auth: firebase_auth
+    src__material__radio: radio
   };
 }));
 
-//# sourceMappingURL=firebase_auth.dart.lib.js.map
+//# sourceMappingURL=radio.dart.lib.js.map

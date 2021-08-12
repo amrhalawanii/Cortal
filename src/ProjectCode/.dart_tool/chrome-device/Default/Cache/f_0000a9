@@ -1,461 +1,616 @@
-define(['dart_sdk'], (function load__packages__flare_flutter__base__math__transform_components_dart(dart_sdk) {
+define(['dart_sdk', 'packages/intl/src/intl/string_iterator.dart', 'packages/intl/number_symbols_data.dart', 'packages/intl/number_symbols.dart'], (function load__packages__intl__src__intl__number_format_parser_dart(dart_sdk, packages__intl__src__intl__string_iterator$46dart, packages__intl__number_symbols_data$46dart, packages__intl__number_symbols$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _native_typed_data = dart_sdk._native_typed_data;
-  const _interceptors = dart_sdk._interceptors;
-  const typed_data = dart_sdk.typed_data;
   const math = dart_sdk.math;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  var transform_components = Object.create(dart.library);
-  var mat2d = Object.create(dart.library);
-  var vec2d = Object.create(dart.library);
+  const string_iterator = packages__intl__src__intl__string_iterator$46dart.src__intl__string_iterator;
+  const number_symbols_data = packages__intl__number_symbols_data$46dart.number_symbols_data;
+  const number_symbols = packages__intl__number_symbols$46dart.number_symbols;
+  var number_format_parser = Object.create(dart.library);
+  var $round = dartx.round;
+  var $toUpperCase = dartx.toUpperCase;
   var $_get = dartx._get;
-  var $_set = dartx._set;
-  var $toString = dartx.toString;
-  var $sign = dartx.sign;
   dart._checkModuleNullSafetyMode(true);
-  var T = {
-    JSArrayOfdouble: () => (T.JSArrayOfdouble = dart.constFn(_interceptors.JSArray$(core.double)))()
-  };
   const CT = Object.create({
     _: () => (C, CT)
   });
-  var I = [
-    "package:flare_flutter/base/math/transform_components.dart",
-    "package:flare_flutter/base/math/mat2d.dart",
-    "package:flare_flutter/base/math/vec2d.dart"
-  ];
-  var _buffer = dart.privateName(transform_components, "_buffer");
-  transform_components.TransformComponents = class TransformComponents extends core.Object {
-    get rotation() {
-      return this[_buffer][$_get](4);
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: core.FormatException.prototype,
+        [FormatException_offset]: null,
+        [FormatException_source]: null,
+        [FormatException_message]: "Too many percent/permill"
+      });
     }
-    set rotation(value) {
-      this[_buffer][$_set](4, value);
+  }, false);
+  var C = [void 0];
+  var I = ["package:intl/src/intl/number_format_parser.dart"];
+  var negativePrefix = dart.privateName(number_format_parser, "NumberFormatParseResult.negativePrefix");
+  var positivePrefix = dart.privateName(number_format_parser, "NumberFormatParseResult.positivePrefix");
+  var negativeSuffix = dart.privateName(number_format_parser, "NumberFormatParseResult.negativeSuffix");
+  var positiveSuffix = dart.privateName(number_format_parser, "NumberFormatParseResult.positiveSuffix");
+  var multiplier = dart.privateName(number_format_parser, "NumberFormatParseResult.multiplier");
+  var minimumExponentDigits = dart.privateName(number_format_parser, "NumberFormatParseResult.minimumExponentDigits");
+  var maximumIntegerDigits = dart.privateName(number_format_parser, "NumberFormatParseResult.maximumIntegerDigits");
+  var minimumIntegerDigits = dart.privateName(number_format_parser, "NumberFormatParseResult.minimumIntegerDigits");
+  var maximumFractionDigits = dart.privateName(number_format_parser, "NumberFormatParseResult.maximumFractionDigits");
+  var minimumFractionDigits = dart.privateName(number_format_parser, "NumberFormatParseResult.minimumFractionDigits");
+  var groupingSize = dart.privateName(number_format_parser, "NumberFormatParseResult.groupingSize");
+  var finalGroupingSize = dart.privateName(number_format_parser, "NumberFormatParseResult.finalGroupingSize");
+  var decimalSeparatorAlwaysShown = dart.privateName(number_format_parser, "NumberFormatParseResult.decimalSeparatorAlwaysShown");
+  var useSignForPositiveExponent = dart.privateName(number_format_parser, "NumberFormatParseResult.useSignForPositiveExponent");
+  var useExponentialNotation = dart.privateName(number_format_parser, "NumberFormatParseResult.useExponentialNotation");
+  var decimalDigits$ = dart.privateName(number_format_parser, "NumberFormatParseResult.decimalDigits");
+  number_format_parser.NumberFormatParseResult = class NumberFormatParseResult extends core.Object {
+    get negativePrefix() {
+      return this[negativePrefix];
     }
-    get scale() {
-      return new vec2d.Vec2D.fromValues(this[_buffer][$_get](2), this[_buffer][$_get](3));
+    set negativePrefix(value) {
+      this[negativePrefix] = value;
     }
-    get scaleX() {
-      return this[_buffer][$_get](2);
+    get positivePrefix() {
+      return this[positivePrefix];
     }
-    set scaleX(value) {
-      this[_buffer][$_set](2, value);
+    set positivePrefix(value) {
+      this[positivePrefix] = value;
     }
-    get scaleY() {
-      return this[_buffer][$_get](3);
+    get negativeSuffix() {
+      return this[negativeSuffix];
     }
-    set scaleY(value) {
-      this[_buffer][$_set](3, value);
+    set negativeSuffix(value) {
+      this[negativeSuffix] = value;
     }
-    get skew() {
-      return this[_buffer][$_get](5);
+    get positiveSuffix() {
+      return this[positiveSuffix];
     }
-    set skew(value) {
-      this[_buffer][$_set](5, value);
+    set positiveSuffix(value) {
+      this[positiveSuffix] = value;
     }
-    get translation() {
-      return new vec2d.Vec2D.fromValues(this[_buffer][$_get](0), this[_buffer][$_get](1));
+    get multiplier() {
+      return this[multiplier];
     }
-    get values() {
-      return this[_buffer];
+    set multiplier(value) {
+      this[multiplier] = value;
     }
-    get x() {
-      return this[_buffer][$_get](0);
+    get minimumExponentDigits() {
+      return this[minimumExponentDigits];
     }
-    set x(value) {
-      this[_buffer][$_set](0, value);
+    set minimumExponentDigits(value) {
+      this[minimumExponentDigits] = value;
     }
-    get y() {
-      return this[_buffer][$_get](1);
+    get maximumIntegerDigits() {
+      return this[maximumIntegerDigits];
     }
-    set y(value) {
-      this[_buffer][$_set](1, value);
+    set maximumIntegerDigits(value) {
+      this[maximumIntegerDigits] = value;
     }
-    _get(index) {
-      return this[_buffer][$_get](index);
+    get minimumIntegerDigits() {
+      return this[minimumIntegerDigits];
     }
-    _set(index, value$) {
-      let value = value$;
-      this[_buffer][$_set](index, value);
-      return value$;
+    set minimumIntegerDigits(value) {
+      this[minimumIntegerDigits] = value;
+    }
+    get maximumFractionDigits() {
+      return this[maximumFractionDigits];
+    }
+    set maximumFractionDigits(value) {
+      this[maximumFractionDigits] = value;
+    }
+    get minimumFractionDigits() {
+      return this[minimumFractionDigits];
+    }
+    set minimumFractionDigits(value) {
+      this[minimumFractionDigits] = value;
+    }
+    get groupingSize() {
+      return this[groupingSize];
+    }
+    set groupingSize(value) {
+      this[groupingSize] = value;
+    }
+    get finalGroupingSize() {
+      return this[finalGroupingSize];
+    }
+    set finalGroupingSize(value) {
+      this[finalGroupingSize] = value;
+    }
+    get decimalSeparatorAlwaysShown() {
+      return this[decimalSeparatorAlwaysShown];
+    }
+    set decimalSeparatorAlwaysShown(value) {
+      this[decimalSeparatorAlwaysShown] = value;
+    }
+    get useSignForPositiveExponent() {
+      return this[useSignForPositiveExponent];
+    }
+    set useSignForPositiveExponent(value) {
+      this[useSignForPositiveExponent] = value;
+    }
+    get useExponentialNotation() {
+      return this[useExponentialNotation];
+    }
+    set useExponentialNotation(value) {
+      this[useExponentialNotation] = value;
+    }
+    get decimalDigits() {
+      return this[decimalDigits$];
+    }
+    set decimalDigits(value) {
+      this[decimalDigits$] = value;
+    }
+    get multiplierDigits() {
+      return (math.log(this.multiplier) / number_format_parser._ln10)[$round]();
     }
   };
-  (transform_components.TransformComponents.new = function() {
-    this[_buffer] = _native_typed_data.NativeFloat32List.fromList(T.JSArrayOfdouble().of([1.0, 0.0, 0.0, 1.0, 0.0, 0.0]));
+  (number_format_parser.NumberFormatParseResult.new = function(symbols, decimalDigits) {
+    this[positivePrefix] = "";
+    this[negativeSuffix] = "";
+    this[positiveSuffix] = "";
+    this[multiplier] = 1;
+    this[minimumExponentDigits] = 0;
+    this[maximumIntegerDigits] = 40;
+    this[minimumIntegerDigits] = 1;
+    this[maximumFractionDigits] = 3;
+    this[minimumFractionDigits] = 0;
+    this[groupingSize] = 3;
+    this[finalGroupingSize] = 3;
+    this[decimalSeparatorAlwaysShown] = false;
+    this[useSignForPositiveExponent] = false;
+    this[useExponentialNotation] = false;
+    this[decimalDigits$] = decimalDigits;
+    this[negativePrefix] = symbols.MINUS_SIGN;
     ;
-  }).prototype = transform_components.TransformComponents.prototype;
-  (transform_components.TransformComponents.clone = function(copy) {
-    this[_buffer] = _native_typed_data.NativeFloat32List.fromList(copy.values);
-    ;
-  }).prototype = transform_components.TransformComponents.prototype;
-  dart.addTypeTests(transform_components.TransformComponents);
-  dart.addTypeCaches(transform_components.TransformComponents);
-  dart.setMethodSignature(transform_components.TransformComponents, () => ({
-    __proto__: dart.getMethods(transform_components.TransformComponents.__proto__),
-    _get: dart.fnType(core.double, [core.int]),
-    _set: dart.fnType(dart.void, [core.int, core.double])
+  }).prototype = number_format_parser.NumberFormatParseResult.prototype;
+  dart.addTypeTests(number_format_parser.NumberFormatParseResult);
+  dart.addTypeCaches(number_format_parser.NumberFormatParseResult);
+  dart.setGetterSignature(number_format_parser.NumberFormatParseResult, () => ({
+    __proto__: dart.getGetters(number_format_parser.NumberFormatParseResult.__proto__),
+    multiplierDigits: core.int
   }));
-  dart.setGetterSignature(transform_components.TransformComponents, () => ({
-    __proto__: dart.getGetters(transform_components.TransformComponents.__proto__),
-    rotation: core.double,
-    scale: vec2d.Vec2D,
-    scaleX: core.double,
-    scaleY: core.double,
-    skew: core.double,
-    translation: vec2d.Vec2D,
-    values: typed_data.Float32List,
-    x: core.double,
-    y: core.double
+  dart.setLibraryUri(number_format_parser.NumberFormatParseResult, I[0]);
+  dart.setFieldSignature(number_format_parser.NumberFormatParseResult, () => ({
+    __proto__: dart.getFields(number_format_parser.NumberFormatParseResult.__proto__),
+    negativePrefix: dart.fieldType(core.String),
+    positivePrefix: dart.fieldType(core.String),
+    negativeSuffix: dart.fieldType(core.String),
+    positiveSuffix: dart.fieldType(core.String),
+    multiplier: dart.fieldType(core.int),
+    minimumExponentDigits: dart.fieldType(core.int),
+    maximumIntegerDigits: dart.fieldType(core.int),
+    minimumIntegerDigits: dart.fieldType(core.int),
+    maximumFractionDigits: dart.fieldType(core.int),
+    minimumFractionDigits: dart.fieldType(core.int),
+    groupingSize: dart.fieldType(core.int),
+    finalGroupingSize: dart.fieldType(core.int),
+    decimalSeparatorAlwaysShown: dart.fieldType(core.bool),
+    useSignForPositiveExponent: dart.fieldType(core.bool),
+    useExponentialNotation: dart.fieldType(core.bool),
+    decimalDigits: dart.fieldType(dart.nullable(core.int))
   }));
-  dart.setSetterSignature(transform_components.TransformComponents, () => ({
-    __proto__: dart.getSetters(transform_components.TransformComponents.__proto__),
-    rotation: core.double,
-    scaleX: core.double,
-    scaleY: core.double,
-    skew: core.double,
-    x: core.double,
-    y: core.double
-  }));
-  dart.setLibraryUri(transform_components.TransformComponents, I[0]);
-  dart.setFieldSignature(transform_components.TransformComponents, () => ({
-    __proto__: dart.getFields(transform_components.TransformComponents.__proto__),
-    [_buffer]: dart.finalFieldType(typed_data.Float32List)
-  }));
-  var _buffer$ = dart.privateName(mat2d, "_buffer");
-  mat2d.Mat2D = class Mat2D extends core.Object {
-    get mat4() {
-      return _native_typed_data.NativeFloat64List.fromList(T.JSArrayOfdouble().of([this[_buffer$][$_get](0), this[_buffer$][$_get](1), 0.0, 0.0, this[_buffer$][$_get](2), this[_buffer$][$_get](3), 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, this[_buffer$][$_get](4), this[_buffer$][$_get](5), 0.0, 1.0]));
+  var symbols$ = dart.privateName(number_format_parser, "NumberFormatParser.symbols");
+  var pattern = dart.privateName(number_format_parser, "NumberFormatParser.pattern");
+  var isForCurrency$ = dart.privateName(number_format_parser, "NumberFormatParser.isForCurrency");
+  var currencySymbol$ = dart.privateName(number_format_parser, "NumberFormatParser.currencySymbol");
+  var currencyName$ = dart.privateName(number_format_parser, "NumberFormatParser.currencyName");
+  var result = dart.privateName(number_format_parser, "NumberFormatParser.result");
+  var groupingSizeSetExplicitly = dart.privateName(number_format_parser, "NumberFormatParser.groupingSizeSetExplicitly");
+  var inQuote = dart.privateName(number_format_parser, "NumberFormatParser.inQuote");
+  var decimalPos = dart.privateName(number_format_parser, "NumberFormatParser.decimalPos");
+  var digitLeftCount = dart.privateName(number_format_parser, "NumberFormatParser.digitLeftCount");
+  var zeroDigitCount = dart.privateName(number_format_parser, "NumberFormatParser.zeroDigitCount");
+  var digitRightCount = dart.privateName(number_format_parser, "NumberFormatParser.digitRightCount");
+  var groupingCount = dart.privateName(number_format_parser, "NumberFormatParser.groupingCount");
+  var _parse = dart.privateName(number_format_parser, "_parse");
+  var _defaultDecimalDigits = dart.privateName(number_format_parser, "_defaultDecimalDigits");
+  var _parseAffix = dart.privateName(number_format_parser, "_parseAffix");
+  var _parseTrunk = dart.privateName(number_format_parser, "_parseTrunk");
+  var FormatException_offset = dart.privateName(core, "FormatException.offset");
+  var FormatException_source = dart.privateName(core, "FormatException.source");
+  var FormatException_message = dart.privateName(core, "FormatException.message");
+  number_format_parser.NumberFormatParser = class NumberFormatParser extends core.Object {
+    get symbols() {
+      return this[symbols$];
     }
-    get values() {
-      return this[_buffer$];
+    set symbols(value) {
+      super.symbols = value;
     }
-    _get(index) {
-      return this[_buffer$][$_get](index);
+    get pattern() {
+      return this[pattern];
     }
-    _set(index, value$) {
-      let value = value$;
-      this[_buffer$][$_set](index, value);
-      return value$;
+    set pattern(value) {
+      super.pattern = value;
     }
-    toString() {
-      return this[_buffer$][$toString]();
+    get isForCurrency() {
+      return this[isForCurrency$];
     }
-    static areEqual(a, b) {
-      return a._get(0) === b._get(0) && a._get(1) === b._get(1) && a._get(2) === b._get(2) && a._get(3) === b._get(3) && a._get(4) === b._get(4) && a._get(5) === b._get(5);
+    set isForCurrency(value) {
+      super.isForCurrency = value;
     }
-    static cCopy(o, a) {
-      o._set(0, a._get(0));
-      o._set(1, a._get(1));
-      o._set(2, a._get(2));
-      o._set(3, a._get(3));
-      o._set(4, a._get(4));
-      o._set(5, a._get(5));
+    get currencySymbol() {
+      return this[currencySymbol$];
     }
-    static compose(m, result) {
-      let r = result._get(4);
-      if (r !== 0.0) {
-        mat2d.Mat2D.fromRotation(m, r);
+    set currencySymbol(value) {
+      super.currencySymbol = value;
+    }
+    get currencyName() {
+      return this[currencyName$];
+    }
+    set currencyName(value) {
+      super.currencyName = value;
+    }
+    get result() {
+      return this[result];
+    }
+    set result(value) {
+      super.result = value;
+    }
+    get groupingSizeSetExplicitly() {
+      return this[groupingSizeSetExplicitly];
+    }
+    set groupingSizeSetExplicitly(value) {
+      this[groupingSizeSetExplicitly] = value;
+    }
+    get inQuote() {
+      return this[inQuote];
+    }
+    set inQuote(value) {
+      this[inQuote] = value;
+    }
+    get decimalPos() {
+      return this[decimalPos];
+    }
+    set decimalPos(value) {
+      this[decimalPos] = value;
+    }
+    get digitLeftCount() {
+      return this[digitLeftCount];
+    }
+    set digitLeftCount(value) {
+      this[digitLeftCount] = value;
+    }
+    get zeroDigitCount() {
+      return this[zeroDigitCount];
+    }
+    set zeroDigitCount(value) {
+      this[zeroDigitCount] = value;
+    }
+    get digitRightCount() {
+      return this[digitRightCount];
+    }
+    set digitRightCount(value) {
+      this[digitRightCount] = value;
+    }
+    get groupingCount() {
+      return this[groupingCount];
+    }
+    set groupingCount(value) {
+      this[groupingCount] = value;
+    }
+    static parse(symbols, input, isForCurrency, currencySymbol, currencyName, decimalDigits) {
+      let t0;
+      return input == null ? new number_format_parser.NumberFormatParseResult.new(symbols, decimalDigits) : (t0 = new number_format_parser.NumberFormatParser.new(symbols, input, isForCurrency, currencySymbol, currencyName, decimalDigits), (() => {
+        t0[_parse]();
+        return t0;
+      })()).result;
+    }
+    get [_defaultDecimalDigits]() {
+      let t0;
+      t0 = number_symbols_data.currencyFractionDigits[$_get](this.currencyName[$toUpperCase]());
+      return t0 == null ? dart.nullCheck(number_symbols_data.currencyFractionDigits[$_get]("DEFAULT")) : t0;
+    }
+    [_parse]() {
+      let t0;
+      this.result.positivePrefix = this[_parseAffix]();
+      let trunk = this[_parseTrunk]();
+      this.result.positiveSuffix = this[_parseAffix]();
+      if (this.pattern.current === ";") {
+        this.pattern.moveNext();
+        this.result.negativePrefix = this[_parseAffix]();
+        let trunkIterator = new string_iterator.StringIterator.new(trunk);
+        while (trunkIterator.moveNext()) {
+          let each = trunkIterator.current;
+          if (this.pattern.current != each && this.pattern.current != null) {
+            dart.throw(new core.FormatException.new("Positive and negative trunks must be the same", trunk));
+          }
+          this.pattern.moveNext();
+        }
+        this.result.negativeSuffix = this[_parseAffix]();
       } else {
-        mat2d.Mat2D.identity(m);
+        this.result.negativePrefix = this.result.negativePrefix + this.result.positivePrefix;
+        this.result.negativeSuffix = this.result.positiveSuffix + this.result.negativeSuffix;
       }
-      m._set(4, result._get(0));
-      m._set(5, result._get(1));
-      mat2d.Mat2D.scale(m, m, result.scale);
-      let sk = result._get(5);
-      if (sk !== 0.0) {
-        m._set(2, m._get(0) * sk + m._get(2));
-        m._set(3, m._get(1) * sk + m._get(3));
+      if (this.isForCurrency) {
+        t0 = this.result;
+        t0.decimalDigits == null ? t0.decimalDigits = this[_defaultDecimalDigits] : null;
+      }
+      if (this.result.decimalDigits != null) {
+        this.result.minimumFractionDigits = dart.nullCheck(this.result.decimalDigits);
+        this.result.maximumFractionDigits = dart.nullCheck(this.result.decimalDigits);
       }
     }
-    static copy(o, f) {
-      o._set(0, f._get(0));
-      o._set(1, f._get(1));
-      o._set(2, f._get(2));
-      o._set(3, f._get(3));
-      o._set(4, f._get(4));
-      o._set(5, f._get(5));
-    }
-    static copyFromList(o, f) {
-      o._set(0, f[$_get](0));
-      o._set(1, f[$_get](1));
-      o._set(2, f[$_get](2));
-      o._set(3, f[$_get](3));
-      o._set(4, f[$_get](4));
-      o._set(5, f[$_get](5));
-    }
-    static decompose(m, result) {
-      let m0 = m._get(0);
-      let m1 = m._get(1);
-      let m2 = m._get(2);
-      let m3 = m._get(3);
-      let rotation = math.atan2(m1, m0);
-      let denom = m0 * m0 + m1 * m1;
-      let scaleX = math.sqrt(denom);
-      let scaleY = scaleX === 0 ? 0.0 : (m0 * m3 - m2 * m1) / scaleX;
-      let skewX = math.atan2(m0 * m2 + m1 * m3, denom);
-      result._set(0, m._get(4));
-      result._set(1, m._get(5));
-      result._set(2, scaleX);
-      result._set(3, scaleY);
-      result._set(4, rotation);
-      result._set(5, skewX);
-    }
-    static fromRotation(o, rad) {
-      let s = math.sin(rad);
-      let c = math.cos(rad);
-      o._set(0, c);
-      o._set(1, s);
-      o._set(2, -s);
-      o._set(3, c);
-      o._set(4, 0.0);
-      o._set(5, 0.0);
-    }
-    static getScale(m, s) {
-      let x = m._get(0);
-      let y = m._get(1);
-      s._set(0, x[$sign] * math.sqrt(x * x + y * y));
-      x = m._get(2);
-      y = m._get(3);
-      s._set(1, y[$sign] * math.sqrt(x * x + y * y));
-    }
-    static identity(mat) {
-      mat._set(0, 1.0);
-      mat._set(1, 0.0);
-      mat._set(2, 0.0);
-      mat._set(3, 1.0);
-      mat._set(4, 0.0);
-      mat._set(5, 0.0);
-    }
-    static invert(o, a) {
-      let aa = a._get(0);
-      let ab = a._get(1);
-      let ac = a._get(2);
-      let ad = a._get(3);
-      let atx = a._get(4);
-      let aty = a._get(5);
-      let det = aa * ad - ab * ac;
-      if (det === 0.0) {
-        return false;
+    [_parseAffix]() {
+      let affix = new core.StringBuffer.new();
+      this.inQuote = false;
+      while (this.parseCharacterAffix(affix) && this.pattern.moveNext()) {
       }
-      det = 1.0 / det;
-      o._set(0, ad * det);
-      o._set(1, -ab * det);
-      o._set(2, -ac * det);
-      o._set(3, aa * det);
-      o._set(4, (ac * aty - ad * atx) * det);
-      o._set(5, (ab * atx - aa * aty) * det);
+      return affix.toString();
+    }
+    parseCharacterAffix(affix) {
+      let ch = this.pattern.current;
+      if (ch == null) return false;
+      if (ch === "'") {
+        if (this.pattern.peek === "'") {
+          this.pattern.moveNext();
+          affix.write("'");
+        } else {
+          this.inQuote = !this.inQuote;
+        }
+        return true;
+      }
+      if (this.inQuote) {
+        affix.write(ch);
+      } else {
+        switch (ch) {
+          case "#":
+          case "0":
+          case ",":
+          case ".":
+          case ";":
+          {
+            return false;
+          }
+          case "¤":
+          {
+            affix.write(this.currencySymbol);
+            break;
+          }
+          case "%":
+          {
+            if (this.result.multiplier !== 1 && this.result.multiplier !== 100) {
+              dart.throw(C[0] || CT.C0);
+            }
+            this.result.multiplier = 100;
+            affix.write(this.symbols.PERCENT);
+            break;
+          }
+          case "‰":
+          {
+            if (this.result.multiplier !== 1 && this.result.multiplier !== 1000) {
+              dart.throw(C[0] || CT.C0);
+            }
+            this.result.multiplier = 1000;
+            affix.write(this.symbols.PERMILL);
+            break;
+          }
+          default:
+          {
+            affix.write(ch);
+          }
+        }
+      }
       return true;
     }
-    static multiply(o, a, b) {
-      let a0 = a._get(0);
-      let a1 = a._get(1);
-      let a2 = a._get(2);
-      let a3 = a._get(3);
-      let a4 = a._get(4);
-      let a5 = a._get(5);
-      let b0 = b._get(0);
-      let b1 = b._get(1);
-      let b2 = b._get(2);
-      let b3 = b._get(3);
-      let b4 = b._get(4);
-      let b5 = b._get(5);
-      o._set(0, a0 * b0 + a2 * b1);
-      o._set(1, a1 * b0 + a3 * b1);
-      o._set(2, a0 * b2 + a2 * b3);
-      o._set(3, a1 * b2 + a3 * b3);
-      o._set(4, a0 * b4 + a2 * b5 + a4);
-      o._set(5, a1 * b4 + a3 * b5 + a5);
-    }
-    static scale(o, a, v) {
-      let a0 = a._get(0);
-      let a1 = a._get(1);
-      let a2 = a._get(2);
-      let a3 = a._get(3);
-      let a4 = a._get(4);
-      let a5 = a._get(5);
-      let v0 = v._get(0);
-      let v1 = v._get(1);
-      o._set(0, a0 * v0);
-      o._set(1, a1 * v0);
-      o._set(2, a2 * v1);
-      o._set(3, a3 * v1);
-      o._set(4, a4);
-      o._set(5, a5);
-    }
-  };
-  (mat2d.Mat2D.new = function() {
-    this[_buffer$] = _native_typed_data.NativeFloat32List.fromList(T.JSArrayOfdouble().of([1.0, 0.0, 0.0, 1.0, 0.0, 0.0]));
-    ;
-  }).prototype = mat2d.Mat2D.prototype;
-  (mat2d.Mat2D.clone = function(copy) {
-    this[_buffer$] = _native_typed_data.NativeFloat32List.fromList(copy.values);
-    ;
-  }).prototype = mat2d.Mat2D.prototype;
-  dart.addTypeTests(mat2d.Mat2D);
-  dart.addTypeCaches(mat2d.Mat2D);
-  dart.setMethodSignature(mat2d.Mat2D, () => ({
-    __proto__: dart.getMethods(mat2d.Mat2D.__proto__),
-    _get: dart.fnType(core.double, [core.int]),
-    _set: dart.fnType(dart.void, [core.int, core.double])
-  }));
-  dart.setGetterSignature(mat2d.Mat2D, () => ({
-    __proto__: dart.getGetters(mat2d.Mat2D.__proto__),
-    mat4: typed_data.Float64List,
-    values: typed_data.Float32List
-  }));
-  dart.setLibraryUri(mat2d.Mat2D, I[1]);
-  dart.setFieldSignature(mat2d.Mat2D, () => ({
-    __proto__: dart.getFields(mat2d.Mat2D.__proto__),
-    [_buffer$]: dart.finalFieldType(typed_data.Float32List)
-  }));
-  dart.defineExtensionMethods(mat2d.Mat2D, ['toString']);
-  var _buffer$0 = dart.privateName(vec2d, "_buffer");
-  vec2d.Vec2D = class Vec2D extends core.Object {
-    get values() {
-      return this[_buffer$0];
-    }
-    _get(index) {
-      return this[_buffer$0][$_get](index);
-    }
-    _set(index, value$) {
-      let value = value$;
-      this[_buffer$0][$_set](index, value);
-      return value$;
-    }
-    static copy(o, a) {
-      o._set(0, a._get(0));
-      o._set(1, a._get(1));
-    }
-    static copyFromList(o, a) {
-      o._set(0, a[$_get](0));
-      o._set(1, a[$_get](1));
-    }
-    static transformMat2D(o, a, m) {
-      let x = a._get(0);
-      let y = a._get(1);
-      o._set(0, m._get(0) * x + m._get(2) * y + m._get(4));
-      o._set(1, m._get(1) * x + m._get(3) * y + m._get(5));
-      return o;
-    }
-    static transformMat2(o, a, m) {
-      let x = a._get(0);
-      let y = a._get(1);
-      o._set(0, m._get(0) * x + m._get(2) * y);
-      o._set(1, m._get(1) * x + m._get(3) * y);
-      return o;
-    }
-    static subtract(o, a, b) {
-      o._set(0, a._get(0) - b._get(0));
-      o._set(1, a._get(1) - b._get(1));
-      return o;
-    }
-    static add(o, a, b) {
-      o._set(0, a._get(0) + b._get(0));
-      o._set(1, a._get(1) + b._get(1));
-      return o;
-    }
-    static scale(o, a, scale) {
-      o._set(0, a._get(0) * scale);
-      o._set(1, a._get(1) * scale);
-      return o;
-    }
-    static lerp(o, a, b, f) {
-      let ax = a._get(0);
-      let ay = a._get(1);
-      o._set(0, ax + f * (b._get(0) - ax));
-      o._set(1, ay + f * (b._get(1) - ay));
-      return o;
-    }
-    static length(a) {
-      let x = a._get(0);
-      let y = a._get(1);
-      return math.sqrt(x * x + y * y);
-    }
-    static squaredLength(a) {
-      let x = a._get(0);
-      let y = a._get(1);
-      return x * x + y * y;
-    }
-    static distance(a, b) {
-      let x = b._get(0) - a._get(0);
-      let y = b._get(1) - a._get(1);
-      return math.sqrt(x * x + y * y);
-    }
-    static squaredDistance(a, b) {
-      let x = b._get(0) - a._get(0);
-      let y = b._get(1) - a._get(1);
-      return x * x + y * y;
-    }
-    static negate(result, a) {
-      result._set(0, -1 * a._get(0));
-      result._set(1, -1 * a._get(1));
-      return result;
-    }
-    static normalize(result, a) {
-      let x = a._get(0);
-      let y = a._get(1);
-      let len = x * x + y * y;
-      if (len > 0.0) {
-        len = 1.0 / math.sqrt(len);
-        result._set(0, a._get(0) * len);
-        result._set(1, a._get(1) * len);
+    [_parseTrunk]() {
+      let loop = true;
+      let trunk = new core.StringBuffer.new();
+      while (this.pattern.current != null && loop) {
+        loop = this.parseTrunkCharacter(trunk);
       }
+      if (this.zeroDigitCount === 0 && this.digitLeftCount > 0 && this.decimalPos >= 0) {
+        let n = this.decimalPos === 0 ? 1 : this.decimalPos;
+        this.digitRightCount = this.digitLeftCount - n;
+        this.digitLeftCount = n - 1;
+        this.zeroDigitCount = 1;
+      }
+      if (this.decimalPos < 0 && this.digitRightCount > 0 || this.decimalPos >= 0 && (this.decimalPos < this.digitLeftCount || this.decimalPos > this.digitLeftCount + this.zeroDigitCount) || this.groupingCount === 0) {
+        dart.throw(new core.FormatException.new("Malformed pattern \"" + this.pattern.input + "\""));
+      }
+      let totalDigits = this.digitLeftCount + this.zeroDigitCount + this.digitRightCount;
+      this.result.maximumFractionDigits = this.decimalPos >= 0 ? totalDigits - this.decimalPos : 0;
+      if (this.decimalPos >= 0) {
+        this.result.minimumFractionDigits = this.digitLeftCount + this.zeroDigitCount - this.decimalPos;
+        if (this.result.minimumFractionDigits < 0) {
+          this.result.minimumFractionDigits = 0;
+        }
+      }
+      let effectiveDecimalPos = this.decimalPos >= 0 ? this.decimalPos : totalDigits;
+      this.result.minimumIntegerDigits = effectiveDecimalPos - this.digitLeftCount;
+      if (this.result.useExponentialNotation) {
+        this.result.maximumIntegerDigits = this.digitLeftCount + this.result.minimumIntegerDigits;
+        if (this.result.maximumFractionDigits === 0 && this.result.minimumIntegerDigits === 0) {
+          this.result.minimumIntegerDigits = 1;
+        }
+      }
+      this.result.finalGroupingSize = math.max(core.int, 0, this.groupingCount);
+      if (!this.groupingSizeSetExplicitly) {
+        this.result.groupingSize = this.result.finalGroupingSize;
+      }
+      this.result.decimalSeparatorAlwaysShown = this.decimalPos === 0 || this.decimalPos === totalDigits;
+      return trunk.toString();
     }
-    static dot(a, b) {
-      return a._get(0) * b._get(0) + a._get(1) * b._get(1);
-    }
-    static scaleAndAdd(result, a, b, scale) {
-      result._set(0, a._get(0) + b._get(0) * scale);
-      result._set(1, a._get(1) + b._get(1) * scale);
-      return result;
-    }
-    toString() {
-      return dart.str(this[_buffer$0][$_get](0)) + ", " + dart.str(this[_buffer$0][$_get](1));
+    parseTrunkCharacter(trunk) {
+      let t0;
+      let ch = this.pattern.current;
+      switch (ch) {
+        case "#":
+        {
+          if (this.zeroDigitCount > 0) {
+            this.digitRightCount = this.digitRightCount + 1;
+          } else {
+            this.digitLeftCount = this.digitLeftCount + 1;
+          }
+          if (this.groupingCount >= 0 && this.decimalPos < 0) {
+            this.groupingCount = this.groupingCount + 1;
+          }
+          break;
+        }
+        case "0":
+        {
+          if (this.digitRightCount > 0) {
+            dart.throw(new core.FormatException.new("Unexpected \"0\" in pattern \"" + this.pattern.input));
+          }
+          this.zeroDigitCount = this.zeroDigitCount + 1;
+          if (this.groupingCount >= 0 && this.decimalPos < 0) {
+            this.groupingCount = this.groupingCount + 1;
+          }
+          break;
+        }
+        case ",":
+        {
+          if (this.groupingCount > 0) {
+            this.groupingSizeSetExplicitly = true;
+            this.result.groupingSize = this.groupingCount;
+          }
+          this.groupingCount = 0;
+          break;
+        }
+        case ".":
+        {
+          if (this.decimalPos >= 0) {
+            dart.throw(new core.FormatException.new("Multiple decimal separators in pattern \"" + dart.str(this.pattern) + "\""));
+          }
+          this.decimalPos = this.digitLeftCount + this.zeroDigitCount + this.digitRightCount;
+          break;
+        }
+        case "E":
+        {
+          dart.dsend(trunk, 'write', [ch]);
+          if (this.result.useExponentialNotation) {
+            dart.throw(new core.FormatException.new("Multiple exponential symbols in pattern \"" + dart.str(this.pattern) + "\""));
+          }
+          this.result.useExponentialNotation = true;
+          this.result.minimumExponentDigits = 0;
+          this.pattern.moveNext();
+          let nextChar = this.pattern.current;
+          if (nextChar === "+") {
+            dart.dsend(trunk, 'write', [this.pattern.current]);
+            this.pattern.moveNext();
+            this.result.useSignForPositiveExponent = true;
+          }
+          while (this.pattern.current === "0") {
+            dart.dsend(trunk, 'write', [this.pattern.current]);
+            this.pattern.moveNext();
+            t0 = this.result;
+            t0.minimumExponentDigits = t0.minimumExponentDigits + 1;
+          }
+          if (this.digitLeftCount + this.zeroDigitCount < 1 || this.result.minimumExponentDigits < 1) {
+            dart.throw(new core.FormatException.new("Malformed exponential pattern \"" + dart.str(this.pattern) + "\""));
+          }
+          return false;
+        }
+        default:
+        {
+          return false;
+        }
+      }
+      dart.dsend(trunk, 'write', [ch]);
+      this.pattern.moveNext();
+      return true;
     }
   };
-  (vec2d.Vec2D.new = function() {
-    this[_buffer$0] = _native_typed_data.NativeFloat32List.fromList(T.JSArrayOfdouble().of([0.0, 0.0]));
-    ;
-  }).prototype = vec2d.Vec2D.prototype;
-  (vec2d.Vec2D.clone = function(copy) {
-    this[_buffer$0] = _native_typed_data.NativeFloat32List.fromList(copy[_buffer$0]);
-    ;
-  }).prototype = vec2d.Vec2D.prototype;
-  (vec2d.Vec2D.fromValues = function(x, y) {
-    this[_buffer$0] = _native_typed_data.NativeFloat32List.fromList(T.JSArrayOfdouble().of([x, y]));
-    ;
-  }).prototype = vec2d.Vec2D.prototype;
-  dart.addTypeTests(vec2d.Vec2D);
-  dart.addTypeCaches(vec2d.Vec2D);
-  dart.setMethodSignature(vec2d.Vec2D, () => ({
-    __proto__: dart.getMethods(vec2d.Vec2D.__proto__),
-    _get: dart.fnType(core.double, [core.int]),
-    _set: dart.fnType(dart.void, [core.int, core.double])
+  (number_format_parser.NumberFormatParser.new = function(symbols, input, isForCurrency, currencySymbol, currencyName, decimalDigits) {
+    this[groupingSizeSetExplicitly] = false;
+    this[inQuote] = false;
+    this[decimalPos] = -1;
+    this[digitLeftCount] = 0;
+    this[zeroDigitCount] = 0;
+    this[digitRightCount] = 0;
+    this[groupingCount] = -1;
+    this[symbols$] = symbols;
+    this[isForCurrency$] = isForCurrency;
+    this[currencySymbol$] = currencySymbol;
+    this[currencyName$] = currencyName;
+    this[result] = new number_format_parser.NumberFormatParseResult.new(symbols, decimalDigits);
+    this[pattern] = new string_iterator.StringIterator.new(input);
+    this.pattern.moveNext();
+  }).prototype = number_format_parser.NumberFormatParser.prototype;
+  dart.addTypeTests(number_format_parser.NumberFormatParser);
+  dart.addTypeCaches(number_format_parser.NumberFormatParser);
+  dart.setMethodSignature(number_format_parser.NumberFormatParser, () => ({
+    __proto__: dart.getMethods(number_format_parser.NumberFormatParser.__proto__),
+    [_parse]: dart.fnType(dart.void, []),
+    [_parseAffix]: dart.fnType(core.String, []),
+    parseCharacterAffix: dart.fnType(core.bool, [core.StringBuffer]),
+    [_parseTrunk]: dart.fnType(core.String, []),
+    parseTrunkCharacter: dart.fnType(core.bool, [dart.dynamic])
   }));
-  dart.setGetterSignature(vec2d.Vec2D, () => ({
-    __proto__: dart.getGetters(vec2d.Vec2D.__proto__),
-    values: typed_data.Float32List
+  dart.setGetterSignature(number_format_parser.NumberFormatParser, () => ({
+    __proto__: dart.getGetters(number_format_parser.NumberFormatParser.__proto__),
+    [_defaultDecimalDigits]: core.int
   }));
-  dart.setLibraryUri(vec2d.Vec2D, I[2]);
-  dart.setFieldSignature(vec2d.Vec2D, () => ({
-    __proto__: dart.getFields(vec2d.Vec2D.__proto__),
-    [_buffer$0]: dart.finalFieldType(typed_data.Float32List)
+  dart.setLibraryUri(number_format_parser.NumberFormatParser, I[0]);
+  dart.setFieldSignature(number_format_parser.NumberFormatParser, () => ({
+    __proto__: dart.getFields(number_format_parser.NumberFormatParser.__proto__),
+    symbols: dart.finalFieldType(number_symbols.NumberSymbols),
+    pattern: dart.finalFieldType(string_iterator.StringIterator),
+    isForCurrency: dart.finalFieldType(core.bool),
+    currencySymbol: dart.finalFieldType(core.String),
+    currencyName: dart.finalFieldType(core.String),
+    result: dart.finalFieldType(number_format_parser.NumberFormatParseResult),
+    groupingSizeSetExplicitly: dart.fieldType(core.bool),
+    inQuote: dart.fieldType(core.bool),
+    decimalPos: dart.fieldType(core.int),
+    digitLeftCount: dart.fieldType(core.int),
+    zeroDigitCount: dart.fieldType(core.int),
+    digitRightCount: dart.fieldType(core.int),
+    groupingCount: dart.fieldType(core.int)
   }));
-  dart.defineExtensionMethods(vec2d.Vec2D, ['toString']);
-  dart.trackLibraries("packages/flare_flutter/base/math/transform_components.dart", {
-    "package:flare_flutter/base/math/transform_components.dart": transform_components,
-    "package:flare_flutter/base/math/mat2d.dart": mat2d,
-    "package:flare_flutter/base/math/vec2d.dart": vec2d
+  dart.defineLazy(number_format_parser.NumberFormatParser, {
+    /*number_format_parser.NumberFormatParser.PATTERN_SEPARATOR*/get PATTERN_SEPARATOR() {
+      return ";";
+    },
+    /*number_format_parser.NumberFormatParser.QUOTE*/get QUOTE() {
+      return "'";
+    },
+    /*number_format_parser.NumberFormatParser.PATTERN_DIGIT*/get PATTERN_DIGIT() {
+      return "#";
+    },
+    /*number_format_parser.NumberFormatParser.PATTERN_ZERO_DIGIT*/get PATTERN_ZERO_DIGIT() {
+      return "0";
+    },
+    /*number_format_parser.NumberFormatParser.PATTERN_GROUPING_SEPARATOR*/get PATTERN_GROUPING_SEPARATOR() {
+      return ",";
+    },
+    /*number_format_parser.NumberFormatParser.PATTERN_DECIMAL_SEPARATOR*/get PATTERN_DECIMAL_SEPARATOR() {
+      return ".";
+    },
+    /*number_format_parser.NumberFormatParser.PATTERN_CURRENCY_SIGN*/get PATTERN_CURRENCY_SIGN() {
+      return "¤";
+    },
+    /*number_format_parser.NumberFormatParser.PATTERN_PER_MILLE*/get PATTERN_PER_MILLE() {
+      return "‰";
+    },
+    /*number_format_parser.NumberFormatParser.PER_MILLE_SCALE*/get PER_MILLE_SCALE() {
+      return 1000;
+    },
+    /*number_format_parser.NumberFormatParser.PATTERN_PERCENT*/get PATTERN_PERCENT() {
+      return "%";
+    },
+    /*number_format_parser.NumberFormatParser.PERCENT_SCALE*/get PERCENT_SCALE() {
+      return 100;
+    },
+    /*number_format_parser.NumberFormatParser.PATTERN_EXPONENT*/get PATTERN_EXPONENT() {
+      return "E";
+    },
+    /*number_format_parser.NumberFormatParser.PATTERN_PLUS*/get PATTERN_PLUS() {
+      return "+";
+    }
+  }, false);
+  dart.defineLazy(number_format_parser, {
+    /*number_format_parser._ln10*/get _ln10() {
+      return math.log(10);
+    }
+  }, false);
+  dart.trackLibraries("packages/intl/src/intl/number_format_parser.dart", {
+    "package:intl/src/intl/number_format_parser.dart": number_format_parser
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["transform_components.dart","mat2d.dart","vec2d.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../D:/packages/flare_flutter/base/math/transform_components.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["number_format_parser.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../D:/packages/intl/src/intl/number_format_parser.dart.lib.js"}');
   // Exports:
   return {
-    base__math__transform_components: transform_components,
-    base__math__mat2d: mat2d,
-    base__math__vec2d: vec2d
+    src__intl__number_format_parser: number_format_parser
   };
 }));
 
-//# sourceMappingURL=transform_components.dart.lib.js.map
+//# sourceMappingURL=number_format_parser.dart.lib.js.map

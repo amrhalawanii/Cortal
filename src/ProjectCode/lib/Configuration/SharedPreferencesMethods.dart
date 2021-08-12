@@ -1,13 +1,18 @@
-import 'package:cortal/Configuration/User.dart';
 import 'package:cortal/Helpers/Constants.dart';
+import 'package:cortal/Models/User.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesMethods {
+  ///---------------------------------------------------------------------
+  ///-----------------------| Shared Preferences Keys |-------------------
+  ///---------------------------------------------------------------------
   static String userID = "USERID";
   static String userEmail = "EMAIL";
-
   static String isAdmin = "NONE";
 
+  ///---------------------------------------------------------------------
+  ///-----------------------| Save & get if user is admin |---------------
+  ///---------------------------------------------------------------------
   static saveIsAdmin(String ia) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
 
@@ -20,6 +25,9 @@ class SharedPreferencesMethods {
     activeIsAdmin = await preferences.getString(isAdmin);
   }
 
+  ///---------------------------------------------------------------------
+  ///---------------------------| Save & get user info |------------------
+  ///---------------------------------------------------------------------
   static saveUserSharedPreferences(CortalUser user) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
 
@@ -47,6 +55,9 @@ class SharedPreferencesMethods {
     }
   }
 
+  ///---------------------------------------------------------------------
+  ///----------------------| Clear Shared Preferences |-------------------
+  ///---------------------------------------------------------------------
   static clearSharedPreferences() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     await preferences.setString(userID, "USERID");

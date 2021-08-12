@@ -1,545 +1,418 @@
-define(['dart_sdk', 'packages/file/src/interface/link.dart', 'packages/path/src/path_set.dart'], (function load__packages__file__src__forwarding__forwarding_link_dart(dart_sdk, packages__file__src__interface__link$46dart, packages__path__src__path_set$46dart) {
+define(['dart_sdk', 'packages/flutter/src/painting/box_fit.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flare_flutter/flare_cache_asset.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flare_flutter/flare_cache.dart', 'packages/flare_flutter/flare.dart', 'packages/flutter/src/scheduler/binding.dart', 'packages/flare_flutter/base/math/transform_components.dart', 'packages/flare_flutter/asset_provider.dart'], (function load__packages__flare_flutter__flare_render_box_dart(dart_sdk, packages__flutter__src__painting__box_fit$46dart, packages__flutter__src__painting__alignment$46dart, packages__flare_flutter__flare_cache_asset$46dart, packages__flutter__src__rendering__layer$46dart, packages__flare_flutter__flare_cache$46dart, packages__flare_flutter__flare$46dart, packages__flutter__src__scheduler__binding$46dart, packages__flare_flutter__base__math__transform_components$46dart, packages__flare_flutter__asset_provider$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const io = dart_sdk.io;
+  const collection = dart_sdk.collection;
+  const ui = dart_sdk.ui;
   const async = dart_sdk.async;
-  const convert = dart_sdk.convert;
-  const typed_data = dart_sdk.typed_data;
+  const math = dart_sdk.math;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const link = packages__file__src__interface__link$46dart.src__interface__link;
-  const file_system_entity = packages__file__src__interface__link$46dart.src__interface__file_system_entity;
-  const directory = packages__file__src__interface__link$46dart.src__interface__directory;
-  const file_system = packages__file__src__interface__link$46dart.src__interface__file_system;
-  const file = packages__file__src__interface__link$46dart.src__interface__file;
-  const context = packages__path__src__path_set$46dart.src__context;
-  var forwarding_link = Object.create(dart.library);
-  var forwarding_file_system_entity = Object.create(dart.library);
-  var forwarding_file_system = Object.create(dart.library);
-  var forwarding_file = Object.create(dart.library);
-  var forwarding_directory = Object.create(dart.library);
-  var forwarding = Object.create(dart.library);
-  var file$ = Object.create(dart.library);
-  var $map = dartx.map;
-  var $toList = dartx.toList;
+  const box_fit = packages__flutter__src__painting__box_fit$46dart.src__painting__box_fit;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const flare_cache_asset = packages__flare_flutter__flare_cache_asset$46dart.flare_cache_asset;
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const flare_cache = packages__flare_flutter__flare_cache$46dart.flare_cache;
+  const flare = packages__flare_flutter__flare$46dart.flare;
+  const binding = packages__flutter__src__scheduler__binding$46dart.src__scheduler__binding;
+  const mat2d = packages__flare_flutter__base__math__transform_components$46dart.base__math__mat2d;
+  const vec2d = packages__flare_flutter__base__math__transform_components$46dart.base__math__vec2d;
+  const asset_provider = packages__flare_flutter__asset_provider$46dart.asset_provider;
+  var flare_render_box = Object.create(dart.library);
+  var $isEmpty = dartx.isEmpty;
   dart._checkModuleNullSafetyMode(true);
+  var T = {
+    LinkedHashSetOfFlareCacheAsset: () => (T.LinkedHashSetOfFlareCacheAsset = dart.constFn(collection.LinkedHashSet$(flare_cache_asset.FlareCacheAsset)))(),
+    voidToNull: () => (T.voidToNull = dart.constFn(dart.fnType(core.Null, [dart.void])))(),
+    FlutterActorN: () => (T.FlutterActorN = dart.constFn(dart.nullable(flare.FlutterActor)))()
+  };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: io.FileMode.prototype,
-        [FileMode__mode]: 0
+        __proto__: box_fit.BoxFit.prototype,
+        [_name]: "BoxFit.fill",
+        index: 0
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: io.FileMode.prototype,
-        [FileMode__mode]: 1
+        __proto__: box_fit.BoxFit.prototype,
+        [_name]: "BoxFit.contain",
+        index: 1
       });
     },
     get C2() {
       return C[2] = dart.const({
-        __proto__: convert.Utf8Codec.prototype,
-        [Utf8Codec__allowMalformed]: false
+        __proto__: box_fit.BoxFit.prototype,
+        [_name]: "BoxFit.cover",
+        index: 2
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: box_fit.BoxFit.prototype,
+        [_name]: "BoxFit.fitHeight",
+        index: 4
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: box_fit.BoxFit.prototype,
+        [_name]: "BoxFit.fitWidth",
+        index: 3
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: box_fit.BoxFit.prototype,
+        [_name]: "BoxFit.none",
+        index: 5
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: box_fit.BoxFit.prototype,
+        [_name]: "BoxFit.scaleDown",
+        index: 6
       });
     }
   }, false);
-  var C = Array(3).fill(void 0);
-  var I = [
-    "package:file/src/forwarding/forwarding_link.dart",
-    "package:file/src/forwarding/forwarding_file_system_entity.dart",
-    "package:file/src/forwarding/forwarding_file_system.dart",
-    "package:file/src/forwarding/forwarding_file.dart",
-    "package:file/src/forwarding/forwarding_directory.dart"
-  ];
-  forwarding_link.ForwardingLink = class ForwardingLink extends core.Object {
-    wrap(delegate) {
-      io.Link.as(delegate);
-      return forwarding_link.ForwardingLink.as(this.wrapLink(delegate));
+  var C = Array(7).fill(void 0);
+  var I = ["package:flare_flutter/flare_render_box.dart"];
+  var _fit = dart.privateName(flare_render_box, "_fit");
+  var _alignment = dart.privateName(flare_render_box, "_alignment");
+  var _frameCallbackID = dart.privateName(flare_render_box, "_frameCallbackID");
+  var _lastFrameTime = dart.privateName(flare_render_box, "_lastFrameTime");
+  var _assets = dart.privateName(flare_render_box, "_assets");
+  var _useIntrinsicSize = dart.privateName(flare_render_box, "_useIntrinsicSize");
+  var _intrinsicSize = dart.privateName(flare_render_box, "_intrinsicSize");
+  var _isLoading = dart.privateName(flare_render_box, "_isLoading");
+  var _reloadQueued = dart.privateName(flare_render_box, "_reloadQueued");
+  var _unload = dart.privateName(flare_render_box, "_unload");
+  var _completeLoad = dart.privateName(flare_render_box, "_completeLoad");
+  var _beginFrame = dart.privateName(flare_render_box, "_beginFrame");
+  var _name = dart.privateName(box_fit, "_name");
+  flare_render_box.FlareRenderBox = class FlareRenderBox extends box.RenderBox {
+    get alignment() {
+      return this[_alignment];
     }
-    create(target, opts) {
-      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-      return async.async(link.Link, (function* create() {
-        return this.wrap(yield this.delegate.create(target, {recursive: recursive}));
-      }).bind(this));
-    }
-    createSync(target, opts) {
-      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-      return this.delegate.createSync(target, {recursive: recursive});
-    }
-    update(target) {
-      return async.async(link.Link, (function* update() {
-        return this.wrap(yield this.delegate.update(target));
-      }).bind(this));
-    }
-    updateSync(target) {
-      return this.delegate.updateSync(target);
-    }
-    target() {
-      return this.delegate.target();
-    }
-    targetSync() {
-      return this.delegate.targetSync();
-    }
-  };
-  (forwarding_link.ForwardingLink.new = function() {
-    ;
-  }).prototype = forwarding_link.ForwardingLink.prototype;
-  dart.addTypeTests(forwarding_link.ForwardingLink);
-  dart.addTypeCaches(forwarding_link.ForwardingLink);
-  forwarding_link.ForwardingLink[dart.implements] = () => [forwarding_file_system_entity.ForwardingFileSystemEntity$(link.Link, io.Link), link.Link];
-  dart.setMethodSignature(forwarding_link.ForwardingLink, () => ({
-    __proto__: dart.getMethods(forwarding_link.ForwardingLink.__proto__),
-    wrap: dart.fnType(forwarding_link.ForwardingLink, [dart.nullable(core.Object)]),
-    create: dart.fnType(async.Future$(link.Link), [core.String], {recursive: core.bool}, {}),
-    createSync: dart.fnType(dart.void, [core.String], {recursive: core.bool}, {}),
-    update: dart.fnType(async.Future$(link.Link), [core.String]),
-    updateSync: dart.fnType(dart.void, [core.String]),
-    target: dart.fnType(async.Future$(core.String), []),
-    targetSync: dart.fnType(core.String, [])
-  }));
-  dart.setLibraryUri(forwarding_link.ForwardingLink, I[0]);
-  const _is_ForwardingFileSystemEntity_default = Symbol('_is_ForwardingFileSystemEntity_default');
-  forwarding_file_system_entity.ForwardingFileSystemEntity$ = dart.generic((T, D) => {
-    class ForwardingFileSystemEntity extends core.Object {
-      get uri() {
-        return this.delegate.uri;
-      }
-      exists() {
-        return this.delegate.exists();
-      }
-      existsSync() {
-        return this.delegate.existsSync();
-      }
-      rename(newPath) {
-        return async.async(T, (function* rename() {
-          return this.wrap(D.as(yield this.delegate.rename(newPath)));
-        }).bind(this));
-      }
-      renameSync(newPath) {
-        return this.wrap(D.as(this.delegate.renameSync(newPath)));
-      }
-      resolveSymbolicLinks() {
-        return this.delegate.resolveSymbolicLinks();
-      }
-      resolveSymbolicLinksSync() {
-        return this.delegate.resolveSymbolicLinksSync();
-      }
-      stat() {
-        return this.delegate.stat();
-      }
-      statSync() {
-        return this.delegate.statSync();
-      }
-      delete(opts) {
-        let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-        return async.async(T, (function* $delete() {
-          return this.wrap(D.as(yield this.delegate.delete({recursive: recursive})));
-        }).bind(this));
-      }
-      deleteSync(opts) {
-        let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-        return this.delegate.deleteSync({recursive: recursive});
-      }
-      watch(opts) {
-        let events = opts && 'events' in opts ? opts.events : 15;
-        let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-        return this.delegate.watch({events: events, recursive: recursive});
-      }
-      get isAbsolute() {
-        return this.delegate.isAbsolute;
-      }
-      get absolute() {
-        return this.wrap(D.as(this.delegate.absolute));
-      }
-      get parent() {
-        return this.wrapDirectory(this.delegate.parent);
-      }
-      get path() {
-        return this.delegate.path;
-      }
-      get basename() {
-        return this.fileSystem.path.basename(this.path);
-      }
-      get dirname() {
-        return this.fileSystem.path.dirname(this.path);
+    set alignment(value) {
+      if (!value._equals(this[_alignment])) {
+        this[_alignment] = value;
+        this.markNeedsPaint();
       }
     }
-    (ForwardingFileSystemEntity.new = function() {
-      ;
-    }).prototype = ForwardingFileSystemEntity.prototype;
-    dart.addTypeTests(ForwardingFileSystemEntity);
-    ForwardingFileSystemEntity.prototype[_is_ForwardingFileSystemEntity_default] = true;
-    dart.addTypeCaches(ForwardingFileSystemEntity);
-    ForwardingFileSystemEntity[dart.implements] = () => [file_system_entity.FileSystemEntity];
-    dart.setMethodSignature(ForwardingFileSystemEntity, () => ({
-      __proto__: dart.getMethods(ForwardingFileSystemEntity.__proto__),
-      exists: dart.fnType(async.Future$(core.bool), []),
-      existsSync: dart.fnType(core.bool, []),
-      rename: dart.fnType(async.Future$(T), [core.String]),
-      renameSync: dart.fnType(T, [core.String]),
-      resolveSymbolicLinks: dart.fnType(async.Future$(core.String), []),
-      resolveSymbolicLinksSync: dart.fnType(core.String, []),
-      stat: dart.fnType(async.Future$(io.FileStat), []),
-      statSync: dart.fnType(io.FileStat, []),
-      delete: dart.fnType(async.Future$(T), [], {recursive: core.bool}, {}),
-      deleteSync: dart.fnType(dart.void, [], {recursive: core.bool}, {}),
-      watch: dart.fnType(async.Stream$(io.FileSystemEvent), [], {events: core.int, recursive: core.bool}, {})
-    }));
-    dart.setGetterSignature(ForwardingFileSystemEntity, () => ({
-      __proto__: dart.getGetters(ForwardingFileSystemEntity.__proto__),
-      uri: core.Uri,
-      isAbsolute: core.bool,
-      absolute: T,
-      parent: directory.Directory,
-      path: core.String,
-      basename: core.String,
-      dirname: core.String
-    }));
-    dart.setLibraryUri(ForwardingFileSystemEntity, I[1]);
-    return ForwardingFileSystemEntity;
-  });
-  forwarding_file_system_entity.ForwardingFileSystemEntity = forwarding_file_system_entity.ForwardingFileSystemEntity$();
-  dart.addTypeTests(forwarding_file_system_entity.ForwardingFileSystemEntity, _is_ForwardingFileSystemEntity_default);
-  var delegate$ = dart.privateName(forwarding_file_system, "ForwardingFileSystem.delegate");
-  forwarding_file_system.ForwardingFileSystem = class ForwardingFileSystem extends file_system.FileSystem {
-    get delegate() {
-      return this[delegate$];
+    get canLoad() {
+      return this.attached;
     }
-    set delegate(value) {
-      super.delegate = value;
+    get fit() {
+      return this[_fit];
     }
-    directory(path) {
-      return this.delegate.directory(path);
-    }
-    file(path) {
-      return this.delegate.file(path);
-    }
-    link(path) {
-      return this.delegate.link(path);
-    }
-    get path() {
-      return this.delegate.path;
-    }
-    get systemTempDirectory() {
-      return this.delegate.systemTempDirectory;
-    }
-    get currentDirectory() {
-      return this.delegate.currentDirectory;
-    }
-    set currentDirectory(path) {
-      return this.delegate.currentDirectory = path;
-    }
-    stat(path) {
-      return this.delegate.stat(path);
-    }
-    statSync(path) {
-      return this.delegate.statSync(path);
-    }
-    identical(path1, path2) {
-      return this.delegate.identical(path1, path2);
-    }
-    identicalSync(path1, path2) {
-      return this.delegate.identicalSync(path1, path2);
-    }
-    get isWatchSupported() {
-      return this.delegate.isWatchSupported;
-    }
-    type(path, opts) {
-      let followLinks = opts && 'followLinks' in opts ? opts.followLinks : true;
-      return this.delegate.type(path, {followLinks: followLinks});
-    }
-    typeSync(path, opts) {
-      let followLinks = opts && 'followLinks' in opts ? opts.followLinks : true;
-      return this.delegate.typeSync(path, {followLinks: followLinks});
-    }
-  };
-  (forwarding_file_system.ForwardingFileSystem.new = function(delegate) {
-    this[delegate$] = delegate;
-    forwarding_file_system.ForwardingFileSystem.__proto__.new.call(this);
-    ;
-  }).prototype = forwarding_file_system.ForwardingFileSystem.prototype;
-  dart.addTypeTests(forwarding_file_system.ForwardingFileSystem);
-  dart.addTypeCaches(forwarding_file_system.ForwardingFileSystem);
-  dart.setMethodSignature(forwarding_file_system.ForwardingFileSystem, () => ({
-    __proto__: dart.getMethods(forwarding_file_system.ForwardingFileSystem.__proto__),
-    directory: dart.fnType(directory.Directory, [dart.dynamic]),
-    file: dart.fnType(file.File, [dart.dynamic]),
-    link: dart.fnType(link.Link, [dart.dynamic]),
-    stat: dart.fnType(async.Future$(io.FileStat), [core.String]),
-    statSync: dart.fnType(io.FileStat, [core.String]),
-    identical: dart.fnType(async.Future$(core.bool), [core.String, core.String]),
-    identicalSync: dart.fnType(core.bool, [core.String, core.String]),
-    type: dart.fnType(async.Future$(io.FileSystemEntityType), [core.String], {followLinks: core.bool}, {}),
-    typeSync: dart.fnType(io.FileSystemEntityType, [core.String], {followLinks: core.bool}, {})
-  }));
-  dart.setGetterSignature(forwarding_file_system.ForwardingFileSystem, () => ({
-    __proto__: dart.getGetters(forwarding_file_system.ForwardingFileSystem.__proto__),
-    path: context.Context,
-    systemTempDirectory: directory.Directory,
-    currentDirectory: directory.Directory,
-    isWatchSupported: core.bool
-  }));
-  dart.setSetterSignature(forwarding_file_system.ForwardingFileSystem, () => ({
-    __proto__: dart.getSetters(forwarding_file_system.ForwardingFileSystem.__proto__),
-    currentDirectory: dart.dynamic
-  }));
-  dart.setLibraryUri(forwarding_file_system.ForwardingFileSystem, I[2]);
-  dart.setFieldSignature(forwarding_file_system.ForwardingFileSystem, () => ({
-    __proto__: dart.getFields(forwarding_file_system.ForwardingFileSystem.__proto__),
-    delegate: dart.finalFieldType(file_system.FileSystem)
-  }));
-  var FileMode__mode = dart.privateName(io, "FileMode._mode");
-  var Utf8Codec__allowMalformed = dart.privateName(convert, "Utf8Codec._allowMalformed");
-  forwarding_file.ForwardingFile = class ForwardingFile extends core.Object {
-    wrap(delegate) {
-      io.File.as(delegate);
-      return forwarding_file.ForwardingFile.as(this.wrapFile(delegate));
-    }
-    create(opts) {
-      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-      return async.async(file.File, (function* create() {
-        return this.wrap(yield this.delegate.create({recursive: recursive}));
-      }).bind(this));
-    }
-    createSync(opts) {
-      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-      return this.delegate.createSync({recursive: recursive});
-    }
-    copy(newPath) {
-      return async.async(file.File, (function* copy() {
-        return this.wrap(yield this.delegate.copy(newPath));
-      }).bind(this));
-    }
-    copySync(newPath) {
-      return this.wrap(this.delegate.copySync(newPath));
-    }
-    length() {
-      return this.delegate.length();
-    }
-    lengthSync() {
-      return this.delegate.lengthSync();
-    }
-    lastAccessed() {
-      return this.delegate.lastAccessed();
-    }
-    lastAccessedSync() {
-      return this.delegate.lastAccessedSync();
-    }
-    setLastAccessed(time) {
-      return this.delegate.setLastAccessed(time);
-    }
-    setLastAccessedSync(time) {
-      return this.delegate.setLastAccessedSync(time);
-    }
-    lastModified() {
-      return this.delegate.lastModified();
-    }
-    lastModifiedSync() {
-      return this.delegate.lastModifiedSync();
-    }
-    setLastModified(time) {
-      return this.delegate.setLastModified(time);
-    }
-    setLastModifiedSync(time) {
-      return this.delegate.setLastModifiedSync(time);
-    }
-    open(opts) {
-      let mode = opts && 'mode' in opts ? opts.mode : C[0] || CT.C0;
-      return this.delegate.open({mode: mode});
-    }
-    openSync(opts) {
-      let mode = opts && 'mode' in opts ? opts.mode : C[0] || CT.C0;
-      return this.delegate.openSync({mode: mode});
-    }
-    openRead(start = null, end = null) {
-      return this.delegate.openRead(start, end);
-    }
-    openWrite(opts) {
-      let mode = opts && 'mode' in opts ? opts.mode : C[1] || CT.C1;
-      let encoding = opts && 'encoding' in opts ? opts.encoding : C[2] || CT.C2;
-      return this.delegate.openWrite({mode: mode, encoding: encoding});
-    }
-    readAsBytes() {
-      return this.delegate.readAsBytes();
-    }
-    readAsBytesSync() {
-      return this.delegate.readAsBytesSync();
-    }
-    readAsString(opts) {
-      let encoding = opts && 'encoding' in opts ? opts.encoding : C[2] || CT.C2;
-      return this.delegate.readAsString({encoding: encoding});
-    }
-    readAsStringSync(opts) {
-      let encoding = opts && 'encoding' in opts ? opts.encoding : C[2] || CT.C2;
-      return this.delegate.readAsStringSync({encoding: encoding});
-    }
-    readAsLines(opts) {
-      let encoding = opts && 'encoding' in opts ? opts.encoding : C[2] || CT.C2;
-      return this.delegate.readAsLines({encoding: encoding});
-    }
-    readAsLinesSync(opts) {
-      let encoding = opts && 'encoding' in opts ? opts.encoding : C[2] || CT.C2;
-      return this.delegate.readAsLinesSync({encoding: encoding});
-    }
-    writeAsBytes(bytes, opts) {
-      let mode = opts && 'mode' in opts ? opts.mode : C[1] || CT.C1;
-      let flush = opts && 'flush' in opts ? opts.flush : false;
-      return async.async(file.File, (function* writeAsBytes() {
-        return this.wrap(yield this.delegate.writeAsBytes(bytes, {mode: mode, flush: flush}));
-      }).bind(this));
-    }
-    writeAsBytesSync(bytes, opts) {
-      let mode = opts && 'mode' in opts ? opts.mode : C[1] || CT.C1;
-      let flush = opts && 'flush' in opts ? opts.flush : false;
-      return this.delegate.writeAsBytesSync(bytes, {mode: mode, flush: flush});
-    }
-    writeAsString(contents, opts) {
-      let mode = opts && 'mode' in opts ? opts.mode : C[1] || CT.C1;
-      let encoding = opts && 'encoding' in opts ? opts.encoding : C[2] || CT.C2;
-      let flush = opts && 'flush' in opts ? opts.flush : false;
-      return async.async(file.File, (function* writeAsString() {
-        return this.wrap(yield this.delegate.writeAsString(contents, {mode: mode, encoding: encoding, flush: flush}));
-      }).bind(this));
-    }
-    writeAsStringSync(contents, opts) {
-      let mode = opts && 'mode' in opts ? opts.mode : C[1] || CT.C1;
-      let encoding = opts && 'encoding' in opts ? opts.encoding : C[2] || CT.C2;
-      let flush = opts && 'flush' in opts ? opts.flush : false;
-      return this.delegate.writeAsStringSync(contents, {mode: mode, encoding: encoding, flush: flush});
-    }
-  };
-  (forwarding_file.ForwardingFile.new = function() {
-    ;
-  }).prototype = forwarding_file.ForwardingFile.prototype;
-  dart.addTypeTests(forwarding_file.ForwardingFile);
-  dart.addTypeCaches(forwarding_file.ForwardingFile);
-  forwarding_file.ForwardingFile[dart.implements] = () => [forwarding_file_system_entity.ForwardingFileSystemEntity$(file.File, io.File), file.File];
-  dart.setMethodSignature(forwarding_file.ForwardingFile, () => ({
-    __proto__: dart.getMethods(forwarding_file.ForwardingFile.__proto__),
-    wrap: dart.fnType(forwarding_file.ForwardingFile, [dart.nullable(core.Object)]),
-    create: dart.fnType(async.Future$(file.File), [], {recursive: core.bool}, {}),
-    createSync: dart.fnType(dart.void, [], {recursive: core.bool}, {}),
-    copy: dart.fnType(async.Future$(file.File), [core.String]),
-    copySync: dart.fnType(file.File, [core.String]),
-    length: dart.fnType(async.Future$(core.int), []),
-    lengthSync: dart.fnType(core.int, []),
-    lastAccessed: dart.fnType(async.Future$(core.DateTime), []),
-    lastAccessedSync: dart.fnType(core.DateTime, []),
-    setLastAccessed: dart.fnType(async.Future, [core.DateTime]),
-    setLastAccessedSync: dart.fnType(dart.void, [core.DateTime]),
-    lastModified: dart.fnType(async.Future$(core.DateTime), []),
-    lastModifiedSync: dart.fnType(core.DateTime, []),
-    setLastModified: dart.fnType(async.Future, [core.DateTime]),
-    setLastModifiedSync: dart.fnType(dart.void, [core.DateTime]),
-    open: dart.fnType(async.Future$(io.RandomAccessFile), [], {mode: io.FileMode}, {}),
-    openSync: dart.fnType(io.RandomAccessFile, [], {mode: io.FileMode}, {}),
-    openRead: dart.fnType(async.Stream$(core.List$(core.int)), [], [dart.nullable(core.int), dart.nullable(core.int)]),
-    openWrite: dart.fnType(io.IOSink, [], {encoding: convert.Encoding, mode: io.FileMode}, {}),
-    readAsBytes: dart.fnType(async.Future$(typed_data.Uint8List), []),
-    readAsBytesSync: dart.fnType(typed_data.Uint8List, []),
-    readAsString: dart.fnType(async.Future$(core.String), [], {encoding: convert.Encoding}, {}),
-    readAsStringSync: dart.fnType(core.String, [], {encoding: convert.Encoding}, {}),
-    readAsLines: dart.fnType(async.Future$(core.List$(core.String)), [], {encoding: convert.Encoding}, {}),
-    readAsLinesSync: dart.fnType(core.List$(core.String), [], {encoding: convert.Encoding}, {}),
-    writeAsBytes: dart.fnType(async.Future$(file.File), [core.List$(core.int)], {flush: core.bool, mode: io.FileMode}, {}),
-    writeAsBytesSync: dart.fnType(dart.void, [core.List$(core.int)], {flush: core.bool, mode: io.FileMode}, {}),
-    writeAsString: dart.fnType(async.Future$(file.File), [core.String], {encoding: convert.Encoding, flush: core.bool, mode: io.FileMode}, {}),
-    writeAsStringSync: dart.fnType(dart.void, [core.String], {encoding: convert.Encoding, flush: core.bool, mode: io.FileMode}, {})
-  }));
-  dart.setLibraryUri(forwarding_file.ForwardingFile, I[3]);
-  var _wrap = dart.privateName(forwarding_directory, "_wrap");
-  const _is_ForwardingDirectory_default = Symbol('_is_ForwardingDirectory_default');
-  forwarding_directory.ForwardingDirectory$ = dart.generic(T => {
-    class ForwardingDirectory extends core.Object {
-      wrap(delegate) {
-        io.Directory.as(delegate);
-        return T.as(this.wrapDirectory(delegate));
+    set fit(value) {
+      if (value !== this[_fit]) {
+        this[_fit] = value;
+        this.markNeedsPaint();
       }
-      create(opts) {
-        let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-        return async.async(directory.Directory, (function* create() {
-          return this.wrap(yield this.delegate.create({recursive: recursive}));
-        }).bind(this));
+    }
+    get intrinsicSize() {
+      return this[_intrinsicSize];
+    }
+    set intrinsicSize(value) {
+      if (this[_intrinsicSize]._equals(value)) {
+        return;
       }
-      createSync(opts) {
-        let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-        return this.delegate.createSync({recursive: recursive});
+      this[_intrinsicSize] = value;
+      if (this.parent != null) {
+        this.markNeedsLayoutForSizedByParentChange();
       }
-      createTemp(prefix = null) {
-        return async.async(directory.Directory, (function* createTemp() {
-          return this.wrap(yield this.delegate.createTemp(prefix));
-        }).bind(this));
+    }
+    get isLoading() {
+      return this[_isLoading];
+    }
+    get sizedByParent() {
+      return !this[_useIntrinsicSize] || this[_intrinsicSize]._equals(ui.Size.zero);
+    }
+    get useIntrinsicSize() {
+      return this[_useIntrinsicSize];
+    }
+    set useIntrinsicSize(value) {
+      if (this[_useIntrinsicSize] === value) {
+        return;
       }
-      createTempSync(prefix = null) {
-        return this.wrap(this.delegate.createTempSync(prefix));
+      this[_useIntrinsicSize] = value;
+      if (this.parent != null) {
+        this.markNeedsLayoutForSizedByParentChange();
       }
-      list(opts) {
-        let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-        let followLinks = opts && 'followLinks' in opts ? opts.followLinks : true;
-        return this.delegate.list({recursive: recursive, followLinks: followLinks}).map(file_system_entity.FileSystemEntity, dart.bind(this, _wrap));
+    }
+    attach(owner) {
+      object.PipelineOwner.as(owner);
+      super.attach(owner);
+      this.updatePlayState();
+      if (this[_assets][$isEmpty]) {
+        this.load();
       }
-      listSync(opts) {
-        let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-        let followLinks = opts && 'followLinks' in opts ? opts.followLinks : true;
-        return this.delegate.listSync({recursive: recursive, followLinks: followLinks})[$map](file_system_entity.FileSystemEntity, dart.bind(this, _wrap))[$toList]();
+    }
+    coldLoad() {
+      return async.async(dart.void, function* coldLoad() {
+      });
+    }
+    detach() {
+      super.detach();
+      this.dispose();
+    }
+    dispose() {
+      this.updatePlayState();
+      this[_unload]();
+    }
+    getWarmFlare(assetProvider) {
+      let asset = flare_cache.getWarmActor(assetProvider);
+      if (!this.attached || asset == null) {
+        return null;
       }
-      [_wrap](entity) {
-        if (io.File.is(entity)) {
-          return this.wrapFile(entity);
-        } else if (io.Directory.is(entity)) {
-          return this.wrapDirectory(entity);
-        } else if (io.Link.is(entity)) {
-          return this.wrapLink(entity);
+      this[_assets].add(asset);
+      asset.ref();
+      return asset.actor;
+    }
+    hitTestSelf(screenOffset) {
+      return true;
+    }
+    load() {
+      if (!this.canLoad) {
+        return;
+      }
+      if (this[_isLoading]) {
+        this[_reloadQueued] = true;
+        return;
+      }
+      this[_isLoading] = true;
+      this[_unload]();
+      if (!this.warmLoad()) {
+        this.coldLoad().then(core.Null, dart.fn(_ => {
+          this[_completeLoad]();
+        }, T.voidToNull()));
+      } else {
+        this[_completeLoad]();
+      }
+    }
+    loadFlare(assetProvider) {
+      return async.async(T.FlutterActorN(), (function* loadFlare() {
+        let asset = (yield flare_cache.cachedActor(assetProvider));
+        if (!this.attached) {
+          return null;
         }
-        dart.throw(new io.FileSystemException.new("Unsupported type: " + dart.str(entity), entity.path));
+        this[_assets].add(asset);
+        asset.ref();
+        return asset.actor;
+      }).bind(this));
+    }
+    onUnload() {
+    }
+    paint(context, offset) {
+      let t0, t0$, t0$0;
+      if (this.isPlaying) {
+        if (this[_frameCallbackID] !== -1) {
+          t0 = binding.SchedulerBinding.instance;
+          t0 == null ? null : t0.cancelFrameCallbackWithId(this[_frameCallbackID]);
+        }
+        this[_frameCallbackID] = (t0$0 = (t0$ = binding.SchedulerBinding.instance, t0$ == null ? null : t0$.scheduleFrameCallback(dart.bind(this, _beginFrame))), t0$0 == null ? -1 : t0$0);
+      }
+      let canvas = context.canvas;
+      let bounds = this.aabb;
+      let contentWidth = bounds._get(2) - bounds._get(0);
+      let contentHeight = bounds._get(3) - bounds._get(1);
+      let x = -1 * bounds._get(0) - contentWidth / 2.0 - this[_alignment].x * contentWidth / 2.0;
+      let y = -1 * bounds._get(1) - contentHeight / 2.0 - this[_alignment].y * contentHeight / 2.0;
+      let scaleX = 1.0;
+      let scaleY = 1.0;
+      canvas.save();
+      this.prePaint(canvas, offset);
+      switch (this[_fit]) {
+        case C[0] || CT.C0:
+        {
+          scaleX = this.size.width / contentWidth;
+          scaleY = this.size.height / contentHeight;
+          break;
+        }
+        case C[1] || CT.C1:
+        {
+          let minScale = math.min(core.double, this.size.width / contentWidth, this.size.height / contentHeight);
+          scaleX = scaleY = minScale;
+          break;
+        }
+        case C[2] || CT.C2:
+        {
+          let maxScale = math.max(core.double, this.size.width / contentWidth, this.size.height / contentHeight);
+          scaleX = scaleY = maxScale;
+          break;
+        }
+        case C[3] || CT.C3:
+        {
+          let minScale = this.size.height / contentHeight;
+          scaleX = scaleY = minScale;
+          break;
+        }
+        case C[4] || CT.C4:
+        {
+          let minScale = this.size.width / contentWidth;
+          scaleX = scaleY = minScale;
+          break;
+        }
+        case C[5] || CT.C5:
+        {
+          scaleX = scaleY = 1.0;
+          break;
+        }
+        case C[6] || CT.C6:
+        {
+          let minScale = math.min(core.double, this.size.width / contentWidth, this.size.height / contentHeight);
+          scaleX = scaleY = minScale < 1.0 ? minScale : 1.0;
+          break;
+        }
+      }
+      let transform = new mat2d.Mat2D.new();
+      transform._set(4, offset.dx + this.size.width / 2.0 + this[_alignment].x * this.size.width / 2.0);
+      transform._set(5, offset.dy + this.size.height / 2.0 + this[_alignment].y * this.size.height / 2.0);
+      mat2d.Mat2D.scale(transform, transform, new vec2d.Vec2D.fromValues(scaleX, scaleY));
+      let center = new mat2d.Mat2D.new();
+      center._set(4, x);
+      center._set(5, y);
+      mat2d.Mat2D.multiply(transform, transform, center);
+      canvas.translate(offset.dx + this.size.width / 2.0 + this[_alignment].x * this.size.width / 2.0, offset.dy + this.size.height / 2.0 + this[_alignment].y * this.size.height / 2.0);
+      canvas.scale(scaleX, scaleY);
+      canvas.translate(x, y);
+      this.paintFlare(canvas, transform);
+      canvas.restore();
+      this.postPaint(canvas, offset);
+    }
+    performLayout() {
+      if (!this.sizedByParent) {
+        this.size = this.constraints.constrain(this[_intrinsicSize]);
       }
     }
-    (ForwardingDirectory.new = function() {
-      ;
-    }).prototype = ForwardingDirectory.prototype;
-    dart.addTypeTests(ForwardingDirectory);
-    ForwardingDirectory.prototype[_is_ForwardingDirectory_default] = true;
-    dart.addTypeCaches(ForwardingDirectory);
-    ForwardingDirectory[dart.implements] = () => [forwarding_file_system_entity.ForwardingFileSystemEntity$(T, io.Directory), directory.Directory];
-    dart.setMethodSignature(ForwardingDirectory, () => ({
-      __proto__: dart.getMethods(ForwardingDirectory.__proto__),
-      wrap: dart.fnType(T, [dart.nullable(core.Object)]),
-      create: dart.fnType(async.Future$(directory.Directory), [], {recursive: core.bool}, {}),
-      createSync: dart.fnType(dart.void, [], {recursive: core.bool}, {}),
-      createTemp: dart.fnType(async.Future$(directory.Directory), [], [dart.nullable(core.String)]),
-      createTempSync: dart.fnType(directory.Directory, [], [dart.nullable(core.String)]),
-      list: dart.fnType(async.Stream$(file_system_entity.FileSystemEntity), [], {followLinks: core.bool, recursive: core.bool}, {}),
-      listSync: dart.fnType(core.List$(file_system_entity.FileSystemEntity), [], {followLinks: core.bool, recursive: core.bool}, {}),
-      [_wrap]: dart.fnType(file_system_entity.FileSystemEntity, [io.FileSystemEntity])
-    }));
-    dart.setLibraryUri(ForwardingDirectory, I[4]);
-    return ForwardingDirectory;
-  });
-  forwarding_directory.ForwardingDirectory = forwarding_directory.ForwardingDirectory$();
-  dart.addTypeTests(forwarding_directory.ForwardingDirectory, _is_ForwardingDirectory_default);
-  dart.trackLibraries("packages/file/src/forwarding/forwarding_link.dart", {
-    "package:file/src/forwarding/forwarding_link.dart": forwarding_link,
-    "package:file/src/forwarding/forwarding_file_system_entity.dart": forwarding_file_system_entity,
-    "package:file/src/forwarding/forwarding_file_system.dart": forwarding_file_system,
-    "package:file/src/forwarding/forwarding_file.dart": forwarding_file,
-    "package:file/src/forwarding/forwarding_directory.dart": forwarding_directory,
-    "package:file/src/forwarding.dart": forwarding,
-    "package:file/file.dart": file$
+    performResize() {
+      this.size = this[_useIntrinsicSize] ? this.constraints.smallest : this.constraints.biggest;
+    }
+    postPaint(canvas, offset) {
+    }
+    prePaint(canvas, offset) {
+    }
+    updatePlayState() {
+      let t0;
+      if (this.isPlaying && this.attached) {
+        this.markNeedsPaint();
+      } else {
+        this[_lastFrameTime] = -1;
+        if (this[_frameCallbackID] !== -1) {
+          t0 = binding.SchedulerBinding.instance;
+          t0 == null ? null : t0.cancelFrameCallbackWithId(this[_frameCallbackID]);
+        }
+      }
+    }
+    warmLoad() {
+      return false;
+    }
+    [_beginFrame](timestamp) {
+      this[_frameCallbackID] = -1;
+      let t = timestamp.inMicroseconds / 1000000;
+      let elapsedSeconds = this[_lastFrameTime] === -1 ? 0.0 : t - this[_lastFrameTime];
+      this[_lastFrameTime] = t;
+      this.advance(elapsedSeconds);
+      if (!this.isPlaying) {
+        this[_lastFrameTime] = -1;
+      }
+      this.markNeedsPaint();
+    }
+    [_completeLoad]() {
+      this[_isLoading] = false;
+      if (this[_reloadQueued]) {
+        this[_reloadQueued] = false;
+        this.load();
+      }
+    }
+    [_unload]() {
+      for (let asset of this[_assets]) {
+        asset.deref();
+      }
+      this[_assets].clear();
+      this.onUnload();
+    }
+  };
+  (flare_render_box.FlareRenderBox.new = function() {
+    this[_fit] = box_fit.BoxFit.contain;
+    this[_alignment] = alignment.Alignment.center;
+    this[_frameCallbackID] = -1;
+    this[_lastFrameTime] = -1;
+    this[_assets] = T.LinkedHashSetOfFlareCacheAsset().new();
+    this[_useIntrinsicSize] = false;
+    this[_intrinsicSize] = ui.Size.zero;
+    this[_isLoading] = false;
+    this[_reloadQueued] = false;
+    flare_render_box.FlareRenderBox.__proto__.new.call(this);
+    ;
+  }).prototype = flare_render_box.FlareRenderBox.prototype;
+  dart.addTypeTests(flare_render_box.FlareRenderBox);
+  dart.addTypeCaches(flare_render_box.FlareRenderBox);
+  dart.setMethodSignature(flare_render_box.FlareRenderBox, () => ({
+    __proto__: dart.getMethods(flare_render_box.FlareRenderBox.__proto__),
+    coldLoad: dart.fnType(async.Future$(dart.void), []),
+    dispose: dart.fnType(dart.void, []),
+    getWarmFlare: dart.fnType(dart.nullable(flare.FlutterActor), [asset_provider.AssetProvider]),
+    load: dart.fnType(dart.void, []),
+    loadFlare: dart.fnType(async.Future$(dart.nullable(flare.FlutterActor)), [asset_provider.AssetProvider]),
+    onUnload: dart.fnType(dart.void, []),
+    postPaint: dart.fnType(dart.void, [ui.Canvas, ui.Offset]),
+    prePaint: dart.fnType(dart.void, [ui.Canvas, ui.Offset]),
+    updatePlayState: dart.fnType(dart.void, []),
+    warmLoad: dart.fnType(core.bool, []),
+    [_beginFrame]: dart.fnType(dart.void, [core.Duration]),
+    [_completeLoad]: dart.fnType(dart.void, []),
+    [_unload]: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(flare_render_box.FlareRenderBox, () => ({
+    __proto__: dart.getGetters(flare_render_box.FlareRenderBox.__proto__),
+    alignment: alignment.Alignment,
+    canLoad: core.bool,
+    fit: box_fit.BoxFit,
+    intrinsicSize: ui.Size,
+    isLoading: core.bool,
+    useIntrinsicSize: core.bool
+  }));
+  dart.setSetterSignature(flare_render_box.FlareRenderBox, () => ({
+    __proto__: dart.getSetters(flare_render_box.FlareRenderBox.__proto__),
+    alignment: alignment.Alignment,
+    fit: box_fit.BoxFit,
+    intrinsicSize: ui.Size,
+    useIntrinsicSize: core.bool
+  }));
+  dart.setLibraryUri(flare_render_box.FlareRenderBox, I[0]);
+  dart.setFieldSignature(flare_render_box.FlareRenderBox, () => ({
+    __proto__: dart.getFields(flare_render_box.FlareRenderBox.__proto__),
+    [_fit]: dart.fieldType(box_fit.BoxFit),
+    [_alignment]: dart.fieldType(alignment.Alignment),
+    [_frameCallbackID]: dart.fieldType(core.int),
+    [_lastFrameTime]: dart.fieldType(core.double),
+    [_assets]: dart.finalFieldType(core.Set$(flare_cache_asset.FlareCacheAsset)),
+    [_useIntrinsicSize]: dart.fieldType(core.bool),
+    [_intrinsicSize]: dart.fieldType(ui.Size),
+    [_isLoading]: dart.fieldType(core.bool),
+    [_reloadQueued]: dart.fieldType(core.bool)
+  }));
+  dart.defineLazy(flare_render_box.FlareRenderBox, {
+    /*flare_render_box.FlareRenderBox._notPlayingFlag*/get _notPlayingFlag() {
+      return -1;
+    }
+  }, false);
+  dart.trackLibraries("packages/flare_flutter/flare_render_box.dart", {
+    "package:flare_flutter/flare_render_box.dart": flare_render_box
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["forwarding_link.dart","forwarding_file_system_entity.dart","forwarding_file_system.dart","forwarding_file.dart","forwarding_directory.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../D:/packages/file/src/forwarding/forwarding_link.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["flare_render_box.dart"],"names":[],"mappings":"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","file":"../../../../../../../D:/packages/flare_flutter/flare_render_box.dart.lib.js"}');
   // Exports:
   return {
-    src__forwarding__forwarding_link: forwarding_link,
-    src__forwarding__forwarding_file_system_entity: forwarding_file_system_entity,
-    src__forwarding__forwarding_file_system: forwarding_file_system,
-    src__forwarding__forwarding_file: forwarding_file,
-    src__forwarding__forwarding_directory: forwarding_directory,
-    src__forwarding: forwarding,
-    file: file$
+    flare_render_box: flare_render_box
   };
 }));
 
-//# sourceMappingURL=forwarding_link.dart.lib.js.map
+//# sourceMappingURL=flare_render_box.dart.lib.js.map

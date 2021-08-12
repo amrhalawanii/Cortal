@@ -1,7 +1,5 @@
 import 'package:cortal/Configuration/auth.dart';
 import 'package:cortal/Helpers/Constants.dart';
-import 'package:cortal/Helpers/ShowMessage.dart';
-import 'package:cortal/Pages/Portal/AdminPanel/AdminPanel.dart';
 import 'package:cortal/Pages/Registration/Login/LoginPage.dart';
 import 'package:cortal/UI_Elements/Circular_progrss.dart';
 import 'package:flutter/material.dart';
@@ -24,11 +22,12 @@ class _SignUpFormState extends State<SignUpForm> {
 
   String _email = "";
   String _password = "";
-  String _confirmationPassword = "";
   bool _obsecurePassword = true;
   String _userGender = "other";
 
   final _passwordController = TextEditingController();
+
+  ///------------------| Check if all fields are valid |------------------
   checkFields() {
     final form = _formKey.currentState;
     if (form!.validate()) {
@@ -39,6 +38,7 @@ class _SignUpFormState extends State<SignUpForm> {
     return false;
   }
 
+  ///------------------| Subit form & Sign Up  |------------------
   _submitSignUpForm() async {
     FocusScope.of(context).unfocus();
 
@@ -46,6 +46,8 @@ class _SignUpFormState extends State<SignUpForm> {
       setState(() {
         _isLoading = true;
       });
+
+      /// Sets Gender
       if (_gender == Gender.male) {
         setState(() {
           _userGender = "male";
@@ -56,6 +58,7 @@ class _SignUpFormState extends State<SignUpForm> {
         });
       }
 
+      ///------------------| Create Account Function |------------------
       await authServices()
           .createAccount(context, _email, _password, _userGender);
     }

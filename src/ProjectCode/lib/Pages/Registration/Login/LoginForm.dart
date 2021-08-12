@@ -1,6 +1,5 @@
 import 'package:cortal/Configuration/auth.dart';
 import 'package:cortal/Helpers/Constants.dart';
-import 'package:cortal/Pages/Portal/AllComplaintsPage.dart';
 import 'package:cortal/Pages/Registration/Signup/SignUpPage.dart';
 import 'package:cortal/UI_Elements/Circular_progrss.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +16,7 @@ class _LoginFormState extends State<LoginForm> {
   bool _isLoading = false;
 
   final GlobalKey<FormState> _formKey = GlobalKey();
+
   String _email = "";
   String _password = "";
 
@@ -41,6 +41,8 @@ class _LoginFormState extends State<LoginForm> {
       setState(() {
         _isLoading = true;
       });
+
+      ///!=============================| Checks if admin  trying to sign in|=============================
 
       if (_email != "admin") {
         await authServices().signIn(context, _email, _password).then((c) {

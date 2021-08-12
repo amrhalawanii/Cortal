@@ -1,11 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cortal/Configuration/SharedPreferencesMethods.dart';
-import 'package:cortal/Configuration/User.dart';
 import 'package:cortal/Helpers/Constants.dart';
 import 'package:cortal/Helpers/ShowMessage.dart';
+import 'package:cortal/Models/User.dart';
 import 'package:cortal/Pages/Portal/AdminPanel/AdminPanel.dart';
 import 'package:cortal/Pages/Portal/AllComplaintsPage.dart';
-import 'package:cortal/Pages/Registration/Login/LoginPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -119,9 +118,4 @@ class authServices {
       ShowMessage().showErrorDialog(context, "Error", e.toString());
     });
   }
-
-  //------------------------------------------------------------------------------------------------
-  //---------------------------------------- SignOut Function ----------------------------------------
-  //--------------------------------------------------------------------------------------------------
-
 }

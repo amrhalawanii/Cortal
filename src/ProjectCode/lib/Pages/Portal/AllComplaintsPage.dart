@@ -1,10 +1,7 @@
-import 'dart:convert';
-
-import 'package:cortal/Configuration/Complaint.dart';
 import 'package:cortal/Configuration/SharedPreferencesMethods.dart';
 import 'package:cortal/Configuration/api_manager.dart';
-import 'package:cortal/Configuration/auth.dart';
 import 'package:cortal/Helpers/Constants.dart';
+import 'package:cortal/Models/Complaint.dart';
 import 'package:cortal/Pages/Portal/AddComplaintPage.dart';
 import 'package:cortal/Pages/Registration/Login/LoginPage.dart';
 import 'package:cortal/UI_Elements/Background.dart';
@@ -28,13 +25,11 @@ class _AllComplaintsPageState extends State<AllComplaintsPage> {
   @override
   void initState() {
     Future.delayed(Duration.zero).then((_) {
-      API_Manager().get_complaints(context, activeUser!.userId).then((list) {
+      API_Manager().get_All_complaints(context).then((list) {
         setState(() {
           complaints = list;
           _isLoading = false;
         });
-
-        // print(complaintsList);
       });
     });
     super.initState();

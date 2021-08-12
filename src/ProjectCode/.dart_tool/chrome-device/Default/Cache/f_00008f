@@ -1,1781 +1,564 @@
-define(['dart_sdk', 'packages/flare_flutter/flare_actor.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/painting/box_fit.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/button_bar.dart', 'packages/awesome_dialog/src/anims/anims.dart', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/widgets/will_pop_scope.dart', 'packages/awesome_dialog/src/vertical_stack_header_dialog.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/awesome_dialog/src/animated_button.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/widgets/icon_data.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/painting/borders.dart'], (function load__packages__awesome_dialog__src__anims__flare_header_dart(dart_sdk, packages__flare_flutter__flare_actor$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__painting__box_fit$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__button_bar$46dart, packages__awesome_dialog__src__anims__anims$46dart, packages__flutter__src__animation__curves$46dart, packages__flutter__src__widgets__will_pop_scope$46dart, packages__awesome_dialog__src__vertical_stack_header_dialog$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__awesome_dialog__src__animated_button$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__widgets__icon_data$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__painting__borders$46dart) {
+define(['dart_sdk', 'packages/flutter/src/painting/image_stream.dart', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/scheduler/binding.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__painting__image_cache_dart(dart_sdk, packages__flutter__src__painting__image_stream$46dart, packages__flutter__src__foundation__object$46dart, packages__flutter__src__scheduler__binding$46dart, packages__flutter__src__foundation__debug$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const async = dart_sdk.async;
+  const _js_helper = dart_sdk._js_helper;
+  const developer = dart_sdk.developer;
+  const _interceptors = dart_sdk._interceptors;
   const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const flare_actor = packages__flare_flutter__flare_actor$46dart.flare_actor;
-  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
-  const box_fit = packages__flutter__src__painting__box_fit$46dart.src__painting__box_fit;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
-  const dialog = packages__flutter__src__material__button_bar$46dart.src__material__dialog;
-  const anims = packages__awesome_dialog__src__anims__anims$46dart.src__anims__anims;
-  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
-  const will_pop_scope = packages__flutter__src__widgets__will_pop_scope$46dart.src__widgets__will_pop_scope;
-  const vertical_stack_header_dialog = packages__awesome_dialog__src__vertical_stack_header_dialog$46dart.src__vertical_stack_header_dialog;
-  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-  const animated_button = packages__awesome_dialog__src__animated_button$46dart.src__animated_button;
-  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
-  const icon_data = packages__flutter__src__widgets__icon_data$46dart.src__widgets__icon_data;
-  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
-  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
-  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
-  var flare_header = Object.create(dart.library);
-  var awesome_dialog = Object.create(dart.library);
+  const image_stream = packages__flutter__src__painting__image_stream$46dart.src__painting__image_stream;
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  const binding = packages__flutter__src__scheduler__binding$46dart.src__scheduler__binding;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  var image_cache = Object.create(dart.library);
+  var $length = dartx.length;
+  var $values = dartx.values;
+  var $clear = dartx.clear;
+  var $remove = dartx.remove;
+  var $_set = dartx._set;
+  var $putIfAbsent = dartx.putIfAbsent;
+  var $toString = dartx.toString;
+  var $_get = dartx._get;
+  var $containsKey = dartx.containsKey;
+  var $first = dartx.first;
+  var $keys = dartx.keys;
+  var $runtimeType = dartx.runtimeType;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    StringTovoid: () => (T.StringTovoid = dart.constFn(dart.fnType(dart.void, [core.String])))(),
-    dynamicTodynamic: () => (T.dynamicTodynamic = dart.constFn(dart.fnType(dart.dynamic, [dart.dynamic])))(),
-    BuildContextToWidget: () => (T.BuildContextToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext])))(),
-    dynamicToNull: () => (T.dynamicToNull = dart.constFn(dart.fnType(core.Null, [dart.dynamic])))(),
-    VoidToNull: () => (T.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))(),
-    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))()
+    LinkedMapOfObject$_PendingImage: () => (T.LinkedMapOfObject$_PendingImage = dart.constFn(_js_helper.LinkedMap$(core.Object, image_cache._PendingImage)))(),
+    LinkedMapOfObject$_CachedImage: () => (T.LinkedMapOfObject$_CachedImage = dart.constFn(_js_helper.LinkedMap$(core.Object, image_cache._CachedImage)))(),
+    LinkedMapOfObject$_LiveImage: () => (T.LinkedMapOfObject$_LiveImage = dart.constFn(_js_helper.LinkedMap$(core.Object, image_cache._LiveImage)))(),
+    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    VoidTo_LiveImage: () => (T.VoidTo_LiveImage = dart.constFn(dart.fnType(image_cache._LiveImage, [])))(),
+    ImageInfoN: () => (T.ImageInfoN = dart.constFn(dart.nullable(image_stream.ImageInfo)))(),
+    ImageInfoNAndboolTovoid: () => (T.ImageInfoNAndboolTovoid = dart.constFn(dart.fnType(dart.void, [T.ImageInfoN(), core.bool])))(),
+    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
+    DurationTovoid: () => (T.DurationTovoid = dart.constFn(dart.fnType(dart.void, [core.Duration])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
-  dart.defineLazy(CT, {
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "filename",
-        [_Location_column]: 11,
-        [_Location_line]: 16,
-        [_Location_file]: null
-      });
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "alignment",
-        [_Location_column]: 11,
-        [_Location_line]: 17,
-        [_Location_file]: null
-      });
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "fit",
-        [_Location_column]: 11,
-        [_Location_line]: 18,
-        [_Location_file]: null
-      });
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "animation",
-        [_Location_column]: 11,
-        [_Location_line]: 19,
-        [_Location_file]: null
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "callback",
-        [_Location_column]: 11,
-        [_Location_line]: 20,
-        [_Location_file]: null
-      });
-    },
-    get C1() {
-      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4, C[5] || CT.C5, C[6] || CT.C6], widget_inspector._Location);
-    },
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[1] || CT.C1,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 15,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/anims/flare_header.dart"
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: awesome_dialog.DialogType.prototype,
-        [_name$]: "DialogType.INFO",
-        index: 0
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "filename",
-        [_Location_column]: 15,
-        [_Location_line]: 25,
-        [_Location_file]: null
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "alignment",
-        [_Location_column]: 11,
-        [_Location_line]: 27,
-        [_Location_file]: null
-      });
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "fit",
-        [_Location_column]: 11,
-        [_Location_line]: 28,
-        [_Location_file]: null
-      });
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "animation",
-        [_Location_column]: 11,
-        [_Location_line]: 29,
-        [_Location_file]: null
-      });
-    },
-    get C9() {
-      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11, C[12] || CT.C12, C[13] || CT.C13], widget_inspector._Location);
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[9] || CT.C9,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 23,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/anims/flare_header.dart"
-      });
-    },
-    get C14() {
-      return C[14] = dart.const({
-        __proto__: awesome_dialog.DialogType.prototype,
-        [_name$]: "DialogType.INFO_REVERSED",
-        index: 1
-      });
-    },
-    get C17() {
-      return C[17] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "filename",
-        [_Location_column]: 11,
-        [_Location_line]: 33,
-        [_Location_file]: null
-      });
-    },
-    get C18() {
-      return C[18] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "alignment",
-        [_Location_column]: 11,
-        [_Location_line]: 34,
-        [_Location_file]: null
-      });
-    },
-    get C19() {
-      return C[19] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "fit",
-        [_Location_column]: 11,
-        [_Location_line]: 35,
-        [_Location_file]: null
-      });
-    },
-    get C20() {
-      return C[20] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "animation",
-        [_Location_column]: 11,
-        [_Location_line]: 36,
-        [_Location_file]: null
-      });
-    },
-    get C21() {
-      return C[21] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "callback",
-        [_Location_column]: 11,
-        [_Location_line]: 37,
-        [_Location_file]: null
-      });
-    },
-    get C16() {
-      return C[16] = dart.constList([C[17] || CT.C17, C[18] || CT.C18, C[19] || CT.C19, C[20] || CT.C20, C[21] || CT.C21], widget_inspector._Location);
-    },
-    get C15() {
-      return C[15] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[16] || CT.C16,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 32,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/anims/flare_header.dart"
-      });
-    },
-    get C22() {
-      return C[22] = dart.const({
-        __proto__: awesome_dialog.DialogType.prototype,
-        [_name$]: "DialogType.QUESTION",
-        index: 5
-      });
-    },
-    get C25() {
-      return C[25] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "filename",
-        [_Location_column]: 15,
-        [_Location_line]: 42,
-        [_Location_file]: null
-      });
-    },
-    get C26() {
-      return C[26] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "alignment",
-        [_Location_column]: 11,
-        [_Location_line]: 44,
-        [_Location_file]: null
-      });
-    },
-    get C27() {
-      return C[27] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "fit",
-        [_Location_column]: 11,
-        [_Location_line]: 45,
-        [_Location_file]: null
-      });
-    },
-    get C28() {
-      return C[28] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "animation",
-        [_Location_column]: 11,
-        [_Location_line]: 46,
-        [_Location_file]: null
-      });
-    },
-    get C24() {
-      return C[24] = dart.constList([C[25] || CT.C25, C[26] || CT.C26, C[27] || CT.C27, C[28] || CT.C28], widget_inspector._Location);
-    },
-    get C23() {
-      return C[23] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[24] || CT.C24,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 40,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/anims/flare_header.dart"
-      });
-    },
-    get C29() {
-      return C[29] = dart.const({
-        __proto__: awesome_dialog.DialogType.prototype,
-        [_name$]: "DialogType.WARNING",
-        index: 2
-      });
-    },
-    get C32() {
-      return C[32] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "filename",
-        [_Location_column]: 11,
-        [_Location_line]: 50,
-        [_Location_file]: null
-      });
-    },
-    get C33() {
-      return C[33] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "alignment",
-        [_Location_column]: 11,
-        [_Location_line]: 51,
-        [_Location_file]: null
-      });
-    },
-    get C34() {
-      return C[34] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "fit",
-        [_Location_column]: 11,
-        [_Location_line]: 52,
-        [_Location_file]: null
-      });
-    },
-    get C35() {
-      return C[35] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "animation",
-        [_Location_column]: 11,
-        [_Location_line]: 53,
-        [_Location_file]: null
-      });
-    },
-    get C31() {
-      return C[31] = dart.constList([C[32] || CT.C32, C[33] || CT.C33, C[34] || CT.C34, C[35] || CT.C35], widget_inspector._Location);
-    },
-    get C30() {
-      return C[30] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[31] || CT.C31,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 49,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/anims/flare_header.dart"
-      });
-    },
-    get C36() {
-      return C[36] = dart.const({
-        __proto__: awesome_dialog.DialogType.prototype,
-        [_name$]: "DialogType.ERROR",
-        index: 3
-      });
-    },
-    get C39() {
-      return C[39] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "filename",
-        [_Location_column]: 15,
-        [_Location_line]: 58,
-        [_Location_file]: null
-      });
-    },
-    get C40() {
-      return C[40] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "alignment",
-        [_Location_column]: 11,
-        [_Location_line]: 60,
-        [_Location_file]: null
-      });
-    },
-    get C41() {
-      return C[41] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "fit",
-        [_Location_column]: 11,
-        [_Location_line]: 61,
-        [_Location_file]: null
-      });
-    },
-    get C42() {
-      return C[42] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "animation",
-        [_Location_column]: 11,
-        [_Location_line]: 62,
-        [_Location_file]: null
-      });
-    },
-    get C38() {
-      return C[38] = dart.constList([C[39] || CT.C39, C[40] || CT.C40, C[41] || CT.C41, C[42] || CT.C42], widget_inspector._Location);
-    },
-    get C37() {
-      return C[37] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[38] || CT.C38,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 56,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/anims/flare_header.dart"
-      });
-    },
-    get C43() {
-      return C[43] = dart.const({
-        __proto__: awesome_dialog.DialogType.prototype,
-        [_name$]: "DialogType.SUCCES",
-        index: 4
-      });
-    },
-    get C46() {
-      return C[46] = dart.constList([], widget_inspector._Location);
-    },
-    get C45() {
-      return C[45] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[46] || CT.C46,
-        [_Location_name]: null,
-        [_Location_column]: 22,
-        [_Location_line]: 65,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/src/anims/flare_header.dart"
-      });
-    },
-    get C44() {
-      return C[44] = dart.const({
-        __proto__: basic.SizedBox.prototype,
-        [Widget__location]: C[45] || CT.C45,
-        [Widget_key]: null,
-        [SingleChildRenderObjectWidget_child]: null,
-        [SizedBox_height]: 0,
-        [SizedBox_width]: 0
-      });
-    },
-    get C47() {
-      return C[47] = dart.const({
-        __proto__: awesome_dialog.DialogType.prototype,
-        [_name$]: "DialogType.NO_HEADER",
-        index: 6
-      });
-    },
-    get C48() {
-      return C[48] = dart.constList([C[7] || CT.C7, C[14] || CT.C14, C[29] || CT.C29, C[36] || CT.C36, C[43] || CT.C43, C[22] || CT.C22, C[47] || CT.C47], awesome_dialog.DialogType);
-    },
-    get C49() {
-      return C[49] = dart.const({
-        __proto__: awesome_dialog.AnimType.prototype,
-        [_name$]: "AnimType.SCALE",
-        index: 0
-      });
-    },
-    get C50() {
-      return C[50] = dart.const({
-        __proto__: awesome_dialog.AnimType.prototype,
-        [_name$]: "AnimType.LEFTSLIDE",
-        index: 1
-      });
-    },
-    get C51() {
-      return C[51] = dart.const({
-        __proto__: awesome_dialog.AnimType.prototype,
-        [_name$]: "AnimType.RIGHSLIDE",
-        index: 2
-      });
-    },
-    get C52() {
-      return C[52] = dart.const({
-        __proto__: awesome_dialog.AnimType.prototype,
-        [_name$]: "AnimType.BOTTOMSLIDE",
-        index: 3
-      });
-    },
-    get C53() {
-      return C[53] = dart.const({
-        __proto__: awesome_dialog.AnimType.prototype,
-        [_name$]: "AnimType.TOPSLIDE",
-        index: 4
-      });
-    },
-    get C54() {
-      return C[54] = dart.constList([C[49] || CT.C49, C[50] || CT.C50, C[51] || CT.C51, C[52] || CT.C52, C[53] || CT.C53], awesome_dialog.AnimType);
-    },
-    get C55() {
-      return C[55] = dart.const({
-        __proto__: awesome_dialog.DismissType.prototype,
-        [_name$]: "DismissType.BTN_OK",
-        index: 0
-      });
-    },
-    get C56() {
-      return C[56] = dart.const({
-        __proto__: awesome_dialog.DismissType.prototype,
-        [_name$]: "DismissType.BTN_CANCEL",
-        index: 1
-      });
-    },
-    get C57() {
-      return C[57] = dart.const({
-        __proto__: awesome_dialog.DismissType.prototype,
-        [_name$]: "DismissType.TOP_ICON",
-        index: 2
-      });
-    },
-    get C58() {
-      return C[58] = dart.const({
-        __proto__: awesome_dialog.DismissType.prototype,
-        [_name$]: "DismissType.OTHER",
-        index: 3
-      });
-    },
-    get C59() {
-      return C[59] = dart.constList([C[55] || CT.C55, C[56] || CT.C56, C[57] || CT.C57, C[58] || CT.C58], awesome_dialog.DismissType);
-    },
-    get C60() {
-      return C[60] = dart.const({
-        __proto__: alignment.Alignment.prototype,
-        [Alignment_y]: 0,
-        [Alignment_x]: 0
-      });
-    },
-    get C63() {
-      return C[63] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "scale",
-        [_Location_column]: 21,
-        [_Location_line]: 167,
-        [_Location_file]: null
-      });
-    },
-    get C64() {
-      return C[64] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "fade",
-        [_Location_column]: 21,
-        [_Location_line]: 168,
-        [_Location_file]: null
-      });
-    },
-    get C65() {
-      return C[65] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "curve",
-        [_Location_column]: 21,
-        [_Location_line]: 169,
-        [_Location_file]: null
-      });
-    },
-    get C66() {
-      return C[66] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 21,
-        [_Location_line]: 170,
-        [_Location_file]: null
-      });
-    },
-    get C62() {
-      return C[62] = dart.constList([C[63] || CT.C63, C[64] || CT.C64, C[65] || CT.C65, C[66] || CT.C66], widget_inspector._Location);
-    },
-    get C61() {
-      return C[61] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[62] || CT.C62,
-        [_Location_name]: null,
-        [_Location_column]: 24,
-        [_Location_line]: 166,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/awesome_dialog.dart"
-      });
-    },
-    get C69() {
-      return C[69] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "from",
-        [_Location_column]: 31,
-        [_Location_line]: 173,
-        [_Location_file]: null
-      });
-    },
-    get C70() {
-      return C[70] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 53,
-        [_Location_line]: 173,
-        [_Location_file]: null
-      });
-    },
-    get C68() {
-      return C[68] = dart.constList([C[69] || CT.C69, C[70] || CT.C70], widget_inspector._Location);
-    },
-    get C67() {
-      return C[67] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[68] || CT.C68,
-        [_Location_name]: null,
-        [_Location_column]: 24,
-        [_Location_line]: 173,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/awesome_dialog.dart"
-      });
-    },
-    get C73() {
-      return C[73] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "from",
-        [_Location_column]: 31,
-        [_Location_line]: 176,
-        [_Location_file]: null
-      });
-    },
-    get C74() {
-      return C[74] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 54,
-        [_Location_line]: 176,
-        [_Location_file]: null
-      });
-    },
-    get C72() {
-      return C[72] = dart.constList([C[73] || CT.C73, C[74] || CT.C74], widget_inspector._Location);
-    },
-    get C71() {
-      return C[71] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[72] || CT.C72,
-        [_Location_name]: null,
-        [_Location_column]: 24,
-        [_Location_line]: 176,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/awesome_dialog.dart"
-      });
-    },
-    get C77() {
-      return C[77] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "from",
-        [_Location_column]: 31,
-        [_Location_line]: 179,
-        [_Location_file]: null
-      });
-    },
-    get C78() {
-      return C[78] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 55,
-        [_Location_line]: 179,
-        [_Location_file]: null
-      });
-    },
-    get C76() {
-      return C[76] = dart.constList([C[77] || CT.C77, C[78] || CT.C78], widget_inspector._Location);
-    },
-    get C75() {
-      return C[75] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[76] || CT.C76,
-        [_Location_name]: null,
-        [_Location_column]: 24,
-        [_Location_line]: 179,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/awesome_dialog.dart"
-      });
-    },
-    get C81() {
-      return C[81] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "from",
-        [_Location_column]: 31,
-        [_Location_line]: 182,
-        [_Location_file]: null
-      });
-    },
-    get C82() {
-      return C[82] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 52,
-        [_Location_line]: 182,
-        [_Location_file]: null
-      });
-    },
-    get C80() {
-      return C[80] = dart.constList([C[81] || CT.C81, C[82] || CT.C82], widget_inspector._Location);
-    },
-    get C79() {
-      return C[79] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[80] || CT.C80,
-        [_Location_name]: null,
-        [_Location_column]: 24,
-        [_Location_line]: 182,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/awesome_dialog.dart"
-      });
-    },
-    get C85() {
-      return C[85] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "loop",
-        [_Location_column]: 7,
-        [_Location_line]: 196,
-        [_Location_file]: null
-      });
-    },
-    get C86() {
-      return C[86] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "dialogType",
-        [_Location_column]: 7,
-        [_Location_line]: 197,
-        [_Location_file]: null
-      });
-    },
-    get C84() {
-      return C[84] = dart.constList([C[85] || CT.C85, C[86] || CT.C86], widget_inspector._Location);
-    },
-    get C83() {
-      return C[83] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[84] || CT.C84,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 195,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/awesome_dialog.dart"
-      });
-    },
-    get C87() {
-      return C[87] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 0,
-        [EdgeInsets_right]: 5,
-        [EdgeInsets_top]: 0,
-        [EdgeInsets_left]: 5
-      });
-    },
-    get C90() {
-      return C[90] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "dialogBackgroundColor",
-        [_Location_column]: 11,
-        [_Location_line]: 204,
-        [_Location_file]: null
-      });
-    },
-    get C91() {
-      return C[91] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "borderSide",
-        [_Location_column]: 11,
-        [_Location_line]: 205,
-        [_Location_file]: null
-      });
-    },
-    get C92() {
-      return C[92] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "header",
-        [_Location_column]: 11,
-        [_Location_line]: 206,
-        [_Location_file]: null
-      });
-    },
-    get C93() {
-      return C[93] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "title",
-        [_Location_column]: 11,
-        [_Location_line]: 207,
-        [_Location_file]: null
-      });
-    },
-    get C94() {
-      return C[94] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "desc",
-        [_Location_column]: 11,
-        [_Location_line]: 208,
-        [_Location_file]: null
-      });
-    },
-    get C95() {
-      return C[95] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "body",
-        [_Location_column]: 11,
-        [_Location_line]: 209,
-        [_Location_file]: null
-      });
-    },
-    get C96() {
-      return C[96] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "isDense",
-        [_Location_column]: 11,
-        [_Location_line]: 210,
-        [_Location_file]: null
-      });
-    },
-    get C97() {
-      return C[97] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "alignment",
-        [_Location_column]: 11,
-        [_Location_line]: 211,
-        [_Location_file]: null
-      });
-    },
-    get C98() {
-      return C[98] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "keyboardAware",
-        [_Location_column]: 11,
-        [_Location_line]: 212,
-        [_Location_file]: null
-      });
-    },
-    get C99() {
-      return C[99] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 11,
-        [_Location_line]: 213,
-        [_Location_file]: null
-      });
-    },
-    get C100() {
-      return C[100] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 11,
-        [_Location_line]: 214,
-        [_Location_file]: null
-      });
-    },
-    get C101() {
-      return C[101] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "btnOk",
-        [_Location_column]: 11,
-        [_Location_line]: 215,
-        [_Location_file]: null
-      });
-    },
-    get C102() {
-      return C[102] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "btnCancel",
-        [_Location_column]: 11,
-        [_Location_line]: 216,
-        [_Location_file]: null
-      });
-    },
-    get C103() {
-      return C[103] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "showCloseIcon",
-        [_Location_column]: 11,
-        [_Location_line]: 218,
-        [_Location_file]: null
-      });
-    },
-    get C104() {
-      return C[104] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onClose",
-        [_Location_column]: 11,
-        [_Location_line]: 219,
-        [_Location_file]: null
-      });
-    },
-    get C105() {
-      return C[105] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "closeIcon",
-        [_Location_column]: 11,
-        [_Location_line]: 223,
-        [_Location_file]: null
-      });
-    },
-    get C89() {
-      return C[89] = dart.constList([C[90] || CT.C90, C[91] || CT.C91, C[92] || CT.C92, C[93] || CT.C93, C[94] || CT.C94, C[95] || CT.C95, C[96] || CT.C96, C[97] || CT.C97, C[98] || CT.C98, C[99] || CT.C99, C[100] || CT.C100, C[101] || CT.C101, C[102] || CT.C102, C[103] || CT.C103, C[104] || CT.C104, C[105] || CT.C105], widget_inspector._Location);
-    },
-    get C88() {
-      return C[88] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[89] || CT.C89,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 203,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/awesome_dialog.dart"
-      });
-    },
-    get C108() {
-      return C[108] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onWillPop",
-        [_Location_column]: 9,
-        [_Location_line]: 202,
-        [_Location_file]: null
-      });
-    },
-    get C109() {
-      return C[109] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 203,
-        [_Location_file]: null
-      });
-    },
-    get C107() {
-      return C[107] = dart.constList([C[108] || CT.C108, C[109] || CT.C109], widget_inspector._Location);
-    },
-    get C106() {
-      return C[106] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[107] || CT.C107,
-        [_Location_name]: null,
-        [_Location_column]: 30,
-        [_Location_line]: 201,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/awesome_dialog.dart"
-      });
-    },
-    get C110() {
-      return C[110] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278241905.0
-      });
-    },
-    get C113() {
-      return C[113] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "isFixedHeight",
-        [_Location_column]: 9,
-        [_Location_line]: 228,
-        [_Location_file]: null
-      });
-    },
-    get C114() {
-      return C[114] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "pressEvent",
-        [_Location_column]: 9,
-        [_Location_line]: 229,
-        [_Location_file]: null
-      });
-    },
-    get C115() {
-      return C[115] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "text",
-        [_Location_column]: 9,
-        [_Location_line]: 234,
-        [_Location_file]: null
-      });
-    },
-    get C116() {
-      return C[116] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 9,
-        [_Location_line]: 235,
-        [_Location_file]: null
-      });
-    },
-    get C117() {
-      return C[117] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 9,
-        [_Location_line]: 236,
-        [_Location_file]: null
-      });
-    },
-    get C118() {
-      return C[118] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "borderRadius",
-        [_Location_column]: 9,
-        [_Location_line]: 237,
-        [_Location_file]: null
-      });
-    },
-    get C119() {
-      return C[119] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "buttonTextStyle",
-        [_Location_column]: 9,
-        [_Location_line]: 238,
-        [_Location_file]: null
-      });
-    },
-    get C112() {
-      return C[112] = dart.constList([C[113] || CT.C113, C[114] || CT.C114, C[115] || CT.C115, C[116] || CT.C116, C[117] || CT.C117, C[118] || CT.C118, C[119] || CT.C119], widget_inspector._Location);
-    },
-    get C111() {
-      return C[111] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[112] || CT.C112,
-        [_Location_name]: null,
-        [_Location_column]: 37,
-        [_Location_line]: 227,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/awesome_dialog.dart"
-      });
-    },
-    get C122() {
-      return C[122] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "isFixedHeight",
-        [_Location_column]: 9,
-        [_Location_line]: 242,
-        [_Location_file]: null
-      });
-    },
-    get C123() {
-      return C[123] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "pressEvent",
-        [_Location_column]: 9,
-        [_Location_line]: 243,
-        [_Location_file]: null
-      });
-    },
-    get C124() {
-      return C[124] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "text",
-        [_Location_column]: 9,
-        [_Location_line]: 248,
-        [_Location_file]: null
-      });
-    },
-    get C125() {
-      return C[125] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 9,
-        [_Location_line]: 249,
-        [_Location_file]: null
-      });
-    },
-    get C126() {
-      return C[126] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 9,
-        [_Location_line]: 250,
-        [_Location_file]: null
-      });
-    },
-    get C127() {
-      return C[127] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "borderRadius",
-        [_Location_column]: 9,
-        [_Location_line]: 251,
-        [_Location_file]: null
-      });
-    },
-    get C128() {
-      return C[128] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "buttonTextStyle",
-        [_Location_column]: 9,
-        [_Location_line]: 252,
-        [_Location_file]: null
-      });
-    },
-    get C121() {
-      return C[121] = dart.constList([C[122] || CT.C122, C[123] || CT.C123, C[124] || CT.C124, C[125] || CT.C125, C[126] || CT.C126, C[127] || CT.C127, C[128] || CT.C128], widget_inspector._Location);
-    },
-    get C120() {
-      return C[120] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[121] || CT.C121,
-        [_Location_name]: null,
-        [_Location_column]: 41,
-        [_Location_line]: 241,
-        [_Location_file]: "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/awesome_dialog-2.1.0/lib/awesome_dialog.dart"
-      });
-    }
-  }, false);
-  var C = Array(129).fill(void 0);
   var I = [
-    "package:awesome_dialog/src/anims/flare_header.dart",
-    "package:awesome_dialog/awesome_dialog.dart"
+    "file:///C:/flutter/packages/flutter/lib/src/painting/image_cache.dart",
+    "package:flutter/src/painting/image_cache.dart"
   ];
-  var dialogType$ = dart.privateName(flare_header, "FlareHeader.dialogType");
-  var loop$ = dart.privateName(flare_header, "FlareHeader.loop");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  var _name$ = dart.privateName(awesome_dialog, "_name");
-  var Widget__location = dart.privateName(framework, "Widget._location");
-  var Widget_key = dart.privateName(framework, "Widget.key");
-  var SingleChildRenderObjectWidget_child = dart.privateName(framework, "SingleChildRenderObjectWidget.child");
-  var SizedBox_height = dart.privateName(basic, "SizedBox.height");
-  var SizedBox_width = dart.privateName(basic, "SizedBox.width");
-  flare_header.FlareHeader = class FlareHeader extends framework.StatelessWidget {
-    get dialogType() {
-      return this[dialogType$];
+  var _pendingImages = dart.privateName(image_cache, "_pendingImages");
+  var _cache = dart.privateName(image_cache, "_cache");
+  var _liveImages = dart.privateName(image_cache, "_liveImages");
+  var _maximumSize = dart.privateName(image_cache, "_maximumSize");
+  var _maximumSizeBytes = dart.privateName(image_cache, "_maximumSizeBytes");
+  var _currentSizeBytes = dart.privateName(image_cache, "_currentSizeBytes");
+  var _checkCacheSize = dart.privateName(image_cache, "_checkCacheSize");
+  var _touch = dart.privateName(image_cache, "_touch");
+  var _trackLiveImage = dart.privateName(image_cache, "_trackLiveImage");
+  image_cache.ImageCache = class ImageCache extends core.Object {
+    get maximumSize() {
+      return this[_maximumSize];
     }
-    set dialogType(value) {
-      super.dialogType = value;
-    }
-    get loop() {
-      return this[loop$];
-    }
-    set loop(value) {
-      super.loop = value;
-    }
-    build(context) {
-      switch (this.dialogType) {
-        case C[7] || CT.C7:
-        {
-          return new flare_actor.FlareActor.new("packages/awesome_dialog/assets/flare/info2.flr", {alignment: alignment.Alignment.center, fit: box_fit.BoxFit.cover, animation: this.loop ? "appear_loop" : "appear", callback: dart.fn(call => {
-            }, T.StringTovoid()), $creationLocationd_0dea112b090073317d4: C[0] || CT.C0});
-        }
-        case C[14] || CT.C14:
-        {
-          return new flare_actor.FlareActor.new(this.loop ? "packages/awesome_dialog/assets/flare/info.flr" : "packages/awesome_dialog/assets/flare/info_without_loop.flr", {alignment: alignment.Alignment.center, fit: box_fit.BoxFit.cover, animation: "appear", $creationLocationd_0dea112b090073317d4: C[8] || CT.C8});
-        }
-        case C[22] || CT.C22:
-        {
-          return new flare_actor.FlareActor.new("packages/awesome_dialog/assets/flare/question.flr", {alignment: alignment.Alignment.center, fit: box_fit.BoxFit.cover, animation: this.loop ? "anim_loop" : "anim", callback: dart.fn(call => {
-            }, T.StringTovoid()), $creationLocationd_0dea112b090073317d4: C[15] || CT.C15});
-        }
-        case C[29] || CT.C29:
-        {
-          return new flare_actor.FlareActor.new(this.loop ? "packages/awesome_dialog/assets/flare/warning.flr" : "packages/awesome_dialog/assets/flare/warning_without_loop.flr", {alignment: alignment.Alignment.center, fit: box_fit.BoxFit.cover, animation: "appear", $creationLocationd_0dea112b090073317d4: C[23] || CT.C23});
-        }
-        case C[36] || CT.C36:
-        {
-          return new flare_actor.FlareActor.new("packages/awesome_dialog/assets/flare/error.flr", {alignment: alignment.Alignment.center, fit: box_fit.BoxFit.fill, animation: this.loop ? "Error" : "Error_no_loop", $creationLocationd_0dea112b090073317d4: C[30] || CT.C30});
-        }
-        case C[43] || CT.C43:
-        {
-          return new flare_actor.FlareActor.new(this.loop ? "packages/awesome_dialog/assets/flare/succes.flr" : "packages/awesome_dialog/assets/flare/succes_without_loop.flr", {alignment: alignment.Alignment.center, fit: box_fit.BoxFit.fill, animation: "Untitled", $creationLocationd_0dea112b090073317d4: C[37] || CT.C37});
-        }
-        default:
-        {
-          return C[44] || CT.C44;
-        }
+    set maximumSize(value) {
+      let t0;
+      if (!(value !== null)) dart.assertFailed(null, I[0], 103, 12, "value != null");
+      if (!(value >= 0)) dart.assertFailed(null, I[0], 104, 12, "value >= 0");
+      if (value === this.maximumSize) return;
+      let timelineTask = null;
+      if (!false) {
+        timelineTask = (t0 = new developer.TimelineTask.new(), (() => {
+          t0.start("ImageCache.setMaximumSize", {arguments: new (T.IdentityMapOfString$dynamic()).from(["value", value])});
+          return t0;
+        })());
+      }
+      this[_maximumSize] = value;
+      if (this.maximumSize === 0) {
+        this.clear();
+      } else {
+        this[_checkCacheSize](timelineTask);
+      }
+      if (!false) {
+        dart.nullCheck(timelineTask).finish();
       }
     }
-  };
-  (flare_header.FlareHeader.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let dialogType = opts && 'dialogType' in opts ? opts.dialogType : null;
-    let loop = opts && 'loop' in opts ? opts.loop : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[dialogType$] = dialogType;
-    this[loop$] = loop;
-    flare_header.FlareHeader.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = flare_header.FlareHeader.prototype;
-  dart.addTypeTests(flare_header.FlareHeader);
-  dart.addTypeCaches(flare_header.FlareHeader);
-  dart.setMethodSignature(flare_header.FlareHeader, () => ({
-    __proto__: dart.getMethods(flare_header.FlareHeader.__proto__),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
-  }));
-  dart.setLibraryUri(flare_header.FlareHeader, I[0]);
-  dart.setFieldSignature(flare_header.FlareHeader, () => ({
-    __proto__: dart.getFields(flare_header.FlareHeader.__proto__),
-    dialogType: dart.finalFieldType(awesome_dialog.DialogType),
-    loop: dart.finalFieldType(core.bool)
-  }));
-  awesome_dialog.DialogType = class DialogType extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (awesome_dialog.DialogType.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = awesome_dialog.DialogType.prototype;
-  dart.addTypeTests(awesome_dialog.DialogType);
-  dart.addTypeCaches(awesome_dialog.DialogType);
-  dart.setLibraryUri(awesome_dialog.DialogType, I[1]);
-  dart.setFieldSignature(awesome_dialog.DialogType, () => ({
-    __proto__: dart.getFields(awesome_dialog.DialogType.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(awesome_dialog.DialogType, ['toString']);
-  awesome_dialog.DialogType.INFO = C[7] || CT.C7;
-  awesome_dialog.DialogType.INFO_REVERSED = C[14] || CT.C14;
-  awesome_dialog.DialogType.WARNING = C[29] || CT.C29;
-  awesome_dialog.DialogType.ERROR = C[36] || CT.C36;
-  awesome_dialog.DialogType.SUCCES = C[43] || CT.C43;
-  awesome_dialog.DialogType.QUESTION = C[22] || CT.C22;
-  awesome_dialog.DialogType.NO_HEADER = C[47] || CT.C47;
-  awesome_dialog.DialogType.values = C[48] || CT.C48;
-  awesome_dialog.AnimType = class AnimType extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (awesome_dialog.AnimType.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = awesome_dialog.AnimType.prototype;
-  dart.addTypeTests(awesome_dialog.AnimType);
-  dart.addTypeCaches(awesome_dialog.AnimType);
-  dart.setLibraryUri(awesome_dialog.AnimType, I[1]);
-  dart.setFieldSignature(awesome_dialog.AnimType, () => ({
-    __proto__: dart.getFields(awesome_dialog.AnimType.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(awesome_dialog.AnimType, ['toString']);
-  awesome_dialog.AnimType.SCALE = C[49] || CT.C49;
-  awesome_dialog.AnimType.LEFTSLIDE = C[50] || CT.C50;
-  awesome_dialog.AnimType.RIGHSLIDE = C[51] || CT.C51;
-  awesome_dialog.AnimType.BOTTOMSLIDE = C[52] || CT.C52;
-  awesome_dialog.AnimType.TOPSLIDE = C[53] || CT.C53;
-  awesome_dialog.AnimType.values = C[54] || CT.C54;
-  awesome_dialog.DismissType = class DismissType extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (awesome_dialog.DismissType.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = awesome_dialog.DismissType.prototype;
-  dart.addTypeTests(awesome_dialog.DismissType);
-  dart.addTypeCaches(awesome_dialog.DismissType);
-  dart.setLibraryUri(awesome_dialog.DismissType, I[1]);
-  dart.setFieldSignature(awesome_dialog.DismissType, () => ({
-    __proto__: dart.getFields(awesome_dialog.DismissType.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(awesome_dialog.DismissType, ['toString']);
-  awesome_dialog.DismissType.BTN_OK = C[55] || CT.C55;
-  awesome_dialog.DismissType.BTN_CANCEL = C[56] || CT.C56;
-  awesome_dialog.DismissType.TOP_ICON = C[57] || CT.C57;
-  awesome_dialog.DismissType.OTHER = C[58] || CT.C58;
-  awesome_dialog.DismissType.values = C[59] || CT.C59;
-  var context$ = dart.privateName(awesome_dialog, "AwesomeDialog.context");
-  var dialogType$0 = dart.privateName(awesome_dialog, "AwesomeDialog.dialogType");
-  var customHeader$ = dart.privateName(awesome_dialog, "AwesomeDialog.customHeader");
-  var title$ = dart.privateName(awesome_dialog, "AwesomeDialog.title");
-  var desc$ = dart.privateName(awesome_dialog, "AwesomeDialog.desc");
-  var body$ = dart.privateName(awesome_dialog, "AwesomeDialog.body");
-  var btnOkText$ = dart.privateName(awesome_dialog, "AwesomeDialog.btnOkText");
-  var btnOkIcon$ = dart.privateName(awesome_dialog, "AwesomeDialog.btnOkIcon");
-  var btnOkOnPress$ = dart.privateName(awesome_dialog, "AwesomeDialog.btnOkOnPress");
-  var btnOkColor$ = dart.privateName(awesome_dialog, "AwesomeDialog.btnOkColor");
-  var btnCancelText$ = dart.privateName(awesome_dialog, "AwesomeDialog.btnCancelText");
-  var btnCancelIcon$ = dart.privateName(awesome_dialog, "AwesomeDialog.btnCancelIcon");
-  var btnCancelOnPress$ = dart.privateName(awesome_dialog, "AwesomeDialog.btnCancelOnPress");
-  var btnCancelColor$ = dart.privateName(awesome_dialog, "AwesomeDialog.btnCancelColor");
-  var btnOk$ = dart.privateName(awesome_dialog, "AwesomeDialog.btnOk");
-  var btnCancel$ = dart.privateName(awesome_dialog, "AwesomeDialog.btnCancel");
-  var dismissOnTouchOutside$ = dart.privateName(awesome_dialog, "AwesomeDialog.dismissOnTouchOutside");
-  var onDissmissCallback$ = dart.privateName(awesome_dialog, "AwesomeDialog.onDissmissCallback");
-  var animType$ = dart.privateName(awesome_dialog, "AwesomeDialog.animType");
-  var aligment$ = dart.privateName(awesome_dialog, "AwesomeDialog.aligment");
-  var padding$ = dart.privateName(awesome_dialog, "AwesomeDialog.padding");
-  var isDense$ = dart.privateName(awesome_dialog, "AwesomeDialog.isDense");
-  var headerAnimationLoop$ = dart.privateName(awesome_dialog, "AwesomeDialog.headerAnimationLoop");
-  var useRootNavigator$ = dart.privateName(awesome_dialog, "AwesomeDialog.useRootNavigator");
-  var autoHide$ = dart.privateName(awesome_dialog, "AwesomeDialog.autoHide");
-  var keyboardAware$ = dart.privateName(awesome_dialog, "AwesomeDialog.keyboardAware");
-  var dismissOnBackKeyPress$ = dart.privateName(awesome_dialog, "AwesomeDialog.dismissOnBackKeyPress");
-  var width$ = dart.privateName(awesome_dialog, "AwesomeDialog.width");
-  var buttonsBorderRadius$ = dart.privateName(awesome_dialog, "AwesomeDialog.buttonsBorderRadius");
-  var buttonsTextStyle$ = dart.privateName(awesome_dialog, "AwesomeDialog.buttonsTextStyle");
-  var showCloseIcon$ = dart.privateName(awesome_dialog, "AwesomeDialog.showCloseIcon");
-  var closeIcon$ = dart.privateName(awesome_dialog, "AwesomeDialog.closeIcon");
-  var dialogBackgroundColor$ = dart.privateName(awesome_dialog, "AwesomeDialog.dialogBackgroundColor");
-  var borderSide$ = dart.privateName(awesome_dialog, "AwesomeDialog.borderSide");
-  var isDissmisedBySystem = dart.privateName(awesome_dialog, "AwesomeDialog.isDissmisedBySystem");
-  var Alignment_y = dart.privateName(alignment, "Alignment.y");
-  var Alignment_x = dart.privateName(alignment, "Alignment.x");
-  var _dismissType = dart.privateName(awesome_dialog, "_dismissType");
-  var _buildDialog = dart.privateName(awesome_dialog, "_buildDialog");
-  var _buildHeader = dart.privateName(awesome_dialog, "_buildHeader");
-  var _onWillPop = dart.privateName(awesome_dialog, "_onWillPop");
-  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
-  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
-  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
-  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
-  var _buildFancyButtonOk = dart.privateName(awesome_dialog, "_buildFancyButtonOk");
-  var _buildFancyButtonCancel = dart.privateName(awesome_dialog, "_buildFancyButtonCancel");
-  var Color_value = dart.privateName(ui, "Color.value");
-  awesome_dialog.AwesomeDialog = class AwesomeDialog extends core.Object {
-    get context() {
-      return this[context$];
-    }
-    set context(value) {
-      super.context = value;
-    }
-    get dialogType() {
-      return this[dialogType$0];
-    }
-    set dialogType(value) {
-      super.dialogType = value;
-    }
-    get customHeader() {
-      return this[customHeader$];
-    }
-    set customHeader(value) {
-      super.customHeader = value;
-    }
-    get title() {
-      return this[title$];
-    }
-    set title(value) {
-      super.title = value;
-    }
-    get desc() {
-      return this[desc$];
-    }
-    set desc(value) {
-      super.desc = value;
-    }
-    get body() {
-      return this[body$];
-    }
-    set body(value) {
-      super.body = value;
-    }
-    get btnOkText() {
-      return this[btnOkText$];
-    }
-    set btnOkText(value) {
-      super.btnOkText = value;
-    }
-    get btnOkIcon() {
-      return this[btnOkIcon$];
-    }
-    set btnOkIcon(value) {
-      super.btnOkIcon = value;
-    }
-    get btnOkOnPress() {
-      return this[btnOkOnPress$];
-    }
-    set btnOkOnPress(value) {
-      super.btnOkOnPress = value;
-    }
-    get btnOkColor() {
-      return this[btnOkColor$];
-    }
-    set btnOkColor(value) {
-      super.btnOkColor = value;
-    }
-    get btnCancelText() {
-      return this[btnCancelText$];
-    }
-    set btnCancelText(value) {
-      super.btnCancelText = value;
-    }
-    get btnCancelIcon() {
-      return this[btnCancelIcon$];
-    }
-    set btnCancelIcon(value) {
-      super.btnCancelIcon = value;
-    }
-    get btnCancelOnPress() {
-      return this[btnCancelOnPress$];
-    }
-    set btnCancelOnPress(value) {
-      super.btnCancelOnPress = value;
-    }
-    get btnCancelColor() {
-      return this[btnCancelColor$];
-    }
-    set btnCancelColor(value) {
-      super.btnCancelColor = value;
-    }
-    get btnOk() {
-      return this[btnOk$];
-    }
-    set btnOk(value) {
-      super.btnOk = value;
-    }
-    get btnCancel() {
-      return this[btnCancel$];
-    }
-    set btnCancel(value) {
-      super.btnCancel = value;
-    }
-    get dismissOnTouchOutside() {
-      return this[dismissOnTouchOutside$];
-    }
-    set dismissOnTouchOutside(value) {
-      super.dismissOnTouchOutside = value;
-    }
-    get onDissmissCallback() {
-      return this[onDissmissCallback$];
-    }
-    set onDissmissCallback(value) {
-      super.onDissmissCallback = value;
-    }
-    get animType() {
-      return this[animType$];
-    }
-    set animType(value) {
-      super.animType = value;
-    }
-    get aligment() {
-      return this[aligment$];
-    }
-    set aligment(value) {
-      super.aligment = value;
-    }
-    get padding() {
-      return this[padding$];
-    }
-    set padding(value) {
-      super.padding = value;
-    }
-    get isDense() {
-      return this[isDense$];
-    }
-    set isDense(value) {
-      super.isDense = value;
-    }
-    get headerAnimationLoop() {
-      return this[headerAnimationLoop$];
-    }
-    set headerAnimationLoop(value) {
-      super.headerAnimationLoop = value;
-    }
-    get useRootNavigator() {
-      return this[useRootNavigator$];
-    }
-    set useRootNavigator(value) {
-      super.useRootNavigator = value;
-    }
-    get autoHide() {
-      return this[autoHide$];
-    }
-    set autoHide(value) {
-      super.autoHide = value;
-    }
-    get keyboardAware() {
-      return this[keyboardAware$];
-    }
-    set keyboardAware(value) {
-      super.keyboardAware = value;
-    }
-    get dismissOnBackKeyPress() {
-      return this[dismissOnBackKeyPress$];
-    }
-    set dismissOnBackKeyPress(value) {
-      super.dismissOnBackKeyPress = value;
-    }
-    get width() {
-      return this[width$];
-    }
-    set width(value) {
-      super.width = value;
-    }
-    get buttonsBorderRadius() {
-      return this[buttonsBorderRadius$];
-    }
-    set buttonsBorderRadius(value) {
-      super.buttonsBorderRadius = value;
-    }
-    get buttonsTextStyle() {
-      return this[buttonsTextStyle$];
-    }
-    set buttonsTextStyle(value) {
-      super.buttonsTextStyle = value;
-    }
-    get showCloseIcon() {
-      return this[showCloseIcon$];
-    }
-    set showCloseIcon(value) {
-      super.showCloseIcon = value;
-    }
-    get closeIcon() {
-      return this[closeIcon$];
-    }
-    set closeIcon(value) {
-      super.closeIcon = value;
-    }
-    get dialogBackgroundColor() {
-      return this[dialogBackgroundColor$];
-    }
-    set dialogBackgroundColor(value) {
-      super.dialogBackgroundColor = value;
-    }
-    get borderSide() {
-      return this[borderSide$];
-    }
-    set borderSide(value) {
-      super.borderSide = value;
-    }
-    get isDissmisedBySystem() {
-      return this[isDissmisedBySystem];
-    }
-    set isDissmisedBySystem(value) {
-      this[isDissmisedBySystem] = value;
-    }
-    show() {
-      return dialog.showDialog(dart.dynamic, {context: this.context, barrierDismissible: this.dismissOnTouchOutside, builder: dart.fn(context => {
-          if (this.autoHide != null) {
-            async.Future.delayed(dart.nullCheck(this.autoHide)).then(dart.dynamic, dart.fn(value => this.dismiss(), T.dynamicTodynamic()));
-          }
-          switch (this.animType) {
-            case C[49] || CT.C49:
-            {
-              return new anims.ScaleFade.new({scale: 0.1, fade: true, curve: curves.Curves.fastLinearToSlowEaseIn, child: this[_buildDialog], $creationLocationd_0dea112b090073317d4: C[61] || CT.C61});
-            }
-            case C[50] || CT.C50:
-            {
-              return new anims.FadeIn.new({from: anims.SlideFrom.LEFT, child: this[_buildDialog], $creationLocationd_0dea112b090073317d4: C[67] || CT.C67});
-            }
-            case C[51] || CT.C51:
-            {
-              return new anims.FadeIn.new({from: anims.SlideFrom.RIGHT, child: this[_buildDialog], $creationLocationd_0dea112b090073317d4: C[71] || CT.C71});
-            }
-            case C[52] || CT.C52:
-            {
-              return new anims.FadeIn.new({from: anims.SlideFrom.BOTTOM, child: this[_buildDialog], $creationLocationd_0dea112b090073317d4: C[75] || CT.C75});
-            }
-            case C[53] || CT.C53:
-            {
-              return new anims.FadeIn.new({from: anims.SlideFrom.TOP, child: this[_buildDialog], $creationLocationd_0dea112b090073317d4: C[79] || CT.C79});
-            }
-            default:
-            {
-              return this[_buildDialog];
-            }
-          }
-        }, T.BuildContextToWidget())}).then(dart.dynamic, dart.fn(_ => {
-        let t0;
-        this.isDissmisedBySystem = true;
-        if (this.onDissmissCallback != null) {
-          t0 = this.onDissmissCallback;
-          t0 == null ? null : t0(this[_dismissType]);
+    get currentSize() {
+      return this[_cache][$length];
+    }
+    get maximumSizeBytes() {
+      return this[_maximumSizeBytes];
+    }
+    set maximumSizeBytes(value) {
+      let t0;
+      if (!(value !== null)) dart.assertFailed(null, I[0], 142, 12, "value != null");
+      if (!(value >= 0)) dart.assertFailed(null, I[0], 143, 12, "value >= 0");
+      if (value === this[_maximumSizeBytes]) return;
+      let timelineTask = null;
+      if (!false) {
+        timelineTask = (t0 = new developer.TimelineTask.new(), (() => {
+          t0.start("ImageCache.setMaximumSizeBytes", {arguments: new (T.IdentityMapOfString$dynamic()).from(["value", value])});
+          return t0;
+        })());
+      }
+      this[_maximumSizeBytes] = value;
+      if (this[_maximumSizeBytes] === 0) {
+        this.clear();
+      } else {
+        this[_checkCacheSize](timelineTask);
+      }
+      if (!false) {
+        dart.nullCheck(timelineTask).finish();
+      }
+    }
+    get currentSizeBytes() {
+      return this[_currentSizeBytes];
+    }
+    clear() {
+      if (!false) {
+        developer.Timeline.instantSync("ImageCache.clear", {arguments: new (T.IdentityMapOfString$dynamic()).from(["pendingImages", this[_pendingImages][$length], "keepAliveImages", this[_cache][$length], "liveImages", this[_liveImages][$length], "currentSizeInBytes", this[_currentSizeBytes]])});
+      }
+      for (let image of this[_cache][$values]) {
+        image.dispose();
+      }
+      this[_cache][$clear]();
+      this[_pendingImages][$clear]();
+      this[_currentSizeBytes] = 0;
+    }
+    evict(key, opts) {
+      let t0;
+      let includeLive = opts && 'includeLive' in opts ? opts.includeLive : true;
+      if (!(includeLive !== null)) dart.assertFailed(null, I[0], 239, 12, "includeLive != null");
+      if (includeLive) {
+        let image = this[_liveImages][$remove](key);
+        t0 = image;
+        t0 == null ? null : t0.dispose();
+      }
+      let pendingImage = this[_pendingImages][$remove](key);
+      if (pendingImage != null) {
+        if (!false) {
+          developer.Timeline.instantSync("ImageCache.evict", {arguments: new (T.IdentityMapOfString$dynamic()).from(["type", "pending"])});
         }
-      }, T.dynamicToNull()));
+        pendingImage.removeListener();
+        return true;
+      }
+      let image = this[_cache][$remove](key);
+      if (image != null) {
+        if (!false) {
+          developer.Timeline.instantSync("ImageCache.evict", {arguments: new (T.IdentityMapOfString$dynamic()).from(["type", "keepAlive", "sizeInBytes", image.sizeBytes])});
+        }
+        this[_currentSizeBytes] = this[_currentSizeBytes] - dart.nullCheck(image.sizeBytes);
+        image.dispose();
+        return true;
+      }
+      if (!false) {
+        developer.Timeline.instantSync("ImageCache.evict", {arguments: new (T.IdentityMapOfString$dynamic()).from(["type", "miss"])});
+      }
+      return false;
     }
-    get [_buildHeader]() {
-      if (this.customHeader != null) return this.customHeader;
-      if (this.dialogType === awesome_dialog.DialogType.NO_HEADER) return null;
-      return new flare_header.FlareHeader.new({loop: this.headerAnimationLoop, dialogType: this.dialogType, $creationLocationd_0dea112b090073317d4: C[83] || CT.C83});
+    [_touch](key, image, timelineTask) {
+      if (!(timelineTask != null)) dart.assertFailed(null, I[0], 285, 12, "timelineTask != null");
+      if (image.sizeBytes != null && dart.nullCheck(image.sizeBytes) <= this.maximumSizeBytes && this.maximumSize > 0) {
+        this[_currentSizeBytes] = this[_currentSizeBytes] + dart.nullCheck(image.sizeBytes);
+        this[_cache][$_set](key, image);
+        this[_checkCacheSize](timelineTask);
+      } else {
+        image.dispose();
+      }
     }
-    get [_buildDialog]() {
-      let t0, t0$, t0$0;
-      return new will_pop_scope.WillPopScope.new({onWillPop: dart.bind(this, _onWillPop), child: new vertical_stack_header_dialog.VerticalStackDialog.new({dialogBackgroundColor: this.dialogBackgroundColor, borderSide: this.borderSide, header: this[_buildHeader], title: this.title, desc: this.desc, body: this.body, isDense: this.isDense, alignment: this.aligment, keyboardAware: this.keyboardAware, width: this.width, padding: (t0 = this.padding, t0 == null ? C[87] || CT.C87 : t0), btnOk: (t0$ = this.btnOk, t0$ == null ? this.btnOkOnPress != null ? this[_buildFancyButtonOk] : null : t0$), btnCancel: (t0$0 = this.btnCancel, t0$0 == null ? this.btnCancelOnPress != null ? this[_buildFancyButtonCancel] : null : t0$0), showCloseIcon: this.showCloseIcon, onClose: dart.fn(() => {
-            this[_dismissType] = awesome_dialog.DismissType.TOP_ICON;
-            dart.bind(this, 'dismiss')();
-          }, T.VoidToNull()), closeIcon: this.closeIcon, $creationLocationd_0dea112b090073317d4: C[88] || CT.C88}), $creationLocationd_0dea112b090073317d4: C[106] || CT.C106});
+    [_trackLiveImage](key, completer, sizeBytes) {
+      let t0;
+      t0 = this[_liveImages][$putIfAbsent](key, dart.fn(() => new image_cache._LiveImage.new(completer, dart.fn(() => {
+        this[_liveImages][$remove](key);
+      }, T.VoidTovoid())), T.VoidTo_LiveImage()));
+      t0.sizeBytes == null ? t0.sizeBytes = sizeBytes : null;
     }
-    get [_buildFancyButtonOk]() {
-      let t0, t0$;
-      return new animated_button.AnimatedButton.new({isFixedHeight: false, pressEvent: dart.fn(() => {
-          let t0;
-          this[_dismissType] = awesome_dialog.DismissType.BTN_OK;
-          this.dismiss();
-          t0 = this.btnOkOnPress;
-          t0 == null ? null : dart.dcall(t0, []);
-        }, T.VoidToNull()), text: (t0 = this.btnOkText, t0 == null ? "Ok" : t0), color: (t0$ = this.btnOkColor, t0$ == null ? C[110] || CT.C110 : t0$), icon: this.btnOkIcon, borderRadius: this.buttonsBorderRadius, buttonTextStyle: this.buttonsTextStyle, $creationLocationd_0dea112b090073317d4: C[111] || CT.C111});
+    putIfAbsent(key, loader, opts) {
+      let t0, t0$, t1;
+      let onError = opts && 'onError' in opts ? opts.onError : null;
+      if (!(key !== null)) dart.assertFailed(null, I[0], 323, 12, "key != null");
+      if (!(loader !== null)) dart.assertFailed(null, I[0], 324, 12, "loader != null");
+      let timelineTask = null;
+      let listenerTask = null;
+      if (!false) {
+        timelineTask = (t0 = new developer.TimelineTask.new(), (() => {
+          t0.start("ImageCache.putIfAbsent", {arguments: new (T.IdentityMapOfString$dynamic()).from(["key", key[$toString]()])});
+          return t0;
+        })());
+      }
+      let result = (t0$ = this[_pendingImages][$_get](key), t0$ == null ? null : t0$.completer);
+      if (result != null) {
+        if (!false) {
+          dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["result", "pending"])});
+        }
+        return result;
+      }
+      let image = this[_cache][$remove](key);
+      if (image != null) {
+        if (!false) {
+          dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["result", "keepAlive"])});
+        }
+        this[_trackLiveImage](key, image.completer, image.sizeBytes);
+        this[_cache][$_set](key, image);
+        return image.completer;
+      }
+      let liveImage = this[_liveImages][$_get](key);
+      if (liveImage != null) {
+        this[_touch](key, new image_cache._CachedImage.new(liveImage.completer, {sizeBytes: liveImage.sizeBytes}), timelineTask);
+        if (!false) {
+          dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["result", "keepAlive"])});
+        }
+        return liveImage.completer;
+      }
+      try {
+        result = loader();
+        this[_trackLiveImage](key, result, null);
+      } catch (e) {
+        let error = dart.getThrown(e);
+        let stackTrace = dart.stackTrace(e);
+        if (core.Object.is(error)) {
+          if (!false) {
+            dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["result", "error", "error", error[$toString](), "stackTrace", stackTrace.toString()])});
+          }
+          if (onError != null) {
+            onError(error, stackTrace);
+            return null;
+          } else {
+            dart.rethrow(e);
+          }
+        } else
+          throw e;
+      }
+      if (!false) {
+        listenerTask = (t1 = new developer.TimelineTask.new({parent: timelineTask}), (() => {
+          t1.start("listener");
+          return t1;
+        })());
+      }
+      let listenedOnce = false;
+      let untrackedPendingImage = null;
+      const listener = (info, syncCall) => {
+        let t1;
+        let sizeBytes = null;
+        if (info != null) {
+          sizeBytes = info.image.height * info.image.width * 4;
+          info.dispose();
+        }
+        let image = new image_cache._CachedImage.new(dart.nullCheck(result), {sizeBytes: sizeBytes});
+        this[_trackLiveImage](key, result, sizeBytes);
+        if (untrackedPendingImage == null) {
+          this[_touch](key, image, listenerTask);
+        } else {
+          image.dispose();
+        }
+        let pendingImage = (t1 = untrackedPendingImage, t1 == null ? this[_pendingImages][$remove](key) : t1);
+        if (pendingImage != null) {
+          pendingImage.removeListener();
+        }
+        if (!false && !listenedOnce) {
+          dart.nullCheck(listenerTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["syncCall", syncCall, "sizeInBytes", sizeBytes])});
+          dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["currentSizeBytes", this.currentSizeBytes, "currentSize", this.currentSize])});
+        }
+        listenedOnce = true;
+      };
+      dart.fn(listener, T.ImageInfoNAndboolTovoid());
+      let streamListener = new image_stream.ImageStreamListener.new(listener);
+      if (this.maximumSize > 0 && this.maximumSizeBytes > 0) {
+        this[_pendingImages][$_set](key, new image_cache._PendingImage.new(result, streamListener));
+      } else {
+        untrackedPendingImage = new image_cache._PendingImage.new(result, streamListener);
+      }
+      result.addListener(streamListener);
+      return result;
     }
-    get [_buildFancyButtonCancel]() {
-      let t0, t0$;
-      return new animated_button.AnimatedButton.new({isFixedHeight: false, pressEvent: dart.fn(() => {
-          let t0;
-          this[_dismissType] = awesome_dialog.DismissType.BTN_CANCEL;
-          this.dismiss();
-          t0 = this.btnCancelOnPress;
-          t0 == null ? null : dart.dcall(t0, []);
-        }, T.VoidToNull()), text: (t0 = this.btnCancelText, t0 == null ? "Cancel" : t0), color: (t0$ = this.btnCancelColor, t0$ == null ? colors.Colors.red : t0$), icon: this.btnCancelIcon, borderRadius: this.buttonsBorderRadius, buttonTextStyle: this.buttonsTextStyle, $creationLocationd_0dea112b090073317d4: C[120] || CT.C120});
+    statusForKey(key) {
+      return new image_cache.ImageCacheStatus.__({pending: this[_pendingImages][$containsKey](key), keepAlive: this[_cache][$containsKey](key), live: this[_liveImages][$containsKey](key)});
     }
-    dismiss() {
-      if (!this.isDissmisedBySystem) navigator.Navigator.of(this.context, {rootNavigator: this.useRootNavigator}).pop(T.ObjectN());
+    containsKey(key) {
+      return this[_pendingImages][$_get](key) != null || this[_cache][$_get](key) != null;
     }
-    [_onWillPop]() {
-      return async.async(core.bool, (function* _onWillPop() {
-        return this.dismissOnBackKeyPress;
-      }).bind(this));
+    get liveImageCount() {
+      return this[_liveImages][$length];
+    }
+    get pendingImageCount() {
+      return this[_pendingImages][$length];
+    }
+    clearLiveImages() {
+      for (let image of this[_liveImages][$values]) {
+        image.dispose();
+      }
+      this[_liveImages][$clear]();
+    }
+    [_checkCacheSize](timelineTask) {
+      let t1;
+      let finishArgs = new (T.IdentityMapOfString$dynamic()).new();
+      let checkCacheTask = null;
+      if (!false) {
+        checkCacheTask = (t1 = new developer.TimelineTask.new({parent: timelineTask}), (() => {
+          t1.start("checkCacheSize");
+          return t1;
+        })());
+        finishArgs[$_set]("evictedKeys", T.JSArrayOfString().of([]));
+        finishArgs[$_set]("currentSize", this.currentSize);
+        finishArgs[$_set]("currentSizeBytes", this.currentSizeBytes);
+      }
+      while (this[_currentSizeBytes] > this[_maximumSizeBytes] || this[_cache][$length] > this[_maximumSize]) {
+        let key = this[_cache][$keys][$first];
+        let image = dart.nullCheck(this[_cache][$_get](key));
+        this[_currentSizeBytes] = this[_currentSizeBytes] - dart.nullCheck(image.sizeBytes);
+        image.dispose();
+        this[_cache][$remove](key);
+        if (!false) {
+          dart.dsend(finishArgs[$_get]("evictedKeys"), 'add', [key[$toString]()]);
+        }
+      }
+      if (!false) {
+        finishArgs[$_set]("endSize", this.currentSize);
+        finishArgs[$_set]("endSizeBytes", this.currentSizeBytes);
+        dart.nullCheck(checkCacheTask).finish({arguments: finishArgs});
+      }
+      if (!(this[_currentSizeBytes] >= 0)) dart.assertFailed(null, I[0], 528, 12, "_currentSizeBytes >= 0");
+      if (!(this[_cache][$length] <= this.maximumSize)) dart.assertFailed(null, I[0], 529, 12, "_cache.length <= maximumSize");
+      if (!(this[_currentSizeBytes] <= this.maximumSizeBytes)) dart.assertFailed(null, I[0], 530, 12, "_currentSizeBytes <= maximumSizeBytes");
     }
   };
-  (awesome_dialog.AwesomeDialog.new = function(opts) {
-    let context = opts && 'context' in opts ? opts.context : null;
-    let dialogType = opts && 'dialogType' in opts ? opts.dialogType : C[7] || CT.C7;
-    let customHeader = opts && 'customHeader' in opts ? opts.customHeader : null;
-    let title = opts && 'title' in opts ? opts.title : null;
-    let desc = opts && 'desc' in opts ? opts.desc : null;
-    let body = opts && 'body' in opts ? opts.body : null;
-    let btnOk = opts && 'btnOk' in opts ? opts.btnOk : null;
-    let btnCancel = opts && 'btnCancel' in opts ? opts.btnCancel : null;
-    let btnOkText = opts && 'btnOkText' in opts ? opts.btnOkText : null;
-    let btnOkIcon = opts && 'btnOkIcon' in opts ? opts.btnOkIcon : null;
-    let btnOkOnPress = opts && 'btnOkOnPress' in opts ? opts.btnOkOnPress : null;
-    let btnOkColor = opts && 'btnOkColor' in opts ? opts.btnOkColor : null;
-    let btnCancelText = opts && 'btnCancelText' in opts ? opts.btnCancelText : null;
-    let btnCancelIcon = opts && 'btnCancelIcon' in opts ? opts.btnCancelIcon : null;
-    let btnCancelOnPress = opts && 'btnCancelOnPress' in opts ? opts.btnCancelOnPress : null;
-    let btnCancelColor = opts && 'btnCancelColor' in opts ? opts.btnCancelColor : null;
-    let onDissmissCallback = opts && 'onDissmissCallback' in opts ? opts.onDissmissCallback : null;
-    let isDense = opts && 'isDense' in opts ? opts.isDense : false;
-    let dismissOnTouchOutside = opts && 'dismissOnTouchOutside' in opts ? opts.dismissOnTouchOutside : true;
-    let headerAnimationLoop = opts && 'headerAnimationLoop' in opts ? opts.headerAnimationLoop : true;
-    let aligment = opts && 'aligment' in opts ? opts.aligment : C[60] || CT.C60;
-    let animType = opts && 'animType' in opts ? opts.animType : C[49] || CT.C49;
-    let padding = opts && 'padding' in opts ? opts.padding : null;
-    let useRootNavigator = opts && 'useRootNavigator' in opts ? opts.useRootNavigator : false;
-    let autoHide = opts && 'autoHide' in opts ? opts.autoHide : null;
-    let keyboardAware = opts && 'keyboardAware' in opts ? opts.keyboardAware : true;
-    let dismissOnBackKeyPress = opts && 'dismissOnBackKeyPress' in opts ? opts.dismissOnBackKeyPress : true;
-    let width = opts && 'width' in opts ? opts.width : null;
-    let buttonsBorderRadius = opts && 'buttonsBorderRadius' in opts ? opts.buttonsBorderRadius : null;
-    let showCloseIcon = opts && 'showCloseIcon' in opts ? opts.showCloseIcon : false;
-    let closeIcon = opts && 'closeIcon' in opts ? opts.closeIcon : null;
-    let dialogBackgroundColor = opts && 'dialogBackgroundColor' in opts ? opts.dialogBackgroundColor : null;
-    let borderSide = opts && 'borderSide' in opts ? opts.borderSide : null;
-    let buttonsTextStyle = opts && 'buttonsTextStyle' in opts ? opts.buttonsTextStyle : null;
-    this[isDissmisedBySystem] = false;
-    this[_dismissType] = awesome_dialog.DismissType.OTHER;
-    this[context$] = context;
-    this[dialogType$0] = dialogType;
-    this[customHeader$] = customHeader;
-    this[title$] = title;
-    this[desc$] = desc;
-    this[body$] = body;
-    this[btnOk$] = btnOk;
-    this[btnCancel$] = btnCancel;
-    this[btnOkText$] = btnOkText;
-    this[btnOkIcon$] = btnOkIcon;
-    this[btnOkOnPress$] = btnOkOnPress;
-    this[btnOkColor$] = btnOkColor;
-    this[btnCancelText$] = btnCancelText;
-    this[btnCancelIcon$] = btnCancelIcon;
-    this[btnCancelOnPress$] = btnCancelOnPress;
-    this[btnCancelColor$] = btnCancelColor;
-    this[onDissmissCallback$] = onDissmissCallback;
-    this[isDense$] = isDense;
-    this[dismissOnTouchOutside$] = dismissOnTouchOutside;
-    this[headerAnimationLoop$] = headerAnimationLoop;
-    this[aligment$] = aligment;
-    this[animType$] = animType;
-    this[padding$] = padding;
-    this[useRootNavigator$] = useRootNavigator;
-    this[autoHide$] = autoHide;
-    this[keyboardAware$] = keyboardAware;
-    this[dismissOnBackKeyPress$] = dismissOnBackKeyPress;
-    this[width$] = width;
-    this[buttonsBorderRadius$] = buttonsBorderRadius;
-    this[showCloseIcon$] = showCloseIcon;
-    this[closeIcon$] = closeIcon;
-    this[dialogBackgroundColor$] = dialogBackgroundColor;
-    this[borderSide$] = borderSide;
-    this[buttonsTextStyle$] = buttonsTextStyle;
+  (image_cache.ImageCache.new = function() {
+    this[_pendingImages] = new (T.LinkedMapOfObject$_PendingImage()).new();
+    this[_cache] = new (T.LinkedMapOfObject$_CachedImage()).new();
+    this[_liveImages] = new (T.LinkedMapOfObject$_LiveImage()).new();
+    this[_maximumSize] = 1000;
+    this[_maximumSizeBytes] = 104857600;
+    this[_currentSizeBytes] = 0;
     ;
-  }).prototype = awesome_dialog.AwesomeDialog.prototype;
-  dart.addTypeTests(awesome_dialog.AwesomeDialog);
-  dart.addTypeCaches(awesome_dialog.AwesomeDialog);
-  dart.setMethodSignature(awesome_dialog.AwesomeDialog, () => ({
-    __proto__: dart.getMethods(awesome_dialog.AwesomeDialog.__proto__),
-    show: dart.fnType(async.Future, []),
-    dismiss: dart.fnType(dart.dynamic, []),
-    [_onWillPop]: dart.fnType(async.Future$(core.bool), [])
+  }).prototype = image_cache.ImageCache.prototype;
+  dart.addTypeTests(image_cache.ImageCache);
+  dart.addTypeCaches(image_cache.ImageCache);
+  dart.setMethodSignature(image_cache.ImageCache, () => ({
+    __proto__: dart.getMethods(image_cache.ImageCache.__proto__),
+    clear: dart.fnType(dart.void, []),
+    evict: dart.fnType(core.bool, [core.Object], {includeLive: core.bool}, {}),
+    [_touch]: dart.fnType(dart.void, [core.Object, image_cache._CachedImage, dart.nullable(developer.TimelineTask)]),
+    [_trackLiveImage]: dart.fnType(dart.void, [core.Object, image_stream.ImageStreamCompleter, dart.nullable(core.int)]),
+    putIfAbsent: dart.fnType(dart.nullable(image_stream.ImageStreamCompleter), [core.Object, dart.fnType(image_stream.ImageStreamCompleter, [])], {onError: dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))}, {}),
+    statusForKey: dart.fnType(image_cache.ImageCacheStatus, [core.Object]),
+    containsKey: dart.fnType(core.bool, [core.Object]),
+    clearLiveImages: dart.fnType(dart.void, []),
+    [_checkCacheSize]: dart.fnType(dart.void, [dart.nullable(developer.TimelineTask)])
   }));
-  dart.setGetterSignature(awesome_dialog.AwesomeDialog, () => ({
-    __proto__: dart.getGetters(awesome_dialog.AwesomeDialog.__proto__),
-    [_buildHeader]: dart.nullable(framework.Widget),
-    [_buildDialog]: framework.Widget,
-    [_buildFancyButtonOk]: framework.Widget,
-    [_buildFancyButtonCancel]: framework.Widget
+  dart.setGetterSignature(image_cache.ImageCache, () => ({
+    __proto__: dart.getGetters(image_cache.ImageCache.__proto__),
+    maximumSize: core.int,
+    currentSize: core.int,
+    maximumSizeBytes: core.int,
+    currentSizeBytes: core.int,
+    liveImageCount: core.int,
+    pendingImageCount: core.int
   }));
-  dart.setLibraryUri(awesome_dialog.AwesomeDialog, I[1]);
-  dart.setFieldSignature(awesome_dialog.AwesomeDialog, () => ({
-    __proto__: dart.getFields(awesome_dialog.AwesomeDialog.__proto__),
-    context: dart.finalFieldType(framework.BuildContext),
-    dialogType: dart.finalFieldType(awesome_dialog.DialogType),
-    customHeader: dart.finalFieldType(dart.nullable(framework.Widget)),
-    title: dart.finalFieldType(dart.nullable(core.String)),
-    desc: dart.finalFieldType(dart.nullable(core.String)),
-    body: dart.finalFieldType(dart.nullable(framework.Widget)),
-    btnOkText: dart.finalFieldType(dart.nullable(core.String)),
-    btnOkIcon: dart.finalFieldType(dart.nullable(icon_data.IconData)),
-    btnOkOnPress: dart.finalFieldType(dart.nullable(core.Function)),
-    btnOkColor: dart.finalFieldType(dart.nullable(ui.Color)),
-    btnCancelText: dart.finalFieldType(dart.nullable(core.String)),
-    btnCancelIcon: dart.finalFieldType(dart.nullable(icon_data.IconData)),
-    btnCancelOnPress: dart.finalFieldType(dart.nullable(core.Function)),
-    btnCancelColor: dart.finalFieldType(dart.nullable(ui.Color)),
-    btnOk: dart.finalFieldType(dart.nullable(framework.Widget)),
-    btnCancel: dart.finalFieldType(dart.nullable(framework.Widget)),
-    dismissOnTouchOutside: dart.finalFieldType(core.bool),
-    onDissmissCallback: dart.finalFieldType(dart.nullable(dart.fnType(dart.dynamic, [awesome_dialog.DismissType]))),
-    animType: dart.finalFieldType(awesome_dialog.AnimType),
-    aligment: dart.finalFieldType(alignment.AlignmentGeometry),
-    padding: dart.finalFieldType(dart.nullable(edge_insets.EdgeInsetsGeometry)),
-    isDense: dart.finalFieldType(core.bool),
-    headerAnimationLoop: dart.finalFieldType(core.bool),
-    useRootNavigator: dart.finalFieldType(core.bool),
-    autoHide: dart.finalFieldType(dart.nullable(core.Duration)),
-    keyboardAware: dart.finalFieldType(core.bool),
-    dismissOnBackKeyPress: dart.finalFieldType(core.bool),
-    width: dart.finalFieldType(dart.nullable(core.double)),
-    buttonsBorderRadius: dart.finalFieldType(dart.nullable(border_radius.BorderRadiusGeometry)),
-    buttonsTextStyle: dart.finalFieldType(dart.nullable(text_style.TextStyle)),
-    showCloseIcon: dart.finalFieldType(core.bool),
-    closeIcon: dart.finalFieldType(dart.nullable(framework.Widget)),
-    dialogBackgroundColor: dart.finalFieldType(dart.nullable(ui.Color)),
-    borderSide: dart.finalFieldType(dart.nullable(borders.BorderSide)),
-    isDissmisedBySystem: dart.fieldType(core.bool),
-    [_dismissType]: dart.fieldType(awesome_dialog.DismissType)
+  dart.setSetterSignature(image_cache.ImageCache, () => ({
+    __proto__: dart.getSetters(image_cache.ImageCache.__proto__),
+    maximumSize: core.int,
+    maximumSizeBytes: core.int
   }));
-  dart.trackLibraries("packages/awesome_dialog/src/anims/flare_header.dart", {
-    "package:awesome_dialog/src/anims/flare_header.dart": flare_header,
-    "package:awesome_dialog/awesome_dialog.dart": awesome_dialog
+  dart.setLibraryUri(image_cache.ImageCache, I[1]);
+  dart.setFieldSignature(image_cache.ImageCache, () => ({
+    __proto__: dart.getFields(image_cache.ImageCache.__proto__),
+    [_pendingImages]: dart.finalFieldType(core.Map$(core.Object, image_cache._PendingImage)),
+    [_cache]: dart.finalFieldType(core.Map$(core.Object, image_cache._CachedImage)),
+    [_liveImages]: dart.finalFieldType(core.Map$(core.Object, image_cache._LiveImage)),
+    [_maximumSize]: dart.fieldType(core.int),
+    [_maximumSizeBytes]: dart.fieldType(core.int),
+    [_currentSizeBytes]: dart.fieldType(core.int)
+  }));
+  var pending$ = dart.privateName(image_cache, "ImageCacheStatus.pending");
+  var keepAlive$ = dart.privateName(image_cache, "ImageCacheStatus.keepAlive");
+  var live$ = dart.privateName(image_cache, "ImageCacheStatus.live");
+  image_cache.ImageCacheStatus = class ImageCacheStatus extends core.Object {
+    get pending() {
+      return this[pending$];
+    }
+    set pending(value) {
+      super.pending = value;
+    }
+    get keepAlive() {
+      return this[keepAlive$];
+    }
+    set keepAlive(value) {
+      super.keepAlive = value;
+    }
+    get live() {
+      return this[live$];
+    }
+    set live(value) {
+      super.live = value;
+    }
+    get tracked() {
+      return this.pending || this.keepAlive || this.live;
+    }
+    get untracked() {
+      return !this.pending && !this.keepAlive && !this.live;
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (!other[$runtimeType]._equals(this[$runtimeType])) {
+        return false;
+      }
+      return image_cache.ImageCacheStatus.is(other) && other.pending === this.pending && other.keepAlive === this.keepAlive && other.live === this.live;
+    }
+    get hashCode() {
+      return ui.hashValues(this.pending, this.keepAlive, this.live);
+    }
+    toString() {
+      return object.objectRuntimeType(this, "ImageCacheStatus") + "(pending: " + dart.str(this.pending) + ", live: " + dart.str(this.live) + ", keepAlive: " + dart.str(this.keepAlive) + ")";
+    }
+  };
+  (image_cache.ImageCacheStatus.__ = function(opts) {
+    let pending = opts && 'pending' in opts ? opts.pending : false;
+    let keepAlive = opts && 'keepAlive' in opts ? opts.keepAlive : false;
+    let live = opts && 'live' in opts ? opts.live : false;
+    this[pending$] = pending;
+    this[keepAlive$] = keepAlive;
+    this[live$] = live;
+    if (!(!pending || !keepAlive)) dart.assertFailed(null, I[0], 557, 15, "!pending || !keepAlive");
+    ;
+  }).prototype = image_cache.ImageCacheStatus.prototype;
+  dart.addTypeTests(image_cache.ImageCacheStatus);
+  dart.addTypeCaches(image_cache.ImageCacheStatus);
+  dart.setGetterSignature(image_cache.ImageCacheStatus, () => ({
+    __proto__: dart.getGetters(image_cache.ImageCacheStatus.__proto__),
+    tracked: core.bool,
+    untracked: core.bool
+  }));
+  dart.setLibraryUri(image_cache.ImageCacheStatus, I[1]);
+  dart.setFieldSignature(image_cache.ImageCacheStatus, () => ({
+    __proto__: dart.getFields(image_cache.ImageCacheStatus.__proto__),
+    pending: dart.finalFieldType(core.bool),
+    keepAlive: dart.finalFieldType(core.bool),
+    live: dart.finalFieldType(core.bool)
+  }));
+  dart.defineExtensionMethods(image_cache.ImageCacheStatus, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(image_cache.ImageCacheStatus, ['hashCode']);
+  image_cache._CachedImageBase = class _CachedImageBase extends core.Object {
+    dispose() {
+      if (!(this.handle != null)) dart.assertFailed(null, I[0], 622, 12, "handle != null");
+      dart.nullCheck(binding.SchedulerBinding.instance).addPostFrameCallback(dart.fn(timeStamp => {
+        let t1;
+        if (!(this.handle != null)) dart.assertFailed(null, I[0], 626, 14, "handle != null");
+        t1 = this.handle;
+        t1 == null ? null : t1.dispose();
+        this.handle = null;
+      }, T.DurationTovoid()));
+    }
+  };
+  (image_cache._CachedImageBase.new = function(completer, opts) {
+    let sizeBytes = opts && 'sizeBytes' in opts ? opts.sizeBytes : null;
+    this.completer = completer;
+    this.sizeBytes = sizeBytes;
+    if (!(completer !== null)) dart.assertFailed(null, I[0], 613, 15, "completer != null");
+    this.handle = completer.keepAlive();
+    ;
+  }).prototype = image_cache._CachedImageBase.prototype;
+  dart.addTypeTests(image_cache._CachedImageBase);
+  dart.addTypeCaches(image_cache._CachedImageBase);
+  dart.setMethodSignature(image_cache._CachedImageBase, () => ({
+    __proto__: dart.getMethods(image_cache._CachedImageBase.__proto__),
+    dispose: dart.fnType(dart.void, [])
+  }));
+  dart.setLibraryUri(image_cache._CachedImageBase, I[1]);
+  dart.setFieldSignature(image_cache._CachedImageBase, () => ({
+    __proto__: dart.getFields(image_cache._CachedImageBase.__proto__),
+    completer: dart.finalFieldType(image_stream.ImageStreamCompleter),
+    sizeBytes: dart.fieldType(dart.nullable(core.int)),
+    handle: dart.fieldType(dart.nullable(image_stream.ImageStreamCompleterHandle))
+  }));
+  image_cache._CachedImage = class _CachedImage extends image_cache._CachedImageBase {};
+  (image_cache._CachedImage.new = function(completer, opts) {
+    let sizeBytes = opts && 'sizeBytes' in opts ? opts.sizeBytes : null;
+    image_cache._CachedImage.__proto__.new.call(this, completer, {sizeBytes: sizeBytes});
+    ;
+  }).prototype = image_cache._CachedImage.prototype;
+  dart.addTypeTests(image_cache._CachedImage);
+  dart.addTypeCaches(image_cache._CachedImage);
+  dart.setLibraryUri(image_cache._CachedImage, I[1]);
+  var ___LiveImage__handleRemove = dart.privateName(image_cache, "_#_LiveImage#_handleRemove");
+  var _handleRemove = dart.privateName(image_cache, "_handleRemove");
+  image_cache._LiveImage = class _LiveImage extends image_cache._CachedImageBase {
+    get [_handleRemove]() {
+      let t1;
+      t1 = this[___LiveImage__handleRemove];
+      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_handleRemove")) : t1;
+    }
+    set [_handleRemove](t1) {
+      this[___LiveImage__handleRemove] = t1;
+    }
+    dispose() {
+      this.completer.removeOnLastListenerRemovedCallback(this[_handleRemove]);
+      super.dispose();
+    }
+    toString() {
+      return diagnostics.describeIdentity(this);
+    }
+  };
+  (image_cache._LiveImage.new = function(completer, handleRemove, opts) {
+    let sizeBytes = opts && 'sizeBytes' in opts ? opts.sizeBytes : null;
+    this[___LiveImage__handleRemove] = null;
+    image_cache._LiveImage.__proto__.new.call(this, completer, {sizeBytes: sizeBytes});
+    this[_handleRemove] = dart.fn(() => {
+      handleRemove();
+      this.dispose();
+    }, T.VoidTovoid());
+    completer.addOnLastListenerRemovedCallback(this[_handleRemove]);
+  }).prototype = image_cache._LiveImage.prototype;
+  dart.addTypeTests(image_cache._LiveImage);
+  dart.addTypeCaches(image_cache._LiveImage);
+  dart.setGetterSignature(image_cache._LiveImage, () => ({
+    __proto__: dart.getGetters(image_cache._LiveImage.__proto__),
+    [_handleRemove]: dart.fnType(dart.void, [])
+  }));
+  dart.setSetterSignature(image_cache._LiveImage, () => ({
+    __proto__: dart.getSetters(image_cache._LiveImage.__proto__),
+    [_handleRemove]: dart.fnType(dart.void, [])
+  }));
+  dart.setLibraryUri(image_cache._LiveImage, I[1]);
+  dart.setFieldSignature(image_cache._LiveImage, () => ({
+    __proto__: dart.getFields(image_cache._LiveImage.__proto__),
+    [___LiveImage__handleRemove]: dart.fieldType(dart.nullable(dart.fnType(dart.void, [])))
+  }));
+  dart.defineExtensionMethods(image_cache._LiveImage, ['toString']);
+  image_cache._PendingImage = class _PendingImage extends core.Object {
+    removeListener() {
+      this.completer.removeListener(this.listener);
+    }
+  };
+  (image_cache._PendingImage.new = function(completer, listener) {
+    this.completer = completer;
+    this.listener = listener;
+    ;
+  }).prototype = image_cache._PendingImage.prototype;
+  dart.addTypeTests(image_cache._PendingImage);
+  dart.addTypeCaches(image_cache._PendingImage);
+  dart.setMethodSignature(image_cache._PendingImage, () => ({
+    __proto__: dart.getMethods(image_cache._PendingImage.__proto__),
+    removeListener: dart.fnType(dart.void, [])
+  }));
+  dart.setLibraryUri(image_cache._PendingImage, I[1]);
+  dart.setFieldSignature(image_cache._PendingImage, () => ({
+    __proto__: dart.getFields(image_cache._PendingImage.__proto__),
+    completer: dart.finalFieldType(image_stream.ImageStreamCompleter),
+    listener: dart.finalFieldType(image_stream.ImageStreamListener)
+  }));
+  dart.defineLazy(image_cache, {
+    /*image_cache._kDefaultSize*/get _kDefaultSize() {
+      return 1000;
+    },
+    /*image_cache._kDefaultSizeBytes*/get _kDefaultSizeBytes() {
+      return 104857600;
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter/src/painting/image_cache.dart", {
+    "package:flutter/src/painting/image_cache.dart": image_cache
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["flare_header.dart","../../awesome_dialog.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAOmB;;;;;;IACN;;;;;;UAGe;AACxB,cAAQ;;;AAEJ,gBAAO,gCACL,8DACqB,iCACT,iCACD,YAAO,gBAAgB,oBACxB,QAAC;;;;;AAGb,gBAAO,gCACL,YACM,kDACA,0EACe,iCACT,iCACD;;;;AAGb,gBAAO,gCACL,iEACqB,iCACT,iCACD,YAAO,cAAc,kBACtB,QAAC;;;;;AAGb,gBAAO,gCACL,YACM,qDACA,6EACe,iCACT,iCACD;;;;AAGb,gBAAO,gCACL,8DACqB,iCACT,gCACD,YAAO,UAAU;;;;AAG9B,gBAAO,gCACL,YACM,oDACA,4EACe,iCACT,gCACD;;;;AAGb;;;IAEN;;;QA7DwB;QAAmB;QAA0B;;IAA1B;IAA0B;AAC/D,4DAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;ICcvB;;mDARK;;;;EAQL;;;;;;;;;;;;;;;;;;;;;IACmE;;iDAA9D;;;;EAA8D;;;;;;;;;;;;;;;;;;;IACZ;;oDAAlD;;;;EAAkD;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAIlC;;;;;;IAGF;;;;;;IAGH;;;;;;IAGA;;;;;;IAGA;;;;;;IAGA;;;;;;IAGA;;;;;;IACE;;;;;;IACA;;;;;;IACH;;;;;;IAGC;;;;;;IACE;;;;;;IACA;;;;;;IACH;;;;;;IAGC;;;;;;IAGA;;;;;;IAGH;;;;;;IAGuB;;;;;;IAGnB;;;;;;IAGS;;;;;;IAGE;;;;;;IAGf;;;;;;IAGA;;;;;;IAGA;;;;;;IAGK;;;;;;IAGL;;;;;;IAGA;;;;;;IAGG;;;;;;IAGc;;;;;;IAGX;;;;;;IAGN;;;;;;IAGG;;;;;;IAGD;;;;;;IAGK;;;;;;IAuCb;;;;;;;AAIY,YAAA,AA8BN,2CA7BW,kCACM,qCACX,QAAc;AACrB,cAAI;AACkD,YAA7C,AAAmB,qBAAH,eAAR,mCAAgB,QAAC,SAAU;;AAE5C,kBAAQ;;;AAEJ,oBAAO,iCACI,WACD,aACQ,6CACP;;;;AAGX,oBAAO,6BAAuB,6BAAa;;;;AAG3C,oBAAO,6BAAuB,8BAAc;;;;AAG5C,oBAAO,6BAAuB,+BAAe;;;;AAG7C,oBAAO,6BAAuB,4BAAY;;;;AAG1C,oBAAO;;;0DAEL,QAAC;;AACe,QAA1B,2BAAsB;AACtB,YAAI,iCAAkE;eAAtC;8BAAoB,GAAK;;;IACzD;;AAGJ,UAAI,2BAAsB,MAAO;AACjC,UAAI,AAAW,oBAAc,qCAAW,MAAO;AAC/C,YAAO,yCACC,sCACW;IAErB;;;AAE2B,uEACV,0BACJ,iFACkB,wCACX,yBACJ,2BACI,kBACD,iBACA,oBACF,yBACE,8BACI,2BACR,sBACU,mBAAR,4CACI,kBAAN,cAAU,AAAa,4BAAU,4BAAsB,yBACzC,uBAAV,eACN,AAAiB,gCAAU,gCAA0B,6BACtC,6BACX;AAC4B,YAAnC,qBAA2B;AACb,YAAN,UAAR;yCAES;IAEd;;;AAE6B,oEACb,mBACH;;AACuB,UAAjC,qBAA2B;AAClB,UAAT;AACoB,eAApB;8BAAc;mCAEA,qBAAV,aAAa,oBACD,uBAAX,8CACD,8BACQ,2CACG;IAClB;;;AAEiC,oEACjB,mBACH;;AAC2B,UAArC,qBAA2B;AAClB,UAAT;AACwB,eAAxB;8BAAkB;mCAEA,yBAAd,aAAiB,wBACD,2BAAf,cAAyB,gCAC1B,kCACQ,2CACG;IAClB;;AAGH,WAAK,0BACO,AAA6C,AAAK,uBAA/C,8BAAwB;IACzC;;AAEuB;AAAY;MAAqB;;;;QA/IxC;QACT;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;IAGF,4BAAsB;IAEf,qBAA2B;IAtCvB;IACT;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;;EACL","file":"../../../../../../../../../D:/packages/awesome_dialog/src/anims/flare_header.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["image_cache.dart"],"names":[],"mappings":"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","file":"../../../../../../../D:/packages/flutter/src/painting/image_cache.dart.lib.js"}');
   // Exports:
   return {
-    src__anims__flare_header: flare_header,
-    awesome_dialog: awesome_dialog
+    src__painting__image_cache: image_cache
   };
 }));
 
-//# sourceMappingURL=flare_header.dart.lib.js.map
+//# sourceMappingURL=image_cache.dart.lib.js.map

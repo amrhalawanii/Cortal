@@ -1,2059 +1,1279 @@
-define(['dart_sdk', 'packages/flutter/src/services/system_channels.dart', 'packages/flare_flutter/base/dependency_sorter.dart', 'packages/flare_flutter/base/path_point.dart', 'packages/flare_flutter/base/math/transform_components.dart', 'packages/flare_flutter/base/math/aabb.dart', 'packages/flutter/src/material/colors.dart', 'packages/flare_flutter/trim_path.dart'], (function load__packages__flare_flutter__flare_dart(dart_sdk, packages__flutter__src__services__system_channels$46dart, packages__flare_flutter__base__dependency_sorter$46dart, packages__flare_flutter__base__path_point$46dart, packages__flare_flutter__base__math__transform_components$46dart, packages__flare_flutter__base__math__aabb$46dart, packages__flutter__src__material__colors$46dart, packages__flare_flutter__trim_path$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/widgets/text_selection_toolbar_layout_delegate.dart', 'packages/flutter/src/foundation/collections.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/widgets/animated_size.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/rendering/proxy_box.dart', 'packages/flutter/src/painting/border_radius.dart'], (function load__packages__flutter__src__material__text_selection_toolbar_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__widgets__text_selection_toolbar_layout_delegate$46dart, packages__flutter__src__foundation__collections$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__widgets__animated_size$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__rendering__proxy_box$46dart, packages__flutter__src__painting__border_radius$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _interceptors = dart_sdk._interceptors;
   const ui = dart_sdk.ui;
-  const async = dart_sdk.async;
-  const typed_data = dart_sdk.typed_data;
-  const _internal = dart_sdk._internal;
+  const _interceptors = dart_sdk._interceptors;
   const math = dart_sdk.math;
-  const _native_typed_data = dart_sdk._native_typed_data;
-  const _engine = dart_sdk._engine;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const asset_bundle = packages__flutter__src__services__system_channels$46dart.src__services__asset_bundle;
-  const actor = packages__flare_flutter__base__dependency_sorter$46dart.base__actor;
-  const actor_color = packages__flare_flutter__base__dependency_sorter$46dart.base__actor_color;
-  const actor_drop_shadow = packages__flare_flutter__base__dependency_sorter$46dart.base__actor_drop_shadow;
-  const actor_inner_shadow = packages__flare_flutter__base__dependency_sorter$46dart.base__actor_inner_shadow;
-  const actor_layer_effect_renderer = packages__flare_flutter__base__dependency_sorter$46dart.base__actor_layer_effect_renderer;
-  const actor_artboard = packages__flare_flutter__base__dependency_sorter$46dart.base__actor_artboard;
-  const actor_ellipse = packages__flare_flutter__base__dependency_sorter$46dart.base__actor_ellipse;
-  const actor_image = packages__flare_flutter__base__dependency_sorter$46dart.base__actor_image;
-  const actor_mask = packages__flare_flutter__base__dependency_sorter$46dart.base__actor_mask;
-  const actor_path = packages__flare_flutter__base__dependency_sorter$46dart.base__actor_path;
-  const actor_polygon = packages__flare_flutter__base__dependency_sorter$46dart.base__actor_polygon;
-  const actor_rectangle = packages__flare_flutter__base__dependency_sorter$46dart.base__actor_rectangle;
-  const actor_shape = packages__flare_flutter__base__dependency_sorter$46dart.base__actor_shape;
-  const actor_star = packages__flare_flutter__base__dependency_sorter$46dart.base__actor_star;
-  const actor_triangle = packages__flare_flutter__base__dependency_sorter$46dart.base__actor_triangle;
-  const actor_component = packages__flare_flutter__base__dependency_sorter$46dart.base__actor_component;
-  const path_point = packages__flare_flutter__base__path_point$46dart.base__path_point;
-  const vec2d = packages__flare_flutter__base__math__transform_components$46dart.base__math__vec2d;
-  const mat2d = packages__flare_flutter__base__math__transform_components$46dart.base__math__mat2d;
-  const aabb = packages__flare_flutter__base__math__aabb$46dart.base__math__aabb;
-  const colors$ = packages__flutter__src__material__colors$46dart.src__material__colors;
-  const trim_path = packages__flare_flutter__trim_path$46dart.trim_path;
-  var flare = Object.create(dart.library);
-  var $clear = dartx.clear;
-  var $addAll = dartx.addAll;
-  var $map = dartx.map;
-  var $toList = dartx.toList;
-  var $lastIndexOf = dartx.lastIndexOf;
-  var $substring = dartx.substring;
-  var $buffer = dartx.buffer;
-  var $_get = dartx._get;
-  var $isEmpty = dartx.isEmpty;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const text_selection = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text_selection;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const text_selection_toolbar_layout_delegate = packages__flutter__src__widgets__text_selection_toolbar_layout_delegate$46dart.src__widgets__text_selection_toolbar_layout_delegate;
+  const collections = packages__flutter__src__foundation__collections$46dart.src__foundation__collections;
+  const debug = packages__flutter__src__material__icon_button$46dart.src__material__debug;
+  const material_localizations = packages__flutter__src__material__icon_button$46dart.src__material__material_localizations;
+  const material = packages__flutter__src__material__icon_button$46dart.src__material__material;
+  const icon_button = packages__flutter__src__material__icon_button$46dart.src__material__icon_button;
+  const animated_size = packages__flutter__src__widgets__animated_size$46dart.src__widgets__animated_size;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const proxy_box = packages__flutter__src__rendering__proxy_box$46dart.src__rendering__proxy_box;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  var text_selection_toolbar = Object.create(dart.library);
   var $length = dartx.length;
-  var $add = dartx.add;
-  var $modulo = dartx['%'];
-  var $_set = dartx._set;
-  var $truncate = dartx.truncate;
-  var $clamp = dartx.clamp;
-  var $toDouble = dartx.toDouble;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $abs = dartx.abs;
-  var $round = dartx.round;
+  var $addAll = dartx.addAll;
+  var $where = dartx.where;
+  var $forEach = dartx.forEach;
+  var $_equals = dartx._equals;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    JSArrayOfImage: () => (T.JSArrayOfImage = dart.constFn(_interceptors.JSArray$(ui.Image)))(),
-    FutureOfCodec: () => (T.FutureOfCodec = dart.constFn(async.Future$(ui.Codec)))(),
-    intN: () => (T.intN = dart.constFn(dart.nullable(core.int)))(),
-    Uint8List__ToFutureOfCodec: () => (T.Uint8List__ToFutureOfCodec = dart.constFn(dart.fnType(T.FutureOfCodec(), [typed_data.Uint8List], {allowUpscaling: core.bool, targetHeight: T.intN(), targetWidth: T.intN()}, {})))(),
-    FutureOfFrameInfo: () => (T.FutureOfFrameInfo = dart.constFn(async.Future$(ui.FrameInfo)))(),
-    CodecToFutureOfFrameInfo: () => (T.CodecToFutureOfFrameInfo = dart.constFn(dart.fnType(T.FutureOfFrameInfo(), [ui.Codec])))(),
-    FrameInfoToImage: () => (T.FrameInfoToImage = dart.constFn(dart.fnType(ui.Image, [ui.FrameInfo])))(),
-    JSArrayOfPathPoint: () => (T.JSArrayOfPathPoint = dart.constFn(_interceptors.JSArray$(path_point.PathPoint)))(),
-    JSArrayOfdouble: () => (T.JSArrayOfdouble = dart.constFn(_interceptors.JSArray$(core.double)))(),
-    JSArrayOfColor: () => (T.JSArrayOfColor = dart.constFn(_interceptors.JSArray$(ui.Color)))()
+    BuildContextAndWidgetToWidget: () => (T.BuildContextAndWidgetToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, framework.Widget])))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    BoxHitTestResultAndOffsetTobool: () => (T.BoxHitTestResultAndOffsetTobool = dart.constFn(dart.fnType(core.bool, [box.BoxHitTestResult, ui.Offset])))(),
+    ElementTobool: () => (T.ElementTobool = dart.constFn(dart.fnType(core.bool, [framework.Element])))(),
+    RenderObjectTovoid: () => (T.RenderObjectTovoid = dart.constFn(dart.fnType(dart.void, [object.RenderObject])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
-      return C[0] = dart.fn(ui.instantiateImageCodec, T.Uint8List__ToFutureOfCodec());
+      return C[0] = dart.fn(text_selection_toolbar.TextSelectionToolbar._defaultToolbarBuilder, T.BuildContextAndWidgetToWidget());
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 85,
+        [_Location_file]: null
+      });
+    },
+    get C2() {
+      return C[2] = dart.constList([C[3] || CT.C3], widget_inspector._Location);
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: path_point.PointType.prototype,
-        [_name]: "PointType.straight",
-        index: 0
-      });
-    },
-    get C3() {
-      return C[3] = dart.constList([1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, -1, 255], core.double);
-    },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: _engine._CkMatrixColorFilter.prototype,
-        [_CkMatrixColorFilter_matrix]: C[3] || CT.C3
-      });
-    },
-    get C5() {
-      return C[5] = dart.constList([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 255], core.double);
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: _engine._CkMatrixColorFilter.prototype,
-        [_CkMatrixColorFilter_matrix]: C[5] || CT.C5
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[2] || CT.C2,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 84,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
       });
     },
     get C6() {
       return C[6] = dart.const({
-        __proto__: actor_mask.MaskType.prototype,
-        [_name$]: "MaskType.invertedAlpha",
-        index: 1
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "isAbove",
+        [_Location_column]: 15,
+        [_Location_line]: 113,
+        [_Location_file]: null
       });
-    },
-    get C8() {
-      return C[8] = dart.constList([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.33, 0.59, 0.11, 0, 0], core.double);
     },
     get C7() {
       return C[7] = dart.const({
-        __proto__: _engine._CkMatrixColorFilter.prototype,
-        [_CkMatrixColorFilter_matrix]: C[8] || CT.C8
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "toolbarBuilder",
+        [_Location_column]: 15,
+        [_Location_line]: 114,
+        [_Location_file]: null
       });
     },
-    get C9() {
-      return C[9] = dart.const({
-        __proto__: actor_mask.MaskType.prototype,
-        [_name$]: "MaskType.luminance",
-        index: 2
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 15,
+        [_Location_line]: 115,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C[5] = dart.constList([C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8], widget_inspector._Location);
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 112,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
       });
     },
     get C11() {
-      return C[11] = dart.constList([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.33, -0.59, -0.11, 0, 255], core.double);
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: _engine._CkMatrixColorFilter.prototype,
-        [_CkMatrixColorFilter_matrix]: C[11] || CT.C11
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "delegate",
+        [_Location_column]: 13,
+        [_Location_line]: 107,
+        [_Location_file]: null
       });
     },
     get C12() {
       return C[12] = dart.const({
-        __proto__: actor_mask.MaskType.prototype,
-        [_name$]: "MaskType.invertedLuminance",
-        index: 3
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 112,
+        [_Location_file]: null
       });
     },
-    get C14() {
-      return C[14] = dart.constList([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0], core.double);
+    get C10() {
+      return C[10] = dart.constList([C[11] || CT.C11, C[12] || CT.C12], widget_inspector._Location);
     },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: _engine._CkMatrixColorFilter.prototype,
-        [_CkMatrixColorFilter_matrix]: C[14] || CT.C14
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[10] || CT.C10,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 106,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
       });
     },
     get C15() {
       return C[15] = dart.const({
-        __proto__: actor_mask.MaskType.prototype,
-        [_name$]: "MaskType.alpha",
-        index: 0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 9,
+        [_Location_line]: 105,
+        [_Location_file]: null
       });
     },
-    get C16() {
-      return C[16] = dart.const({
-        __proto__: actor_color.FillRule.prototype,
-        [_name$0]: "FillRule.evenOdd",
-        index: 0
-      });
+    get C14() {
+      return C[14] = dart.constList([C[15] || CT.C15], widget_inspector._Location);
     },
-    get C17() {
-      return C[17] = dart.const({
-        __proto__: actor_color.FillRule.prototype,
-        [_name$0]: "FillRule.nonZero",
-        index: 1
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[14] || CT.C14,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 104,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
       });
     },
     get C18() {
       return C[18] = dart.const({
-        __proto__: actor_color.StrokeCap.prototype,
-        [_name$0]: "StrokeCap.butt",
-        index: 0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 7,
+        [_Location_line]: 98,
+        [_Location_file]: null
       });
     },
     get C19() {
       return C[19] = dart.const({
-        __proto__: actor_color.StrokeCap.prototype,
-        [_name$0]: "StrokeCap.round",
-        index: 1
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 104,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.constList([C[18] || CT.C18, C[19] || CT.C19], widget_inspector._Location);
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[17] || CT.C17,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 97,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
       });
     },
     get C20() {
       return C[20] = dart.const({
-        __proto__: actor_color.StrokeCap.prototype,
-        [_name$0]: "StrokeCap.square",
-        index: 2
-      });
-    },
-    get C21() {
-      return C[21] = dart.const({
-        __proto__: actor_color.StrokeJoin.prototype,
-        [_name$0]: "StrokeJoin.miter",
-        index: 0
-      });
-    },
-    get C22() {
-      return C[22] = dart.const({
-        __proto__: actor_color.StrokeJoin.prototype,
-        [_name$0]: "StrokeJoin.round",
-        index: 1
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 140000
       });
     },
     get C23() {
       return C[23] = dart.const({
-        __proto__: actor_color.StrokeJoin.prototype,
-        [_name$0]: "StrokeJoin.bevel",
-        index: 2
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 40,
+        [_Location_line]: 207,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.constList([C[23] || CT.C23], widget_inspector._Location);
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[22] || CT.C22,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 207,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 15,
+        [_Location_line]: 207,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 15,
+        [_Location_line]: 208,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "tooltip",
+        [_Location_column]: 15,
+        [_Location_line]: 213,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.constList([C[26] || CT.C26, C[27] || CT.C27, C[28] || CT.C28], widget_inspector._Location);
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[25] || CT.C25,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 206,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "isAbove",
+        [_Location_column]: 11,
+        [_Location_line]: 197,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "overflowOpen",
+        [_Location_column]: 11,
+        [_Location_line]: 198,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 11,
+        [_Location_line]: 199,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.constList([C[31] || CT.C31, C[32] || CT.C32, C[33] || CT.C33], widget_inspector._Location);
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[30] || CT.C30,
+        [_Location_name]: null,
+        [_Location_column]: 47,
+        [_Location_line]: 196,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "vsync",
+        [_Location_column]: 9,
+        [_Location_line]: 192,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "duration",
+        [_Location_column]: 9,
+        [_Location_line]: 195,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 196,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C[35] = dart.constList([C[36] || CT.C36, C[37] || CT.C37, C[38] || CT.C38], widget_inspector._Location);
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[35] || CT.C35,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 191,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 7,
+        [_Location_line]: 188,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "overflowOpen",
+        [_Location_column]: 7,
+        [_Location_line]: 189,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "textDirection",
+        [_Location_column]: 7,
+        [_Location_line]: 190,
+        [_Location_file]: null
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 191,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.constList([C[41] || CT.C41, C[42] || CT.C42, C[43] || CT.C43, C[44] || CT.C44], widget_inspector._Location);
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[40] || CT.C40,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 187,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
+      });
+    },
+    get C45() {
+      return C[45] = dart.fn(text_selection_toolbar._TextSelectionToolbarItemsLayoutElement._shouldPaint, T.ElementTobool());
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: ui.Radius.prototype,
+        [Radius_y]: 7,
+        [Radius_x]: 7
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: border_radius.BorderRadius.prototype,
+        [BorderRadius_bottomRight]: C[47] || CT.C47,
+        [BorderRadius_bottomLeft]: C[47] || CT.C47,
+        [BorderRadius_topRight]: C[47] || CT.C47,
+        [BorderRadius_topLeft]: C[47] || CT.C47
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "borderRadius",
+        [_Location_column]: 7,
+        [_Location_line]: 657,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "clipBehavior",
+        [_Location_column]: 7,
+        [_Location_line]: 658,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "elevation",
+        [_Location_column]: 7,
+        [_Location_line]: 659,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "type",
+        [_Location_column]: 7,
+        [_Location_line]: 660,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 661,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.constList([C[50] || CT.C50, C[51] || CT.C51, C[52] || CT.C52, C[53] || CT.C53, C[54] || CT.C54], widget_inspector._Location);
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[49] || CT.C49,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 654,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 0
+      });
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 9,
+        [_Location_line]: 689,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 9,
+        [_Location_line]: 690,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "tooltip",
+        [_Location_column]: 9,
+        [_Location_line]: 691,
+        [_Location_file]: null
+      });
+    },
+    get C57() {
+      return C[57] = dart.constList([C[58] || CT.C58, C[59] || CT.C59, C[60] || CT.C60], widget_inspector._Location);
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[57] || CT.C57,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 685,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
+      });
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "type",
+        [_Location_column]: 7,
+        [_Location_line]: 683,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 7,
+        [_Location_line]: 684,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 685,
+        [_Location_file]: null
+      });
+    },
+    get C62() {
+      return C[62] = dart.constList([C[63] || CT.C63, C[64] || CT.C64, C[65] || CT.C65], widget_inspector._Location);
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[62] || CT.C62,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 682,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
       });
     }
   }, false);
-  var C = Array(24).fill(void 0);
+  var C = Array(66).fill(void 0);
   var I = [
-    "package:flare_flutter/flare.dart",
-    "file:///C:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flare_flutter-3.0.2/lib/flare.dart"
+    "file:///C:/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart",
+    "package:flutter/src/material/text_selection_toolbar.dart"
   ];
-  var filename$ = dart.privateName(flare, "AssetBundleContext.filename");
-  var bundle$ = dart.privateName(flare, "AssetBundleContext.bundle");
-  flare.AssetBundleContext = class AssetBundleContext extends core.Object {
-    get filename() {
-      return this[filename$];
+  var anchorAbove$ = dart.privateName(text_selection_toolbar, "TextSelectionToolbar.anchorAbove");
+  var anchorBelow$ = dart.privateName(text_selection_toolbar, "TextSelectionToolbar.anchorBelow");
+  var children$ = dart.privateName(text_selection_toolbar, "TextSelectionToolbar.children");
+  var toolbarBuilder$ = dart.privateName(text_selection_toolbar, "TextSelectionToolbar.toolbarBuilder");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  text_selection_toolbar.TextSelectionToolbar = class TextSelectionToolbar extends framework.StatelessWidget {
+    get anchorAbove() {
+      return this[anchorAbove$];
     }
-    set filename(value) {
-      super.filename = value;
+    set anchorAbove(value) {
+      super.anchorAbove = value;
     }
-    get bundle() {
-      return this[bundle$];
+    get anchorBelow() {
+      return this[anchorBelow$];
     }
-    set bundle(value) {
-      super.bundle = value;
+    set anchorBelow(value) {
+      super.anchorBelow = value;
     }
-  };
-  (flare.AssetBundleContext.new = function(bundle, filename) {
-    this[bundle$] = bundle;
-    this[filename$] = filename;
-    ;
-  }).prototype = flare.AssetBundleContext.prototype;
-  dart.addTypeTests(flare.AssetBundleContext);
-  dart.addTypeCaches(flare.AssetBundleContext);
-  dart.setLibraryUri(flare.AssetBundleContext, I[0]);
-  dart.setFieldSignature(flare.AssetBundleContext, () => ({
-    __proto__: dart.getFields(flare.AssetBundleContext.__proto__),
-    filename: dart.finalFieldType(core.String),
-    bundle: dart.finalFieldType(asset_bundle.AssetBundle)
-  }));
-  var _images = dart.privateName(flare, "_images");
-  var _rawAtlasData = dart.privateName(flare, "_rawAtlasData");
-  const load = Symbol("load");
-  flare.FlutterActor = class FlutterActor extends actor.Actor {
-    get images() {
-      return this[_images];
+    get children() {
+      return this[children$];
     }
-    copyFlutterActor(actor) {
-      this.copyActor(actor);
-      this[_images][$clear]();
-      this[_images][$addAll](actor[_images]);
+    set children(value) {
+      super.children = value;
     }
-    dispose() {
+    get toolbarBuilder() {
+      return this[toolbarBuilder$];
     }
-    loadAtlases(rawAtlases) {
-      return async.async(core.bool, (function* loadAtlases() {
-        this[_rawAtlasData] = rawAtlases;
-        return true;
-      }).bind(this));
+    set toolbarBuilder(value) {
+      super.toolbarBuilder = value;
     }
-    loadFromBundle(assetBundle, filename) {
-      return async.async(core.bool, (function* loadFromBundle() {
-        let data = (yield assetBundle.load(filename));
-        return this[load](data, new flare.AssetBundleContext.new(assetBundle, filename));
-      }).bind(this));
+    static _defaultToolbarBuilder(context, child) {
+      return new text_selection_toolbar._TextSelectionToolbarContainer.new({child: child, $creationLocationd_0dea112b090073317d4: C[1] || CT.C1});
     }
-    loadImages() {
-      return async.async(core.bool, (function* loadImages() {
-        if (this[_rawAtlasData] == null) {
-          return false;
-        }
-        let data = dart.nullCheck(this[_rawAtlasData]);
-        this[_rawAtlasData] = null;
-        let codecs = (yield async.Future.wait(ui.Codec, data[$map](T.FutureOfCodec(), C[0] || CT.C0)));
-        let frames = (yield async.Future.wait(ui.FrameInfo, codecs[$map](T.FutureOfFrameInfo(), dart.fn(codec => codec.getNextFrame(), T.CodecToFutureOfFrameInfo()))));
-        this[_images][$addAll](frames[$map](ui.Image, dart.fn(frame => frame.image, T.FrameInfoToImage()))[$toList]({growable: false}));
-        return true;
-      }).bind(this));
-    }
-    makeArtboard() {
-      return new flare.FlutterActorArtboard.new(this);
-    }
-    makeColorFill() {
-      return new flare.FlutterColorFill.new();
-    }
-    makeColorStroke() {
-      return new flare.FlutterColorStroke.new();
-    }
-    makeDropShadow() {
-      return new flare.FlutterActorDropShadow.new();
-    }
-    makeEllipse() {
-      return new flare.FlutterActorEllipse.new();
-    }
-    makeGradientFill() {
-      return new flare.FlutterGradientFill.new();
-    }
-    makeGradientStroke() {
-      return new flare.FlutterGradientStroke.new();
-    }
-    makeImageNode() {
-      return new flare.FlutterActorImage.new();
-    }
-    makeInnerShadow() {
-      return new flare.FlutterActorInnerShadow.new();
-    }
-    makeLayerEffectRenderer() {
-      return new flare.FlutterActorLayerEffectRenderer.new();
-    }
-    makePathNode() {
-      return new flare.FlutterActorPath.new();
-    }
-    makePolygon() {
-      return new flare.FlutterActorPolygon.new();
-    }
-    makeRadialFill() {
-      return new flare.FlutterRadialFill.new();
-    }
-    makeRadialStroke() {
-      return new flare.FlutterRadialStroke.new();
-    }
-    makeRectangle() {
-      return new flare.FlutterActorRectangle.new();
-    }
-    makeShapeNode(source) {
-      let t0, t0$;
-      return dart.test((t0$ = (t0 = source, t0 == null ? null : t0.transformAffectsStroke), t0$ == null ? false : t0$)) ? new flare.FlutterActorShapeWithTransformedStroke.new() : new flare.FlutterActorShape.new();
-    }
-    makeStar() {
-      return new flare.FlutterActorStar.new();
-    }
-    makeTriangle() {
-      return new flare.FlutterActorTriangle.new();
-    }
-    readOutOfBandAsset(assetFilename, context) {
-      return async.async(typed_data.Uint8List, function* readOutOfBandAsset() {
-        let bundleContext = flare.AssetBundleContext.as(context);
-        let pathIdx = bundleContext.filename[$lastIndexOf]("/") + 1;
-        let basePath = bundleContext.filename[$substring](0, pathIdx);
-        let data = (yield bundleContext.bundle.load(basePath + assetFilename));
-        return typed_data.Uint8List.view(data[$buffer]);
-      });
-    }
-    static loadFromByteData(data) {
-      return async.async(flare.FlutterActor, function* loadFromByteData() {
-        let actor = new flare.FlutterActor.new();
-        yield actor.load(data, null);
-        return actor;
-      });
-    }
-    [load](data, context) {
-      return super.load(data, context);
+    build(context) {
+      let paddingAbove = media_query.MediaQuery.of(context).padding.top + 8;
+      let availableHeight = this.anchorAbove.dy - paddingAbove;
+      let fitsAbove = 44 <= availableHeight;
+      let localAdjustment = new ui.Offset.new(8, paddingAbove);
+      return new basic.Padding.new({padding: new edge_insets.EdgeInsets.fromLTRB(8, paddingAbove, 8, 8), child: new basic.Stack.new({children: T.JSArrayOfWidget().of([new basic.CustomSingleChildLayout.new({delegate: new text_selection_toolbar_layout_delegate.TextSelectionToolbarLayoutDelegate.new({anchorAbove: this.anchorAbove['-'](localAdjustment), anchorBelow: this.anchorBelow['-'](localAdjustment), fitsAbove: fitsAbove}), child: new text_selection_toolbar._TextSelectionToolbarOverflowable.new({isAbove: fitsAbove, toolbarBuilder: this.toolbarBuilder, children: this.children, $creationLocationd_0dea112b090073317d4: C[4] || CT.C4}), $creationLocationd_0dea112b090073317d4: C[9] || CT.C9})]), $creationLocationd_0dea112b090073317d4: C[13] || CT.C13}), $creationLocationd_0dea112b090073317d4: C[16] || CT.C16});
     }
   };
-  (flare.FlutterActor.new = function() {
-    this[_images] = T.JSArrayOfImage().of([]);
-    this[_rawAtlasData] = null;
-    flare.FlutterActor.__proto__.new.call(this);
+  (text_selection_toolbar.TextSelectionToolbar.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let anchorAbove = opts && 'anchorAbove' in opts ? opts.anchorAbove : null;
+    let anchorBelow = opts && 'anchorBelow' in opts ? opts.anchorBelow : null;
+    let toolbarBuilder = opts && 'toolbarBuilder' in opts ? opts.toolbarBuilder : C[0] || CT.C0;
+    let children = opts && 'children' in opts ? opts.children : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[anchorAbove$] = anchorAbove;
+    this[anchorBelow$] = anchorBelow;
+    this[toolbarBuilder$] = toolbarBuilder;
+    this[children$] = children;
+    if (!(children[$length] > 0)) dart.assertFailed(null, I[0], 44, 15, "children.length > 0");
+    text_selection_toolbar.TextSelectionToolbar.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = flare.FlutterActor.prototype;
-  dart.addTypeTests(flare.FlutterActor);
-  dart.addTypeCaches(flare.FlutterActor);
-  dart.setMethodSignature(flare.FlutterActor, () => ({
-    __proto__: dart.getMethods(flare.FlutterActor.__proto__),
-    copyFlutterActor: dart.fnType(dart.void, [flare.FlutterActor]),
-    dispose: dart.fnType(dart.void, []),
-    loadAtlases: dart.fnType(async.Future$(core.bool), [core.List$(typed_data.Uint8List)]),
-    loadFromBundle: dart.fnType(async.Future$(core.bool), [asset_bundle.AssetBundle, core.String]),
-    loadImages: dart.fnType(async.Future$(core.bool), []),
-    makeColorFill: dart.fnType(actor_color.ColorFill, []),
-    makeColorStroke: dart.fnType(actor_color.ColorStroke, []),
-    makeDropShadow: dart.fnType(actor_drop_shadow.ActorDropShadow, []),
-    makeGradientFill: dart.fnType(actor_color.GradientFill, []),
-    makeGradientStroke: dart.fnType(actor_color.GradientStroke, []),
-    makeInnerShadow: dart.fnType(actor_inner_shadow.ActorInnerShadow, []),
-    makeLayerEffectRenderer: dart.fnType(actor_layer_effect_renderer.ActorLayerEffectRenderer, []),
-    makeRadialFill: dart.fnType(actor_color.RadialGradientFill, []),
-    makeRadialStroke: dart.fnType(actor_color.RadialGradientStroke, []),
-    readOutOfBandAsset: dart.fnType(async.Future$(typed_data.Uint8List), [core.String, dart.dynamic])
+  }).prototype = text_selection_toolbar.TextSelectionToolbar.prototype;
+  dart.addTypeTests(text_selection_toolbar.TextSelectionToolbar);
+  dart.addTypeCaches(text_selection_toolbar.TextSelectionToolbar);
+  dart.setMethodSignature(text_selection_toolbar.TextSelectionToolbar, () => ({
+    __proto__: dart.getMethods(text_selection_toolbar.TextSelectionToolbar.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
   }));
-  dart.setGetterSignature(flare.FlutterActor, () => ({
-    __proto__: dart.getGetters(flare.FlutterActor.__proto__),
-    images: core.List$(ui.Image)
+  dart.setLibraryUri(text_selection_toolbar.TextSelectionToolbar, I[1]);
+  dart.setFieldSignature(text_selection_toolbar.TextSelectionToolbar, () => ({
+    __proto__: dart.getFields(text_selection_toolbar.TextSelectionToolbar.__proto__),
+    anchorAbove: dart.finalFieldType(ui.Offset),
+    anchorBelow: dart.finalFieldType(ui.Offset),
+    children: dart.finalFieldType(core.List$(framework.Widget)),
+    toolbarBuilder: dart.finalFieldType(dart.fnType(framework.Widget, [framework.BuildContext, framework.Widget]))
   }));
-  dart.setLibraryUri(flare.FlutterActor, I[0]);
-  dart.setFieldSignature(flare.FlutterActor, () => ({
-    __proto__: dart.getFields(flare.FlutterActor.__proto__),
-    [_images]: dart.finalFieldType(core.List$(ui.Image)),
-    [_rawAtlasData]: dart.fieldType(dart.nullable(core.List$(typed_data.Uint8List)))
-  }));
-  var _antialias = dart.privateName(flare, "_antialias");
-  flare.FlutterActorArtboard = class FlutterActorArtboard extends actor_artboard.ActorArtboard {
-    get antialias() {
-      return this[_antialias];
+  var children$0 = dart.privateName(text_selection_toolbar, "_TextSelectionToolbarOverflowable.children");
+  var isAbove$ = dart.privateName(text_selection_toolbar, "_TextSelectionToolbarOverflowable.isAbove");
+  var toolbarBuilder$0 = dart.privateName(text_selection_toolbar, "_TextSelectionToolbarOverflowable.toolbarBuilder");
+  text_selection_toolbar._TextSelectionToolbarOverflowable = class _TextSelectionToolbarOverflowable extends framework.StatefulWidget {
+    get children() {
+      return this[children$0];
     }
-    set antialias(value) {
-      if (this[_antialias] !== value) {
-        this[_antialias] = value;
-        for (let drawable of this.drawableNodes) {
-          flare.FlutterActorDrawable.as(drawable).antialias = this[_antialias];
-        }
-      }
+    set children(value) {
+      super.children = value;
     }
-    dispose() {
+    get isAbove() {
+      return this[isAbove$];
     }
-    draw(canvas) {
-      if (this.clipContents) {
-        canvas.save();
-        let aabb = this.artboardAABB();
-        canvas.clipRect(new ui.Rect.fromLTRB(aabb._get(0), aabb._get(1), aabb._get(2), aabb._get(3)));
-      }
-      for (let drawable of this.drawableNodes) {
-        if (flare.FlutterActorDrawable.is(drawable)) {
-          flare.FlutterActorDrawable.as(drawable).draw(canvas);
-        }
-      }
-      if (this.clipContents) {
-        canvas.restore();
-      }
+    set isAbove(value) {
+      super.isAbove = value;
+    }
+    get toolbarBuilder() {
+      return this[toolbarBuilder$0];
+    }
+    set toolbarBuilder(value) {
+      super.toolbarBuilder = value;
+    }
+    createState() {
+      return new text_selection_toolbar._TextSelectionToolbarOverflowableState.new();
     }
   };
-  (flare.FlutterActorArtboard.new = function(actor) {
-    this[_antialias] = true;
-    flare.FlutterActorArtboard.__proto__.new.call(this, actor);
+  (text_selection_toolbar._TextSelectionToolbarOverflowable.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let isAbove = opts && 'isAbove' in opts ? opts.isAbove : null;
+    let toolbarBuilder = opts && 'toolbarBuilder' in opts ? opts.toolbarBuilder : null;
+    let children = opts && 'children' in opts ? opts.children : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[isAbove$] = isAbove;
+    this[toolbarBuilder$0] = toolbarBuilder;
+    this[children$0] = children;
+    if (!(children[$length] > 0)) dart.assertFailed(null, I[0], 133, 15, "children.length > 0");
+    text_selection_toolbar._TextSelectionToolbarOverflowable.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = flare.FlutterActorArtboard.prototype;
-  dart.addTypeTests(flare.FlutterActorArtboard);
-  dart.addTypeCaches(flare.FlutterActorArtboard);
-  dart.setMethodSignature(flare.FlutterActorArtboard, () => ({
-    __proto__: dart.getMethods(flare.FlutterActorArtboard.__proto__),
-    dispose: dart.fnType(dart.void, []),
-    draw: dart.fnType(dart.void, [ui.Canvas])
+  }).prototype = text_selection_toolbar._TextSelectionToolbarOverflowable.prototype;
+  dart.addTypeTests(text_selection_toolbar._TextSelectionToolbarOverflowable);
+  dart.addTypeCaches(text_selection_toolbar._TextSelectionToolbarOverflowable);
+  dart.setMethodSignature(text_selection_toolbar._TextSelectionToolbarOverflowable, () => ({
+    __proto__: dart.getMethods(text_selection_toolbar._TextSelectionToolbarOverflowable.__proto__),
+    createState: dart.fnType(text_selection_toolbar._TextSelectionToolbarOverflowableState, [])
   }));
-  dart.setGetterSignature(flare.FlutterActorArtboard, () => ({
-    __proto__: dart.getGetters(flare.FlutterActorArtboard.__proto__),
-    antialias: core.bool
+  dart.setLibraryUri(text_selection_toolbar._TextSelectionToolbarOverflowable, I[1]);
+  dart.setFieldSignature(text_selection_toolbar._TextSelectionToolbarOverflowable, () => ({
+    __proto__: dart.getFields(text_selection_toolbar._TextSelectionToolbarOverflowable.__proto__),
+    children: dart.finalFieldType(core.List$(framework.Widget)),
+    isAbove: dart.finalFieldType(core.bool),
+    toolbarBuilder: dart.finalFieldType(dart.fnType(framework.Widget, [framework.BuildContext, framework.Widget]))
   }));
-  dart.setSetterSignature(flare.FlutterActorArtboard, () => ({
-    __proto__: dart.getSetters(flare.FlutterActorArtboard.__proto__),
-    antialias: core.bool
-  }));
-  dart.setLibraryUri(flare.FlutterActorArtboard, I[0]);
-  dart.setFieldSignature(flare.FlutterActorArtboard, () => ({
-    __proto__: dart.getFields(flare.FlutterActorArtboard.__proto__),
-    [_antialias]: dart.fieldType(core.bool)
-  }));
-  var _antialias$ = dart.privateName(flare, "FlutterActorDrawable._antialias");
-  var _blendMode = dart.privateName(flare, "FlutterActorDrawable._blendMode");
-  var _blendMode$ = dart.privateName(flare, "_blendMode");
-  flare.FlutterActorDrawable = class FlutterActorDrawable extends core.Object {
-    get [_antialias]() {
-      return this[_antialias$];
+  var _overflowOpen = dart.privateName(text_selection_toolbar, "_overflowOpen");
+  var _containerKey = dart.privateName(text_selection_toolbar, "_containerKey");
+  var _reset = dart.privateName(text_selection_toolbar, "_reset");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  const State_TickerProviderStateMixin$36 = class State_TickerProviderStateMixin extends framework.State$(text_selection_toolbar._TextSelectionToolbarOverflowable) {};
+  (State_TickerProviderStateMixin$36.new = function() {
+    ticker_provider.TickerProviderStateMixin$(text_selection_toolbar._TextSelectionToolbarOverflowable)[dart.mixinNew].call(this);
+    State_TickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_TickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_TickerProviderStateMixin$36, ticker_provider.TickerProviderStateMixin$(text_selection_toolbar._TextSelectionToolbarOverflowable));
+  text_selection_toolbar._TextSelectionToolbarOverflowableState = class _TextSelectionToolbarOverflowableState extends State_TickerProviderStateMixin$36 {
+    [_reset]() {
+      this[_containerKey] = new framework.UniqueKey.new();
+      this[_overflowOpen] = false;
     }
-    set [_antialias](value) {
-      this[_antialias$] = value;
-    }
-    get [_blendMode$]() {
-      return this[_blendMode];
-    }
-    set [_blendMode$](value) {
-      this[_blendMode] = value;
-    }
-    get antialias() {
-      return this[_antialias];
-    }
-    set antialias(value) {
-      if (value !== this[_antialias]) {
-        this[_antialias] = value;
-        this.onAntialiasChanged(this[_antialias]);
+    didUpdateWidget(oldWidget) {
+      text_selection_toolbar._TextSelectionToolbarOverflowable.as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+      if (!collections.listEquals(framework.Widget, this.widget.children, oldWidget.children)) {
+        this[_reset]();
       }
     }
-    get blendMode() {
-      return this[_blendMode$];
-    }
-    set blendMode(mode) {
-      if (this[_blendMode$] === mode) {
-        return;
-      }
-      this[_blendMode$] = mode;
-      this.onBlendModeChanged(this[_blendMode$]);
-    }
-    get blendModeId() {
-      return this[_blendMode$].index;
-    }
-    set blendModeId(index) {
-      this.blendMode = ui.BlendMode.values[$_get](index);
-    }
-    clip(canvas) {
-      for (let clips of this.clipShapes) {
-        for (let clipShape of clips) {
-          let shape = clipShape.shape;
-          if (shape.renderCollapsed) {
-            continue;
-          }
-          if (clipShape.intersect) {
-            canvas.clipPath(flare.FlutterActorShape.as(shape).path);
-          } else {
-            let artboardRect = new ui.Rect.fromLTWH(this.artboard.origin._get(0) * this.artboard.width, this.artboard.origin._get(1) * this.artboard.height, this.artboard.width, this.artboard.height);
-            if (shape.fill != null && dart.nullCheck(shape.fill).fillRule === actor_color.FillRule.evenOdd) {
-              let clipPath = ui.Path.new();
-              clipPath.addRect(artboardRect);
-              for (let path of shape.paths) {
-                clipPath.addPath(flare.FlutterPath.as(path).path, ui.Offset.zero, {matrix4: path.pathTransform.mat4});
-              }
-              clipPath.fillType = ui.PathFillType.evenOdd;
-              canvas.clipPath(clipPath);
-            } else {
-              for (let path of shape.paths) {
-                let clipPath = ui.Path.new();
-                clipPath.addRect(artboardRect);
-                clipPath.addPath(flare.FlutterPath.as(path).path, ui.Offset.zero, {matrix4: path.pathTransform.mat4});
-                clipPath.fillType = ui.PathFillType.evenOdd;
-                canvas.clipPath(clipPath);
-              }
-            }
-          }
-        }
-      }
+    build(context) {
+      let t3, t2, t1;
+      if (!debug.debugCheckHasMaterialLocalizations(context)) dart.assertFailed(null, I[0], 184, 12, "debugCheckHasMaterialLocalizations(context)");
+      let localizations = material_localizations.MaterialLocalizations.of(context);
+      return new text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign.new({key: this[_containerKey], overflowOpen: this[_overflowOpen], textDirection: basic.Directionality.of(context), child: new animated_size.AnimatedSize.new({vsync: this, duration: C[20] || CT.C20, child: (t1 = this.widget, t2 = context, t3 = new text_selection_toolbar._TextSelectionToolbarItemsLayout.new({isAbove: this.widget.isAbove, overflowOpen: this[_overflowOpen], children: (() => {
+              let t0 = T.JSArrayOfWidget().of([new text_selection_toolbar._TextSelectionToolbarOverflowButton.new({icon: new icon.Icon.new(this[_overflowOpen] ? icons.Icons.arrow_back : icons.Icons.more_vert, {$creationLocationd_0dea112b090073317d4: C[21] || CT.C21}), onPressed: dart.fn(() => {
+                    this.setState(dart.fn(() => {
+                      this[_overflowOpen] = !this[_overflowOpen];
+                    }, T.VoidTovoid()));
+                  }, T.VoidTovoid()), tooltip: this[_overflowOpen] ? localizations.backButtonTooltip : localizations.moreButtonTooltip, $creationLocationd_0dea112b090073317d4: C[24] || CT.C24})]);
+              t0[$addAll](this.widget.children);
+              return t0;
+            })(), $creationLocationd_0dea112b090073317d4: C[29] || CT.C29}), t1.toolbarBuilder(t2, t3)), $creationLocationd_0dea112b090073317d4: C[34] || CT.C34}), $creationLocationd_0dea112b090073317d4: C[39] || CT.C39});
     }
   };
-  (flare.FlutterActorDrawable.new = function() {
-    this[_antialias$] = true;
-    this[_blendMode] = ui.BlendMode.srcOver;
+  (text_selection_toolbar._TextSelectionToolbarOverflowableState.new = function() {
+    this[_overflowOpen] = false;
+    this[_containerKey] = new framework.UniqueKey.new();
+    text_selection_toolbar._TextSelectionToolbarOverflowableState.__proto__.new.call(this);
     ;
-  }).prototype = flare.FlutterActorDrawable.prototype;
-  dart.addTypeTests(flare.FlutterActorDrawable);
-  dart.addTypeCaches(flare.FlutterActorDrawable);
-  dart.setMethodSignature(flare.FlutterActorDrawable, () => ({
-    __proto__: dart.getMethods(flare.FlutterActorDrawable.__proto__),
-    clip: dart.fnType(dart.void, [ui.Canvas])
+  }).prototype = text_selection_toolbar._TextSelectionToolbarOverflowableState.prototype;
+  dart.addTypeTests(text_selection_toolbar._TextSelectionToolbarOverflowableState);
+  dart.addTypeCaches(text_selection_toolbar._TextSelectionToolbarOverflowableState);
+  dart.setMethodSignature(text_selection_toolbar._TextSelectionToolbarOverflowableState, () => ({
+    __proto__: dart.getMethods(text_selection_toolbar._TextSelectionToolbarOverflowableState.__proto__),
+    [_reset]: dart.fnType(dart.void, []),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
   }));
-  dart.setGetterSignature(flare.FlutterActorDrawable, () => ({
-    __proto__: dart.getGetters(flare.FlutterActorDrawable.__proto__),
-    antialias: core.bool,
-    blendMode: ui.BlendMode,
-    blendModeId: core.int
+  dart.setLibraryUri(text_selection_toolbar._TextSelectionToolbarOverflowableState, I[1]);
+  dart.setFieldSignature(text_selection_toolbar._TextSelectionToolbarOverflowableState, () => ({
+    __proto__: dart.getFields(text_selection_toolbar._TextSelectionToolbarOverflowableState.__proto__),
+    [_overflowOpen]: dart.fieldType(core.bool),
+    [_containerKey]: dart.fieldType(framework.UniqueKey)
   }));
-  dart.setSetterSignature(flare.FlutterActorDrawable, () => ({
-    __proto__: dart.getSetters(flare.FlutterActorDrawable.__proto__),
-    antialias: core.bool,
-    blendMode: ui.BlendMode,
-    blendModeId: core.int
-  }));
-  dart.setLibraryUri(flare.FlutterActorDrawable, I[0]);
-  dart.setFieldSignature(flare.FlutterActorDrawable, () => ({
-    __proto__: dart.getFields(flare.FlutterActorDrawable.__proto__),
-    [_antialias]: dart.fieldType(core.bool),
-    [_blendMode$]: dart.fieldType(ui.BlendMode)
-  }));
-  var blendMode = dart.privateName(flare, "FlutterActorDropShadow.blendMode");
-  flare.FlutterActorDropShadow = class FlutterActorDropShadow extends actor_drop_shadow.ActorDropShadow {
-    get blendMode() {
-      return this[blendMode];
+  var overflowOpen$ = dart.privateName(text_selection_toolbar, "_TextSelectionToolbarTrailingEdgeAlign.overflowOpen");
+  var textDirection$ = dart.privateName(text_selection_toolbar, "_TextSelectionToolbarTrailingEdgeAlign.textDirection");
+  text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign = class _TextSelectionToolbarTrailingEdgeAlign extends framework.SingleChildRenderObjectWidget {
+    get overflowOpen() {
+      return this[overflowOpen$];
     }
-    set blendMode(value) {
-      this[blendMode] = value;
+    set overflowOpen(value) {
+      super.overflowOpen = value;
     }
-    get blendModeId() {
-      return this.blendMode.index;
+    get textDirection() {
+      return this[textDirection$];
     }
-    set blendModeId(index) {
-      this.blendMode = ui.BlendMode.values[$_get](index);
+    set textDirection(value) {
+      super.textDirection = value;
     }
-  };
-  (flare.FlutterActorDropShadow.new = function() {
-    this[blendMode] = ui.BlendMode.srcOver;
-    flare.FlutterActorDropShadow.__proto__.new.call(this);
-    ;
-  }).prototype = flare.FlutterActorDropShadow.prototype;
-  dart.addTypeTests(flare.FlutterActorDropShadow);
-  dart.addTypeCaches(flare.FlutterActorDropShadow);
-  dart.setLibraryUri(flare.FlutterActorDropShadow, I[0]);
-  dart.setFieldSignature(flare.FlutterActorDropShadow, () => ({
-    __proto__: dart.getFields(flare.FlutterActorDropShadow.__proto__),
-    blendMode: dart.fieldType(ui.BlendMode)
-  }));
-  var _$35FlutterPathPointsPath$35_path = dart.privateName(flare, "FlutterPathPointsPath._#FlutterPathPointsPath#_path");
-  var _isValid = dart.privateName(flare, "FlutterPathPointsPath._isValid");
-  var __FlutterPathPointsPath__path = dart.privateName(flare, "_#FlutterPathPointsPath#_path");
-  var _isValid$ = dart.privateName(flare, "_isValid");
-  var _path = dart.privateName(flare, "_path");
-  var _makePath = dart.privateName(flare, "_makePath");
-  var _name = dart.privateName(path_point, "_name");
-  flare.FlutterPathPointsPath = class FlutterPathPointsPath extends core.Object {
-    get [__FlutterPathPointsPath__path]() {
-      return this[_$35FlutterPathPointsPath$35_path];
+    createRenderObject(context) {
+      return new text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox.new({overflowOpen: this.overflowOpen, textDirection: this.textDirection});
     }
-    set [__FlutterPathPointsPath__path](value) {
-      this[_$35FlutterPathPointsPath$35_path] = value;
-    }
-    get [_isValid$]() {
-      return this[_isValid];
-    }
-    set [_isValid$](value) {
-      this[_isValid] = value;
-    }
-    get [_path]() {
-      let t0;
-      t0 = this[__FlutterPathPointsPath__path];
-      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_path")) : t0;
-    }
-    set [_path](t0) {
-      this[__FlutterPathPointsPath__path] = t0;
-    }
-    get path() {
-      if (this[_isValid$]) {
-        return this[_path];
-      }
-      return this[_makePath]();
-    }
-    initializeGraphics() {
-      this[_path] = ui.Path.new();
-    }
-    invalidatePath() {
-      this[_isValid$] = false;
-    }
-    [_makePath]() {
-      let t2, t1, t2$, t1$, t2$0, t1$0, t2$1, t1$1;
-      this[_isValid$] = true;
-      this[_path].reset();
-      let pts = this.deformedPoints;
-      if (pts[$isEmpty]) {
-        return this[_path];
-      }
-      let renderPoints = T.JSArrayOfPathPoint().of([]);
-      let pl = pts[$length];
-      let previous = this.isClosed ? pts[$_get](pl - 1) : null;
-      for (let i = 0; i < pl; i = i + 1) {
-        let point = pts[$_get](i);
-        switch (point.pointType) {
-          case C[1] || CT.C1:
-          {
-            {
-              let straightPoint = path_point.StraightPathPoint.as(point);
-              let radius = straightPoint.radius;
-              if (radius > 0) {
-                if (!this.isClosed && (i === 0 || i === pl - 1)) {
-                  renderPoints[$add](point);
-                  previous = point;
-                } else {
-                  if (!(previous != null)) dart.assertFailed(null, I[1], 1257, 24, "previous != null");
-                  let next = pts[$_get]((i + 1)[$modulo](pl));
-                  let prevPoint = path_point.CubicPathPoint.is(previous) ? previous.outPoint : dart.nullCheck(previous).translation;
-                  let nextPoint = path_point.CubicPathPoint.is(next) ? next.inPoint : next.translation;
-                  let pos = point.translation;
-                  let toPrev = vec2d.Vec2D.subtract(new vec2d.Vec2D.new(), prevPoint, pos);
-                  let toPrevLength = vec2d.Vec2D.length(toPrev);
-                  t1 = toPrev;
-                  t2 = 0;
-                  t1._set(t2, t1._get(t2) / toPrevLength);
-                  t1$ = toPrev;
-                  t2$ = 1;
-                  t1$._set(t2$, t1$._get(t2$) / toPrevLength);
-                  let toNext = vec2d.Vec2D.subtract(new vec2d.Vec2D.new(), nextPoint, pos);
-                  let toNextLength = vec2d.Vec2D.length(toNext);
-                  t1$0 = toNext;
-                  t2$0 = 0;
-                  t1$0._set(t2$0, t1$0._get(t2$0) / toNextLength);
-                  t1$1 = toNext;
-                  t2$1 = 1;
-                  t1$1._set(t2$1, t1$1._get(t2$1) / toNextLength);
-                  let renderRadius = math.min(core.double, toPrevLength, math.min(core.double, toNextLength, radius));
-                  let translation = vec2d.Vec2D.scaleAndAdd(new vec2d.Vec2D.new(), pos, toPrev, renderRadius);
-                  renderPoints[$add](new path_point.CubicPathPoint.fromValues(translation, translation, vec2d.Vec2D.scaleAndAdd(new vec2d.Vec2D.new(), pos, toPrev, 0.44999999999999996 * renderRadius)));
-                  translation = vec2d.Vec2D.scaleAndAdd(new vec2d.Vec2D.new(), pos, toNext, renderRadius);
-                  previous = new path_point.CubicPathPoint.fromValues(translation, vec2d.Vec2D.scaleAndAdd(new vec2d.Vec2D.new(), pos, toNext, 0.44999999999999996 * renderRadius), translation);
-                  renderPoints[$add](previous);
-                }
-              } else {
-                renderPoints[$add](point);
-                previous = point;
-              }
-              break;
-            }
-          }
-          default:
-          {
-            renderPoints[$add](point);
-            previous = point;
-            break;
-          }
-        }
-      }
-      let firstPoint = renderPoints[$_get](0);
-      this[_path].moveTo(firstPoint.translation._get(0), firstPoint.translation._get(1));
-      for (let i = 0, l = this.isClosed ? renderPoints[$length] : renderPoints[$length] - 1, pl = renderPoints[$length]; i < l; i = i + 1) {
-        let point = renderPoints[$_get](i);
-        let nextPoint = renderPoints[$_get]((i + 1)[$modulo](pl));
-        let cin = path_point.CubicPathPoint.is(nextPoint) ? nextPoint.inPoint : null;
-        let cout = path_point.CubicPathPoint.is(point) ? point.outPoint : null;
-        if (cin == null && cout == null) {
-          this[_path].lineTo(nextPoint.translation._get(0), nextPoint.translation._get(1));
-        } else {
-          cout == null ? cout = point.translation : null;
-          cin == null ? cin = nextPoint.translation : null;
-          this[_path].cubicTo(cout._get(0), cout._get(1), cin._get(0), cin._get(1), nextPoint.translation._get(0), nextPoint.translation._get(1));
-        }
-      }
-      if (this.isClosed) {
-        this[_path].close();
-      }
-      return this[_path];
-    }
-  };
-  (flare.FlutterPathPointsPath.new = function() {
-    this[_$35FlutterPathPointsPath$35_path] = null;
-    this[_isValid] = false;
-    ;
-  }).prototype = flare.FlutterPathPointsPath.prototype;
-  dart.addTypeTests(flare.FlutterPathPointsPath);
-  dart.addTypeCaches(flare.FlutterPathPointsPath);
-  flare.FlutterPathPointsPath[dart.implements] = () => [flare.FlutterPath];
-  dart.setMethodSignature(flare.FlutterPathPointsPath, () => ({
-    __proto__: dart.getMethods(flare.FlutterPathPointsPath.__proto__),
-    initializeGraphics: dart.fnType(dart.void, []),
-    invalidatePath: dart.fnType(dart.void, []),
-    [_makePath]: dart.fnType(ui.Path, [])
-  }));
-  dart.setGetterSignature(flare.FlutterPathPointsPath, () => ({
-    __proto__: dart.getGetters(flare.FlutterPathPointsPath.__proto__),
-    [_path]: ui.Path,
-    path: ui.Path
-  }));
-  dart.setSetterSignature(flare.FlutterPathPointsPath, () => ({
-    __proto__: dart.getSetters(flare.FlutterPathPointsPath.__proto__),
-    [_path]: ui.Path
-  }));
-  dart.setLibraryUri(flare.FlutterPathPointsPath, I[0]);
-  dart.setFieldSignature(flare.FlutterPathPointsPath, () => ({
-    __proto__: dart.getFields(flare.FlutterPathPointsPath.__proto__),
-    [__FlutterPathPointsPath__path]: dart.fieldType(dart.nullable(ui.Path)),
-    [_isValid$]: dart.fieldType(core.bool)
-  }));
-  const ActorEllipse_FlutterPathPointsPath$36 = class ActorEllipse_FlutterPathPointsPath extends actor_ellipse.ActorEllipse {};
-  (ActorEllipse_FlutterPathPointsPath$36.new = function() {
-    flare.FlutterPathPointsPath.new.call(this);
-    ActorEllipse_FlutterPathPointsPath$36.__proto__.new.call(this);
-  }).prototype = ActorEllipse_FlutterPathPointsPath$36.prototype;
-  dart.applyMixin(ActorEllipse_FlutterPathPointsPath$36, flare.FlutterPathPointsPath);
-  flare.FlutterActorEllipse = class FlutterActorEllipse extends ActorEllipse_FlutterPathPointsPath$36 {
-    makeInstance(resetArtboard) {
-      let instanceNode = new flare.FlutterActorEllipse.new();
-      instanceNode.copyPath(this, resetArtboard);
-      return instanceNode;
-    }
-  };
-  (flare.FlutterActorEllipse.new = function() {
-    flare.FlutterActorEllipse.__proto__.new.call(this);
-    ;
-  }).prototype = flare.FlutterActorEllipse.prototype;
-  dart.addTypeTests(flare.FlutterActorEllipse);
-  dart.addTypeCaches(flare.FlutterActorEllipse);
-  dart.setLibraryUri(flare.FlutterActorEllipse, I[0]);
-  var __FlutterActorImage__vertexBuffer = dart.privateName(flare, "_#FlutterActorImage#_vertexBuffer");
-  var __FlutterActorImage__uvBuffer = dart.privateName(flare, "_#FlutterActorImage#_uvBuffer");
-  var __FlutterActorImage__paint = dart.privateName(flare, "_#FlutterActorImage#_paint");
-  var _canvasVertices = dart.privateName(flare, "_canvasVertices");
-  var __FlutterActorImage__indices = dart.privateName(flare, "_#FlutterActorImage#_indices");
-  var _identityMatrix = dart.privateName(flare, "_identityMatrix");
-  var _vertexBuffer = dart.privateName(flare, "_vertexBuffer");
-  var _uvBuffer = dart.privateName(flare, "_uvBuffer");
-  var _paint = dart.privateName(flare, "_paint");
-  var _indices = dart.privateName(flare, "_indices");
-  const ActorImage_FlutterActorDrawable$36 = class ActorImage_FlutterActorDrawable extends actor_image.ActorImage {};
-  (ActorImage_FlutterActorDrawable$36.new = function() {
-    flare.FlutterActorDrawable.new.call(this);
-    ActorImage_FlutterActorDrawable$36.__proto__.new.call(this);
-  }).prototype = ActorImage_FlutterActorDrawable$36.prototype;
-  dart.applyMixin(ActorImage_FlutterActorDrawable$36, flare.FlutterActorDrawable);
-  flare.FlutterActorImage = class FlutterActorImage extends ActorImage_FlutterActorDrawable$36 {
-    get [_vertexBuffer]() {
+    updateRenderObject(context, renderObject) {
       let t1;
-      t1 = this[__FlutterActorImage__vertexBuffer];
-      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_vertexBuffer")) : t1;
+      text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox.as(renderObject);
+      t1 = renderObject;
+      (() => {
+        t1.overflowOpen = this.overflowOpen;
+        t1.textDirection = this.textDirection;
+        return t1;
+      })();
     }
-    set [_vertexBuffer](t1) {
-      this[__FlutterActorImage__vertexBuffer] = t1;
+  };
+  (text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let overflowOpen = opts && 'overflowOpen' in opts ? opts.overflowOpen : null;
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[overflowOpen$] = overflowOpen;
+    this[textDirection$] = textDirection;
+    if (!(child !== null)) dart.assertFailed(null, I[0], 235, 15, "child != null");
+    if (!(overflowOpen !== null)) dart.assertFailed(null, I[0], 236, 15, "overflowOpen != null");
+    text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign.__proto__.new.call(this, {key: key, child: child, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign.prototype;
+  dart.addTypeTests(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign);
+  dart.addTypeCaches(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign);
+  dart.setMethodSignature(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign, () => ({
+    __proto__: dart.getMethods(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign.__proto__),
+    createRenderObject: dart.fnType(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign, I[1]);
+  dart.setFieldSignature(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign, () => ({
+    __proto__: dart.getFields(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign.__proto__),
+    overflowOpen: dart.finalFieldType(core.bool),
+    textDirection: dart.finalFieldType(ui.TextDirection)
+  }));
+  var _closedWidth = dart.privateName(text_selection_toolbar, "_closedWidth");
+  var _textDirection = dart.privateName(text_selection_toolbar, "_textDirection");
+  text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox = class _TextSelectionToolbarTrailingEdgeAlignRenderBox extends proxy_box.RenderProxyBox {
+    get overflowOpen() {
+      return this[_overflowOpen];
     }
-    get [_uvBuffer]() {
-      let t2;
-      t2 = this[__FlutterActorImage__uvBuffer];
-      return t2 == null ? dart.throw(new _internal.LateError.fieldNI("_uvBuffer")) : t2;
-    }
-    set [_uvBuffer](t2) {
-      this[__FlutterActorImage__uvBuffer] = t2;
-    }
-    get [_paint]() {
-      let t3;
-      t3 = this[__FlutterActorImage__paint];
-      return t3 == null ? dart.throw(new _internal.LateError.fieldNI("_paint")) : t3;
-    }
-    set [_paint](t3) {
-      this[__FlutterActorImage__paint] = t3;
-    }
-    get [_indices]() {
-      let t4;
-      t4 = this[__FlutterActorImage__indices];
-      return t4 == null ? dart.throw(new _internal.LateError.fieldNI("_indices")) : t4;
-    }
-    set [_indices](t4) {
-      this[__FlutterActorImage__indices] = t4;
-    }
-    set textureIndex(value) {
-      let t5;
-      if (this.textureIndex !== value) {
-        let images = flare.FlutterActor.as(this.artboard.actor).images;
-        this[_paint] = (t5 = ui.Paint.new(), (() => {
-          t5.blendMode = this.blendMode;
-          t5.shader = this.textureIndex >= 0 && this.textureIndex < images[$length] ? ui.ImageShader.new(images[$_get](this.textureIndex), ui.TileMode.clamp, ui.TileMode.clamp, this[_identityMatrix]) : null;
-          t5.filterQuality = ui.FilterQuality.low;
-          t5.isAntiAlias = this.antialias;
-          return t5;
-        })());
-        this.onPaintUpdated(this[_paint]);
-      }
-    }
-    get textureIndex() {
-      return super.textureIndex;
-    }
-    changeImage(image) {
-      if (this.triangles == null || this.dynamicUV == null) {
-        return false;
-      }
-      this[_uvBuffer] = this.makeVertexUVBuffer();
-      let count = this.vertexCount;
-      let duv = dart.nullCheck(this.dynamicUV);
-      let idx = 0;
-      for (let i = 0; i < count; i = i + 1) {
-        this[_uvBuffer][$_set](idx, duv[$_get](idx) * image.width);
-        this[_uvBuffer][$_set](idx + 1, duv[$_get](idx + 1) * image.height);
-        idx = idx + 2;
-      }
-      this[_paint].shader = ui.ImageShader.new(image, ui.TileMode.clamp, ui.TileMode.clamp, this[_identityMatrix]);
-      this[_canvasVertices] = ui.Vertices.raw(ui.VertexMode.triangles, this[_vertexBuffer], {indices: this[_indices], textureCoordinates: this[_uvBuffer]});
-      this.onPaintUpdated(this[_paint]);
-      return true;
-    }
-    changeImageFromBundle(bundle, filename) {
-      return async.async(core.bool, (function* changeImageFromBundle() {
-        let data = (yield bundle.load(filename));
-        let codec = (yield ui.instantiateImageCodec(typed_data.Uint8List.view(data[$buffer])));
-        let frame = (yield codec.getNextFrame());
-        return this.changeImage(frame.image);
-      }).bind(this));
-    }
-    computeAABB() {
-      let t5, t5$;
-      this.updateVertices();
-      let minX = 1 / 0;
-      let minY = 1 / 0;
-      let maxX = -1 / 0;
-      let maxY = -1 / 0;
-      let readIdx = 0;
-      let nv = (this[_vertexBuffer][$length] / 2)[$truncate]();
-      for (let i = 0; i < nv; i = i + 1) {
-        let x = this[_vertexBuffer][$_get]((t5 = readIdx, readIdx = t5 + 1, t5));
-        let y = this[_vertexBuffer][$_get]((t5$ = readIdx, readIdx = t5$ + 1, t5$));
-        if (x < minX) {
-          minX = x;
-        }
-        if (y < minY) {
-          minY = y;
-        }
-        if (x > maxX) {
-          maxX = x;
-        }
-        if (y > maxY) {
-          maxY = y;
-        }
-      }
-      return new aabb.AABB.fromValues(minX, minY, maxX, maxY);
-    }
-    dispose() {
-    }
-    draw(canvas) {
-      if (this.triangles == null || this.renderCollapsed || this.renderOpacity <= 0) {
+    set overflowOpen(value) {
+      if (value === this.overflowOpen) {
         return;
       }
-      if (this[_canvasVertices] == null && !this.updateVertices()) {
+      this[_overflowOpen] = value;
+      this.markNeedsLayout();
+    }
+    get textDirection() {
+      return this[_textDirection];
+    }
+    set textDirection(value) {
+      if (value === this.textDirection) {
         return;
       }
-      canvas.save();
-      this.clip(canvas);
-      this[_paint].color = this[_paint].color.withOpacity(this.renderOpacity[$clamp](0.0, 1.0)[$toDouble]());
-      if (this.imageTransform != null) {
-        canvas.transform(dart.nullCheck(this.imageTransform).mat4);
-        canvas.drawVertices(dart.nullCheck(this[_canvasVertices]), ui.BlendMode.srcOver, this[_paint]);
+      this[_textDirection] = value;
+      this.markNeedsLayout();
+    }
+    performLayout() {
+      dart.nullCheck(this.child).layout(this.constraints.loosen(), {parentUsesSize: true});
+      if (!this.overflowOpen && this[_closedWidth] == null) {
+        this[_closedWidth] = dart.nullCheck(this.child).size.width;
+      }
+      this.size = this.constraints.constrain(new ui.Size.new(this[_closedWidth] == null || dart.nullCheck(this.child).size.width > dart.nullCheck(this[_closedWidth]) ? dart.nullCheck(this.child).size.width : dart.nullCheck(this[_closedWidth]), dart.nullCheck(this.child).size.height));
+      let childParentData = text_selection.ToolbarItemsParentData.as(dart.nullCheck(dart.nullCheck(this.child).parentData));
+      childParentData.offset = new ui.Offset.new(this.textDirection === ui.TextDirection.rtl ? 0.0 : this.size.width - dart.nullCheck(this.child).size.width, 0.0);
+    }
+    paint(context, offset) {
+      let childParentData = text_selection.ToolbarItemsParentData.as(dart.nullCheck(dart.nullCheck(this.child).parentData));
+      context.paintChild(dart.nullCheck(this.child), childParentData.offset['+'](offset));
+    }
+    hitTestChildren(result, opts) {
+      let position = opts && 'position' in opts ? opts.position : null;
+      let childParentData = text_selection.ToolbarItemsParentData.as(dart.nullCheck(dart.nullCheck(this.child).parentData));
+      return result.addWithPaintOffset({offset: childParentData.offset, position: position, hitTest: dart.fn((result, transformed) => {
+          if (!transformed._equals(position['-'](childParentData.offset))) dart.assertFailed(null, I[0], 337, 16, "transformed == position - childParentData.offset");
+          return dart.nullCheck(this.child).hitTest(result, {position: transformed});
+        }, T.BoxHitTestResultAndOffsetTobool())});
+    }
+    setupParentData(child) {
+      box.RenderBox.as(child);
+      if (!text_selection.ToolbarItemsParentData.is(child.parentData)) {
+        child.parentData = new text_selection.ToolbarItemsParentData.new();
+      }
+    }
+    applyPaintTransform(child, transform) {
+      object.RenderObject.as(child);
+      let childParentData = text_selection.ToolbarItemsParentData.as(dart.nullCheck(child.parentData));
+      transform.translate(childParentData.offset.dx, childParentData.offset.dy);
+      super.applyPaintTransform(child, transform);
+    }
+  };
+  (text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox.new = function(opts) {
+    let overflowOpen = opts && 'overflowOpen' in opts ? opts.overflowOpen : null;
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+    this[_closedWidth] = null;
+    this[_textDirection] = textDirection;
+    this[_overflowOpen] = overflowOpen;
+    text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox.__proto__.new.call(this);
+    ;
+  }).prototype = text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox.prototype;
+  dart.addTypeTests(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox);
+  dart.addTypeCaches(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox);
+  dart.setGetterSignature(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox, () => ({
+    __proto__: dart.getGetters(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox.__proto__),
+    overflowOpen: core.bool,
+    textDirection: ui.TextDirection
+  }));
+  dart.setSetterSignature(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox, () => ({
+    __proto__: dart.getSetters(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox.__proto__),
+    overflowOpen: core.bool,
+    textDirection: ui.TextDirection
+  }));
+  dart.setLibraryUri(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox, I[1]);
+  dart.setFieldSignature(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox, () => ({
+    __proto__: dart.getFields(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox.__proto__),
+    [_closedWidth]: dart.fieldType(dart.nullable(core.double)),
+    [_overflowOpen]: dart.fieldType(core.bool),
+    [_textDirection]: dart.fieldType(ui.TextDirection)
+  }));
+  text_selection_toolbar._TextSelectionToolbarItemsLayout = class _TextSelectionToolbarItemsLayout extends framework.MultiChildRenderObjectWidget {
+    createRenderObject(context) {
+      return new text_selection_toolbar._RenderTextSelectionToolbarItemsLayout.new({isAbove: this.isAbove, overflowOpen: this.overflowOpen});
+    }
+    updateRenderObject(context, renderObject) {
+      let t1;
+      text_selection_toolbar._RenderTextSelectionToolbarItemsLayout.as(renderObject);
+      t1 = renderObject;
+      (() => {
+        t1.isAbove = this.isAbove;
+        t1.overflowOpen = this.overflowOpen;
+        return t1;
+      })();
+    }
+    createElement() {
+      return new text_selection_toolbar._TextSelectionToolbarItemsLayoutElement.new(this);
+    }
+  };
+  (text_selection_toolbar._TextSelectionToolbarItemsLayout.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let isAbove = opts && 'isAbove' in opts ? opts.isAbove : null;
+    let overflowOpen = opts && 'overflowOpen' in opts ? opts.overflowOpen : null;
+    let children = opts && 'children' in opts ? opts.children : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this.isAbove = isAbove;
+    this.overflowOpen = overflowOpen;
+    if (!(children !== null)) dart.assertFailed(null, I[0], 366, 15, "children != null");
+    if (!(isAbove !== null)) dart.assertFailed(null, I[0], 367, 15, "isAbove != null");
+    if (!(overflowOpen !== null)) dart.assertFailed(null, I[0], 368, 15, "overflowOpen != null");
+    text_selection_toolbar._TextSelectionToolbarItemsLayout.__proto__.new.call(this, {key: key, children: children, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = text_selection_toolbar._TextSelectionToolbarItemsLayout.prototype;
+  dart.addTypeTests(text_selection_toolbar._TextSelectionToolbarItemsLayout);
+  dart.addTypeCaches(text_selection_toolbar._TextSelectionToolbarItemsLayout);
+  dart.setMethodSignature(text_selection_toolbar._TextSelectionToolbarItemsLayout, () => ({
+    __proto__: dart.getMethods(text_selection_toolbar._TextSelectionToolbarItemsLayout.__proto__),
+    createRenderObject: dart.fnType(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout, [framework.BuildContext]),
+    createElement: dart.fnType(text_selection_toolbar._TextSelectionToolbarItemsLayoutElement, [])
+  }));
+  dart.setLibraryUri(text_selection_toolbar._TextSelectionToolbarItemsLayout, I[1]);
+  dart.setFieldSignature(text_selection_toolbar._TextSelectionToolbarItemsLayout, () => ({
+    __proto__: dart.getFields(text_selection_toolbar._TextSelectionToolbarItemsLayout.__proto__),
+    isAbove: dart.finalFieldType(core.bool),
+    overflowOpen: dart.finalFieldType(core.bool)
+  }));
+  text_selection_toolbar._TextSelectionToolbarItemsLayoutElement = class _TextSelectionToolbarItemsLayoutElement extends framework.MultiChildRenderObjectElement {
+    static _shouldPaint(child) {
+      return text_selection.ToolbarItemsParentData.as(dart.nullCheck(dart.nullCheck(child.renderObject).parentData)).shouldPaint;
+    }
+    debugVisitOnstageChildren(visitor) {
+      this.children[$where](C[45] || CT.C45)[$forEach](visitor);
+    }
+  };
+  (text_selection_toolbar._TextSelectionToolbarItemsLayoutElement.new = function(widget) {
+    text_selection_toolbar._TextSelectionToolbarItemsLayoutElement.__proto__.new.call(this, widget);
+    ;
+  }).prototype = text_selection_toolbar._TextSelectionToolbarItemsLayoutElement.prototype;
+  dart.addTypeTests(text_selection_toolbar._TextSelectionToolbarItemsLayoutElement);
+  dart.addTypeCaches(text_selection_toolbar._TextSelectionToolbarItemsLayoutElement);
+  dart.setLibraryUri(text_selection_toolbar._TextSelectionToolbarItemsLayoutElement, I[1]);
+  var _lastIndexThatFits = dart.privateName(text_selection_toolbar, "_lastIndexThatFits");
+  var _isAbove = dart.privateName(text_selection_toolbar, "_isAbove");
+  var _layoutChildren = dart.privateName(text_selection_toolbar, "_layoutChildren");
+  var _shouldPaintChild = dart.privateName(text_selection_toolbar, "_shouldPaintChild");
+  var _placeChildren = dart.privateName(text_selection_toolbar, "_placeChildren");
+  const RenderBox_ContainerRenderObjectMixin$36 = class RenderBox_ContainerRenderObjectMixin extends box.RenderBox {};
+  (RenderBox_ContainerRenderObjectMixin$36.new = function() {
+    object.ContainerRenderObjectMixin$(box.RenderBox, text_selection.ToolbarItemsParentData)[dart.mixinNew].call(this);
+    RenderBox_ContainerRenderObjectMixin$36.__proto__.new.call(this);
+  }).prototype = RenderBox_ContainerRenderObjectMixin$36.prototype;
+  dart.applyMixin(RenderBox_ContainerRenderObjectMixin$36, object.ContainerRenderObjectMixin$(box.RenderBox, text_selection.ToolbarItemsParentData));
+  text_selection_toolbar._RenderTextSelectionToolbarItemsLayout = class _RenderTextSelectionToolbarItemsLayout extends RenderBox_ContainerRenderObjectMixin$36 {
+    get isAbove() {
+      return this[_isAbove];
+    }
+    set isAbove(value) {
+      if (value === this.isAbove) {
+        return;
+      }
+      this[_isAbove] = value;
+      this.markNeedsLayout();
+    }
+    get overflowOpen() {
+      return this[_overflowOpen];
+    }
+    set overflowOpen(value) {
+      if (value === this.overflowOpen) {
+        return;
+      }
+      this[_overflowOpen] = value;
+      this.markNeedsLayout();
+    }
+    [_layoutChildren]() {
+      let sizedConstraints = this[_overflowOpen] ? this.constraints : new box.BoxConstraints.loose(new ui.Size.new(this.constraints.maxWidth, 44));
+      let i = -1;
+      let width = 0.0;
+      this.visitChildren(dart.fn(renderObjectChild => {
+        i = i + 1;
+        if (this[_lastIndexThatFits] !== -1 && !this.overflowOpen) {
+          return;
+        }
+        let child = box.RenderBox.as(renderObjectChild);
+        child.layout(sizedConstraints.loosen(), {parentUsesSize: true});
+        width = width + child.size.width;
+        if (width > sizedConstraints.maxWidth && this[_lastIndexThatFits] === -1) {
+          this[_lastIndexThatFits] = i - 1;
+        }
+      }, T.RenderObjectTovoid()));
+      let navButton = dart.nullCheck(this.firstChild);
+      if (this[_lastIndexThatFits] !== -1 && this[_lastIndexThatFits] === this.childCount - 2 && width - navButton.size.width <= sizedConstraints.maxWidth) {
+        this[_lastIndexThatFits] = -1;
+      }
+    }
+    [_shouldPaintChild](renderObjectChild, index) {
+      if (renderObjectChild[$_equals](this.firstChild)) {
+        return this[_lastIndexThatFits] !== -1;
+      }
+      if (this[_lastIndexThatFits] === -1) {
+        return true;
+      }
+      return index > this[_lastIndexThatFits] === this.overflowOpen;
+    }
+    [_placeChildren]() {
+      let i = -1;
+      let nextSize = ui.Size.zero;
+      let fitWidth = 0.0;
+      let navButton = dart.nullCheck(this.firstChild);
+      let overflowHeight = this.overflowOpen && !this.isAbove ? navButton.size.height : 0.0;
+      this.visitChildren(dart.fn(renderObjectChild => {
+        i = i + 1;
+        let child = box.RenderBox.as(renderObjectChild);
+        let childParentData = text_selection.ToolbarItemsParentData.as(dart.nullCheck(child.parentData));
+        if (renderObjectChild[$_equals](navButton)) {
+          return;
+        }
+        if (!this[_shouldPaintChild](renderObjectChild, i)) {
+          childParentData.shouldPaint = false;
+          return;
+        }
+        childParentData.shouldPaint = true;
+        if (!this.overflowOpen) {
+          childParentData.offset = new ui.Offset.new(fitWidth, 0.0);
+          fitWidth = fitWidth + child.size.width;
+          nextSize = new ui.Size.new(fitWidth, math.max(core.double, child.size.height, nextSize.height));
+        } else {
+          childParentData.offset = new ui.Offset.new(0.0, overflowHeight);
+          overflowHeight = overflowHeight + child.size.height;
+          nextSize = new ui.Size.new(math.max(core.double, child.size.width, nextSize.width), overflowHeight);
+        }
+      }, T.RenderObjectTovoid()));
+      let navButtonParentData = text_selection.ToolbarItemsParentData.as(dart.nullCheck(navButton.parentData));
+      if (this[_shouldPaintChild](dart.nullCheck(this.firstChild), 0)) {
+        navButtonParentData.shouldPaint = true;
+        if (this.overflowOpen) {
+          navButtonParentData.offset = this.isAbove ? new ui.Offset.new(0.0, overflowHeight) : ui.Offset.zero;
+          nextSize = new ui.Size.new(nextSize.width, this.isAbove ? nextSize.height + navButton.size.height : nextSize.height);
+        } else {
+          navButtonParentData.offset = new ui.Offset.new(fitWidth, 0.0);
+          nextSize = new ui.Size.new(nextSize.width + navButton.size.width, nextSize.height);
+        }
       } else {
-        canvas.drawVertices(dart.nullCheck(this[_canvasVertices]), ui.BlendMode.srcOver, this[_paint]);
+        navButtonParentData.shouldPaint = false;
       }
-      canvas.restore();
+      this.size = nextSize;
     }
-    initializeGraphics() {
-      let t5, t6, t5$, t6$, t5$0, t5$1;
-      super.initializeGraphics();
-      if (this.triangles == null) {
-        this[_paint] = ui.Paint.new();
+    performLayout() {
+      this[_lastIndexThatFits] = -1;
+      if (this.firstChild == null) {
+        this.size = this.constraints.smallest;
         return;
       }
-      this[_vertexBuffer] = this.makeVertexPositionBuffer();
-      this[_uvBuffer] = this.makeVertexUVBuffer();
-      this[_indices] = dart.nullCheck(this.triangles);
-      this.updateVertexUVBuffer(this[_uvBuffer]);
-      let count = this.vertexCount;
-      let idx = 0;
-      let images = flare.FlutterActor.as(this.artboard.actor).images;
-      let image = images[$_get](this.textureIndex);
-      for (let i = 0; i < count; i = i + 1) {
-        this[_uvBuffer][$_set](idx, this[_uvBuffer][$_get](idx) * image.width);
-        this[_uvBuffer][$_set](idx + 1, this[_uvBuffer][$_get](idx + 1) * image.height);
-        idx = idx + 2;
-      }
-      if (this.sequenceUVs != null) {
-        let suvs = dart.nullCheck(this.sequenceUVs);
-        for (let i = 0; i < suvs[$length]; i = i + 1) {
-          t5$ = suvs;
-          t6 = (t5 = i, i = t5 + 1, t5);
-          t5$[$_set](t6, t5$[$_get](t6) * image.width);
-          t5$0 = suvs;
-          t6$ = i;
-          t5$0[$_set](t6$, t5$0[$_get](t6$) * image.height);
+      this[_layoutChildren]();
+      this[_placeChildren]();
+    }
+    paint(context, offset) {
+      this.visitChildren(dart.fn(renderObjectChild => {
+        let child = box.RenderBox.as(renderObjectChild);
+        let childParentData = text_selection.ToolbarItemsParentData.as(dart.nullCheck(child.parentData));
+        if (!childParentData.shouldPaint) {
+          return;
         }
-      }
-      this[_paint] = (t5$1 = ui.Paint.new(), (() => {
-        t5$1.blendMode = this.blendMode;
-        t5$1.shader = ui.ImageShader.new(image, ui.TileMode.clamp, ui.TileMode.clamp, this[_identityMatrix]);
-        t5$1.filterQuality = ui.FilterQuality.low;
-        return t5$1;
-      })());
-      this.onPaintUpdated(this[_paint]);
+        context.paintChild(child, childParentData.offset['+'](offset));
+      }, T.RenderObjectTovoid()));
     }
-    invalidateDrawable() {
-      this[_canvasVertices] = null;
-    }
-    onAntialiasChanged(useAA) {
-      this[_paint].isAntiAlias = useAA;
-      this.onPaintUpdated(this[_paint]);
-    }
-    onBlendModeChanged(mode) {
-      this[_paint].blendMode = mode;
-      this.onPaintUpdated(this[_paint]);
-    }
-    onPaintUpdated(paint) {
-    }
-    update(dirt) {
-      super.update(dirt);
-      if ((dirt & 4) !== 0) {
-        this.onPaintUpdated(this[_paint]);
+    setupParentData(child) {
+      box.RenderBox.as(child);
+      if (!text_selection.ToolbarItemsParentData.is(child.parentData)) {
+        child.parentData = new text_selection.ToolbarItemsParentData.new();
       }
     }
-    updateVertices() {
-      if (this.triangles == null) {
-        return false;
-      }
-      this.updateVertexPositionBuffer(this[_vertexBuffer], false);
-      this[_canvasVertices] = ui.Vertices.raw(ui.VertexMode.triangles, this[_vertexBuffer], {indices: this[_indices], textureCoordinates: this[_uvBuffer]});
-      return true;
-    }
-  };
-  (flare.FlutterActorImage.new = function() {
-    this[__FlutterActorImage__vertexBuffer] = null;
-    this[__FlutterActorImage__uvBuffer] = null;
-    this[__FlutterActorImage__paint] = null;
-    this[_canvasVertices] = null;
-    this[__FlutterActorImage__indices] = null;
-    this[_identityMatrix] = _native_typed_data.NativeFloat64List.fromList(T.JSArrayOfdouble().of([1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]));
-    flare.FlutterActorImage.__proto__.new.call(this);
-    ;
-  }).prototype = flare.FlutterActorImage.prototype;
-  dart.addTypeTests(flare.FlutterActorImage);
-  dart.addTypeCaches(flare.FlutterActorImage);
-  dart.setMethodSignature(flare.FlutterActorImage, () => ({
-    __proto__: dart.getMethods(flare.FlutterActorImage.__proto__),
-    changeImage: dart.fnType(core.bool, [ui.Image]),
-    changeImageFromBundle: dart.fnType(async.Future$(core.bool), [asset_bundle.AssetBundle, core.String]),
-    dispose: dart.fnType(dart.void, []),
-    draw: dart.fnType(dart.void, [ui.Canvas]),
-    onAntialiasChanged: dart.fnType(dart.void, [core.bool]),
-    onBlendModeChanged: dart.fnType(dart.void, [ui.BlendMode]),
-    onPaintUpdated: dart.fnType(dart.void, [ui.Paint]),
-    updateVertices: dart.fnType(core.bool, [])
-  }));
-  dart.setGetterSignature(flare.FlutterActorImage, () => ({
-    __proto__: dart.getGetters(flare.FlutterActorImage.__proto__),
-    [_vertexBuffer]: typed_data.Float32List,
-    [_uvBuffer]: typed_data.Float32List,
-    [_paint]: ui.Paint,
-    [_indices]: typed_data.Uint16List
-  }));
-  dart.setSetterSignature(flare.FlutterActorImage, () => ({
-    __proto__: dart.getSetters(flare.FlutterActorImage.__proto__),
-    [_vertexBuffer]: typed_data.Float32List,
-    [_uvBuffer]: typed_data.Float32List,
-    [_paint]: ui.Paint,
-    [_indices]: typed_data.Uint16List,
-    textureIndex: core.int
-  }));
-  dart.setLibraryUri(flare.FlutterActorImage, I[0]);
-  dart.setFieldSignature(flare.FlutterActorImage, () => ({
-    __proto__: dart.getFields(flare.FlutterActorImage.__proto__),
-    [__FlutterActorImage__vertexBuffer]: dart.fieldType(dart.nullable(typed_data.Float32List)),
-    [__FlutterActorImage__uvBuffer]: dart.fieldType(dart.nullable(typed_data.Float32List)),
-    [__FlutterActorImage__paint]: dart.fieldType(dart.nullable(ui.Paint)),
-    [_canvasVertices]: dart.fieldType(dart.nullable(ui.Vertices)),
-    [__FlutterActorImage__indices]: dart.fieldType(dart.nullable(typed_data.Uint16List)),
-    [_identityMatrix]: dart.finalFieldType(typed_data.Float64List)
-  }));
-  var blendMode$ = dart.privateName(flare, "FlutterActorInnerShadow.blendMode");
-  flare.FlutterActorInnerShadow = class FlutterActorInnerShadow extends actor_inner_shadow.ActorInnerShadow {
-    get blendMode() {
-      return this[blendMode$];
-    }
-    set blendMode(value) {
-      this[blendMode$] = value;
-    }
-    get blendModeId() {
-      return this.blendMode.index;
-    }
-    set blendModeId(index) {
-      this.blendMode = ui.BlendMode.values[$_get](index);
-    }
-  };
-  (flare.FlutterActorInnerShadow.new = function() {
-    this[blendMode$] = ui.BlendMode.srcOver;
-    flare.FlutterActorInnerShadow.__proto__.new.call(this);
-    ;
-  }).prototype = flare.FlutterActorInnerShadow.prototype;
-  dart.addTypeTests(flare.FlutterActorInnerShadow);
-  dart.addTypeCaches(flare.FlutterActorInnerShadow);
-  dart.setLibraryUri(flare.FlutterActorInnerShadow, I[0]);
-  dart.setFieldSignature(flare.FlutterActorInnerShadow, () => ({
-    __proto__: dart.getFields(flare.FlutterActorInnerShadow.__proto__),
-    blendMode: dart.fieldType(ui.BlendMode)
-  }));
-  var _CkMatrixColorFilter_matrix = dart.privateName(_engine, "_CkMatrixColorFilter.matrix");
-  var _name$ = dart.privateName(actor_mask, "_name");
-  const ActorLayerEffectRenderer_FlutterActorDrawable$36 = class ActorLayerEffectRenderer_FlutterActorDrawable extends actor_layer_effect_renderer.ActorLayerEffectRenderer {};
-  (ActorLayerEffectRenderer_FlutterActorDrawable$36.new = function() {
-    flare.FlutterActorDrawable.new.call(this);
-    ActorLayerEffectRenderer_FlutterActorDrawable$36.__proto__.new.call(this);
-  }).prototype = ActorLayerEffectRenderer_FlutterActorDrawable$36.prototype;
-  dart.applyMixin(ActorLayerEffectRenderer_FlutterActorDrawable$36, flare.FlutterActorDrawable);
-  flare.FlutterActorLayerEffectRenderer = class FlutterActorLayerEffectRenderer extends ActorLayerEffectRenderer_FlutterActorDrawable$36 {
-    draw(canvas) {
-      let t5, t5$, t5$0, t5$1, t5$2, t5$3, t5$4;
-      let aabb = this.artboard.artboardAABB();
-      let bounds = new ui.Rect.fromLTRB(aabb._get(0), aabb._get(1), aabb._get(2), aabb._get(3));
-      let baseBlurX = 0.0;
-      let baseBlurY = 0.0;
-      let layerPaint = (t5 = ui.Paint.new(), (() => {
-        t5.isAntiAlias = this.antialias;
-        return t5;
-      })());
-      let layerColor = colors$.Colors.white.withOpacity(dart.nullCheck(this.parent).renderOpacity);
-      layerPaint.color = layerColor;
-      if (dart.test((t5$0 = (t5$ = this.blur, t5$ == null ? null : t5$.isActive), t5$0 == null ? false : t5$0))) {
-        baseBlurX = dart.nullCheck(this.blur).blurX;
-        baseBlurY = dart.nullCheck(this.blur).blurY;
-        layerPaint.imageFilter = flare._blurFilter(baseBlurX, baseBlurY);
-      }
-      if (this.dropShadows[$isNotEmpty]) {
-        for (let dropShadow of this.dropShadows) {
-          if (!dropShadow.isActive) {
-            continue;
-          }
-          canvas.save();
-          let color = dropShadow.color;
-          canvas.translate(dropShadow.offsetX, dropShadow.offsetY);
-          let adjustedBounds = new ui.Rect.fromLTRB(bounds.left - dropShadow.offsetX[$abs](), bounds.top - dropShadow.offsetY[$abs](), bounds.right + dropShadow.offsetX[$abs](), bounds.bottom + dropShadow.offsetY[$abs]());
-          let shadowPaint = (t5$1 = ui.Paint.new(), (() => {
-            t5$1.isAntiAlias = this.antialias;
-            t5$1.color = layerColor;
-            t5$1.imageFilter = flare._blurFilter(dropShadow.blurX + baseBlurX, dropShadow.blurY + baseBlurY);
-            t5$1.colorFilter = new _engine._CkBlendModeColorFilter.new(new ui.Color.fromRGBO((color[$_get](0) * 255.0)[$round](), (color[$_get](1) * 255.0)[$round](), (color[$_get](2) * 255.0)[$round](), color[$_get](3)), ui.BlendMode.srcIn);
-            t5$1.blendMode = ui.BlendMode.values[$_get](dropShadow.blendModeId);
-            return t5$1;
-          })());
-          this.drawPass(canvas, adjustedBounds, shadowPaint);
-          canvas.restore();
-          canvas.restore();
-        }
-      }
-      this.drawPass(canvas, bounds, layerPaint);
-      if (this.innerShadows[$isNotEmpty]) {
-        for (let innerShadow of this.innerShadows) {
-          if (!innerShadow.isActive) {
-            continue;
-          }
-          let blendMode = ui.BlendMode.values[$_get](innerShadow.blendModeId);
-          let extraBlendPass = blendMode !== ui.BlendMode.srcOver;
-          if (extraBlendPass) {
-            let extraLayerPaint = (t5$2 = ui.Paint.new(), (() => {
-              t5$2.blendMode = blendMode;
-              t5$2.isAntiAlias = this.antialias;
-              return t5$2;
-            })());
-            this.drawPass(canvas, bounds, extraLayerPaint);
-          }
-          let color = innerShadow.color;
-          let shadowPaint = (t5$3 = ui.Paint.new(), (() => {
-            t5$3.isAntiAlias = this.antialias;
-            t5$3.color = layerColor;
-            t5$3.blendMode = extraBlendPass ? ui.BlendMode.srcIn : ui.BlendMode.srcATop;
-            t5$3.imageFilter = flare._blurFilter(innerShadow.blurX + baseBlurX, innerShadow.blurY + baseBlurY);
-            t5$3.colorFilter = new _engine._CkBlendModeColorFilter.new(new ui.Color.fromRGBO((color[$_get](0) * 255.0)[$round](), (color[$_get](1) * 255.0)[$round](), (color[$_get](2) * 255.0)[$round](), color[$_get](3)), ui.BlendMode.srcIn);
-            return t5$3;
-          })());
-          canvas.saveLayer(bounds, shadowPaint);
-          canvas.translate(innerShadow.offsetX, innerShadow.offsetY);
-          let adjustedBounds = new ui.Rect.fromLTRB(bounds.left - innerShadow.offsetX[$abs](), bounds.top - innerShadow.offsetY[$abs](), bounds.right + innerShadow.offsetX[$abs](), bounds.bottom + innerShadow.offsetY[$abs]());
-          let invertPaint = (t5$4 = ui.Paint.new(), (() => {
-            t5$4.isAntiAlias = this.antialias;
-            t5$4.colorFilter = C[2] || CT.C2;
-            return t5$4;
-          })());
-          this.drawPass(canvas, adjustedBounds, invertPaint);
-          canvas.restore();
-          canvas.restore();
-          if (extraBlendPass) {
-            canvas.restore();
-          }
-        }
-      }
-      canvas.restore();
-    }
-    drawPass(canvas, bounds, layerPaint) {
-      canvas.saveLayer(bounds, layerPaint);
-      for (let drawable of this.drawables) {
-        if (flare.FlutterActorDrawable.is(drawable)) {
-          flare.FlutterActorDrawable.as(drawable).draw(canvas);
-        }
-      }
-      for (let renderMask of this.renderMasks) {
-        let mask = renderMask.mask;
-        if (!mask.isActive) {
+    hitTestChildren(result, opts) {
+      let position = opts && 'position' in opts ? opts.position : null;
+      let child = this.lastChild;
+      while (child != null) {
+        let childParentData = text_selection.ToolbarItemsParentData.as(dart.nullCheck(child.parentData));
+        if (!childParentData.shouldPaint) {
+          child = childParentData.previousSibling;
           continue;
         }
-        let maskPaint = ui.Paint.new();
-        switch (mask.maskType) {
-          case C[6] || CT.C6:
-          {
-            maskPaint.colorFilter = C[4] || CT.C4;
-            break;
-          }
-          case C[9] || CT.C9:
-          {
-            maskPaint.colorFilter = C[7] || CT.C7;
-            break;
-          }
-          case C[12] || CT.C12:
-          {
-            maskPaint.colorFilter = C[10] || CT.C10;
-            break;
-          }
-          case C[15] || CT.C15:
-          default:
-          {
-            maskPaint.colorFilter = C[13] || CT.C13;
-            break;
-          }
+        let isHit = result.addWithPaintOffset({offset: childParentData.offset, position: position, hitTest: dart.fn((result, transformed) => {
+            if (!transformed._equals(position['-'](childParentData.offset))) dart.assertFailed(null, I[0], 618, 18, "transformed == position - childParentData.offset");
+            return dart.nullCheck(child).hitTest(result, {position: transformed});
+          }, T.BoxHitTestResultAndOffsetTobool())});
+        if (isHit) return true;
+        child = childParentData.previousSibling;
+      }
+      return false;
+    }
+    visitChildrenForSemantics(visitor) {
+      this.visitChildren(dart.fn(renderObjectChild => {
+        let child = box.RenderBox.as(renderObjectChild);
+        let childParentData = text_selection.ToolbarItemsParentData.as(dart.nullCheck(child.parentData));
+        if (childParentData.shouldPaint) {
+          visitor(renderObjectChild);
         }
-        maskPaint.blendMode = ui.BlendMode.dstIn;
-        maskPaint.isAntiAlias = this.antialias;
-        canvas.saveLayer(bounds, maskPaint);
-        for (let drawable of renderMask.drawables) {
-          let wasHidden = drawable.isHidden;
-          if (wasHidden) {
-            drawable.isHidden = false;
-          }
-          flare.FlutterActorDrawable.as(drawable).draw(canvas);
-          if (wasHidden) {
-            drawable.isHidden = true;
-          }
-        }
-        canvas.restore();
-      }
-    }
-    onAntialiasChanged(useAA) {
-      for (let drawable of this.drawables) {
-        if (flare.FlutterActorDrawable.is(drawable)) {
-          flare.FlutterActorDrawable.as(drawable).antialias = useAA;
-        }
-      }
-    }
-    onBlendModeChanged(blendMode) {
+      }, T.RenderObjectTovoid()));
     }
   };
-  (flare.FlutterActorLayerEffectRenderer.new = function() {
-    flare.FlutterActorLayerEffectRenderer.__proto__.new.call(this);
+  (text_selection_toolbar._RenderTextSelectionToolbarItemsLayout.new = function(opts) {
+    let isAbove = opts && 'isAbove' in opts ? opts.isAbove : null;
+    let overflowOpen = opts && 'overflowOpen' in opts ? opts.overflowOpen : null;
+    this[_lastIndexThatFits] = -1;
+    if (!(overflowOpen !== null)) dart.assertFailed(null, I[0], 412, 15, "overflowOpen != null");
+    if (!(isAbove !== null)) dart.assertFailed(null, I[0], 413, 15, "isAbove != null");
+    this[_isAbove] = isAbove;
+    this[_overflowOpen] = overflowOpen;
+    text_selection_toolbar._RenderTextSelectionToolbarItemsLayout.__proto__.new.call(this);
     ;
-  }).prototype = flare.FlutterActorLayerEffectRenderer.prototype;
-  dart.addTypeTests(flare.FlutterActorLayerEffectRenderer);
-  dart.addTypeCaches(flare.FlutterActorLayerEffectRenderer);
-  dart.setMethodSignature(flare.FlutterActorLayerEffectRenderer, () => ({
-    __proto__: dart.getMethods(flare.FlutterActorLayerEffectRenderer.__proto__),
-    draw: dart.fnType(dart.void, [ui.Canvas]),
-    drawPass: dart.fnType(dart.void, [ui.Canvas, ui.Rect, ui.Paint]),
-    onAntialiasChanged: dart.fnType(dart.void, [core.bool]),
-    onBlendModeChanged: dart.fnType(dart.void, [ui.BlendMode])
+  }).prototype = text_selection_toolbar._RenderTextSelectionToolbarItemsLayout.prototype;
+  dart.addTypeTests(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout);
+  dart.addTypeCaches(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout);
+  dart.setMethodSignature(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout, () => ({
+    __proto__: dart.getMethods(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout.__proto__),
+    [_layoutChildren]: dart.fnType(dart.void, []),
+    [_shouldPaintChild]: dart.fnType(core.bool, [object.RenderObject, core.int]),
+    [_placeChildren]: dart.fnType(dart.void, [])
   }));
-  dart.setLibraryUri(flare.FlutterActorLayerEffectRenderer, I[0]);
-  const ActorPath_FlutterPathPointsPath$36 = class ActorPath_FlutterPathPointsPath extends actor_path.ActorPath {};
-  (ActorPath_FlutterPathPointsPath$36.new = function() {
-    flare.FlutterPathPointsPath.new.call(this);
-    ActorPath_FlutterPathPointsPath$36.__proto__.new.call(this);
-  }).prototype = ActorPath_FlutterPathPointsPath$36.prototype;
-  dart.applyMixin(ActorPath_FlutterPathPointsPath$36, flare.FlutterPathPointsPath);
-  flare.FlutterActorPath = class FlutterActorPath extends ActorPath_FlutterPathPointsPath$36 {
-    makeInstance(resetArtboard) {
-      let instanceNode = new flare.FlutterActorPath.new();
-      instanceNode.copyPath(this, resetArtboard);
-      return instanceNode;
+  dart.setGetterSignature(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout, () => ({
+    __proto__: dart.getGetters(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout.__proto__),
+    isAbove: core.bool,
+    overflowOpen: core.bool
+  }));
+  dart.setSetterSignature(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout, () => ({
+    __proto__: dart.getSetters(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout.__proto__),
+    isAbove: core.bool,
+    overflowOpen: core.bool
+  }));
+  dart.setLibraryUri(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout, I[1]);
+  dart.setFieldSignature(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout, () => ({
+    __proto__: dart.getFields(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout.__proto__),
+    [_lastIndexThatFits]: dart.fieldType(core.int),
+    [_isAbove]: dart.fieldType(core.bool),
+    [_overflowOpen]: dart.fieldType(core.bool)
+  }));
+  var child$ = dart.privateName(text_selection_toolbar, "_TextSelectionToolbarContainer.child");
+  var Radius_y = dart.privateName(ui, "Radius.y");
+  var Radius_x = dart.privateName(ui, "Radius.x");
+  var BorderRadius_bottomRight = dart.privateName(border_radius, "BorderRadius.bottomRight");
+  var BorderRadius_bottomLeft = dart.privateName(border_radius, "BorderRadius.bottomLeft");
+  var BorderRadius_topRight = dart.privateName(border_radius, "BorderRadius.topRight");
+  var BorderRadius_topLeft = dart.privateName(border_radius, "BorderRadius.topLeft");
+  text_selection_toolbar._TextSelectionToolbarContainer = class _TextSelectionToolbarContainer extends framework.StatelessWidget {
+    get child() {
+      return this[child$];
+    }
+    set child(value) {
+      super.child = value;
+    }
+    build(context) {
+      return new material.Material.new({borderRadius: C[46] || CT.C46, clipBehavior: ui.Clip.antiAlias, elevation: 1.0, type: material.MaterialType.card, child: this.child, $creationLocationd_0dea112b090073317d4: C[48] || CT.C48});
     }
   };
-  (flare.FlutterActorPath.new = function() {
-    flare.FlutterActorPath.__proto__.new.call(this);
+  (text_selection_toolbar._TextSelectionToolbarContainer.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[child$] = child;
+    text_selection_toolbar._TextSelectionToolbarContainer.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = flare.FlutterActorPath.prototype;
-  dart.addTypeTests(flare.FlutterActorPath);
-  dart.addTypeCaches(flare.FlutterActorPath);
-  dart.setLibraryUri(flare.FlutterActorPath, I[0]);
-  const ActorPolygon_FlutterPathPointsPath$36 = class ActorPolygon_FlutterPathPointsPath extends actor_polygon.ActorPolygon {};
-  (ActorPolygon_FlutterPathPointsPath$36.new = function() {
-    flare.FlutterPathPointsPath.new.call(this);
-    ActorPolygon_FlutterPathPointsPath$36.__proto__.new.call(this);
-  }).prototype = ActorPolygon_FlutterPathPointsPath$36.prototype;
-  dart.applyMixin(ActorPolygon_FlutterPathPointsPath$36, flare.FlutterPathPointsPath);
-  flare.FlutterActorPolygon = class FlutterActorPolygon extends ActorPolygon_FlutterPathPointsPath$36 {
-    makeInstance(resetArtboard) {
-      let instanceNode = new flare.FlutterActorPolygon.new();
-      instanceNode.copyPolygon(this, resetArtboard);
-      return instanceNode;
+  }).prototype = text_selection_toolbar._TextSelectionToolbarContainer.prototype;
+  dart.addTypeTests(text_selection_toolbar._TextSelectionToolbarContainer);
+  dart.addTypeCaches(text_selection_toolbar._TextSelectionToolbarContainer);
+  dart.setMethodSignature(text_selection_toolbar._TextSelectionToolbarContainer, () => ({
+    __proto__: dart.getMethods(text_selection_toolbar._TextSelectionToolbarContainer.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(text_selection_toolbar._TextSelectionToolbarContainer, I[1]);
+  dart.setFieldSignature(text_selection_toolbar._TextSelectionToolbarContainer, () => ({
+    __proto__: dart.getFields(text_selection_toolbar._TextSelectionToolbarContainer.__proto__),
+    child: dart.finalFieldType(framework.Widget)
+  }));
+  var icon$ = dart.privateName(text_selection_toolbar, "_TextSelectionToolbarOverflowButton.icon");
+  var onPressed$ = dart.privateName(text_selection_toolbar, "_TextSelectionToolbarOverflowButton.onPressed");
+  var tooltip$ = dart.privateName(text_selection_toolbar, "_TextSelectionToolbarOverflowButton.tooltip");
+  var Color_value = dart.privateName(ui, "Color.value");
+  text_selection_toolbar._TextSelectionToolbarOverflowButton = class _TextSelectionToolbarOverflowButton extends framework.StatelessWidget {
+    get icon() {
+      return this[icon$];
+    }
+    set icon(value) {
+      super.icon = value;
+    }
+    get onPressed() {
+      return this[onPressed$];
+    }
+    set onPressed(value) {
+      super.onPressed = value;
+    }
+    get tooltip() {
+      return this[tooltip$];
+    }
+    set tooltip(value) {
+      super.tooltip = value;
+    }
+    build(context) {
+      return new material.Material.new({type: material.MaterialType.card, color: C[55] || CT.C55, child: new icon_button.IconButton.new({icon: this.icon, onPressed: this.onPressed, tooltip: this.tooltip, $creationLocationd_0dea112b090073317d4: C[56] || CT.C56}), $creationLocationd_0dea112b090073317d4: C[61] || CT.C61});
     }
   };
-  (flare.FlutterActorPolygon.new = function() {
-    flare.FlutterActorPolygon.__proto__.new.call(this);
+  (text_selection_toolbar._TextSelectionToolbarOverflowButton.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let icon = opts && 'icon' in opts ? opts.icon : null;
+    let onPressed = opts && 'onPressed' in opts ? opts.onPressed : null;
+    let tooltip = opts && 'tooltip' in opts ? opts.tooltip : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[icon$] = icon;
+    this[onPressed$] = onPressed;
+    this[tooltip$] = tooltip;
+    text_selection_toolbar._TextSelectionToolbarOverflowButton.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = flare.FlutterActorPolygon.prototype;
-  dart.addTypeTests(flare.FlutterActorPolygon);
-  dart.addTypeCaches(flare.FlutterActorPolygon);
-  dart.setLibraryUri(flare.FlutterActorPolygon, I[0]);
-  const ActorRectangle_FlutterPathPointsPath$36 = class ActorRectangle_FlutterPathPointsPath extends actor_rectangle.ActorRectangle {};
-  (ActorRectangle_FlutterPathPointsPath$36.new = function() {
-    flare.FlutterPathPointsPath.new.call(this);
-    ActorRectangle_FlutterPathPointsPath$36.__proto__.new.call(this);
-  }).prototype = ActorRectangle_FlutterPathPointsPath$36.prototype;
-  dart.applyMixin(ActorRectangle_FlutterPathPointsPath$36, flare.FlutterPathPointsPath);
-  flare.FlutterActorRectangle = class FlutterActorRectangle extends ActorRectangle_FlutterPathPointsPath$36 {
-    makeInstance(resetArtboard) {
-      let instanceNode = new flare.FlutterActorRectangle.new();
-      instanceNode.copyRectangle(this, resetArtboard);
-      return instanceNode;
-    }
-  };
-  (flare.FlutterActorRectangle.new = function() {
-    flare.FlutterActorRectangle.__proto__.new.call(this);
-    ;
-  }).prototype = flare.FlutterActorRectangle.prototype;
-  dart.addTypeTests(flare.FlutterActorRectangle);
-  dart.addTypeCaches(flare.FlutterActorRectangle);
-  dart.setLibraryUri(flare.FlutterActorRectangle, I[0]);
-  var __FlutterActorShape__path = dart.privateName(flare, "_#FlutterActorShape#_path");
-  var _markPaintDirty = dart.privateName(flare, "_markPaintDirty");
-  const ActorShape_FlutterActorDrawable$36 = class ActorShape_FlutterActorDrawable extends actor_shape.ActorShape {};
-  (ActorShape_FlutterActorDrawable$36.new = function() {
-    flare.FlutterActorDrawable.new.call(this);
-    ActorShape_FlutterActorDrawable$36.__proto__.new.call(this);
-  }).prototype = ActorShape_FlutterActorDrawable$36.prototype;
-  dart.applyMixin(ActorShape_FlutterActorDrawable$36, flare.FlutterActorDrawable);
-  flare.FlutterActorShape = class FlutterActorShape extends ActorShape_FlutterActorDrawable$36 {
-    get [_path]() {
-      let t5;
-      t5 = this[__FlutterActorShape__path];
-      return t5 == null ? dart.throw(new _internal.LateError.fieldNI("_path")) : t5;
-    }
-    set [_path](t5) {
-      this[__FlutterActorShape__path] = t5;
-    }
-    get path() {
-      if (this[_isValid$]) {
-        return this[_path];
-      }
-      this[_isValid$] = true;
-      this[_path].reset();
-      if (this.fill != null && dart.nullCheck(this.fill).fillRule === actor_color.FillRule.evenOdd) {
-        this[_path].fillType = ui.PathFillType.evenOdd;
-      } else {
-        this[_path].fillType = ui.PathFillType.nonZero;
-      }
-      for (let path of this.paths) {
-        let transform = path.pathTransform;
-        this[_path].addPath(flare.FlutterPath.as(path).path, ui.Offset.zero, {matrix4: transform.mat4});
-      }
-      return this[_path];
-    }
-    draw(canvas) {
-      if (!this.doesDraw) {
-        return;
-      }
-      canvas.save();
-      this.clip(canvas);
-      let renderPath = this.getRenderPath(canvas);
-      for (let actorFill of this.fills) {
-        let fill = flare.FlutterFill.as(actorFill);
-        fill.paint(actorFill, canvas, renderPath);
-      }
-      for (let actorStroke of this.strokes) {
-        let stroke = flare.FlutterStroke.as(actorStroke);
-        stroke.paint(actorStroke, canvas, renderPath);
-      }
-      canvas.restore();
-    }
-    getRenderPath(canvas) {
-      return this.path;
-    }
-    initializeGraphics() {
-      super.initializeGraphics();
-      this[_path] = ui.Path.new();
-      for (let path of this.paths) {
-        flare.FlutterPath.as(path).initializeGraphics();
-      }
-    }
-    invalidateShape() {
-      let t6;
-      this[_isValid$] = false;
-      t6 = this.stroke;
-      t6 == null ? null : t6.markPathEffectsDirty();
-    }
-    onAntialiasChanged(useAA) {
-      this[_markPaintDirty]();
-    }
-    onBlendModeChanged(mode) {
-      this[_markPaintDirty]();
-    }
-    [_markPaintDirty]() {
-      for (let actorFill of this.fills) {
-        actor_color.ActorPaint.as(actorFill).markPaintDirty();
-      }
-      for (let actorStroke of this.strokes) {
-        actor_color.ActorPaint.as(actorStroke).markPaintDirty();
-      }
-    }
-  };
-  (flare.FlutterActorShape.new = function() {
-    this[__FlutterActorShape__path] = null;
-    this[_isValid$] = false;
-    flare.FlutterActorShape.__proto__.new.call(this);
-    ;
-  }).prototype = flare.FlutterActorShape.prototype;
-  dart.addTypeTests(flare.FlutterActorShape);
-  dart.addTypeCaches(flare.FlutterActorShape);
-  dart.setMethodSignature(flare.FlutterActorShape, () => ({
-    __proto__: dart.getMethods(flare.FlutterActorShape.__proto__),
-    draw: dart.fnType(dart.void, [ui.Canvas]),
-    getRenderPath: dart.fnType(ui.Path, [ui.Canvas]),
-    onAntialiasChanged: dart.fnType(dart.void, [core.bool]),
-    onBlendModeChanged: dart.fnType(dart.void, [ui.BlendMode]),
-    [_markPaintDirty]: dart.fnType(dart.void, [])
+  }).prototype = text_selection_toolbar._TextSelectionToolbarOverflowButton.prototype;
+  dart.addTypeTests(text_selection_toolbar._TextSelectionToolbarOverflowButton);
+  dart.addTypeCaches(text_selection_toolbar._TextSelectionToolbarOverflowButton);
+  dart.setMethodSignature(text_selection_toolbar._TextSelectionToolbarOverflowButton, () => ({
+    __proto__: dart.getMethods(text_selection_toolbar._TextSelectionToolbarOverflowButton.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
   }));
-  dart.setGetterSignature(flare.FlutterActorShape, () => ({
-    __proto__: dart.getGetters(flare.FlutterActorShape.__proto__),
-    [_path]: ui.Path,
-    path: ui.Path
+  dart.setLibraryUri(text_selection_toolbar._TextSelectionToolbarOverflowButton, I[1]);
+  dart.setFieldSignature(text_selection_toolbar._TextSelectionToolbarOverflowButton, () => ({
+    __proto__: dart.getFields(text_selection_toolbar._TextSelectionToolbarOverflowButton.__proto__),
+    icon: dart.finalFieldType(icon.Icon),
+    onPressed: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    tooltip: dart.finalFieldType(dart.nullable(core.String))
   }));
-  dart.setSetterSignature(flare.FlutterActorShape, () => ({
-    __proto__: dart.getSetters(flare.FlutterActorShape.__proto__),
-    [_path]: ui.Path
-  }));
-  dart.setLibraryUri(flare.FlutterActorShape, I[0]);
-  dart.setFieldSignature(flare.FlutterActorShape, () => ({
-    __proto__: dart.getFields(flare.FlutterActorShape.__proto__),
-    [__FlutterActorShape__path]: dart.fieldType(dart.nullable(ui.Path)),
-    [_isValid$]: dart.fieldType(core.bool)
-  }));
-  var __FlutterActorShapeWithTransformedStroke__localPath = dart.privateName(flare, "_#FlutterActorShapeWithTransformedStroke#_localPath");
-  var _isLocalValid = dart.privateName(flare, "_isLocalValid");
-  var _localPath = dart.privateName(flare, "_localPath");
-  flare.FlutterActorShapeWithTransformedStroke = class FlutterActorShapeWithTransformedStroke extends flare.FlutterActorShape {
-    get [_localPath]() {
-      let t6;
-      t6 = this[__FlutterActorShapeWithTransformedStroke__localPath];
-      return t6 == null ? dart.throw(new _internal.LateError.fieldNI("_localPath")) : t6;
+  dart.defineLazy(text_selection_toolbar, {
+    /*text_selection_toolbar._kToolbarScreenPadding*/get _kToolbarScreenPadding() {
+      return 8;
+    },
+    /*text_selection_toolbar._kToolbarHeight*/get _kToolbarHeight() {
+      return 44;
     }
-    set [_localPath](t6) {
-      this[__FlutterActorShapeWithTransformedStroke__localPath] = t6;
-    }
-    get localPath() {
-      if (this[_isLocalValid]) {
-        return this[_localPath];
-      }
-      this[_isLocalValid] = true;
-      this[_localPath].reset();
-      let inverseWorld = new mat2d.Mat2D.new();
-      if (!mat2d.Mat2D.invert(inverseWorld, this.worldTransform)) {
-        mat2d.Mat2D.identity(inverseWorld);
-      }
-      for (let path of this.paths) {
-        let transform = path.pathTransform;
-        let localTransform = new mat2d.Mat2D.new();
-        mat2d.Mat2D.multiply(localTransform, inverseWorld, transform);
-        this[_localPath].addPath(flare.FlutterPath.as(path).path, ui.Offset.zero, {matrix4: localTransform.mat4});
-      }
-      return this[_localPath];
-    }
-    getRenderPath(canvas) {
-      canvas.transform(this.worldTransform.mat4);
-      return this.localPath;
-    }
-    initializeGraphics() {
-      super.initializeGraphics();
-      this[_localPath] = ui.Path.new();
-    }
-    invalidateShape() {
-      this[_isLocalValid] = false;
-      super.invalidateShape();
-    }
-  };
-  (flare.FlutterActorShapeWithTransformedStroke.new = function() {
-    this[__FlutterActorShapeWithTransformedStroke__localPath] = null;
-    this[_isLocalValid] = false;
-    flare.FlutterActorShapeWithTransformedStroke.__proto__.new.call(this);
-    ;
-  }).prototype = flare.FlutterActorShapeWithTransformedStroke.prototype;
-  dart.addTypeTests(flare.FlutterActorShapeWithTransformedStroke);
-  dart.addTypeCaches(flare.FlutterActorShapeWithTransformedStroke);
-  dart.setGetterSignature(flare.FlutterActorShapeWithTransformedStroke, () => ({
-    __proto__: dart.getGetters(flare.FlutterActorShapeWithTransformedStroke.__proto__),
-    [_localPath]: ui.Path,
-    localPath: ui.Path
-  }));
-  dart.setSetterSignature(flare.FlutterActorShapeWithTransformedStroke, () => ({
-    __proto__: dart.getSetters(flare.FlutterActorShapeWithTransformedStroke.__proto__),
-    [_localPath]: ui.Path
-  }));
-  dart.setLibraryUri(flare.FlutterActorShapeWithTransformedStroke, I[0]);
-  dart.setFieldSignature(flare.FlutterActorShapeWithTransformedStroke, () => ({
-    __proto__: dart.getFields(flare.FlutterActorShapeWithTransformedStroke.__proto__),
-    [__FlutterActorShapeWithTransformedStroke__localPath]: dart.fieldType(dart.nullable(ui.Path)),
-    [_isLocalValid]: dart.fieldType(core.bool)
-  }));
-  const ActorStar_FlutterPathPointsPath$36 = class ActorStar_FlutterPathPointsPath extends actor_star.ActorStar {};
-  (ActorStar_FlutterPathPointsPath$36.new = function() {
-    flare.FlutterPathPointsPath.new.call(this);
-    ActorStar_FlutterPathPointsPath$36.__proto__.new.call(this);
-  }).prototype = ActorStar_FlutterPathPointsPath$36.prototype;
-  dart.applyMixin(ActorStar_FlutterPathPointsPath$36, flare.FlutterPathPointsPath);
-  flare.FlutterActorStar = class FlutterActorStar extends ActorStar_FlutterPathPointsPath$36 {
-    makeInstance(resetArtboard) {
-      let instanceNode = new flare.FlutterActorStar.new();
-      instanceNode.copyStar(this, resetArtboard);
-      return instanceNode;
-    }
-  };
-  (flare.FlutterActorStar.new = function() {
-    flare.FlutterActorStar.__proto__.new.call(this);
-    ;
-  }).prototype = flare.FlutterActorStar.prototype;
-  dart.addTypeTests(flare.FlutterActorStar);
-  dart.addTypeCaches(flare.FlutterActorStar);
-  dart.setLibraryUri(flare.FlutterActorStar, I[0]);
-  const ActorTriangle_FlutterPathPointsPath$36 = class ActorTriangle_FlutterPathPointsPath extends actor_triangle.ActorTriangle {};
-  (ActorTriangle_FlutterPathPointsPath$36.new = function() {
-    flare.FlutterPathPointsPath.new.call(this);
-    ActorTriangle_FlutterPathPointsPath$36.__proto__.new.call(this);
-  }).prototype = ActorTriangle_FlutterPathPointsPath$36.prototype;
-  dart.applyMixin(ActorTriangle_FlutterPathPointsPath$36, flare.FlutterPathPointsPath);
-  flare.FlutterActorTriangle = class FlutterActorTriangle extends ActorTriangle_FlutterPathPointsPath$36 {
-    makeInstance(resetArtboard) {
-      let instanceNode = new flare.FlutterActorTriangle.new();
-      instanceNode.copyPath(this, resetArtboard);
-      return instanceNode;
-    }
-  };
-  (flare.FlutterActorTriangle.new = function() {
-    flare.FlutterActorTriangle.__proto__.new.call(this);
-    ;
-  }).prototype = flare.FlutterActorTriangle.prototype;
-  dart.addTypeTests(flare.FlutterActorTriangle);
-  dart.addTypeCaches(flare.FlutterActorTriangle);
-  dart.setLibraryUri(flare.FlutterActorTriangle, I[0]);
-  var _$35FlutterFill$35_paint = dart.privateName(flare, "FlutterFill._#FlutterFill#_paint");
-  var __FlutterFill__paint = dart.privateName(flare, "_#FlutterFill#_paint");
-  var _name$0 = dart.privateName(actor_color, "_name");
-  flare.FlutterFill = class FlutterFill extends core.Object {
-    get [__FlutterFill__paint]() {
-      return this[_$35FlutterFill$35_paint];
-    }
-    set [__FlutterFill__paint](value) {
-      this[_$35FlutterFill$35_paint] = value;
-    }
-    get [_paint]() {
-      let t7;
-      t7 = this[__FlutterFill__paint];
-      return t7 == null ? dart.throw(new _internal.LateError.fieldNI("_paint")) : t7;
-    }
-    set [_paint](t7) {
-      this[__FlutterFill__paint] = t7;
-    }
-    initializeGraphics() {
-      let t8;
-      this[_paint] = (t8 = ui.Paint.new(), (() => {
-        t8.style = ui.PaintingStyle.fill;
-        return t8;
-      })());
-      this.onPaintUpdated(this[_paint]);
-    }
-    onPaintUpdated(paint) {
-    }
-    paint(fill, canvas, path) {
-      switch (fill.fillRule) {
-        case C[16] || CT.C16:
-        {
-          path.fillType = ui.PathFillType.evenOdd;
-          break;
-        }
-        case C[17] || CT.C17:
-        {
-          path.fillType = ui.PathFillType.nonZero;
-          break;
-        }
-      }
-      canvas.drawPath(path, this[_paint]);
-    }
-  };
-  (flare.FlutterFill.new = function() {
-    this[_$35FlutterFill$35_paint] = null;
-    ;
-  }).prototype = flare.FlutterFill.prototype;
-  dart.addTypeTests(flare.FlutterFill);
-  dart.addTypeCaches(flare.FlutterFill);
-  dart.setMethodSignature(flare.FlutterFill, () => ({
-    __proto__: dart.getMethods(flare.FlutterFill.__proto__),
-    initializeGraphics: dart.fnType(dart.void, []),
-    onPaintUpdated: dart.fnType(dart.void, [ui.Paint]),
-    paint: dart.fnType(dart.void, [actor_color.ActorFill, ui.Canvas, ui.Path])
-  }));
-  dart.setGetterSignature(flare.FlutterFill, () => ({
-    __proto__: dart.getGetters(flare.FlutterFill.__proto__),
-    [_paint]: ui.Paint
-  }));
-  dart.setSetterSignature(flare.FlutterFill, () => ({
-    __proto__: dart.getSetters(flare.FlutterFill.__proto__),
-    [_paint]: ui.Paint
-  }));
-  dart.setLibraryUri(flare.FlutterFill, I[0]);
-  dart.setFieldSignature(flare.FlutterFill, () => ({
-    __proto__: dart.getFields(flare.FlutterFill.__proto__),
-    [__FlutterFill__paint]: dart.fieldType(dart.nullable(ui.Paint))
-  }));
-  const ColorFill_FlutterFill$36 = class ColorFill_FlutterFill extends actor_color.ColorFill {};
-  (ColorFill_FlutterFill$36.new = function() {
-    flare.FlutterFill.new.call(this);
-    ColorFill_FlutterFill$36.__proto__.new.call(this);
-  }).prototype = ColorFill_FlutterFill$36.prototype;
-  dart.applyMixin(ColorFill_FlutterFill$36, flare.FlutterFill);
-  flare.FlutterColorFill = class FlutterColorFill extends ColorFill_FlutterFill$36 {
-    get uiColor() {
-      let c = this.displayColor;
-      let o = (this.artboard.modulateOpacity * this.opacity * this.shape.renderOpacity)[$clamp](0.0, 1.0)[$toDouble]();
-      return new ui.Color.fromRGBO((c[$_get](0) * 255.0)[$round](), (c[$_get](1) * 255.0)[$round](), (c[$_get](2) * 255.0)[$round](), c[$_get](3) * o);
-    }
-    set uiColor(c) {
-      this.color = _native_typed_data.NativeFloat32List.fromList(T.JSArrayOfdouble().of([c.red / 255, c.green / 255, c.blue / 255, c.opacity]));
-    }
-    makeInstance(resetArtboard) {
-      let instanceNode = new flare.FlutterColorFill.new();
-      instanceNode.copyColorFill(this, resetArtboard);
-      return instanceNode;
-    }
-    update(dirt) {
-      let t7;
-      super.update(dirt);
-      let parentShape = flare.FlutterActorShape.as(this.parent);
-      t7 = this[_paint];
-      (() => {
-        t7.color = this.uiColor;
-        t7.isAntiAlias = parentShape.antialias;
-        t7.blendMode = parentShape.blendMode;
-        return t7;
-      })();
-      this.onPaintUpdated(this[_paint]);
-    }
-  };
-  (flare.FlutterColorFill.new = function() {
-    flare.FlutterColorFill.__proto__.new.call(this);
-    ;
-  }).prototype = flare.FlutterColorFill.prototype;
-  dart.addTypeTests(flare.FlutterColorFill);
-  dart.addTypeCaches(flare.FlutterColorFill);
-  dart.setMethodSignature(flare.FlutterColorFill, () => ({
-    __proto__: dart.getMethods(flare.FlutterColorFill.__proto__),
-    makeInstance: dart.fnType(actor_component.ActorComponent, [actor_artboard.ActorArtboard])
-  }));
-  dart.setGetterSignature(flare.FlutterColorFill, () => ({
-    __proto__: dart.getGetters(flare.FlutterColorFill.__proto__),
-    uiColor: ui.Color
-  }));
-  dart.setSetterSignature(flare.FlutterColorFill, () => ({
-    __proto__: dart.getSetters(flare.FlutterColorFill.__proto__),
-    uiColor: ui.Color
-  }));
-  dart.setLibraryUri(flare.FlutterColorFill, I[0]);
-  var _$35FlutterStroke$35_paint = dart.privateName(flare, "FlutterStroke._#FlutterStroke#_paint");
-  var effectPath = dart.privateName(flare, "FlutterStroke.effectPath");
-  var __FlutterStroke__paint = dart.privateName(flare, "_#FlutterStroke#_paint");
-  flare.FlutterStroke = class FlutterStroke extends core.Object {
-    get [__FlutterStroke__paint]() {
-      return this[_$35FlutterStroke$35_paint];
-    }
-    set [__FlutterStroke__paint](value) {
-      this[_$35FlutterStroke$35_paint] = value;
-    }
-    get effectPath() {
-      return this[effectPath];
-    }
-    set effectPath(value) {
-      this[effectPath] = value;
-    }
-    get [_paint]() {
-      let t8;
-      t8 = this[__FlutterStroke__paint];
-      return t8 == null ? dart.throw(new _internal.LateError.fieldNI("_paint")) : t8;
-    }
-    set [_paint](t8) {
-      this[__FlutterStroke__paint] = t8;
-    }
-    initializeGraphics() {
-      let t9;
-      let stroke = actor_color.ActorStroke.as(this);
-      this[_paint] = (t9 = ui.Paint.new(), (() => {
-        t9.style = ui.PaintingStyle.stroke;
-        t9.strokeWidth = stroke.width;
-        t9.strokeCap = flare.FlutterStroke.getStrokeCap(stroke.cap);
-        t9.strokeJoin = flare.FlutterStroke.getStrokeJoin(stroke.join);
-        return t9;
-      })());
-      this.onPaintUpdated(this[_paint]);
-    }
-    markPathEffectsDirty() {
-      this.effectPath = null;
-    }
-    onPaintUpdated(paint) {
-    }
-    paint(stroke, canvas, path) {
-      if (stroke.width === 0) {
-        return;
-      }
-      if (stroke.isTrimmed) {
-        if (this.effectPath == null) {
-          let isSequential = stroke.trim === actor_color.TrimPath.sequential;
-          let start = stroke.trimStart[$clamp](0, 1)[$toDouble]();
-          let end = stroke.trimEnd[$clamp](0, 1)[$toDouble]();
-          let offset = stroke.trimOffset;
-          let inverted = start > end;
-          if ((start - end)[$abs]() !== 1.0) {
-            start = (start + offset)[$modulo](1.0);
-            end = (end + offset)[$modulo](1.0);
-            if (start < 0) {
-              start = start + 1.0;
-            }
-            if (end < 0) {
-              end = end + 1.0;
-            }
-            if (inverted) {
-              let swap = end;
-              end = start;
-              start = swap;
-            }
-            if (end >= start) {
-              this.effectPath = trim_path.trimPath(path, start, end, false, isSequential);
-            } else {
-              this.effectPath = trim_path.trimPath(path, end, start, true, isSequential);
-            }
-          } else {
-            this.effectPath = path;
-          }
-        }
-        path = dart.nullCheck(this.effectPath);
-      }
-      canvas.drawPath(path, this[_paint]);
-    }
-    static getStrokeCap(cap) {
-      switch (cap) {
-        case C[18] || CT.C18:
-        {
-          return ui.StrokeCap.butt;
-        }
-        case C[19] || CT.C19:
-        {
-          return ui.StrokeCap.round;
-        }
-        case C[20] || CT.C20:
-        {
-          return ui.StrokeCap.square;
-        }
-      }
-    }
-    static getStrokeJoin(join) {
-      switch (join) {
-        case C[21] || CT.C21:
-        {
-          return ui.StrokeJoin.miter;
-        }
-        case C[22] || CT.C22:
-        {
-          return ui.StrokeJoin.round;
-        }
-        case C[23] || CT.C23:
-        {
-          return ui.StrokeJoin.bevel;
-        }
-      }
-    }
-  };
-  (flare.FlutterStroke.new = function() {
-    this[_$35FlutterStroke$35_paint] = null;
-    this[effectPath] = null;
-    ;
-  }).prototype = flare.FlutterStroke.prototype;
-  dart.addTypeTests(flare.FlutterStroke);
-  dart.addTypeCaches(flare.FlutterStroke);
-  dart.setMethodSignature(flare.FlutterStroke, () => ({
-    __proto__: dart.getMethods(flare.FlutterStroke.__proto__),
-    initializeGraphics: dart.fnType(dart.void, []),
-    markPathEffectsDirty: dart.fnType(dart.void, []),
-    onPaintUpdated: dart.fnType(dart.void, [ui.Paint]),
-    paint: dart.fnType(dart.void, [actor_color.ActorStroke, ui.Canvas, ui.Path])
-  }));
-  dart.setGetterSignature(flare.FlutterStroke, () => ({
-    __proto__: dart.getGetters(flare.FlutterStroke.__proto__),
-    [_paint]: ui.Paint
-  }));
-  dart.setSetterSignature(flare.FlutterStroke, () => ({
-    __proto__: dart.getSetters(flare.FlutterStroke.__proto__),
-    [_paint]: ui.Paint
-  }));
-  dart.setLibraryUri(flare.FlutterStroke, I[0]);
-  dart.setFieldSignature(flare.FlutterStroke, () => ({
-    __proto__: dart.getFields(flare.FlutterStroke.__proto__),
-    [__FlutterStroke__paint]: dart.fieldType(dart.nullable(ui.Paint)),
-    effectPath: dart.fieldType(dart.nullable(ui.Path))
-  }));
-  const ColorStroke_FlutterStroke$36 = class ColorStroke_FlutterStroke extends actor_color.ColorStroke {};
-  (ColorStroke_FlutterStroke$36.new = function() {
-    flare.FlutterStroke.new.call(this);
-    ColorStroke_FlutterStroke$36.__proto__.new.call(this);
-  }).prototype = ColorStroke_FlutterStroke$36.prototype;
-  dart.applyMixin(ColorStroke_FlutterStroke$36, flare.FlutterStroke);
-  flare.FlutterColorStroke = class FlutterColorStroke extends ColorStroke_FlutterStroke$36 {
-    get uiColor() {
-      let c = this.displayColor;
-      let o = (this.artboard.modulateOpacity * this.opacity * this.shape.renderOpacity)[$clamp](0.0, 1.0)[$toDouble]();
-      return new ui.Color.fromRGBO((c[$_get](0) * 255.0)[$round](), (c[$_get](1) * 255.0)[$round](), (c[$_get](2) * 255.0)[$round](), c[$_get](3) * o);
-    }
-    set uiColor(c) {
-      this.color = _native_typed_data.NativeFloat32List.fromList(T.JSArrayOfdouble().of([c.red / 255, c.green / 255, c.blue / 255, c.opacity]));
-    }
-    makeInstance(resetArtboard) {
-      let instanceNode = new flare.FlutterColorStroke.new();
-      instanceNode.copyColorStroke(this, resetArtboard);
-      return instanceNode;
-    }
-    update(dirt) {
-      let t8;
-      super.update(dirt);
-      let parentShape = flare.FlutterActorShape.as(this.parent);
-      t8 = this[_paint];
-      (() => {
-        t8.color = this.uiColor;
-        t8.strokeWidth = this.width;
-        t8.isAntiAlias = parentShape.antialias;
-        t8.blendMode = parentShape.blendMode;
-        return t8;
-      })();
-      this.onPaintUpdated(this[_paint]);
-    }
-  };
-  (flare.FlutterColorStroke.new = function() {
-    flare.FlutterColorStroke.__proto__.new.call(this);
-    ;
-  }).prototype = flare.FlutterColorStroke.prototype;
-  dart.addTypeTests(flare.FlutterColorStroke);
-  dart.addTypeCaches(flare.FlutterColorStroke);
-  dart.setMethodSignature(flare.FlutterColorStroke, () => ({
-    __proto__: dart.getMethods(flare.FlutterColorStroke.__proto__),
-    makeInstance: dart.fnType(actor_component.ActorComponent, [actor_artboard.ActorArtboard])
-  }));
-  dart.setGetterSignature(flare.FlutterColorStroke, () => ({
-    __proto__: dart.getGetters(flare.FlutterColorStroke.__proto__),
-    uiColor: ui.Color
-  }));
-  dart.setSetterSignature(flare.FlutterColorStroke, () => ({
-    __proto__: dart.getSetters(flare.FlutterColorStroke.__proto__),
-    uiColor: ui.Color
-  }));
-  dart.setLibraryUri(flare.FlutterColorStroke, I[0]);
-  const GradientFill_FlutterFill$36 = class GradientFill_FlutterFill extends actor_color.GradientFill {};
-  (GradientFill_FlutterFill$36.new = function() {
-    flare.FlutterFill.new.call(this);
-    GradientFill_FlutterFill$36.__proto__.new.call(this);
-  }).prototype = GradientFill_FlutterFill$36.prototype;
-  dart.applyMixin(GradientFill_FlutterFill$36, flare.FlutterFill);
-  flare.FlutterGradientFill = class FlutterGradientFill extends GradientFill_FlutterFill$36 {
-    makeInstance(resetArtboard) {
-      let instanceNode = new flare.FlutterGradientFill.new();
-      instanceNode.copyGradientFill(this, resetArtboard);
-      return instanceNode;
-    }
-    update(dirt) {
-      let t9;
-      super.update(dirt);
-      let colors = T.JSArrayOfColor().of([]);
-      let stops = T.JSArrayOfdouble().of([]);
-      let numStops = (this.colorStops[$length] / 5)[$round]();
-      let idx = 0;
-      for (let i = 0; i < numStops; i = i + 1) {
-        let o = this.colorStops[$_get](idx + 3)[$clamp](0.0, 1.0)[$toDouble]();
-        let color = new ui.Color.fromRGBO((this.colorStops[$_get](idx) * 255.0)[$round](), (this.colorStops[$_get](idx + 1) * 255.0)[$round](), (this.colorStops[$_get](idx + 2) * 255.0)[$round](), o);
-        colors[$add](color);
-        stops[$add](this.colorStops[$_get](idx + 4));
-        idx = idx + 5;
-      }
-      let paintColor = null;
-      if (this.artboard.overrideColor == null) {
-        paintColor = colors$.Colors.white.withOpacity((this.artboard.modulateOpacity * this.opacity * this.shape.renderOpacity)[$clamp](0.0, 1.0)[$toDouble]());
-      } else {
-        let overrideColor = dart.nullCheck(this.artboard.overrideColor);
-        let o = (overrideColor[$_get](3) * this.artboard.modulateOpacity * this.opacity * this.shape.renderOpacity)[$clamp](0.0, 1.0)[$toDouble]();
-        paintColor = new ui.Color.fromRGBO((overrideColor[$_get](0) * 255.0)[$round](), (overrideColor[$_get](1) * 255.0)[$round](), (overrideColor[$_get](2) * 255.0)[$round](), o);
-      }
-      let parentShape = flare.FlutterActorShape.as(this.parent);
-      t9 = this[_paint];
-      (() => {
-        t9.color = paintColor;
-        t9.isAntiAlias = parentShape.antialias;
-        t9.blendMode = parentShape.blendMode;
-        t9.shader = ui.Gradient.linear(new ui.Offset.new(this.renderStart._get(0), this.renderStart._get(1)), new ui.Offset.new(this.renderEnd._get(0), this.renderEnd._get(1)), colors, stops);
-        return t9;
-      })();
-      this.onPaintUpdated(this[_paint]);
-    }
-  };
-  (flare.FlutterGradientFill.new = function() {
-    flare.FlutterGradientFill.__proto__.new.call(this);
-    ;
-  }).prototype = flare.FlutterGradientFill.prototype;
-  dart.addTypeTests(flare.FlutterGradientFill);
-  dart.addTypeCaches(flare.FlutterGradientFill);
-  dart.setMethodSignature(flare.FlutterGradientFill, () => ({
-    __proto__: dart.getMethods(flare.FlutterGradientFill.__proto__),
-    makeInstance: dart.fnType(actor_component.ActorComponent, [actor_artboard.ActorArtboard])
-  }));
-  dart.setLibraryUri(flare.FlutterGradientFill, I[0]);
-  const GradientStroke_FlutterStroke$36 = class GradientStroke_FlutterStroke extends actor_color.GradientStroke {};
-  (GradientStroke_FlutterStroke$36.new = function() {
-    flare.FlutterStroke.new.call(this);
-    GradientStroke_FlutterStroke$36.__proto__.new.call(this);
-  }).prototype = GradientStroke_FlutterStroke$36.prototype;
-  dart.applyMixin(GradientStroke_FlutterStroke$36, flare.FlutterStroke);
-  flare.FlutterGradientStroke = class FlutterGradientStroke extends GradientStroke_FlutterStroke$36 {
-    makeInstance(resetArtboard) {
-      let instanceNode = new flare.FlutterGradientStroke.new();
-      instanceNode.copyGradientStroke(this, resetArtboard);
-      return instanceNode;
-    }
-    update(dirt) {
-      let t9;
-      super.update(dirt);
-      let colors = T.JSArrayOfColor().of([]);
-      let stops = T.JSArrayOfdouble().of([]);
-      let numStops = (this.colorStops[$length] / 5)[$round]();
-      let idx = 0;
-      for (let i = 0; i < numStops; i = i + 1) {
-        let o = this.colorStops[$_get](idx + 3)[$clamp](0.0, 1.0)[$toDouble]();
-        let color = new ui.Color.fromRGBO((this.colorStops[$_get](idx) * 255.0)[$round](), (this.colorStops[$_get](idx + 1) * 255.0)[$round](), (this.colorStops[$_get](idx + 2) * 255.0)[$round](), o);
-        colors[$add](color);
-        stops[$add](this.colorStops[$_get](idx + 4));
-        idx = idx + 5;
-      }
-      let paintColor = null;
-      if (this.artboard.overrideColor == null) {
-        paintColor = colors$.Colors.white.withOpacity((this.artboard.modulateOpacity * this.opacity * this.shape.renderOpacity)[$clamp](0.0, 1.0)[$toDouble]());
-      } else {
-        let overrideColor = dart.nullCheck(this.artboard.overrideColor);
-        let o = (overrideColor[$_get](3) * this.artboard.modulateOpacity * this.opacity * this.shape.renderOpacity)[$clamp](0.0, 1.0)[$toDouble]();
-        paintColor = new ui.Color.fromRGBO((overrideColor[$_get](0) * 255.0)[$round](), (overrideColor[$_get](1) * 255.0)[$round](), (overrideColor[$_get](2) * 255.0)[$round](), o);
-      }
-      let parentShape = flare.FlutterActorShape.as(this.parent);
-      t9 = this[_paint];
-      (() => {
-        t9.color = paintColor;
-        t9.isAntiAlias = parentShape.antialias;
-        t9.blendMode = parentShape.blendMode;
-        t9.strokeWidth = this.width;
-        t9.shader = ui.Gradient.linear(new ui.Offset.new(this.renderStart._get(0), this.renderStart._get(1)), new ui.Offset.new(this.renderEnd._get(0), this.renderEnd._get(1)), colors, stops);
-        return t9;
-      })();
-      this.onPaintUpdated(this[_paint]);
-    }
-  };
-  (flare.FlutterGradientStroke.new = function() {
-    flare.FlutterGradientStroke.__proto__.new.call(this);
-    ;
-  }).prototype = flare.FlutterGradientStroke.prototype;
-  dart.addTypeTests(flare.FlutterGradientStroke);
-  dart.addTypeCaches(flare.FlutterGradientStroke);
-  dart.setMethodSignature(flare.FlutterGradientStroke, () => ({
-    __proto__: dart.getMethods(flare.FlutterGradientStroke.__proto__),
-    makeInstance: dart.fnType(actor_component.ActorComponent, [actor_artboard.ActorArtboard])
-  }));
-  dart.setLibraryUri(flare.FlutterGradientStroke, I[0]);
-  flare.FlutterPath = class FlutterPath extends core.Object {};
-  (flare.FlutterPath.new = function() {
-    ;
-  }).prototype = flare.FlutterPath.prototype;
-  dart.addTypeTests(flare.FlutterPath);
-  dart.addTypeCaches(flare.FlutterPath);
-  dart.setLibraryUri(flare.FlutterPath, I[0]);
-  const RadialGradientFill_FlutterFill$36 = class RadialGradientFill_FlutterFill extends actor_color.RadialGradientFill {};
-  (RadialGradientFill_FlutterFill$36.new = function() {
-    flare.FlutterFill.new.call(this);
-    RadialGradientFill_FlutterFill$36.__proto__.new.call(this);
-  }).prototype = RadialGradientFill_FlutterFill$36.prototype;
-  dart.applyMixin(RadialGradientFill_FlutterFill$36, flare.FlutterFill);
-  flare.FlutterRadialFill = class FlutterRadialFill extends RadialGradientFill_FlutterFill$36 {
-    makeInstance(resetArtboard) {
-      let instanceNode = new flare.FlutterRadialFill.new();
-      instanceNode.copyRadialFill(this, resetArtboard);
-      return instanceNode;
-    }
-    update(dirt) {
-      let t9;
-      super.update(dirt);
-      let radius = vec2d.Vec2D.distance(this.renderStart, this.renderEnd);
-      let colors = T.JSArrayOfColor().of([]);
-      let stops = T.JSArrayOfdouble().of([]);
-      let numStops = (this.colorStops[$length] / 5)[$round]();
-      let idx = 0;
-      for (let i = 0; i < numStops; i = i + 1) {
-        let o = this.colorStops[$_get](idx + 3)[$clamp](0.0, 1.0)[$toDouble]();
-        let color = new ui.Color.fromRGBO((this.colorStops[$_get](idx) * 255.0)[$round](), (this.colorStops[$_get](idx + 1) * 255.0)[$round](), (this.colorStops[$_get](idx + 2) * 255.0)[$round](), o);
-        colors[$add](color);
-        stops[$add](this.colorStops[$_get](idx + 4));
-        idx = idx + 5;
-      }
-      let radial = ui.Gradient.radial(new ui.Offset.new(this.renderStart._get(0), this.renderStart._get(1)), radius, colors, stops, ui.TileMode.clamp);
-      let paintColor = null;
-      if (this.artboard.overrideColor == null) {
-        paintColor = colors$.Colors.white.withOpacity((this.artboard.modulateOpacity * this.opacity * this.shape.renderOpacity)[$clamp](0.0, 1.0)[$toDouble]());
-      } else {
-        let overrideColor = dart.nullCheck(this.artboard.overrideColor);
-        let o = (overrideColor[$_get](3) * this.artboard.modulateOpacity * this.opacity * this.shape.renderOpacity)[$clamp](0.0, 1.0)[$toDouble]();
-        paintColor = new ui.Color.fromRGBO((overrideColor[$_get](0) * 255.0)[$round](), (overrideColor[$_get](1) * 255.0)[$round](), (overrideColor[$_get](2) * 255.0)[$round](), o);
-      }
-      let parentShape = flare.FlutterActorShape.as(this.parent);
-      t9 = this[_paint];
-      (() => {
-        t9.color = paintColor;
-        t9.isAntiAlias = parentShape.antialias;
-        t9.blendMode = parentShape.blendMode;
-        t9.shader = radial;
-        return t9;
-      })();
-      this.onPaintUpdated(this[_paint]);
-    }
-  };
-  (flare.FlutterRadialFill.new = function() {
-    flare.FlutterRadialFill.__proto__.new.call(this);
-    ;
-  }).prototype = flare.FlutterRadialFill.prototype;
-  dart.addTypeTests(flare.FlutterRadialFill);
-  dart.addTypeCaches(flare.FlutterRadialFill);
-  dart.setMethodSignature(flare.FlutterRadialFill, () => ({
-    __proto__: dart.getMethods(flare.FlutterRadialFill.__proto__),
-    makeInstance: dart.fnType(actor_component.ActorComponent, [actor_artboard.ActorArtboard])
-  }));
-  dart.setLibraryUri(flare.FlutterRadialFill, I[0]);
-  const RadialGradientStroke_FlutterStroke$36 = class RadialGradientStroke_FlutterStroke extends actor_color.RadialGradientStroke {};
-  (RadialGradientStroke_FlutterStroke$36.new = function() {
-    flare.FlutterStroke.new.call(this);
-    RadialGradientStroke_FlutterStroke$36.__proto__.new.call(this);
-  }).prototype = RadialGradientStroke_FlutterStroke$36.prototype;
-  dart.applyMixin(RadialGradientStroke_FlutterStroke$36, flare.FlutterStroke);
-  flare.FlutterRadialStroke = class FlutterRadialStroke extends RadialGradientStroke_FlutterStroke$36 {
-    makeInstance(resetArtboard) {
-      let instanceNode = new flare.FlutterRadialStroke.new();
-      instanceNode.copyRadialStroke(this, resetArtboard);
-      return instanceNode;
-    }
-    update(dirt) {
-      let t9;
-      super.update(dirt);
-      let radius = vec2d.Vec2D.distance(this.renderStart, this.renderEnd);
-      let colors = T.JSArrayOfColor().of([]);
-      let stops = T.JSArrayOfdouble().of([]);
-      let numStops = (this.colorStops[$length] / 5)[$round]();
-      let idx = 0;
-      for (let i = 0; i < numStops; i = i + 1) {
-        let o = this.colorStops[$_get](idx + 3)[$clamp](0.0, 1.0)[$toDouble]();
-        let color = new ui.Color.fromRGBO((this.colorStops[$_get](idx) * 255.0)[$round](), (this.colorStops[$_get](idx + 1) * 255.0)[$round](), (this.colorStops[$_get](idx + 2) * 255.0)[$round](), o);
-        colors[$add](color);
-        stops[$add](this.colorStops[$_get](idx + 4));
-        idx = idx + 5;
-      }
-      let paintColor = null;
-      if (this.artboard.overrideColor == null) {
-        paintColor = colors$.Colors.white.withOpacity((this.artboard.modulateOpacity * this.opacity * this.shape.renderOpacity)[$clamp](0.0, 1.0)[$toDouble]());
-      } else {
-        let overrideColor = dart.nullCheck(this.artboard.overrideColor);
-        let o = (overrideColor[$_get](3) * this.artboard.modulateOpacity * this.opacity * this.shape.renderOpacity)[$clamp](0.0, 1.0)[$toDouble]();
-        paintColor = new ui.Color.fromRGBO((overrideColor[$_get](0) * 255.0)[$round](), (overrideColor[$_get](1) * 255.0)[$round](), (overrideColor[$_get](2) * 255.0)[$round](), o);
-      }
-      let parentShape = flare.FlutterActorShape.as(this.parent);
-      t9 = this[_paint];
-      (() => {
-        t9.color = paintColor;
-        t9.strokeWidth = this.width;
-        t9.isAntiAlias = parentShape.antialias;
-        t9.blendMode = parentShape.blendMode;
-        t9.shader = ui.Gradient.radial(new ui.Offset.new(this.renderStart._get(0), this.renderStart._get(1)), radius, colors, stops, ui.TileMode.clamp);
-        return t9;
-      })();
-      this.onPaintUpdated(this[_paint]);
-    }
-  };
-  (flare.FlutterRadialStroke.new = function() {
-    flare.FlutterRadialStroke.__proto__.new.call(this);
-    ;
-  }).prototype = flare.FlutterRadialStroke.prototype;
-  dart.addTypeTests(flare.FlutterRadialStroke);
-  dart.addTypeCaches(flare.FlutterRadialStroke);
-  dart.setMethodSignature(flare.FlutterRadialStroke, () => ({
-    __proto__: dart.getMethods(flare.FlutterRadialStroke.__proto__),
-    makeInstance: dart.fnType(actor_component.ActorComponent, [actor_artboard.ActorArtboard])
-  }));
-  dart.setLibraryUri(flare.FlutterRadialStroke, I[0]);
-  flare._blurFilter = function _blurFilter(x, y) {
-    let bx = x[$abs]() < 0.1 ? 0.0 : x;
-    let by = y[$abs]() < 0.1 ? 0.0 : y;
-    return bx === 0 && by === 0 ? null : ui.ImageFilter.blur({sigmaX: bx, sigmaY: by});
-  };
-  dart.trackLibraries("packages/flare_flutter/flare.dart", {
-    "package:flare_flutter/flare.dart": flare
+  }, false);
+  dart.trackLibraries("packages/flutter/src/material/text_selection_toolbar.dart", {
+    "package:flutter/src/material/text_selection_toolbar.dart": text_selection_toolbar
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["flare.dart"],"names":[],"mappings":"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","file":"../../../../../../../D:/packages/flare_flutter/flare.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["text_selection_toolbar.dart"],"names":[],"mappings":"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","file":"../../../../../../../D:/packages/flutter/src/material/text_selection_toolbar.dart.lib.js"}');
   // Exports:
   return {
-    flare: flare
+    src__material__text_selection_toolbar: text_selection_toolbar
   };
 }));
 
-//# sourceMappingURL=flare.dart.lib.js.map
+//# sourceMappingURL=text_selection_toolbar.dart.lib.js.map

@@ -1,5 +1,5 @@
-import 'package:cortal/Configuration/Complaint.dart';
 import 'package:cortal/Helpers/Constants.dart';
+import 'package:cortal/Models/Complaint.dart';
 import 'package:cortal/Pages/Portal/AdminPanel/AdminViewFullComplaintPage.dart';
 import 'package:cortal/Pages/Portal/ViewFullComplaintPage.dart';
 import 'package:flutter/material.dart';

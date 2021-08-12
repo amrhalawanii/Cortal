@@ -1,40 +1,27 @@
-define(['dart_sdk'], (function load__packages__flare_flutter__base__json_reader_dart(dart_sdk) {
+define(['dart_sdk', 'packages/file/src/interface/link.dart', 'packages/path/src/path_set.dart'], (function load__packages__file__src__forwarding__forwarding_link_dart(dart_sdk, packages__file__src__interface__link$46dart, packages__path__src__path_set$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const collection = dart_sdk.collection;
-  const _native_typed_data = dart_sdk._native_typed_data;
+  const io = dart_sdk.io;
+  const async = dart_sdk.async;
   const convert = dart_sdk.convert;
   const typed_data = dart_sdk.typed_data;
-  const _js_helper = dart_sdk._js_helper;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  var json_reader = Object.create(dart.library);
-  var json_block_reader = Object.create(dart.library);
-  var binary_reader = Object.create(dart.library);
-  var block_reader = Object.create(dart.library);
-  var stream_reader = Object.create(dart.library);
-  var $_get = dartx._get;
-  var $remove = dartx.remove;
-  var $removeAt = dartx.removeAt;
-  var $toDouble = dartx.toDouble;
-  var $length = dartx.length;
-  var $first = dartx.first;
-  var $toInt = dartx.toInt;
-  var $_set = dartx._set;
-  var $offsetInBytes = dartx.offsetInBytes;
-  var $buffer = dartx.buffer;
-  var $asByteData = dartx.asByteData;
-  var $getFloat32 = dartx.getFloat32;
-  var $getFloat64 = dartx.getFloat64;
-  var $getUint8 = dartx.getUint8;
-  var $lengthInBytes = dartx.lengthInBytes;
-  var $getInt8 = dartx.getInt8;
-  var $getUint16 = dartx.getUint16;
-  var $getInt16 = dartx.getInt16;
-  var $getUint32 = dartx.getUint32;
-  var $getInt32 = dartx.getInt32;
-  var $rightShift = dartx['>>'];
-  var $asUint8List = dartx.asUint8List;
+  const link = packages__file__src__interface__link$46dart.src__interface__link;
+  const file_system_entity = packages__file__src__interface__link$46dart.src__interface__file_system_entity;
+  const directory = packages__file__src__interface__link$46dart.src__interface__directory;
+  const file_system = packages__file__src__interface__link$46dart.src__interface__file_system;
+  const file = packages__file__src__interface__link$46dart.src__interface__file;
+  const context = packages__path__src__path_set$46dart.src__context;
+  var forwarding_link = Object.create(dart.library);
+  var forwarding_file_system_entity = Object.create(dart.library);
+  var forwarding_file_system = Object.create(dart.library);
+  var forwarding_file = Object.create(dart.library);
+  var forwarding_directory = Object.create(dart.library);
+  var forwarding = Object.create(dart.library);
+  var file$ = Object.create(dart.library);
+  var $map = dartx.map;
+  var $toList = dartx.toList;
   dart._checkModuleNullSafetyMode(true);
   const CT = Object.create({
     _: () => (C, CT)
@@ -42,577 +29,517 @@ define(['dart_sdk'], (function load__packages__flare_flutter__base__json_reader_
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: convert.Base64Decoder.prototype
+        __proto__: io.FileMode.prototype,
+        [FileMode__mode]: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: io.FileMode.prototype,
+        [FileMode__mode]: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: convert.Utf8Codec.prototype,
+        [Utf8Codec__allowMalformed]: false
       });
     }
   }, false);
-  var C = [void 0];
+  var C = Array(3).fill(void 0);
   var I = [
-    "package:flare_flutter/base/json_reader.dart",
-    "package:flare_flutter/base/json_block_reader.dart",
-    "package:flare_flutter/base/binary_reader.dart",
-    "package:flare_flutter/base/block_reader.dart",
-    "package:flare_flutter/base/stream_reader.dart"
+    "package:file/src/forwarding/forwarding_link.dart",
+    "package:file/src/forwarding/forwarding_file_system_entity.dart",
+    "package:file/src/forwarding/forwarding_file_system.dart",
+    "package:file/src/forwarding/forwarding_file.dart",
+    "package:file/src/forwarding/forwarding_directory.dart"
   ];
-  var _context = dart.privateName(json_reader, "_context");
-  var _readObject = dart.privateName(json_reader, "_readObject");
-  var _readArray = dart.privateName(json_reader, "_readArray");
-  var _readLength = dart.privateName(json_reader, "_readLength");
-  json_reader.JSONReader = class JSONReader extends core.Object {
-    readProp(T, label) {
-      let head = this[_context].first;
-      if (core.Map.is(head)) {
-        let prop = head[$_get](label);
-        head[$remove](label);
-        if (T.is(prop)) {
-          return prop;
-        } else {
-          return null;
+  forwarding_link.ForwardingLink = class ForwardingLink extends core.Object {
+    wrap(delegate) {
+      io.Link.as(delegate);
+      return forwarding_link.ForwardingLink.as(this.wrapLink(delegate));
+    }
+    create(target, opts) {
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      return async.async(link.Link, (function* create() {
+        return this.wrap(yield this.delegate.create(target, {recursive: recursive}));
+      }).bind(this));
+    }
+    createSync(target, opts) {
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      return this.delegate.createSync(target, {recursive: recursive});
+    }
+    update(target) {
+      return async.async(link.Link, (function* update() {
+        return this.wrap(yield this.delegate.update(target));
+      }).bind(this));
+    }
+    updateSync(target) {
+      return this.delegate.updateSync(target);
+    }
+    target() {
+      return this.delegate.target();
+    }
+    targetSync() {
+      return this.delegate.targetSync();
+    }
+  };
+  (forwarding_link.ForwardingLink.new = function() {
+    ;
+  }).prototype = forwarding_link.ForwardingLink.prototype;
+  dart.addTypeTests(forwarding_link.ForwardingLink);
+  dart.addTypeCaches(forwarding_link.ForwardingLink);
+  forwarding_link.ForwardingLink[dart.implements] = () => [forwarding_file_system_entity.ForwardingFileSystemEntity$(link.Link, io.Link), link.Link];
+  dart.setMethodSignature(forwarding_link.ForwardingLink, () => ({
+    __proto__: dart.getMethods(forwarding_link.ForwardingLink.__proto__),
+    wrap: dart.fnType(forwarding_link.ForwardingLink, [dart.nullable(core.Object)]),
+    create: dart.fnType(async.Future$(link.Link), [core.String], {recursive: core.bool}, {}),
+    createSync: dart.fnType(dart.void, [core.String], {recursive: core.bool}, {}),
+    update: dart.fnType(async.Future$(link.Link), [core.String]),
+    updateSync: dart.fnType(dart.void, [core.String]),
+    target: dart.fnType(async.Future$(core.String), []),
+    targetSync: dart.fnType(core.String, [])
+  }));
+  dart.setLibraryUri(forwarding_link.ForwardingLink, I[0]);
+  const _is_ForwardingFileSystemEntity_default = Symbol('_is_ForwardingFileSystemEntity_default');
+  forwarding_file_system_entity.ForwardingFileSystemEntity$ = dart.generic((T, D) => {
+    class ForwardingFileSystemEntity extends core.Object {
+      get uri() {
+        return this.delegate.uri;
+      }
+      exists() {
+        return this.delegate.exists();
+      }
+      existsSync() {
+        return this.delegate.existsSync();
+      }
+      rename(newPath) {
+        return async.async(T, (function* rename() {
+          return this.wrap(D.as(yield this.delegate.rename(newPath)));
+        }).bind(this));
+      }
+      renameSync(newPath) {
+        return this.wrap(D.as(this.delegate.renameSync(newPath)));
+      }
+      resolveSymbolicLinks() {
+        return this.delegate.resolveSymbolicLinks();
+      }
+      resolveSymbolicLinksSync() {
+        return this.delegate.resolveSymbolicLinksSync();
+      }
+      stat() {
+        return this.delegate.stat();
+      }
+      statSync() {
+        return this.delegate.statSync();
+      }
+      delete(opts) {
+        let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+        return async.async(T, (function* $delete() {
+          return this.wrap(D.as(yield this.delegate.delete({recursive: recursive})));
+        }).bind(this));
+      }
+      deleteSync(opts) {
+        let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+        return this.delegate.deleteSync({recursive: recursive});
+      }
+      watch(opts) {
+        let events = opts && 'events' in opts ? opts.events : 15;
+        let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+        return this.delegate.watch({events: events, recursive: recursive});
+      }
+      get isAbsolute() {
+        return this.delegate.isAbsolute;
+      }
+      get absolute() {
+        return this.wrap(D.as(this.delegate.absolute));
+      }
+      get parent() {
+        return this.wrapDirectory(this.delegate.parent);
+      }
+      get path() {
+        return this.delegate.path;
+      }
+      get basename() {
+        return this.fileSystem.path.basename(this.path);
+      }
+      get dirname() {
+        return this.fileSystem.path.dirname(this.path);
+      }
+    }
+    (ForwardingFileSystemEntity.new = function() {
+      ;
+    }).prototype = ForwardingFileSystemEntity.prototype;
+    dart.addTypeTests(ForwardingFileSystemEntity);
+    ForwardingFileSystemEntity.prototype[_is_ForwardingFileSystemEntity_default] = true;
+    dart.addTypeCaches(ForwardingFileSystemEntity);
+    ForwardingFileSystemEntity[dart.implements] = () => [file_system_entity.FileSystemEntity];
+    dart.setMethodSignature(ForwardingFileSystemEntity, () => ({
+      __proto__: dart.getMethods(ForwardingFileSystemEntity.__proto__),
+      exists: dart.fnType(async.Future$(core.bool), []),
+      existsSync: dart.fnType(core.bool, []),
+      rename: dart.fnType(async.Future$(T), [core.String]),
+      renameSync: dart.fnType(T, [core.String]),
+      resolveSymbolicLinks: dart.fnType(async.Future$(core.String), []),
+      resolveSymbolicLinksSync: dart.fnType(core.String, []),
+      stat: dart.fnType(async.Future$(io.FileStat), []),
+      statSync: dart.fnType(io.FileStat, []),
+      delete: dart.fnType(async.Future$(T), [], {recursive: core.bool}, {}),
+      deleteSync: dart.fnType(dart.void, [], {recursive: core.bool}, {}),
+      watch: dart.fnType(async.Stream$(io.FileSystemEvent), [], {events: core.int, recursive: core.bool}, {})
+    }));
+    dart.setGetterSignature(ForwardingFileSystemEntity, () => ({
+      __proto__: dart.getGetters(ForwardingFileSystemEntity.__proto__),
+      uri: core.Uri,
+      isAbsolute: core.bool,
+      absolute: T,
+      parent: directory.Directory,
+      path: core.String,
+      basename: core.String,
+      dirname: core.String
+    }));
+    dart.setLibraryUri(ForwardingFileSystemEntity, I[1]);
+    return ForwardingFileSystemEntity;
+  });
+  forwarding_file_system_entity.ForwardingFileSystemEntity = forwarding_file_system_entity.ForwardingFileSystemEntity$();
+  dart.addTypeTests(forwarding_file_system_entity.ForwardingFileSystemEntity, _is_ForwardingFileSystemEntity_default);
+  var delegate$ = dart.privateName(forwarding_file_system, "ForwardingFileSystem.delegate");
+  forwarding_file_system.ForwardingFileSystem = class ForwardingFileSystem extends file_system.FileSystem {
+    get delegate() {
+      return this[delegate$];
+    }
+    set delegate(value) {
+      super.delegate = value;
+    }
+    directory(path) {
+      return this.delegate.directory(path);
+    }
+    file(path) {
+      return this.delegate.file(path);
+    }
+    link(path) {
+      return this.delegate.link(path);
+    }
+    get path() {
+      return this.delegate.path;
+    }
+    get systemTempDirectory() {
+      return this.delegate.systemTempDirectory;
+    }
+    get currentDirectory() {
+      return this.delegate.currentDirectory;
+    }
+    set currentDirectory(path) {
+      return this.delegate.currentDirectory = path;
+    }
+    stat(path) {
+      return this.delegate.stat(path);
+    }
+    statSync(path) {
+      return this.delegate.statSync(path);
+    }
+    identical(path1, path2) {
+      return this.delegate.identical(path1, path2);
+    }
+    identicalSync(path1, path2) {
+      return this.delegate.identicalSync(path1, path2);
+    }
+    get isWatchSupported() {
+      return this.delegate.isWatchSupported;
+    }
+    type(path, opts) {
+      let followLinks = opts && 'followLinks' in opts ? opts.followLinks : true;
+      return this.delegate.type(path, {followLinks: followLinks});
+    }
+    typeSync(path, opts) {
+      let followLinks = opts && 'followLinks' in opts ? opts.followLinks : true;
+      return this.delegate.typeSync(path, {followLinks: followLinks});
+    }
+  };
+  (forwarding_file_system.ForwardingFileSystem.new = function(delegate) {
+    this[delegate$] = delegate;
+    forwarding_file_system.ForwardingFileSystem.__proto__.new.call(this);
+    ;
+  }).prototype = forwarding_file_system.ForwardingFileSystem.prototype;
+  dart.addTypeTests(forwarding_file_system.ForwardingFileSystem);
+  dart.addTypeCaches(forwarding_file_system.ForwardingFileSystem);
+  dart.setMethodSignature(forwarding_file_system.ForwardingFileSystem, () => ({
+    __proto__: dart.getMethods(forwarding_file_system.ForwardingFileSystem.__proto__),
+    directory: dart.fnType(directory.Directory, [dart.dynamic]),
+    file: dart.fnType(file.File, [dart.dynamic]),
+    link: dart.fnType(link.Link, [dart.dynamic]),
+    stat: dart.fnType(async.Future$(io.FileStat), [core.String]),
+    statSync: dart.fnType(io.FileStat, [core.String]),
+    identical: dart.fnType(async.Future$(core.bool), [core.String, core.String]),
+    identicalSync: dart.fnType(core.bool, [core.String, core.String]),
+    type: dart.fnType(async.Future$(io.FileSystemEntityType), [core.String], {followLinks: core.bool}, {}),
+    typeSync: dart.fnType(io.FileSystemEntityType, [core.String], {followLinks: core.bool}, {})
+  }));
+  dart.setGetterSignature(forwarding_file_system.ForwardingFileSystem, () => ({
+    __proto__: dart.getGetters(forwarding_file_system.ForwardingFileSystem.__proto__),
+    path: context.Context,
+    systemTempDirectory: directory.Directory,
+    currentDirectory: directory.Directory,
+    isWatchSupported: core.bool
+  }));
+  dart.setSetterSignature(forwarding_file_system.ForwardingFileSystem, () => ({
+    __proto__: dart.getSetters(forwarding_file_system.ForwardingFileSystem.__proto__),
+    currentDirectory: dart.dynamic
+  }));
+  dart.setLibraryUri(forwarding_file_system.ForwardingFileSystem, I[2]);
+  dart.setFieldSignature(forwarding_file_system.ForwardingFileSystem, () => ({
+    __proto__: dart.getFields(forwarding_file_system.ForwardingFileSystem.__proto__),
+    delegate: dart.finalFieldType(file_system.FileSystem)
+  }));
+  var FileMode__mode = dart.privateName(io, "FileMode._mode");
+  var Utf8Codec__allowMalformed = dart.privateName(convert, "Utf8Codec._allowMalformed");
+  forwarding_file.ForwardingFile = class ForwardingFile extends core.Object {
+    wrap(delegate) {
+      io.File.as(delegate);
+      return forwarding_file.ForwardingFile.as(this.wrapFile(delegate));
+    }
+    create(opts) {
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      return async.async(file.File, (function* create() {
+        return this.wrap(yield this.delegate.create({recursive: recursive}));
+      }).bind(this));
+    }
+    createSync(opts) {
+      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+      return this.delegate.createSync({recursive: recursive});
+    }
+    copy(newPath) {
+      return async.async(file.File, (function* copy() {
+        return this.wrap(yield this.delegate.copy(newPath));
+      }).bind(this));
+    }
+    copySync(newPath) {
+      return this.wrap(this.delegate.copySync(newPath));
+    }
+    length() {
+      return this.delegate.length();
+    }
+    lengthSync() {
+      return this.delegate.lengthSync();
+    }
+    lastAccessed() {
+      return this.delegate.lastAccessed();
+    }
+    lastAccessedSync() {
+      return this.delegate.lastAccessedSync();
+    }
+    setLastAccessed(time) {
+      return this.delegate.setLastAccessed(time);
+    }
+    setLastAccessedSync(time) {
+      return this.delegate.setLastAccessedSync(time);
+    }
+    lastModified() {
+      return this.delegate.lastModified();
+    }
+    lastModifiedSync() {
+      return this.delegate.lastModifiedSync();
+    }
+    setLastModified(time) {
+      return this.delegate.setLastModified(time);
+    }
+    setLastModifiedSync(time) {
+      return this.delegate.setLastModifiedSync(time);
+    }
+    open(opts) {
+      let mode = opts && 'mode' in opts ? opts.mode : C[0] || CT.C0;
+      return this.delegate.open({mode: mode});
+    }
+    openSync(opts) {
+      let mode = opts && 'mode' in opts ? opts.mode : C[0] || CT.C0;
+      return this.delegate.openSync({mode: mode});
+    }
+    openRead(start = null, end = null) {
+      return this.delegate.openRead(start, end);
+    }
+    openWrite(opts) {
+      let mode = opts && 'mode' in opts ? opts.mode : C[1] || CT.C1;
+      let encoding = opts && 'encoding' in opts ? opts.encoding : C[2] || CT.C2;
+      return this.delegate.openWrite({mode: mode, encoding: encoding});
+    }
+    readAsBytes() {
+      return this.delegate.readAsBytes();
+    }
+    readAsBytesSync() {
+      return this.delegate.readAsBytesSync();
+    }
+    readAsString(opts) {
+      let encoding = opts && 'encoding' in opts ? opts.encoding : C[2] || CT.C2;
+      return this.delegate.readAsString({encoding: encoding});
+    }
+    readAsStringSync(opts) {
+      let encoding = opts && 'encoding' in opts ? opts.encoding : C[2] || CT.C2;
+      return this.delegate.readAsStringSync({encoding: encoding});
+    }
+    readAsLines(opts) {
+      let encoding = opts && 'encoding' in opts ? opts.encoding : C[2] || CT.C2;
+      return this.delegate.readAsLines({encoding: encoding});
+    }
+    readAsLinesSync(opts) {
+      let encoding = opts && 'encoding' in opts ? opts.encoding : C[2] || CT.C2;
+      return this.delegate.readAsLinesSync({encoding: encoding});
+    }
+    writeAsBytes(bytes, opts) {
+      let mode = opts && 'mode' in opts ? opts.mode : C[1] || CT.C1;
+      let flush = opts && 'flush' in opts ? opts.flush : false;
+      return async.async(file.File, (function* writeAsBytes() {
+        return this.wrap(yield this.delegate.writeAsBytes(bytes, {mode: mode, flush: flush}));
+      }).bind(this));
+    }
+    writeAsBytesSync(bytes, opts) {
+      let mode = opts && 'mode' in opts ? opts.mode : C[1] || CT.C1;
+      let flush = opts && 'flush' in opts ? opts.flush : false;
+      return this.delegate.writeAsBytesSync(bytes, {mode: mode, flush: flush});
+    }
+    writeAsString(contents, opts) {
+      let mode = opts && 'mode' in opts ? opts.mode : C[1] || CT.C1;
+      let encoding = opts && 'encoding' in opts ? opts.encoding : C[2] || CT.C2;
+      let flush = opts && 'flush' in opts ? opts.flush : false;
+      return async.async(file.File, (function* writeAsString() {
+        return this.wrap(yield this.delegate.writeAsString(contents, {mode: mode, encoding: encoding, flush: flush}));
+      }).bind(this));
+    }
+    writeAsStringSync(contents, opts) {
+      let mode = opts && 'mode' in opts ? opts.mode : C[1] || CT.C1;
+      let encoding = opts && 'encoding' in opts ? opts.encoding : C[2] || CT.C2;
+      let flush = opts && 'flush' in opts ? opts.flush : false;
+      return this.delegate.writeAsStringSync(contents, {mode: mode, encoding: encoding, flush: flush});
+    }
+  };
+  (forwarding_file.ForwardingFile.new = function() {
+    ;
+  }).prototype = forwarding_file.ForwardingFile.prototype;
+  dart.addTypeTests(forwarding_file.ForwardingFile);
+  dart.addTypeCaches(forwarding_file.ForwardingFile);
+  forwarding_file.ForwardingFile[dart.implements] = () => [forwarding_file_system_entity.ForwardingFileSystemEntity$(file.File, io.File), file.File];
+  dart.setMethodSignature(forwarding_file.ForwardingFile, () => ({
+    __proto__: dart.getMethods(forwarding_file.ForwardingFile.__proto__),
+    wrap: dart.fnType(forwarding_file.ForwardingFile, [dart.nullable(core.Object)]),
+    create: dart.fnType(async.Future$(file.File), [], {recursive: core.bool}, {}),
+    createSync: dart.fnType(dart.void, [], {recursive: core.bool}, {}),
+    copy: dart.fnType(async.Future$(file.File), [core.String]),
+    copySync: dart.fnType(file.File, [core.String]),
+    length: dart.fnType(async.Future$(core.int), []),
+    lengthSync: dart.fnType(core.int, []),
+    lastAccessed: dart.fnType(async.Future$(core.DateTime), []),
+    lastAccessedSync: dart.fnType(core.DateTime, []),
+    setLastAccessed: dart.fnType(async.Future, [core.DateTime]),
+    setLastAccessedSync: dart.fnType(dart.void, [core.DateTime]),
+    lastModified: dart.fnType(async.Future$(core.DateTime), []),
+    lastModifiedSync: dart.fnType(core.DateTime, []),
+    setLastModified: dart.fnType(async.Future, [core.DateTime]),
+    setLastModifiedSync: dart.fnType(dart.void, [core.DateTime]),
+    open: dart.fnType(async.Future$(io.RandomAccessFile), [], {mode: io.FileMode}, {}),
+    openSync: dart.fnType(io.RandomAccessFile, [], {mode: io.FileMode}, {}),
+    openRead: dart.fnType(async.Stream$(core.List$(core.int)), [], [dart.nullable(core.int), dart.nullable(core.int)]),
+    openWrite: dart.fnType(io.IOSink, [], {encoding: convert.Encoding, mode: io.FileMode}, {}),
+    readAsBytes: dart.fnType(async.Future$(typed_data.Uint8List), []),
+    readAsBytesSync: dart.fnType(typed_data.Uint8List, []),
+    readAsString: dart.fnType(async.Future$(core.String), [], {encoding: convert.Encoding}, {}),
+    readAsStringSync: dart.fnType(core.String, [], {encoding: convert.Encoding}, {}),
+    readAsLines: dart.fnType(async.Future$(core.List$(core.String)), [], {encoding: convert.Encoding}, {}),
+    readAsLinesSync: dart.fnType(core.List$(core.String), [], {encoding: convert.Encoding}, {}),
+    writeAsBytes: dart.fnType(async.Future$(file.File), [core.List$(core.int)], {flush: core.bool, mode: io.FileMode}, {}),
+    writeAsBytesSync: dart.fnType(dart.void, [core.List$(core.int)], {flush: core.bool, mode: io.FileMode}, {}),
+    writeAsString: dart.fnType(async.Future$(file.File), [core.String], {encoding: convert.Encoding, flush: core.bool, mode: io.FileMode}, {}),
+    writeAsStringSync: dart.fnType(dart.void, [core.String], {encoding: convert.Encoding, flush: core.bool, mode: io.FileMode}, {})
+  }));
+  dart.setLibraryUri(forwarding_file.ForwardingFile, I[3]);
+  var _wrap = dart.privateName(forwarding_directory, "_wrap");
+  const _is_ForwardingDirectory_default = Symbol('_is_ForwardingDirectory_default');
+  forwarding_directory.ForwardingDirectory$ = dart.generic(T => {
+    class ForwardingDirectory extends core.Object {
+      wrap(delegate) {
+        io.Directory.as(delegate);
+        return T.as(this.wrapDirectory(delegate));
+      }
+      create(opts) {
+        let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+        return async.async(directory.Directory, (function* create() {
+          return this.wrap(yield this.delegate.create({recursive: recursive}));
+        }).bind(this));
+      }
+      createSync(opts) {
+        let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+        return this.delegate.createSync({recursive: recursive});
+      }
+      createTemp(prefix = null) {
+        return async.async(directory.Directory, (function* createTemp() {
+          return this.wrap(yield this.delegate.createTemp(prefix));
+        }).bind(this));
+      }
+      createTempSync(prefix = null) {
+        return this.wrap(this.delegate.createTempSync(prefix));
+      }
+      list(opts) {
+        let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+        let followLinks = opts && 'followLinks' in opts ? opts.followLinks : true;
+        return this.delegate.list({recursive: recursive, followLinks: followLinks}).map(file_system_entity.FileSystemEntity, dart.bind(this, _wrap));
+      }
+      listSync(opts) {
+        let recursive = opts && 'recursive' in opts ? opts.recursive : false;
+        let followLinks = opts && 'followLinks' in opts ? opts.followLinks : true;
+        return this.delegate.listSync({recursive: recursive, followLinks: followLinks})[$map](file_system_entity.FileSystemEntity, dart.bind(this, _wrap))[$toList]();
+      }
+      [_wrap](entity) {
+        if (io.File.is(entity)) {
+          return this.wrapFile(entity);
+        } else if (io.Directory.is(entity)) {
+          return this.wrapDirectory(entity);
+        } else if (io.Link.is(entity)) {
+          return this.wrapLink(entity);
         }
-      } else if (core.List.is(head)) {
-        let prop = head[$removeAt](0);
-        if (T.is(prop)) {
-          return prop;
-        } else {
-          return null;
-        }
-      }
-      return null;
-    }
-    readFloat32(label) {
-      let t0, t0$;
-      let f = this.readProp(core.num, label);
-      t0$ = (t0 = f, t0 == null ? null : t0[$toDouble]());
-      return t0$ == null ? 0.0 : t0$;
-    }
-    readFloat32Array(length, label) {
-      let ar = _native_typed_data.NativeFloat32List.new(length);
-      this[_readArray](ar, label);
-      return ar;
-    }
-    [_readArray](ar, label) {
-      let array = this.readProp(core.List, label);
-      if (array == null) {
-        return;
-      }
-      for (let i = 0; i < ar[$length]; i = i + 1) {
-        let val = core.num.as(array[$_get](i));
-        ar[$_set](i, typeof ar[$first] == 'number' ? val[$toDouble]() : val[$toInt]());
+        dart.throw(new io.FileSystemException.new("Unsupported type: " + dart.str(entity), entity.path));
       }
     }
-    readFloat64(label) {
-      let t0, t0$;
-      let f = this.readProp(core.num, label);
-      t0$ = (t0 = f, t0 == null ? null : t0[$toDouble]());
-      return t0$ == null ? 0.0 : t0$;
-    }
-    readUint8(label) {
-      let t0;
-      t0 = this.readProp(core.int, label);
-      return t0 == null ? 0 : t0;
-    }
-    readUint8Length() {
-      return this[_readLength]();
-    }
-    isEOF() {
-      return this[_context].length <= 1 && dart.equals(dart.dload(this[_readObject], 'length'), 0);
-    }
-    readInt8(label) {
-      let t0;
-      t0 = this.readProp(core.int, label);
-      return t0 == null ? 0 : t0;
-    }
-    readUint16(label) {
-      let t0;
-      t0 = this.readProp(core.int, label);
-      return t0 == null ? 0 : t0;
-    }
-    readUint8Array(length, label) {
-      let ar = _native_typed_data.NativeUint8List.new(length);
-      this[_readArray](ar, label);
-      return ar;
-    }
-    readUint16Array(length, label) {
-      let ar = _native_typed_data.NativeUint16List.new(length);
-      this[_readArray](ar, label);
-      return ar;
-    }
-    readInt16(label) {
-      let t0;
-      t0 = this.readProp(core.int, label);
-      return t0 == null ? 0 : t0;
-    }
-    readUint16Length() {
-      return this[_readLength]();
-    }
-    readUint32Length() {
-      return this[_readLength]();
-    }
-    readUint32(label) {
-      let t0;
-      t0 = this.readProp(core.int, label);
-      return t0 == null ? 0 : t0;
-    }
-    readInt32(label) {
-      let t0;
-      t0 = this.readProp(core.int, label);
-      return t0 == null ? 0 : t0;
-    }
-    readVersion() {
-      let t0;
-      t0 = this.readProp(core.int, "version");
-      return t0 == null ? 0 : t0;
-    }
-    readString(label) {
-      let t0;
-      t0 = this.readProp(core.String, label);
-      return t0 == null ? "" : t0;
-    }
-    readBool(label) {
-      let t0;
-      t0 = this.readProp(core.bool, label);
-      return t0 == null ? false : t0;
-    }
-    readId(label) {
-      let val = this.readProp(core.num, label);
-      return val != null ? val[$toInt]() + 1 : 0;
-    }
-    openArray(label) {
-      let array = this.readProp(dart.dynamic, label);
-      this[_context].addFirst(array);
-    }
-    closeArray() {
-      this[_context].removeFirst();
-    }
-    openObject(label) {
-      let o = this.readProp(dart.dynamic, label);
-      this[_context].addFirst(o);
-    }
-    closeObject() {
-      this[_context].removeFirst();
-    }
-    [_readLength]() {
-      if (core.List.is(this[_context].first)) {
-        return core.List.as(this[_context].first)[$length];
-      } else if (core.Map.is(this[_context].first)) {
-        return core.Map.as(this[_context].first)[$length];
-      }
-      return 0;
-    }
-    readAsset() {
-      let encodedAsset = this.readString("data");
-      return (C[0] || CT.C0).convert(encodedAsset, 22);
-    }
-    get containerType() {
-      return "json";
-    }
-    get context() {
-      return this[_context];
-    }
-  };
-  (json_reader.JSONReader.new = function(object) {
-    this[_context] = new collection.ListQueue.new();
-    this[_readObject] = object[$_get]("container");
-    this[_context].addFirst(this[_readObject]);
-  }).prototype = json_reader.JSONReader.prototype;
-  dart.addTypeTests(json_reader.JSONReader);
-  dart.addTypeCaches(json_reader.JSONReader);
-  json_reader.JSONReader[dart.implements] = () => [stream_reader.StreamReader];
-  dart.setMethodSignature(json_reader.JSONReader, () => ({
-    __proto__: dart.getMethods(json_reader.JSONReader.__proto__),
-    readProp: dart.gFnType(T => [dart.nullable(T), [core.String]], T => [dart.nullable(core.Object)]),
-    readFloat32: dart.fnType(core.double, [core.String]),
-    readFloat32Array: dart.fnType(typed_data.Float32List, [core.int, core.String]),
-    [_readArray]: dart.fnType(dart.void, [core.List, core.String]),
-    readFloat64: dart.fnType(core.double, [core.String]),
-    readUint8: dart.fnType(core.int, [core.String]),
-    readUint8Length: dart.fnType(core.int, []),
-    isEOF: dart.fnType(core.bool, []),
-    readInt8: dart.fnType(core.int, [core.String]),
-    readUint16: dart.fnType(core.int, [core.String]),
-    readUint8Array: dart.fnType(typed_data.Uint8List, [core.int, core.String]),
-    readUint16Array: dart.fnType(typed_data.Uint16List, [core.int, core.String]),
-    readInt16: dart.fnType(core.int, [core.String]),
-    readUint16Length: dart.fnType(core.int, []),
-    readUint32Length: dart.fnType(core.int, []),
-    readUint32: dart.fnType(core.int, [core.String]),
-    readInt32: dart.fnType(core.int, [core.String]),
-    readVersion: dart.fnType(core.int, []),
-    readString: dart.fnType(core.String, [core.String]),
-    readBool: dart.fnType(core.bool, [core.String]),
-    readId: dart.fnType(core.int, [core.String]),
-    openArray: dart.fnType(dart.void, [core.String]),
-    closeArray: dart.fnType(dart.void, []),
-    openObject: dart.fnType(dart.void, [core.String]),
-    closeObject: dart.fnType(dart.void, []),
-    [_readLength]: dart.fnType(core.int, []),
-    readAsset: dart.fnType(typed_data.Uint8List, [])
-  }));
-  dart.setGetterSignature(json_reader.JSONReader, () => ({
-    __proto__: dart.getGetters(json_reader.JSONReader.__proto__),
-    containerType: core.String,
-    context: collection.ListQueue
-  }));
-  dart.setLibraryUri(json_reader.JSONReader, I[0]);
-  dart.setFieldSignature(json_reader.JSONReader, () => ({
-    __proto__: dart.getFields(json_reader.JSONReader.__proto__),
-    [_readObject]: dart.finalFieldType(dart.dynamic),
-    [_context]: dart.finalFieldType(collection.ListQueue)
-  }));
-  var blockType$ = dart.privateName(json_block_reader, "JSONBlockReader.blockType");
-  var _peek = dart.privateName(json_block_reader, "_peek");
-  json_block_reader.JSONBlockReader = class JSONBlockReader extends json_reader.JSONReader {
-    get blockType() {
-      return this[blockType$];
-    }
-    set blockType(value) {
-      this[blockType$] = value;
-    }
-    readNextBlock(blockTypes) {
-      if (this.isEOF()) {
-        return null;
-      }
-      let obj = new _js_helper.LinkedMap.new();
-      obj[$_set]("container", this[_peek]());
-      let type = this.readBlockType(blockTypes);
-      let c = this.context.first;
-      if (core.Map.is(c)) {
-        c[$remove](this.nextKey);
-      } else if (core.List.is(c)) {
-        c[$removeAt](0);
-      }
-      return new json_block_reader.JSONBlockReader.fromObject(type, obj);
-    }
-    readBlockType(blockTypes) {
-      let next = this[_peek]();
-      if (core.Map.is(next)) {
-        let c = this.context.first;
-        if (core.Map.is(c)) {
-          return dart.nullCheck(blockTypes[$_get](this.nextKey));
-        } else if (core.List.is(c)) {
-          return dart.nullCheck(blockTypes[$_get](next[$_get]("type")));
-        }
-      } else if (core.List.is(next)) {
-        return dart.nullCheck(blockTypes[$_get](this.nextKey));
-      }
-      return 0;
-    }
-    [_peek]() {
-      let stream = this.context.first;
-      let next = null;
-      if (core.Map.is(stream)) {
-        next = stream[$_get](this.nextKey);
-      } else if (core.List.is(stream)) {
-        next = stream[$_get](0);
-      }
-      return next;
-    }
-    get nextKey() {
-      return dart.dload(dart.dload(this.context.first, 'keys'), 'first');
-    }
-  };
-  (json_block_reader.JSONBlockReader.new = function(object) {
-    this[blockType$] = 0;
-    json_block_reader.JSONBlockReader.__proto__.new.call(this, object);
-    ;
-  }).prototype = json_block_reader.JSONBlockReader.prototype;
-  (json_block_reader.JSONBlockReader.fromObject = function(blockType, object) {
-    this[blockType$] = blockType;
-    json_block_reader.JSONBlockReader.__proto__.new.call(this, object);
-    ;
-  }).prototype = json_block_reader.JSONBlockReader.prototype;
-  dart.addTypeTests(json_block_reader.JSONBlockReader);
-  dart.addTypeCaches(json_block_reader.JSONBlockReader);
-  dart.setMethodSignature(json_block_reader.JSONBlockReader, () => ({
-    __proto__: dart.getMethods(json_block_reader.JSONBlockReader.__proto__),
-    readNextBlock: dart.fnType(dart.nullable(json_block_reader.JSONBlockReader), [core.Map$(core.String, core.int)]),
-    readBlockType: dart.fnType(core.int, [core.Map$(core.String, core.int)]),
-    [_peek]: dart.fnType(dart.dynamic, [])
-  }));
-  dart.setGetterSignature(json_block_reader.JSONBlockReader, () => ({
-    __proto__: dart.getGetters(json_block_reader.JSONBlockReader.__proto__),
-    nextKey: dart.dynamic
-  }));
-  dart.setLibraryUri(json_block_reader.JSONBlockReader, I[1]);
-  dart.setFieldSignature(json_block_reader.JSONBlockReader, () => ({
-    __proto__: dart.getFields(json_block_reader.JSONBlockReader.__proto__),
-    blockType: dart.fieldType(core.int)
-  }));
-  var _readIndex = dart.privateName(binary_reader, "_readIndex");
-  var _raw = dart.privateName(binary_reader, "_raw");
-  binary_reader.BinaryReader = class BinaryReader extends core.Object {
-    get raw() {
-      return this[_raw];
-    }
-    get readIndex() {
-      return this[_readIndex];
-    }
-    readBytes(length) {
-      let offset = this[_readIndex] + this.raw[$offsetInBytes];
-      this[_readIndex] = this[_readIndex] + length;
-      return this.raw[$buffer][$asByteData](offset, length);
-    }
-    readFloat32(label = null) {
-      let value = this[_raw][$getFloat32](this[_readIndex], typed_data.Endian.little);
-      this[_readIndex] = this[_readIndex] + 4;
-      return value;
-    }
-    readFloat64(label = null) {
-      let value = this[_raw][$getFloat64](this[_readIndex], typed_data.Endian.little);
-      this[_readIndex] = this[_readIndex] + 8;
-      return value;
-    }
-    readUint8(label = null) {
-      let t0;
-      return this[_raw][$getUint8]((t0 = this[_readIndex], this[_readIndex] = t0 + 1, t0));
-    }
-    isEOF() {
-      return this[_readIndex] >= this[_raw][$lengthInBytes];
-    }
-    readInt8(label = null) {
-      let t0;
-      return this[_raw][$getInt8]((t0 = this[_readIndex], this[_readIndex] = t0 + 1, t0));
-    }
-    readUint16(label = null) {
-      let value = this[_raw][$getUint16](this[_readIndex], typed_data.Endian.little);
-      this[_readIndex] = this[_readIndex] + 2;
-      return value;
-    }
-    readUint16Array(length, label = null) {
-      let list = _native_typed_data.NativeUint16List.new(length);
-      for (let i = 0; i < length; i = i + 1) {
-        list[$_set](i, this[_raw][$getUint16](this[_readIndex], typed_data.Endian.little));
-        this[_readIndex] = this[_readIndex] + 2;
-      }
-      return list;
-    }
-    readInt16(label = null) {
-      let value = this[_raw][$getInt16](this[_readIndex], typed_data.Endian.little);
-      this[_readIndex] = this[_readIndex] + 2;
-      return value;
-    }
-    readUint32(label = null) {
-      let value = this[_raw][$getUint32](this[_readIndex], typed_data.Endian.little);
-      this[_readIndex] = this[_readIndex] + 4;
-      return value;
-    }
-    readInt32(label = null) {
-      let value = this[_raw][$getInt32](this[_readIndex], typed_data.Endian.little);
-      this[_readIndex] = this[_readIndex] + 4;
-      return value;
-    }
-    readString(label = null) {
-      let length = this.readUint32();
-      let end = this[_readIndex] + length;
-      let stringBuffer = new core.StringBuffer.new();
-      while (this[_readIndex] < end) {
-        let c1 = this.readUint8();
-        if (c1 < 128) {
-          stringBuffer.writeCharCode(c1);
-        } else if (c1 > 191 && c1 < 224) {
-          let c2 = this.readUint8();
-          stringBuffer.writeCharCode((c1 & 31) << 6 | c2 & 63);
-        } else if (c1 > 239 && c1 < 365) {
-          let c2 = this.readUint8();
-          let c3 = this.readUint8();
-          let c4 = this.readUint8();
-          let u = ((c1 & 7) << 18 | (c2 & 63) << 12 | (c3 & 63) << 6 | c4 & 63) - 65536;
-          stringBuffer.writeCharCode(55296 + u[$rightShift](10));
-          stringBuffer.writeCharCode(56320 + (u & 1023));
-        } else {
-          let c2 = this.readUint8();
-          let c3 = this.readUint8();
-          stringBuffer.writeCharCode((c1 & 15) << 12 | (c2 & 63) << 6 | c3 & 63);
-        }
-      }
-      return stringBuffer.toString();
-    }
-    readUint8Array(length, label = null) {
-      let offset = this[_readIndex] + this[_raw][$offsetInBytes];
-      this[_readIndex] = this[_readIndex] + length;
-      return this[_raw][$buffer][$asUint8List](offset, length);
-    }
-    readVersion() {
-      return this.readUint32();
-    }
-    readUint8Length() {
-      return this.readUint8();
-    }
-    readUint32Length() {
-      return this.readUint32();
-    }
-    readUint16Length() {
-      return this.readUint16();
-    }
-    readId(label) {
-      return this.readUint16(label);
-    }
-    readFloat32Array(length, label) {
-      let list = _native_typed_data.NativeFloat32List.new(length);
-      for (let i = 0; i < length; i = i + 1) {
-        list[$_set](i, this[_raw][$getFloat32](this[_readIndex], typed_data.Endian.little));
-        this[_readIndex] = this[_readIndex] + 4;
-      }
-      return list;
-    }
-    readBool(label) {
-      return this.readUint8(label) === 1;
-    }
-    readAsset() {
-      let length = this.readUint32();
-      return this.readUint8Array(length);
-    }
-    openArray(label) {
-    }
-    closeArray() {
-    }
-    openObject(label) {
-    }
-    closeObject() {
-    }
-    get containerType() {
-      return "bin";
-    }
-  };
-  (binary_reader.BinaryReader.new = function(data) {
-    this[_readIndex] = 0;
-    this[_raw] = data;
-    ;
-  }).prototype = binary_reader.BinaryReader.prototype;
-  dart.addTypeTests(binary_reader.BinaryReader);
-  dart.addTypeCaches(binary_reader.BinaryReader);
-  binary_reader.BinaryReader[dart.implements] = () => [stream_reader.StreamReader];
-  dart.setMethodSignature(binary_reader.BinaryReader, () => ({
-    __proto__: dart.getMethods(binary_reader.BinaryReader.__proto__),
-    readBytes: dart.fnType(typed_data.ByteData, [core.int]),
-    readFloat32: dart.fnType(core.double, [], [dart.nullable(core.String)]),
-    readFloat64: dart.fnType(core.double, [], [dart.nullable(core.String)]),
-    readUint8: dart.fnType(core.int, [], [dart.nullable(core.String)]),
-    isEOF: dart.fnType(core.bool, []),
-    readInt8: dart.fnType(core.int, [], [dart.nullable(core.String)]),
-    readUint16: dart.fnType(core.int, [], [dart.nullable(core.String)]),
-    readUint16Array: dart.fnType(typed_data.Uint16List, [core.int], [dart.nullable(core.String)]),
-    readInt16: dart.fnType(core.int, [], [dart.nullable(core.String)]),
-    readUint32: dart.fnType(core.int, [], [dart.nullable(core.String)]),
-    readInt32: dart.fnType(core.int, [], [dart.nullable(core.String)]),
-    readString: dart.fnType(core.String, [], [dart.nullable(core.String)]),
-    readUint8Array: dart.fnType(typed_data.Uint8List, [core.int], [dart.nullable(core.String)]),
-    readVersion: dart.fnType(core.int, []),
-    readUint8Length: dart.fnType(core.int, []),
-    readUint32Length: dart.fnType(core.int, []),
-    readUint16Length: dart.fnType(core.int, []),
-    readId: dart.fnType(core.int, [core.String]),
-    readFloat32Array: dart.fnType(typed_data.Float32List, [core.int, core.String]),
-    readBool: dart.fnType(core.bool, [core.String]),
-    readAsset: dart.fnType(typed_data.Uint8List, []),
-    openArray: dart.fnType(dart.void, [core.String]),
-    closeArray: dart.fnType(dart.void, []),
-    openObject: dart.fnType(dart.void, [core.String]),
-    closeObject: dart.fnType(dart.void, [])
-  }));
-  dart.setGetterSignature(binary_reader.BinaryReader, () => ({
-    __proto__: dart.getGetters(binary_reader.BinaryReader.__proto__),
-    raw: typed_data.ByteData,
-    readIndex: core.int,
-    containerType: core.String
-  }));
-  dart.setLibraryUri(binary_reader.BinaryReader, I[2]);
-  dart.setFieldSignature(binary_reader.BinaryReader, () => ({
-    __proto__: dart.getFields(binary_reader.BinaryReader.__proto__),
-    [_raw]: dart.finalFieldType(typed_data.ByteData),
-    [_readIndex]: dart.fieldType(core.int)
-  }));
-  var blockType$0 = dart.privateName(block_reader, "BlockReader.blockType");
-  block_reader.BlockReader = class BlockReader extends binary_reader.BinaryReader {
-    get blockType() {
-      return this[blockType$0];
-    }
-    set blockType(value) {
-      this[blockType$0] = value;
-    }
-    readNextBlock(types) {
-      if (this.isEOF()) {
-        return null;
-      }
-      let blockType = this.readUint8();
-      let length = this.readUint32();
-      return new block_reader.BlockReader.fromBlock(blockType, this.readBytes(length));
-    }
-  };
-  (block_reader.BlockReader.new = function(data) {
-    this[blockType$0] = 0;
-    block_reader.BlockReader.__proto__.new.call(this, data);
-    ;
-  }).prototype = block_reader.BlockReader.prototype;
-  (block_reader.BlockReader.fromBlock = function(blockType, stream) {
-    this[blockType$0] = blockType;
-    block_reader.BlockReader.__proto__.new.call(this, stream);
-    ;
-  }).prototype = block_reader.BlockReader.prototype;
-  dart.addTypeTests(block_reader.BlockReader);
-  dart.addTypeCaches(block_reader.BlockReader);
-  dart.setMethodSignature(block_reader.BlockReader, () => ({
-    __proto__: dart.getMethods(block_reader.BlockReader.__proto__),
-    readNextBlock: dart.fnType(dart.nullable(block_reader.BlockReader), [core.Map$(core.String, core.int)])
-  }));
-  dart.setLibraryUri(block_reader.BlockReader, I[3]);
-  dart.setFieldSignature(block_reader.BlockReader, () => ({
-    __proto__: dart.getFields(block_reader.BlockReader.__proto__),
-    blockType: dart.fieldType(core.int)
-  }));
-  var blockType = dart.privateName(stream_reader, "StreamReader.blockType");
-  stream_reader.StreamReader = class StreamReader extends core.Object {
-    get blockType() {
-      return this[blockType];
-    }
-    set blockType(value) {
-      this[blockType] = value;
-    }
-    static new(data) {
-      let t0;
-      if (typed_data.ByteData.is(data)) {
-        t0 = new block_reader.BlockReader.new(data);
-        return (() => {
-          t0.readUint8("F");
-          t0.readUint8("L");
-          t0.readUint8("A");
-          t0.readUint8("R");
-          t0.readUint8("E");
-          return t0;
-        })();
-      } else if (core.Map.is(data)) {
-        return new json_block_reader.JSONBlockReader.new(data);
-      } else {
-        dart.throw(new core.ArgumentError.new("Unexpected type for data"));
-      }
-    }
-  };
-  (stream_reader.StreamReader[dart.mixinNew] = function() {
-    this[blockType] = 0;
-  }).prototype = stream_reader.StreamReader.prototype;
-  dart.addTypeTests(stream_reader.StreamReader);
-  dart.addTypeCaches(stream_reader.StreamReader);
-  dart.setLibraryUri(stream_reader.StreamReader, I[4]);
-  dart.setFieldSignature(stream_reader.StreamReader, () => ({
-    __proto__: dart.getFields(stream_reader.StreamReader.__proto__),
-    blockType: dart.fieldType(core.int)
-  }));
-  dart.trackLibraries("packages/flare_flutter/base/json_reader.dart", {
-    "package:flare_flutter/base/json_reader.dart": json_reader,
-    "package:flare_flutter/base/json_block_reader.dart": json_block_reader,
-    "package:flare_flutter/base/binary_reader.dart": binary_reader,
-    "package:flare_flutter/base/block_reader.dart": block_reader,
-    "package:flare_flutter/base/stream_reader.dart": stream_reader
+    (ForwardingDirectory.new = function() {
+      ;
+    }).prototype = ForwardingDirectory.prototype;
+    dart.addTypeTests(ForwardingDirectory);
+    ForwardingDirectory.prototype[_is_ForwardingDirectory_default] = true;
+    dart.addTypeCaches(ForwardingDirectory);
+    ForwardingDirectory[dart.implements] = () => [forwarding_file_system_entity.ForwardingFileSystemEntity$(T, io.Directory), directory.Directory];
+    dart.setMethodSignature(ForwardingDirectory, () => ({
+      __proto__: dart.getMethods(ForwardingDirectory.__proto__),
+      wrap: dart.fnType(T, [dart.nullable(core.Object)]),
+      create: dart.fnType(async.Future$(directory.Directory), [], {recursive: core.bool}, {}),
+      createSync: dart.fnType(dart.void, [], {recursive: core.bool}, {}),
+      createTemp: dart.fnType(async.Future$(directory.Directory), [], [dart.nullable(core.String)]),
+      createTempSync: dart.fnType(directory.Directory, [], [dart.nullable(core.String)]),
+      list: dart.fnType(async.Stream$(file_system_entity.FileSystemEntity), [], {followLinks: core.bool, recursive: core.bool}, {}),
+      listSync: dart.fnType(core.List$(file_system_entity.FileSystemEntity), [], {followLinks: core.bool, recursive: core.bool}, {}),
+      [_wrap]: dart.fnType(file_system_entity.FileSystemEntity, [io.FileSystemEntity])
+    }));
+    dart.setLibraryUri(ForwardingDirectory, I[4]);
+    return ForwardingDirectory;
+  });
+  forwarding_directory.ForwardingDirectory = forwarding_directory.ForwardingDirectory$();
+  dart.addTypeTests(forwarding_directory.ForwardingDirectory, _is_ForwardingDirectory_default);
+  dart.trackLibraries("packages/file/src/forwarding/forwarding_link.dart", {
+    "package:file/src/forwarding/forwarding_link.dart": forwarding_link,
+    "package:file/src/forwarding/forwarding_file_system_entity.dart": forwarding_file_system_entity,
+    "package:file/src/forwarding/forwarding_file_system.dart": forwarding_file_system,
+    "package:file/src/forwarding/forwarding_file.dart": forwarding_file,
+    "package:file/src/forwarding/forwarding_directory.dart": forwarding_directory,
+    "package:file/src/forwarding.dart": forwarding,
+    "package:file/file.dart": file$
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["json_reader.dart","json_block_reader.dart","binary_reader.dart","block_reader.dart","stream_reader.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flare_flutter/base/json_reader.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["forwarding_link.dart","forwarding_file_system_entity.dart","forwarding_file_system.dart","forwarding_file.dart","forwarding_directory.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../D:/packages/file/src/forwarding/forwarding_link.dart.lib.js"}');
   // Exports:
   return {
-    base__json_reader: json_reader,
-    base__json_block_reader: json_block_reader,
-    base__binary_reader: binary_reader,
-    base__block_reader: block_reader,
-    base__stream_reader: stream_reader
+    src__forwarding__forwarding_link: forwarding_link,
+    src__forwarding__forwarding_file_system_entity: forwarding_file_system_entity,
+    src__forwarding__forwarding_file_system: forwarding_file_system,
+    src__forwarding__forwarding_file: forwarding_file,
+    src__forwarding__forwarding_directory: forwarding_directory,
+    src__forwarding: forwarding,
+    file: file$
   };
 }));
 
-//# sourceMappingURL=json_reader.dart.lib.js.map
+//# sourceMappingURL=forwarding_link.dart.lib.js.map
