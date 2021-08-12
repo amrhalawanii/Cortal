@@ -1,7 +1,7 @@
-import 'package:cortal/Configuration/Complaint.dart';
 import 'package:cortal/Configuration/api_manager.dart';
 import 'package:cortal/Helpers/Constants.dart';
 import 'package:cortal/Helpers/ShowMessage.dart';
+import 'package:cortal/Models/Complaint.dart';
 import 'package:cortal/UI_Elements/Background.dart';
 import 'package:cortal/UI_Elements/Circular_progrss.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +65,7 @@ class _AddComplaintPageState extends State<AddComplaintPage> {
       Complaint complaint = Complaint(Uuid().v1(), activeUser!.userId, _title,
           DateTime.now().toString(), "Pending", _description, types!);
 
-      // print(complaint);
+      /// print(complaint);
       API_Manager().add_complaint(context, complaint).onError((e) {
         ShowMessage().showErrorDialog(context, "Error", e.toString());
       });
@@ -75,17 +75,6 @@ class _AddComplaintPageState extends State<AddComplaintPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      ///--------------------------------------------------------------------------------
-      ///---------------------------------- App Bar  ------------------------------------
-      ///--------------------------------------------------------------------------------
-      // appBar: AppBar(
-      //   title: Text(
-      //     "Add a new complaint",
-      //     style: GoogleFonts.lato(color: Colors.white),
-      //   ),
-      //   centerTitle: true,
-      //   elevation: 0.0,
-      // ),
       body: BackgroundWithLargeCard(
         child: LayoutBuilder(builder: (context, constraints) {
           isPhone = constraints.maxWidth < kTabletBreakPoint;
@@ -97,9 +86,9 @@ class _AddComplaintPageState extends State<AddComplaintPage> {
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children: [
-                    //-----------------------------------------------------------------------
-                    //------------------------------ Exit Button ----------------------------
-                    //-----------------------------------------------------------------------
+                    ///-----------------------------------------------------------------------
+                    ///------------------------------ Exit Button ----------------------------
+                    ///-----------------------------------------------------------------------
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -115,9 +104,10 @@ class _AddComplaintPageState extends State<AddComplaintPage> {
                         ),
                       ],
                     ),
-                    //-----------------------------------------------------------------------
-                    //------------------------------ Add Complaint Label --------------------
-                    //-----------------------------------------------------------------------
+
+                    ///-----------------------------------------------------------------------
+                    ///------------------------------ Add Complaint Label --------------------
+                    ///-----------------------------------------------------------------------
                     Text(
                       'Add Complaint',
                       style: GoogleFonts.lato(
@@ -128,9 +118,9 @@ class _AddComplaintPageState extends State<AddComplaintPage> {
                     ),
                     SizedBox(height: 30.0),
 
-                    //-----------------------------------------------------------------------
-                    //--------------------------- Complaint Title ---------------------------
-                    //-----------------------------------------------------------------------
+                    ///-----------------------------------------------------------------------
+                    ///--------------------------- Complaint Title ---------------------------
+                    ///-----------------------------------------------------------------------
                     TextFormField(
                       decoration: InputDecoration(
                           focusColor: ConstantColors.navyBlue,
@@ -161,9 +151,9 @@ class _AddComplaintPageState extends State<AddComplaintPage> {
                       height: 60,
                     ),
 
-                    //-----------------------------------------------------------------------
-                    //--------------------------- Complaint Type ---------------------------
-                    //-----------------------------------------------------------------------
+                    ///-----------------------------------------------------------------------
+                    ///--------------------------- Complaint Type ----------------------------
+                    ///-----------------------------------------------------------------------
                     Container(
                       alignment: Alignment.topLeft,
                       child: Text(
@@ -177,8 +167,10 @@ class _AddComplaintPageState extends State<AddComplaintPage> {
                     const SizedBox(
                       height: 10,
                     ),
+
+                    ///------------| Types Checkboxes |------------
                     Container(
-                      // color: Colors.green,
+                      /// color: Colors.green,
                       width:
                           isPhone! ? Device.width! * 0.8 : Device.width! * 0.3,
                       child: Column(
@@ -189,9 +181,9 @@ class _AddComplaintPageState extends State<AddComplaintPage> {
                       ),
                     ),
 
-                    //-----------------------------------------------------------------------
-                    //------------------------- Complaint Description -----------------------
-                    //-----------------------------------------------------------------------
+                    ///-----------------------------------------------------------------------
+                    ///------------------------- Complaint Description -----------------------
+                    ///-----------------------------------------------------------------------
 
                     const Divider(
                       height: 60,
@@ -226,9 +218,10 @@ class _AddComplaintPageState extends State<AddComplaintPage> {
                     const SizedBox(
                       height: 20,
                     ),
-                    //-----------------------------------------------------------------------
-                    //-------------------------Send Complaint Button ------------------------
-                    //-----------------------------------------------------------------------
+
+                    ///-----------------------------------------------------------------------
+                    ///-------------------------Send Complaint Button ------------------------
+                    ///-----------------------------------------------------------------------
                     _isLoading
                         ? ShowCircularProgressIndicator()
                         : Container(
@@ -278,48 +271,6 @@ class _AddComplaintPageState extends State<AddComplaintPage> {
             checkBox.value = val!;
           });
         });
-  }
-}
-
-class AddComplaintForm extends StatefulWidget {
-  const AddComplaintForm({Key? key}) : super(key: key);
-
-  @override
-  _AddComplaintFormState createState() => _AddComplaintFormState();
-}
-
-class _AddComplaintFormState extends State<AddComplaintForm> {
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          TextFormField(
-            decoration: InputDecoration(
-              labelText: 'Complaint Title *',
-              labelStyle: GoogleFonts.lato(
-                  fontWeight: FontWeight.bold, color: ConstantColors.navyBlue),
-              border: UnderlineInputBorder(
-                borderSide: BorderSide(color: ConstantColors.navyBlue),
-              ),
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: ConstantColors.navyBlue),
-              ),
-              focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: ConstantColors.navyBlue)),
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-            "Complaint Type",
-            style: GoogleFonts.lato(
-                color: ConstantColors.navyBlue, fontWeight: FontWeight.bold),
-          )
-        ],
-      ),
-    );
   }
 }
 

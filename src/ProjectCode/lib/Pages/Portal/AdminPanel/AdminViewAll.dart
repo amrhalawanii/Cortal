@@ -1,6 +1,6 @@
-import 'package:cortal/Configuration/Complaint.dart';
 import 'package:cortal/Configuration/api_manager.dart';
 import 'package:cortal/Helpers/Constants.dart';
+import 'package:cortal/Models/Complaint.dart';
 import 'package:cortal/UI_Elements/Background.dart';
 import 'package:cortal/UI_Elements/Circular_progrss.dart';
 import 'package:cortal/UI_Elements/Complaint_Box.dart';
@@ -19,8 +19,9 @@ class _AdminViewAllComplaintsPageState
     extends State<AdminViewAllComplaintsPage> {
   bool _isLoading = true;
 
-  List<Complaint> complaints = [];
+  List<Complaint> complaints = []; //All Complaints
 
+//Gets all Complaints from API Manager
   @override
   void initState() {
     Future.delayed(Duration.zero).then((_) {
@@ -29,10 +30,8 @@ class _AdminViewAllComplaintsPageState
           complaints = list;
           _isLoading = false;
         });
-        // print(complaintsList);
       });
     });
-    // TODO: implement initState
     super.initState();
   }
 
@@ -52,7 +51,7 @@ class _AdminViewAllComplaintsPageState
         ),
       ),
 
-      //---------------------------------------------------------
+      //---------------------- Body ----------------------------
       body: BackgroundWithNoCard(
         child: LayoutBuilder(builder: (context, constraints) {
           isPhone = constraints.maxWidth < kTabletBreakPoint;

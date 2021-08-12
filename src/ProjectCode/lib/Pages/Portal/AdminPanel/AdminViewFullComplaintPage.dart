@@ -1,6 +1,6 @@
-import 'package:cortal/Configuration/Complaint.dart';
 import 'package:cortal/Configuration/api_manager.dart';
 import 'package:cortal/Helpers/Constants.dart';
+import 'package:cortal/Models/Complaint.dart';
 import 'package:cortal/UI_Elements/Background.dart';
 import 'package:cortal/UI_Elements/Complaint_Box.dart';
 import 'package:flutter/material.dart';
@@ -13,27 +13,48 @@ class AdminViewFullComplaintPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ///-------------------------------------------------------------
+    ///----------------------- App Bar -----------------------------
+    ///-------------------------------------------------------------
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ConstantColors.navyBlue,
       ),
+
+      ///-------------------------------------------------------------
+      ///----------------------- Body ------------------------
+      ///-------------------------------------------------------------
       body: BackgroundWithNoCard(
           child: Center(
               child: SingleChildScrollView(
                   child: Column(
         children: [
+          ///-------------------------------------------------------------
+          ///----------------------- Complaint Box -----------------------
+          ///-------------------------------------------------------------
           FullComplaintBox(
             complaint: complaint,
           ),
           SizedBox(height: 30),
+
+          ///-------------------------------------------------------------
+          ///----------------------- Resolve + Dismiss Buttons -----------
+          ///-------------------------------------------------------------
           complaint.status == "Pending"
               ? Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    ///-------------------------------------------------------------
+                    ///----------------------- Resolve Button ----------------------
+                    ///-------------------------------------------------------------
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.green, // background
-                        onPrimary: Colors.white, // foreground
+                        primary: Colors.green,
+
+                        /// background
+                        onPrimary: Colors.white,
+
+                        /// foreground
                       ),
                       onPressed: () {
                         API_Manager().resolveComplaint(context, complaint.id);
@@ -55,10 +76,18 @@ class AdminViewFullComplaintPage extends StatelessWidget {
                     SizedBox(
                       width: 50,
                     ),
+
+                    ///-------------------------------------------------------------
+                    ///----------------------- Dismiss Button ----------------------
+                    ///-------------------------------------------------------------
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.red, // background
-                        onPrimary: Colors.white, // foreground
+                        primary: Colors.red,
+
+                        /// background
+                        onPrimary: Colors.white,
+
+                        /// foreground
                       ),
                       onPressed: () {
                         API_Manager().dismissComplaint(context, complaint.id);

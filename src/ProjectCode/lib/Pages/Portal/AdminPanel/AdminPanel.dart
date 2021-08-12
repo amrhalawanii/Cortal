@@ -1,10 +1,7 @@
-import 'dart:html';
-
-import 'package:cortal/Configuration/Complaint.dart';
 import 'package:cortal/Configuration/SharedPreferencesMethods.dart';
 import 'package:cortal/Configuration/api_manager.dart';
-import 'package:cortal/Configuration/auth.dart';
 import 'package:cortal/Helpers/Constants.dart';
+import 'package:cortal/Models/Complaint.dart';
 import 'package:cortal/Pages/Portal/AdminPanel/AdminViewAll.dart';
 import 'package:cortal/Pages/Registration/Login/LoginPage.dart';
 import 'package:cortal/UI_Elements/Background.dart';
@@ -23,14 +20,18 @@ class AdminPanelPage extends StatefulWidget {
 
 class _AdminPanelPageState extends State<AdminPanelPage> {
   List<Complaint> complaints = [];
+
+  ///All Complaints
   bool _isLoading = true;
   late List<CTAData> _chartData;
 
+  ///To be used for the chart
   int counterPending = 0;
   int counterResolved = 0;
   int counterDismissed = 0;
 
   void initState() {
+    /// Gets all charts from API Manager
     Future.delayed(Duration.zero).then((_) {
       API_Manager().get_All_complaints(context).then((list) {
         for (var complaint in list) {
@@ -47,19 +48,17 @@ class _AdminPanelPageState extends State<AdminPanelPage> {
           _chartData = getChartData();
           _isLoading = false;
         });
-        // print(complaintsList);
       });
     });
-    // TODO: implement initState
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //-------------------------------------------------------------
-      //----------------------- App Bar -----------------------------
-      //-------------------------------------------------------------
+      ///-------------------------------------------------------------
+      ///----------------------- App Bar -----------------------------
+      ///-------------------------------------------------------------
       appBar: AppBar(
         backgroundColor: ConstantColors.navyBlue,
         centerTitle: true,
@@ -91,21 +90,25 @@ class _AdminPanelPageState extends State<AdminPanelPage> {
               : Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Container(
-                    // color: Colors.blue,
+                    /// color: Colors.blue,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        ///-------------------------------------------------------------
+                        ///-------------------------- Chart ----------------------------
+                        ///-------------------------------------------------------------
                         buildPieChart(),
-                        //-------------------------------------------------------------
-                        //----------------------- Status Boxes ------------------------
-                        //-------------------------------------------------------------
+
+                        ///-------------------------------------------------------------
+                        ///----------------------- Status Boxes ------------------------
+                        ///-------------------------------------------------------------
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            //-------------------------------------------------------------
-                            //----------------------- Pending Box -------------------------
-                            //-------------------------------------------------------------
+                            ///-------------------------------------------------------------
+                            ///----------------------- Pending Box -------------------------
+                            ///-------------------------------------------------------------
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Container(
@@ -162,9 +165,10 @@ class _AdminPanelPageState extends State<AdminPanelPage> {
                             SizedBox(
                               width: isPhone! ? 0 : 20,
                             ),
-                            //-------------------------------------------------------------
-                            //----------------------- Resolved Box ------------------------
-                            //-------------------------------------------------------------
+
+                            ///-------------------------------------------------------------
+                            ///----------------------- Resolved Box ------------------------
+                            ///-------------------------------------------------------------
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Container(
@@ -221,9 +225,10 @@ class _AdminPanelPageState extends State<AdminPanelPage> {
                             SizedBox(
                               width: isPhone! ? 0 : 20,
                             ),
-                            //-------------------------------------------------------------
-                            //----------------------- Dismissed Box -----------------------
-                            //-------------------------------------------------------------
+
+                            ///-------------------------------------------------------------
+                            ///----------------------- Dismissed Box -----------------------
+                            ///-------------------------------------------------------------
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Container(
@@ -284,9 +289,9 @@ class _AdminPanelPageState extends State<AdminPanelPage> {
                           height: 50,
                         ),
 
-                        //-------------------------------------------------------------
-                        //----------------------- See All Button ----------------------
-                        //-------------------------------------------------------------
+                        ///-------------------------------------------------------------
+                        ///----------------------- See All Button ----------------------
+                        ///-------------------------------------------------------------
 
                         Container(
                           height: 50,
@@ -328,6 +333,10 @@ class _AdminPanelPageState extends State<AdminPanelPage> {
     );
   }
 
+  ///-------------------------------------------------------------
+  ///----------------------- Chart Builder -----------------------
+  ///-------------------------------------------------------------
+
   buildPieChart() {
     return SfCircularChart(
       series: <CircularSeries>[
@@ -345,6 +354,9 @@ class _AdminPanelPageState extends State<AdminPanelPage> {
     );
   }
 
+  ///-------------------------------------------------------------
+  ///---- Counts each type complaints to be used in the chart ----
+  ///-------------------------------------------------------------
   List<CTAData> getChartData() {
     int extraCharge = 0;
     int serviceDelay = 0;
