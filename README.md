@@ -1,7 +1,6 @@
 **Cortal- Complaint Management Portal**
 Cortal is a web app that helps you manage customer complaints. With the ability to set up detailed workflows, Cortal gives you the control to manage your customer's experience.
 
-#-------------
 **Technologies used:**
   - Front End :
       - WebApp = The web app was designed and developed using Flutter Web
@@ -9,7 +8,12 @@ Cortal is a web app that helps you manage customer complaints. With the ability 
       - User Authentication: Firebase Authentication 
       - User Management: Firebase Firestore NoSQL database
       - REST API For complaints management: Firestore RESR API
- #-------------
+
+ 
+ 
+ 
+ 
+ 
  **Functionalities:**
     1. Registration system:
         - Sign in (As user / As Admin)
