@@ -82,6 +82,7 @@ Cortal is a web app that helps you manage customer complaints. With the ability 
 
 <h3>Complaints management using REST API</h3>
  
+  https://cortal-80f5f-default-rtdb.firebaseio.com/complaints.json
 ![image](https://user-images.githubusercontent.com/32065167/129203444-a8daeae0-2c4c-41b7-959e-3578de59dcd8.png)
 
 <hr>
@@ -91,6 +92,3 @@ Cortal is a web app that helps you manage customer complaints. With the ability 
  
 ![image](https://user-images.githubusercontent.com/32065167/129204045-cba25098-5f64-485a-a7ae-3338c3c6d73a.png)
 
- https://cortal-80f5f-default-rtdb.firebaseio.com/complaints.json
-
- 
