@@ -11,7 +11,7 @@ You can find the code in the Master branch :D
  <h3> - Back End :</h3>
       - User Authentication: Firebase Authentication <br>
       - User Management: Firebase Firestore NoSQL database<br>
-      - REST API For complaints management: Firestore RESR API
+      - REST API For complaints management: Firestore REST API
 
  
  
